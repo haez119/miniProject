@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<h1>게시판 등록 페이지</h1>
 </body>
 </html>
