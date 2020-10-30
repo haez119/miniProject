@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/decorators">
+    
+     <decorator name="board-theme" page="board-theme.jsp">
+        <pattern>/jsp/board/*</pattern>
+    </decorator>
+    
+     <decorator name="main-theme" page="main-theme.jsp">
+        <pattern>/jsp/main/*</pattern>
+     </decorator>
+    <decorator name="thema-theme" page="thema-theme.jsp">
+        <pattern>/jsp/thema/*</pattern>
+     </decorator>
+    <decorator name="user-theme" page="user-theme.jsp">
+        <pattern>/jsp/user/*</pattern>
+     </decorator>
+
+    
+<!--     <excludes>
+	    <pattern>*/exclude/*</pattern>
+	    <pattern>/data/plaintext/*</pattern>
+	    <pattern>/index.jsp</pattern>
+  	</excludes>
+     -->
+    
+    
+</decorators>

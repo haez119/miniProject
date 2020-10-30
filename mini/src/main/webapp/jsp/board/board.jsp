@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시판 목록</title>
 </head>
 <body>
-
+	<h1 align="center">게시판 목록 페이지</h1>
 </body>
 </html>
