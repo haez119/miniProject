@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet({"/MenuServ", "/jsp/board/MenuServ" , "/jsp/main/MenuServ" ,"/jsp/user/MenuServ", "/jsp/thema/MenuServ"})
+// , "/jsp/MenuServ"
+@WebServlet({"/MenuServ", "/jsp/board/MenuServ" , "/jsp/main/MenuServ" ,"/jsp/user/MenuServ", "/jsp/thema/MenuServ" , "/jsp/MenuServ"})
 public class MenuServ extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

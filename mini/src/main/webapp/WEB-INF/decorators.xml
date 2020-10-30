@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <decorators defaultdir="/decorators">
+
+     <decorator name="all-theme" page="all-theme.jsp">
+        <pattern>/*</pattern>
+    </decorator> 
     
-     <decorator name="board-theme" page="board-theme.jsp">
+    <!-- <decorator name="board-theme" page="board-theme.jsp">
         <pattern>/jsp/board/*</pattern>
+        
     </decorator>
     
      <decorator name="main-theme" page="main-theme.jsp">
@@ -13,7 +18,7 @@
      </decorator>
     <decorator name="user-theme" page="user-theme.jsp">
         <pattern>/jsp/user/*</pattern>
-     </decorator>
+     </decorator>  -->
 
     
 <!--     <excludes>
