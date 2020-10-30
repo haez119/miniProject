@@ -10,7 +10,8 @@
 <decorator:head />
 </head>
 <body>
-<<<<<<< HEAD
+
+    <p><b>메뉴바</b> <decorator:title /> </p>
 	<div class="jbMenu">
 	<div id="header">
 		<div class="wrap">
@@ -28,16 +29,12 @@
 	
 	</div> <!--// header -->
 </div>
-=======
-	<h1>Main</h1>
-    <p><b>메뉴바</b> <decorator:title /> </p>
->>>>>>> branch 'master' of https://github.com/haez119/miniProject.git
+
     <hr />
     <div class="container">
     	<decorator:body />
     </div>
     <hr />
-<<<<<<< HEAD
 <div id="footer">
 	<div class="wrap">
 		<div class="inner">
@@ -56,8 +53,4 @@
 	</div> <!--// wrap -->
 </div></body>
 </html>
-=======
-    <p>바닥글</b></p>
-</body>
-</html> 
->>>>>>> branch 'master' of https://github.com/haez119/miniProject.git
+
