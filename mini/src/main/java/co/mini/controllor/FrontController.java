@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.mini.common.Action;
+import co.mini.thema.command.reserveInsertAction;
 import co.mini.user.command.ReservAction;
 
 @WebServlet("*.do")
@@ -48,7 +49,7 @@ public class FrontController extends HttpServlet {
 		
 		
 		// 최재영
-		
+		map.put("/reserveInsert.do", new reserveInsertAction()); // 
 		
 		
 		
