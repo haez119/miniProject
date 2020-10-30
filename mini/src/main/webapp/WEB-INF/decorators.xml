@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <decorators defaultdir="/decorators">
 
+
+  	<excludes>
+	    <pattern>*/exclude/*</pattern>
+	     <pattern>/jsp/layout/*</pattern>
+
+  	</excludes>
+
+
      <decorator name="all-theme" page="all-theme.jsp">
         <pattern>/*</pattern>
     </decorator> 
@@ -20,13 +28,9 @@
         <pattern>/jsp/user/*</pattern>
      </decorator>  -->
 
+    <!-- 레이아웃들은 스타일 적용 x -->
+   
     
-<!--     <excludes>
-	    <pattern>*/exclude/*</pattern>
-	    <pattern>/data/plaintext/*</pattern>
-	    <pattern>/index.jsp</pattern>
-  	</excludes>
-     -->
     
     
 </decorators>

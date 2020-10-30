@@ -8,7 +8,7 @@
 <title>예약정보</title>
 </head>
 <body>
-	<div><h1>나의 예약 정보</h1></div>
+	<div align="center"><h1>나의 예약 정보</h1></div>
 	
 	<div>
 		<table border="1">

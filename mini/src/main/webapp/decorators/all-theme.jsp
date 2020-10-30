@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
     
 <!DOCTYPE html>
 <html>
@@ -14,13 +16,15 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
+
+
 <decorator:head />
 </head>
 <body>
-	
+	<p  align="right"><decorator:title /></p>
 	<h1>헤더</h1>
 	<div class="container">
-    	<p><b>메뉴바</b> <decorator:title /> </p>
+    	<jsp:include page="../jsp/layout/main_thema.jsp"></jsp:include>
     </div>
     <hr />
     <div class="container">
