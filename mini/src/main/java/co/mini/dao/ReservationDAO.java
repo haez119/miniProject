@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import co.mini.vo.ReservationVO;
@@ -15,9 +16,63 @@ public class ReservationDAO extends DAO{
 	private ResultSet rs; // select 후에 결과셋 받기 
 	
 	
-	
+	public String id = "gown28";
 	
 	private final String SELECT_ALL = "SELECT * FROM RESERVATION";
+	
+	private final String SELECT = " SELECT M.NAME , R.RESERVDATE, R.PERSONNEL, R.PRICE, R.PAYMENT, T.THEMA_NAME, R.TIME " + 
+									" FROM RESERVATION R , THEMA T , MEMBER M " + 
+									" WHERE R.THEMA_NO = T.THEMA_NO " + 
+									" AND R.ID = M.ID " + 
+									" AND R.ID = ? ";
+	
+	
+	public ArrayList<HashMap<String, Object>> selectMap() {
+		
+		ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+		HashMap<String, Object> map;
+		
+		try {
+			psmt = conn.prepareStatement(SELECT);
+			psmt.setString(1,id);
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				map = new HashMap<String, Object>();
+				
+				map.put("name",rs.getString("NAME"));
+				map.put("reservdate",rs.getDate("RESERVDATE"));
+				map.put("personnel",rs.getInt("PERSONNEL"));
+				map.put("price",rs.getInt("PRICE"));
+				map.put("payment",rs.getString("PAYMENT"));
+				map.put("thema_name",rs.getString("THEMA_NAME"));
+				map.put("time",rs.getString("TIME"));
+				
+				list.add(map);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list;
+	}
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public List<ReservationVO> selectAll() { 
 		

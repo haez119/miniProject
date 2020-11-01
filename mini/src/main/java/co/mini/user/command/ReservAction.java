@@ -1,6 +1,7 @@
 package co.mini.user.command;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,9 +17,12 @@ public class ReservAction implements Action {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		ReservationDAO dao = new ReservationDAO(); // 인스턴스 이름 권장사항은 => memberDao
 		
-		List<ReservationVO> list = new ArrayList<ReservationVO>();
+//		List<ReservationVO> list = new ArrayList<ReservationVO>();
+//		
+//		list = dao.selectAll();
 		
-		list = dao.selectAll();
+		ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+		list = dao.selectMap();
 		
 		request.setAttribute("reservs", list); // members => jsp에서 items와 같음
 		
