@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.mini.board.command.LoginAction;
 import co.mini.common.Action;
 import co.mini.user.command.ReservAction;
 
@@ -60,7 +61,9 @@ public class FrontController extends HttpServlet {
 		
 		
 		//임성은
-		
+		map.put("/login.do", new LoginAction());
+		map.put("/loginForm.do", new LoginForm());
+		map.put("/memberinsert.do", new MemberInsertAction());
 		
 		
 		
