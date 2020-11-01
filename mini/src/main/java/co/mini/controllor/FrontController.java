@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.mini.board.command.LoginAction;
+import co.mini.board.command.LoginForm;
+import co.mini.board.command.MemberInsertAction;
 import co.mini.common.Action;
 import co.mini.user.command.ReservAction;
 
