@@ -15,7 +15,7 @@ public class MemberDao extends DAO {
 
 	
 	private final String SELECT = "SELECT * FROM MEMBER WHERE ID = ? AND PASSWORD = ?";
-
+	private final String INSERT = "INSERT INTO MEMBER(ID,NAME,PASSWORD,PHONE,EMAIL, RANK,COUNT) VALUES(?,?,?,?,?,?,?)";
 
 	public MemberVO login(MemberVO vo) {
 		try {
@@ -43,7 +43,26 @@ public class MemberDao extends DAO {
 		}
 		return vo;
 	}
-
+	
+	public int insert(MemberVO vo) { //추가하기
+		int n = 0;
+		try {
+			psmt=conn.prepareStatement(INSERT);
+			psmt.setString(1,vo.getId());
+			psmt.setString(2,vo.getName());
+			psmt.setString(3,vo.getPassword());
+			psmt.setString(4,vo.getPhone());
+			psmt.setString(5,vo.getEmail());
+			psmt.setString(6,vo.getRank());
+			psmt.setInt(7,vo.getCount());
+			n = psmt.executeUpdate();
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return n;
+	}
+	
 	private void close() {
 		try {
 			if(rs !=null) rs.close();
