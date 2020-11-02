@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>전체적용</title>
+<title>전체적용   </title>
 
 <!-- 순서 1. 스타일, 2. 스크립트 - 1. 제이쿼리 2. 나머지 -->
 <link rel="stylesheet"
@@ -68,5 +68,5 @@
       </div>
       <!--// wrap -->
    </div>
-</body>
+</body>  
 </html>
