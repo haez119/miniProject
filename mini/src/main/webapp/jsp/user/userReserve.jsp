@@ -6,45 +6,47 @@
 <head>
 <meta charset="UTF-8">
 <title>예약정보</title>
+<style>
+
+.left-box {
+  float: left;
+  width: 25%;
+  height: 900px;
+}
+.right-box {
+
+  float: right;
+  width: 75%;
+}
+
+</style>
+
+
 </head>
 <body>
-	<div align="center"><h1>나의 예약 정보</h1></div>
-	
 	<div>
-		<table class="table" border="1">
-		<thead class="thead-dark">
-			<tr>
-				<th width="100">테마이름</th>
-				<th width="100">이름</th>
-				<th width="200">예약일</th>
-				<th width="200">예약 시간</th>
-				<th width="150">예약 인원</th>
-				<th width="150">가격</th>
-				<th width="100">결제여부</th>
+		<div class="right-box">
+		 <c:forEach var="reserv" items="${reservs}" >  
+			<b>방탈출</b>  &nbsp; <!-- 지점명 --> <br>
+			<hr>
+			<b>예약일자</b> &nbsp; ${reserv.reservdate }<br><hr>
+			<b>입장시간</b> &nbsp; ${reserv.time} <br><hr>			
+			<b>테마명</b> &nbsp; ${reserv.thema_name }  <br><hr>			
+			<b>예약자</b> &nbsp; ${reserv.name } <br><hr>			
+			<b>연락처</b> &nbsp;  <br><hr>			
+			<b>인원</b> &nbsp; ${reserv.personnel } 명<br><hr>			
+			<b>가격</b> &nbsp; ${reserv.price } 원<br><hr>			
+			<b>결제여부</b> &nbsp; ${reserv.payment } 원<br><hr>
 
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="reserv" items="${reservs}" > 
-				<tr>
-					<td>${reserv.thema_name }</td>
-					<td>${reserv.name }</td>
-					<td>${reserv.reservDate }</td>
-					<td>${reserv.time}</td>
-					<td>${reserv.personnel } 명</td>
-					<td>${reserv.price } 원</td>
-					<td>${reserv.payment }</td>
-					
-					<%-- <td><img src="${pageContext.request.contextPath}/images/${reserv.img}"></td> --%>
-				</tr>
-			</c:forEach>
-		</tbody>
-			
-			</table>
+			<%-- <td><img src="${pageContext.request.contextPath}/images/${reserv.img}"></td> --%>
+		 </c:forEach> 
 		</div>
-
-	
-	
-	
+		
+		<div class="left-box">
+			<h3>내 정보</h3>
+			<a href="#">정보수정</a><br>
+			<a href="#">예약정보</a><br>
+		</div>
+	</div>
 </body>
 </html>
