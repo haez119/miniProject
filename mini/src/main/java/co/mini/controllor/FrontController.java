@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+import co.mini.board.command.LoginAction;
+import co.mini.board.command.LoginForm;
+import co.mini.board.command.MemberForm;
+import co.mini.board.command.MemberInsertAction;
 import co.mini.common.Action;
 import co.mini.thema.command.reserveInsertAction;
 import co.mini.user.command.ReservAction;
@@ -32,36 +37,25 @@ public class FrontController extends HttpServlet {
 		
 		//민해주
 		map.put("/reserv.do", new ReservAction()); // 예약정보 뿌려줌
+	
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 		
 		// 최재영
 		map.put("/reserveInsert.do", new reserveInsertAction()); // 
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
+	
 		
 		//임성은
+		map.put("/loginPage.do", new LoginForm());
+		map.put("/login.do", new LoginAction()); // 로그인 하면 넘어가는 페이지
+		map.put("/memberInsert.do", new MemberInsertAction());
+		map.put("/memberForm.do", new MemberForm());
+		map.put("/memberInsert.do", new MemberInsertAction());
 		
 		
 		
