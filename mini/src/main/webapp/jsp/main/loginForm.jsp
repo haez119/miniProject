@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,6 +33,7 @@ input {
 	font-size: x-large;
 	text-align: center;
 }
+
 </style>
 <body>
 	<div align="center">
@@ -39,8 +41,8 @@ input {
 			<h1 align="center">로그인</h1>
 		</div>
 		<p></p>
-		<div>
-			<form id="frm" name="frm" action="HH" method="post">
+		<div>  										<%--절대경로 사용 --%>
+			<form id="frm" name="frm" action="${pageContext.request.contextPath}/login.do" method="post">
 				<table>
 					<tr>
 						<th width="200"><h2>아이디</h2></th>
@@ -48,7 +50,7 @@ input {
 					</tr>
 					<tr>
 						<th width="200"><h2>패스워드</h2></th>
-						<td><input type="password" id="pw" name="pw" width="50"></td>
+						<td><input type="password" id="password" name="password" width="50"></td>
 					</tr>
 				</table>
 				<button type="submit" class="btn btn-light" type="submit">완료</button>

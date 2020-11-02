@@ -1,6 +1,5 @@
 package co.mini.vo;
 
-import java.sql.Date;
 
 public class MemberVO {
 	private String id;
@@ -8,6 +7,26 @@ public class MemberVO {
 	private String name;
 	private String phone;
 	private String email;
+	private String rank;
+	private int count;
+
+	
+	public String getRank() {
+		return rank;
+	}
+
+	public void setRank(String rank) {
+		this.rank = rank;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	
+	public void setCount(int count) {
+		this.count = count;
+	}
 
 	public MemberVO() {
 
