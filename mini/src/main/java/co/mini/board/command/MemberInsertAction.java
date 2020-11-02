@@ -5,9 +5,9 @@ import java.sql.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.mini.board.common.Action;
-import co.mini.board.dao.MemberDao;
-import co.mini.board.vo.MemberVO;
+import co.mini.common.Action;
+import co.mini.dao.MemberDao;
+import co.mini.vo.MemberVO;
 
 public class MemberInsertAction implements Action {
 
