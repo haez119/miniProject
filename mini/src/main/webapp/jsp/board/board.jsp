@@ -15,7 +15,7 @@
         list-style:none;
         text-align:center;
         padding:0;
-        margin:0;
+        margin: auto;
 }
 
     #mainWrapper{

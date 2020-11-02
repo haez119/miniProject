@@ -33,14 +33,11 @@
 <decorator:head />
 </head>
 <body>
-	<p align="right">
-		<decorator:title />
-	</p>
+	
 <!-- header라인 -->
 	<div class="topHeader">
 		<div id="header">
-			<a href="#"> <img src="../../img/Main.png"
-				alt="main"> <jsp:include page="../jsp/layout/main_thema.jsp"></jsp:include>
+			<a href="#"> <img src="../../img/Main.png"alt="main"> <jsp:include page="../jsp/layout/main_thema.jsp" />
 			</a>
 
 		</div>
