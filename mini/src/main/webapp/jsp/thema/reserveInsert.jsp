@@ -9,14 +9,16 @@
 <title>Insert title here</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link href="style.css" rel="stylesheet" type="mini/css/main.css">
+
 </head>
-<body>
+<body bgcolor='black'>
 	<h1>예약 등록</h1>
-	<div class="container p-3 my-3 bg-dark text-white">
+	<div align="center">
   		<table border='1'>
   		
   		<c:forEach items="${themaDisList}" var="themaDis" varStatus="status">
@@ -31,10 +33,10 @@
   				<c:forEach items="${thema.schedulelist}" var="th" varStatus="status">
   				<c:if test="${th.thema_no == thema.thema_no}">
   				<td height="40">
-  				<div class="container p-3 my-3 border">
+  	
   				<p height=30>${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}<p>
   				<input type='button' onclick="#"  style="WIDTH: 50px; HEIGHT: 20px; font-size:10px" value='예약불가능'>
-				</div>
+				
 				</td>
 				</c:if>
   				</c:forEach>
