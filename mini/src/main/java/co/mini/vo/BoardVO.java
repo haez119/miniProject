@@ -1,7 +1,7 @@
-package co.mini.dao;
+package co.mini.vo;
 
 public class BoardVO {
-	private String number;
+	private String no;
 	private String category;
 	private String content;
 	private String id;
@@ -13,11 +13,11 @@ public class BoardVO {
 	}
 
 	public String getNumber() {
-		return number;
+		return no;
 	}
 
-	public void setNumber(String number) {
-		this.number = number;
+	public void setNumber(String no) {
+		this.no = no;
 	}
 
 	public String getCategory() {
