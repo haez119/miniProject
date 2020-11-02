@@ -14,17 +14,17 @@
 		<div id='menu'>
 			<nav id="topMenu" >
 				<ul>
-					<li><a class="menuLink" href="loginForm.do"">로그인</a></li>
+					<li><a class="menuLink" href="#"">홈</a></li>
 					<li>|</li>
-					<li><a class="menuLink" href="#">공지사항</a></li>
+					<li><a class="menuLink" href="#">테마소개</a></li>
 					<li>|</li>
-					<li><a class="menuLink" href="#">게시판</a></li>				
+					<li><a class="menuLink" href="#">예약</a></li>				
 					<li>|</li>
-					<li><a class="menuLink" href="memberForm.do">회원가입</a></li>				
+					<li><a class="menuLink" href="#">이벤트/공지</a></li>				
 					<li>|</li>	
-					<li><a class="menuLink" href="#">회원관리</a></li>
+					<li><a class="menuLink" href="#">리뷰/Q&A</a></li>
 					<!-- <li>|</li>
-					<li><a class="menuLink" href="logout.do">로그아웃</a></li> -->
+					<li><a class="menuLink" href="#">오시는길</a></li> -->
 				</ul>
 			</nav>
 		</div>
