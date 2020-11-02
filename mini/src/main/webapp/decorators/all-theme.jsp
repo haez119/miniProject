@@ -21,14 +21,15 @@
 <decorator:head />
 </head>
 <body>
-	<p  align="right"><decorator:title /></p>
+	<p  align="right"></p>
 	<h1>헤더</h1>
 	<div class="container">
     	<jsp:include page="../jsp/layout/main_thema.jsp"></jsp:include>
     </div>
     <hr />
+
     <div class="container">
-    	<decorator:body />    
+    	 <decorator:body />    
     </div>
    
     <hr />

@@ -15,6 +15,7 @@ public class ReservAction implements Action {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
+		
 		ReservationDAO dao = new ReservationDAO(); // 인스턴스 이름 권장사항은 => memberDao
 		
 //		List<ReservationVO> list = new ArrayList<ReservationVO>();
