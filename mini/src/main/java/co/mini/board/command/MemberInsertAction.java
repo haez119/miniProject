@@ -1,7 +1,5 @@
 package co.mini.board.command;
 
-import java.sql.Date;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,6 +20,8 @@ public class MemberInsertAction implements Action {
 		vo.setName(request.getParameter("name"));
 		vo.setPhone(request.getParameter("phone"));
 		vo.setEmail(request.getParameter("email"));
+		vo.setRank(request.getParameter("rank"));
+		vo.setCount(Integer.parseInt(request.getParameter("count")));
 		
 		int n = dao.insert(vo);
 		String page;  
