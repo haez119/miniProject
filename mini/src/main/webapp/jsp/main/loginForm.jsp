@@ -53,9 +53,9 @@ input {
 						<td><input type="password" id="password" name="password" width="50"></td>
 					</tr>
 				</table>
-				<button type="submit" class="btn btn-light" type="submit">완료</button>
+				<button type="submit" class="btn btn-light" type="submit">확인</button>
 				
-				<button type="reset" class="btn btn-light" type="reset">삭제</button>
+				<button type="reset" class="btn btn-light" type="reset">취소</button>
 			</form>
 		</div>
 	</div>
