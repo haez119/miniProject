@@ -40,29 +40,14 @@ public class FrontController extends HttpServlet {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 		
 		// 최재영
 		
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
+	
 		
 		//임성은
 		map.put("/loginPage.do", new LoginForm());

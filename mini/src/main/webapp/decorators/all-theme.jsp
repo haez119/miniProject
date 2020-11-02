@@ -33,14 +33,11 @@
 <decorator:head />
 </head>
 <body>
-	<p align="right">
-		<decorator:title />
-	</p>
+	
 <!-- header라인 -->
 	<div class="topHeader">
 		<div id="header">
-			<a href="#"> <img src="../../img/Main.png"
-				alt="main"> <jsp:include page="../jsp/layout/main_thema.jsp"></jsp:include>
+			<a href="#"> <img src="${pageContext.request.contextPath}/img/Main.png"alt="main"> <jsp:include page="../jsp/layout/main_thema.jsp" />
 			</a>
 
 		</div>
@@ -60,7 +57,7 @@
 				<div class="store_main">
 					<dl>
 						<dd>
-							<img src="../../img/Main.png"><br> <span>COPYRIGHT©2020(주)예담
+							<img src="${pageContext.request.contextPath}/img/Main.png"><br> <span>COPYRIGHT©2020(주)예담
 								.ALL RIGHTS RESERVED.<a href="#">이용약관</a><a href="#">개인정보
 									취급방침</a>
 							</span><br> 사업자등록번호: (주) 123-45-12345 ㅣ &nbsp;E-mail: escape@yedam.ac<br>

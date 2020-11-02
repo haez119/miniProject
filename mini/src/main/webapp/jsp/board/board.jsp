@@ -15,7 +15,7 @@
         list-style:none;
         text-align:center;
         padding:0;
-        margin:0;
+        margin: auto;
 }
 
     #mainWrapper{
@@ -85,7 +85,6 @@
     .left {
         text-align : left;
 }
-[출처] [CSS] 예제 - 게시판 목록 페이지 작성 ( 목록태그 이용:UL,LI )|작성자 자바킹
 
 
 </style>
