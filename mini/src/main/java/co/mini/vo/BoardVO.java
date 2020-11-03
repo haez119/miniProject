@@ -3,6 +3,7 @@ package co.mini.vo;
 public class BoardVO {
 	private String no;
 	private String category;
+	private String title;
 	private String content;
 	private String id;
 	private String show;
@@ -12,11 +13,19 @@ public class BoardVO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getNumber() {
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getNo() {
 		return no;
 	}
 
-	public void setNumber(String no) {
+	public void setNo(String no) {
 		this.no = no;
 	}
 
