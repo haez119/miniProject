@@ -47,6 +47,7 @@ div#topMenu a {
 </head>
 <body>
 <!-- topMenu라인 -->
+<div class="topHeader">
 	<div id="topMenu">
 
 		<a href="#">홈</a> &nbsp;|&nbsp; 
@@ -56,7 +57,7 @@ div#topMenu a {
 
 	</div>
 	<!-- header라인 -->
-	<div class="topHeader">
+	
 		<div id="header">
 			<a href="#"> <img
 				src="${pageContext.request.contextPath}/img/Main.png" alt="main">
