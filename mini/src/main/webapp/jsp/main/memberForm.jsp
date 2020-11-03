@@ -24,7 +24,7 @@
             </tr>
             <tr>
                 <th>전화번호</th>
-                <td><input type="text"name="cel">
+                <td><input type="text"name="phone">
                  </td>
                </tr>
                <tr>

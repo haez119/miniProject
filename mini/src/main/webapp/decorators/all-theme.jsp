@@ -51,8 +51,8 @@ div#topMenu a {
 	<div id="topMenu">
 
 		<a href="#">홈</a> &nbsp;|&nbsp; 
-		<a href="#">로그인</a> &nbsp;|&nbsp; 
-		<a href="#">회원가입</a><!--&nbsp;|&nbsp;-->
+		<a href="${pageContext.request.contextPath}/loginPage.do">로그인</a> &nbsp;|&nbsp; 
+		<a href="${pageContext.request.contextPath}/memberForm.do">회원가입</a><!--&nbsp;|&nbsp;-->
 		<!-- <a href="#">마이페이지</a>  -->
 
 	</div>
