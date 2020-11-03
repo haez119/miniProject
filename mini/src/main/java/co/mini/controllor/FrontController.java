@@ -17,6 +17,7 @@ import co.mini.board.command.LoginForm;
 import co.mini.board.command.MemberForm;
 import co.mini.board.command.MemberInsertAction;
 import co.mini.common.Action;
+import co.mini.user.command.ReUpdateAction;
 import co.mini.user.command.ReservAction;
 
 @WebServlet("*.do")
@@ -36,7 +37,7 @@ public class FrontController extends HttpServlet {
 		
 		//민해주
 		map.put("/reserv.do", new ReservAction()); // 예약정보 뿌려줌
-	
+		map.put("/reservUp.do", new ReUpdateAction());
 		
 		
 		

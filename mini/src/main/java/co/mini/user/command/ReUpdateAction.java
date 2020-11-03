@@ -1,7 +1,6 @@
 package co.mini.user.command;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,28 +11,23 @@ import co.mini.common.Action;
 import co.mini.dao.ReservationDAO;
 import co.mini.vo.ReservationVO;
 
-public class ReservAction implements Action {
+public class ReUpdateAction implements Action {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		
 		ReservationDAO dao = new ReservationDAO(); // 인스턴스 이름 권장사항은 => memberDao
 		
-//		List<ReservationVO> list = new ArrayList<ReservationVO>();
-//		
-//		list = dao.selectAll();
-		
-		ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+		List<ReservationVO> list = new ArrayList<ReservationVO>();
 		
 		HttpSession session = request.getSession(false);
 		String id = (String) session.getAttribute("id");
 		
-		list = dao.selectMap(id);
-		request.setAttribute("reservs", list); // members => jsp에서 items와 같음
+		list = dao.selectAll(id);
+		request.setAttribute("res", list);
 		
 		
-		return "jsp/user/userReserve.jsp";
-		
+		return "jsp/user/userUpdate.jsp";
 	}
 
 }
