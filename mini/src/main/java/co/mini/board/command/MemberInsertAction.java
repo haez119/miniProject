@@ -20,15 +20,14 @@ public class MemberInsertAction implements Action {
 		vo.setName(request.getParameter("name"));
 		vo.setPhone(request.getParameter("phone"));
 		vo.setEmail(request.getParameter("email"));
-		vo.setRank(request.getParameter("rank"));
-		vo.setCount(Integer.parseInt(request.getParameter("count")));
+		
 		
 		int n = dao.insert(vo);
 		String page;  
 		if(n != 0) {
-			page ="";
+			page ="jsp/main/insertSuccess.jsp";
 		} else {
-			page = "";
+			page = "jsp/main/insertSuccess.jsp";
 		}
 		
 		return page;

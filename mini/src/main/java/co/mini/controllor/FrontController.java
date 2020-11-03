@@ -53,7 +53,6 @@ public class FrontController extends HttpServlet {
 		//임성은
 		map.put("/loginPage.do", new LoginForm());
 		map.put("/login.do", new LoginAction()); // 로그인 하면 넘어가는 페이지
-		map.put("/memberInsert.do", new MemberInsertAction());
 		map.put("/memberForm.do", new MemberForm());
 		map.put("/memberInsert.do", new MemberInsertAction());
 		
