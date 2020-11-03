@@ -15,7 +15,8 @@ public class MemberDao extends DAO {
 
 	
 	private final String SELECT = "SELECT * FROM MEMBER WHERE ID = ? AND PASSWORD = ?";
-	private final String INSERT = "INSERT INTO MEMBER(ID,NAME,PASSWORD,PHONE,EMAIL, RANK,COUNT) VALUES(?,?,?,?,?,?,?)";
+	private final String INSERT = "INSERT INTO MEMBER(ID,NAME,PASSWORD,PHONE,EMAIL, RANK,COUNT)"
+			+ "	VALUES(?,?,?,?,?,?,?)";
 
 	public MemberVO login(MemberVO vo) {
 		try {

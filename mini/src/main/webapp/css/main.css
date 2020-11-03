@@ -17,6 +17,7 @@ div.topHeader {
 	background: #000 url() 50% 100% repeat-x;
 	background-size: 100% 20%;
 	z-index: 10;
+		position: relative;
 }
 
 div#header img {

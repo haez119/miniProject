@@ -29,40 +29,63 @@
 	crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="/mini/css/main.css">
+<style>
+div#topMenu {
+	position: absolute;
+	float: left;
+	display: inline-block;
+	top: 20px;
+	left: 250px;
+	color: white;
+}
 
+div#topMenu a {
+	color: white;
+}
+</style>
 <decorator:head />
 </head>
 <body>
-	
-<!-- header라인 -->
+<!-- topMenu라인 -->
+	<div id="topMenu">
+
+		<a href="#">홈</a> &nbsp;|&nbsp; 
+		<a href="#">로그인</a> &nbsp;|&nbsp; 
+		<a href="#">회원가입</a><!--&nbsp;|&nbsp;-->
+		<!-- <a href="#">마이페이지</a>  -->
+
+	</div>
+	<!-- header라인 -->
 	<div class="topHeader">
 		<div id="header">
-			<a href="#"> <img src="${pageContext.request.contextPath}/img/Main.png"alt="main"> <jsp:include page="../jsp/layout/main_thema.jsp" />
+			<a href="#"> <img
+				src="${pageContext.request.contextPath}/img/Main.png" alt="main">
+				<jsp:include page="../jsp/layout/main_thema.jsp" />
 			</a>
 
 		</div>
 	</div>
 	<hr />
 
-<!-- middle 바디 라인 -->
+	<!-- middle 바디 라인 -->
 	<div class="container">
 
 		<decorator:body />
 	</div>
 
-<!-- footer 바디 라인 -->
+	<!-- footer 바디 라인 -->
 	<div id="footer">
 		<div class="wrap">
 			<div class="inner">
 				<div class="store_main">
 					<dl>
 						<dd>
-							<img src="${pageContext.request.contextPath}/img/Main.png"><br> <span>COPYRIGHT©2020(주)예담
-								.ALL RIGHTS RESERVED.<a href="#">이용약관</a><a href="#">개인정보
-									취급방침</a>
-							</span><br> 사업자등록번호: (주) 123-45-12345 ㅣ &nbsp;E-mail: escape@yedam.ac<br>
-							대구동성로점 사업자등록번호: 123-12-12345 ㅣ &nbsp;E-mail : escape@yedam.ac<br>
-							이스케이프
+							<img src="${pageContext.request.contextPath}/img/Main.png"><br>
+							<span>COPYRIGHT©2020(주)예담 .ALL RIGHTS RESERVED.<a href="#">이용약관</a><a
+								href="#">개인정보 취급방침</a>
+							</span><br> 사업자등록번호: (주) 123-45-12345 ㅣ &nbsp;E-mail:
+							escape@yedam.ac<br> 대구동성로점 사업자등록번호: 123-12-12345 ㅣ
+							&nbsp;E-mail : escape@yedam.ac<br> 이스케이프
 						</dd>
 					</dl>
 				</div>

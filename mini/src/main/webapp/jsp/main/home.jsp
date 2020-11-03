@@ -7,6 +7,6 @@
 <title></title>
 </head>
 <body>
-	<h1>홈페이지</h1>
+	<h1 align="center">홈페이지</h1>
 </body>
 </html>
