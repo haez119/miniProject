@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import co.mini.vo.MemberVO;
 import co.mini.vo.ReservationVO;
 
 // reservation 테이블 DAO
@@ -16,31 +17,33 @@ public class ReservationDAO extends DAO{
 	private ResultSet rs; // select 후에 결과셋 받기 
 	
 	
-	public String id = "gown28";
+	private final String SELECT_ALL = "SELECT * FROM RESERVATION where id = ?";
 	
-	private final String SELECT_ALL = "SELECT * FROM RESERVATION";
+	private final String SELECT = "select m.name , r.reservdate, r.personnel, r.price, r.payment, t.thema_name, r.time, m.phone, o.branch_name  " 
+								+ "from reservation r , thema t , member m , onwer o " 
+								+ "where r.thema_no = t.thema_no " 
+								+ "and r.id = m.id " 
+								+ "and t.branch_no = o.branch_no " 
+								+ "and m.id = ? ";
 	
-	private final String SELECT = " SELECT M.NAME , R.RESERVDATE, R.PERSONNEL, R.PRICE, R.PAYMENT, T.THEMA_NAME, R.TIME " + 
-									" FROM RESERVATION R , THEMA T , MEMBER M " + 
-									" WHERE R.THEMA_NO = T.THEMA_NO " + 
-									" AND R.ID = M.ID " + 
-									" AND R.ID = ? ";
-	
-	
-	public ArrayList<HashMap<String, Object>> selectMap() {
+
+	public ArrayList<HashMap<String, Object>> selectMap(String sid) {
 		
 		ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
 		HashMap<String, Object> map;
 		
 		try {
 			psmt = conn.prepareStatement(SELECT);
-			psmt.setString(1,id);
+			
+			// psmt.setString(1,sId);
+			psmt.setString(1,sid);
 			
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
 				
 				map = new HashMap<String, Object>();
+				
 				
 				map.put("name",rs.getString("NAME"));
 				map.put("reservdate",rs.getDate("RESERVDATE"));
@@ -49,6 +52,8 @@ public class ReservationDAO extends DAO{
 				map.put("payment",rs.getString("PAYMENT"));
 				map.put("thema_name",rs.getString("THEMA_NAME"));
 				map.put("time",rs.getString("TIME"));
+				map.put("phone",rs.getString("phone"));
+				map.put("branch_name",rs.getString("branch_name"));
 				
 				list.add(map);
 			}
@@ -61,25 +66,17 @@ public class ReservationDAO extends DAO{
 		return list;
 	}
 		
-		
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public List<ReservationVO> selectAll() { 
+	public List<ReservationVO> selectAll(String sid) { 
 		
 		List<ReservationVO> list = new ArrayList<ReservationVO>();
 		ReservationVO vo;
 		try {
 			psmt = conn.prepareStatement(SELECT_ALL);
+			
+			psmt.setString(1,sid);
+			
+			
 			rs = psmt.executeQuery();
 			
 			while (rs.next()) {

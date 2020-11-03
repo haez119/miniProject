@@ -47,7 +47,7 @@ select {
 		<br />
 		<p></p>
 		<div>
-			<form id="frm" name="frm" action="${pageContext.request.contextPath}memberInsert.do" method="post">
+			<form id="frm" name="frm" action="memberInsert.do" method="post">
 				<div>
 					<table border="1">
 						<tr>

@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>마이페이지-수정</h1>
+	<h2>파라미터 가져오기</h2>
 </body>
 </html>
