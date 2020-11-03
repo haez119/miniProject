@@ -14,7 +14,7 @@ public class MemberDao extends DAO {
 	private MemberVO vo;
 
 	private final String SELECT = "SELECT * FROM MEMBER WHERE ID = ? AND PASSWORD = ?";
-	private final String INSERT = "INSERT INTO MEM1(ID,PASSWORD,NAME,BIRTH,PHONE,EMAIL) VALUES(?,?,?,?,?,?)";
+	
 
 	public MemberVO login(MemberVO vo) {
 		try {
@@ -42,13 +42,14 @@ public class MemberDao extends DAO {
 		}
 		return vo;
 	}
-
+	private final String INSERT = "INSERT INTO MEMBER(ID,NAME,PASSWORD,PHONE,EMAIL) VALUES(?,?,?,?,?)";
 	public int insert(MemberVO vo) { // 추가하기
 		int n = 0;
 		try {
 			psmt = conn.prepareStatement(INSERT);
 			psmt.setString(1, vo.getId());
 			psmt.setString(2, vo.getName());
+			psmt.setString(3, vo.getPassword());
 			psmt.setString(4, vo.getPhone());
 			psmt.setString(5, vo.getEmail());
 			n = psmt.executeUpdate();
