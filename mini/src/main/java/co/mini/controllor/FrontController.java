@@ -39,7 +39,8 @@ public class FrontController extends HttpServlet {
 		//민해주
 		map.put("/reservation.do", new ReservationAction()); // 예약 내역 테이블로
 		map.put("/reserv.do", new ReservAction()); // 예약 상세정보 뿌려줌
-		map.put("/reservUp.do", new ReUpdateAction());
+		map.put("/reservUp.do", new ReUpdateAction()); // 수정화면 보여줌
+		map.put("/reUpdate.do", new reservUpdateAction());// 수정 할꺼야
 		
 		
 		

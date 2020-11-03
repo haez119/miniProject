@@ -60,6 +60,46 @@ public class MemberDao extends DAO {
 		return n;
 	}
 
+	
+	private final String MSELECT = "SELECT * FROM MEMBER WHERE ID = ?";
+	// 업데이트용 select
+	public MemberVO memUpdate(String id) {
+		MemberVO vo = null;
+		
+		try {
+			psmt = conn.prepareStatement(MSELECT);
+			psmt.setString(1, id);
+
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				vo = new MemberVO();
+				vo.setId(rs.getString("id"));
+				vo.setName(rs.getString("name"));
+				vo.setPhone(rs.getString("phone"));
+				vo.setEmail(rs.getString("email"));
+				vo.setPassword(rs.getString("password"));
+				vo.setRank(rs.getString("rank"));
+				vo.setCount(rs.getInt("count"));
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return vo;
+	}
+	
+	private final String UPDATE = "";
+	// 업데이트 쿼리
+	public void memberUpdate() {
+		
+	}
+	
+	
+	
 	private void close() {
 		try {
 			if (rs != null)
