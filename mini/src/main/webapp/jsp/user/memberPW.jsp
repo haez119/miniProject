@@ -16,7 +16,7 @@
  
  <form method="post" action="${pageContext.request.contextPath}/password.do"> 
 	<h2>비밀번호를 입력하세요</h2><p></p>
-	<input id="pw" name="pw" type="text"><p></p>
+	<input id="pw" name="pw" type="password"><p></p>
 	<button type="submit" class="btn btn-outline-light" id="btnOk">확인</button>
  </form>
  

@@ -12,17 +12,16 @@ public class Password implements Action {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		
 		HttpSession session = request.getSession(false);
+		
 		String password = (String) session.getAttribute("password");
 
 		String pw = request.getParameter("pw");
-		
-		
-		
+
 
 		if(password.equals(pw)) {			
-			return "/reservUp.do";
+			return "/reservUp.do"; // 회원정보 페이지
 		} else {
-			return "/memberForm.do";
+			return "jsp/user/passwordFail.jsp"; // 비밀번호 틀림 페이지
 		}
 	}
 
