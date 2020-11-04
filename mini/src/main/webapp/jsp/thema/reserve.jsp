@@ -33,9 +33,9 @@
 integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous">
 </script>
 <script>
-$(function() {
-	$('#price').val=$('option : selected').val*20000;
-});
+function selectChange(){
+	
+}
 </script>
 </head>
 <body>
@@ -74,7 +74,7 @@ $(function() {
          <tr>
              <th>인원 &nbsp;</th>
              <td> 
-             <select name="person" onchange="">
+             <select name="person" onchange="selectChange">
               <c:forEach var="i" begin="1" end='${thVO.max_per}'>
         	 <option value='${i}'>${i}명</option>
        		 </c:forEach>
