@@ -26,7 +26,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-<script type="text/javascript" >
+<script>
 
 	$(function(){
 		userDelete(); // 삭제
@@ -40,7 +40,7 @@
 		$('#btnUpdate').on('click',function(){
 			
 			$.ajax({ 
-			    url: "ajax/reUpdate.do", 
+			    url: "/mini/reUpdate.do", 
 			    dataType: 'json', 
 			    data: $("#frm").serialize(),
 			    success: function(data) { 
@@ -69,7 +69,7 @@
 		</div>
 	</div>
 	
-<form name="frm" id="frm" action="${pageContext.request.contextPath}/reUpdate.do" method="post">
+	<form name="frm" id="frm" >
 
 	<div class="right-box">
 	
@@ -83,24 +83,24 @@
 		
 		 	<tr>
 		 		<th>아이디</th>
-		 		<td>${vo.id}</td>
+		 		<td id="id">${vo.id}</td>
 		 	</tr>
 			<tr>
 		 		<th>비밀번호</th>
-		 		<td><input name="password" type="password" value="${vo.password}"></td>
+		 		<td><input id="password" name="password" type="password" value="${vo.password}"></td>
 		 	</tr>
 		 	<tr>
 		 		<th>이름</th>
-		 		<td><input name="phone" type="text" value="${name}"></td>
+		 		<td><input id="name" name="name" type="text" value="${vo.name}"></td>
 		 	</tr>
 			<tr>
 		 		<th>연락처</th>
-		 		<td><input name="phone" type="text" value="${vo.phone}"></td>
+		 		<td><input id="phone" name="phone" type="text" value="${vo.phone}"></td>
 
 		 	</tr>
 		 	<tr>
 		 		<th>이메일 &nbsp;</th>
-		 		<td><input name="email" type="text" value="${vo.email}"></td>
+		 		<td><input id="email" name="email" type="text" value="${vo.email}"></td>
 		 	</tr>
 			<tr>
 		 		<th>등급 &nbsp;</th>

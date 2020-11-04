@@ -22,6 +22,7 @@ import co.mini.common.Action;
 import co.mini.thema.command.reserveAction;
 import co.mini.thema.command.reserveInsertAction;
 import co.mini.user.command.ReservAction;
+import co.mini.user.command.ReservDeleteAction;
 import co.mini.user.command.ReservListAction;
 import co.mini.user.command.ReservUpdate;
 import co.mini.user.command.ReservUpdateAction;
@@ -47,7 +48,7 @@ public class FrontController extends HttpServlet {
 		map.put("/reserv.do", new ReservAction()); // 예약 상세정보 뿌려줌
 		map.put("/reservUp.do", new ReservUpdate()); // 수정화면 보여줌
 		map.put("/reUpdate.do", new ReservUpdateAction());// 수정 할꺼야
-		// map.put("/reDelete.do", new ReservDeleteAction()); 삭제헐꺼야
+		map.put("/reDelete.do", new ReservDeleteAction()); 
 		
 	
 		

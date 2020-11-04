@@ -39,7 +39,7 @@ public class ReservUpdateAction implements Action {
 		dao.memberUpdate(vo);
 		
 		try {
-			response.getWriter().print(new JSONObject());
+			response.getWriter().print(new JSONObject(vo));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
