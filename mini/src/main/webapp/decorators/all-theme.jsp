@@ -37,10 +37,14 @@ div#topMenu {
 	top: 20px;
 	left: 250px;
 	color: white;
+	
 }
 
 div#topMenu a {
 	color: white;
+	font-size: 18px;
+	font-weight: bold;
+	font-family: "Trebuchet MS", Dotum, Arial;
 }
 </style>
 <decorator:head />
@@ -48,7 +52,7 @@ div#topMenu a {
 <body>
 <!-- topMenu라인 -->
 <div class="topHeader">
-	<div id="topMenu">
+	<div id="topMenu" style="text-align: right;">
 
 		<a href="#">홈</a> &nbsp;|&nbsp; 
 		<a href="${pageContext.request.contextPath}/loginPage.do">로그인</a> &nbsp;|&nbsp; 
@@ -96,3 +100,4 @@ div#topMenu a {
 	</div>
 </body>
 </html>
+
