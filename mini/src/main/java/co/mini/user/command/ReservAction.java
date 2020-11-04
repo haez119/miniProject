@@ -13,7 +13,9 @@ import co.mini.dao.ReservationDAO;
 import co.mini.vo.ReservationVO;
 
 public class ReservAction implements Action {
-
+	
+	// 상세내역
+	
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		
@@ -23,7 +25,6 @@ public class ReservAction implements Action {
 		
 		
 		int no = Integer.parseInt(request.getParameter("rno"));
-		System.out.println(no);
 		list = dao.reSelect(no);
 
 		request.setAttribute("reservs", list); // members => jsp에서 items와 같음

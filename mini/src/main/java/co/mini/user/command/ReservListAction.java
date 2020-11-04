@@ -1,35 +1,35 @@
 package co.mini.user.command;
 
-
-
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import co.mini.common.Action;
-import co.mini.dao.MemberDao;
+import co.mini.dao.ReservationDAO;
 
-import co.mini.vo.MemberVO;
-
-
-public class ReUpdateAction implements Action {
+public class ReservListAction implements Action {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		
-		MemberDao dao = new MemberDao();
-		MemberVO vo = new MemberVO();
+		// 테이블로 
+		ReservationDAO dao = new ReservationDAO();
 		
+		ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
 		
 		HttpSession session = request.getSession(false);
 		String id = (String) session.getAttribute("id");
 		
-		vo = dao.memUpdate(id);
-		request.setAttribute("vo", vo);
+		list = dao.selectMap(id);
+		
+		request.setAttribute("reservs", list);
 		
 		
-		return "jsp/user/userUpdate.jsp";
+		
+		return "jsp/user/reservation.jsp";
 	}
 
 }
