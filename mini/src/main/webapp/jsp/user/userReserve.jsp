@@ -35,7 +35,8 @@
 		<h2 style="color: white; padding-bottom: 15px" align="center" >${name}님의 예약정보</h2>
 		<table border="1" style=" background-color:  rgb(56, 56, 56); color: white;  padding: 15px;" class="table">
 		
-		 <c:forEach var="reserv" items="${reservs}" >  
+<!-- 상세정보 -->	
+	<c:forEach var="reserv" items="${reservs}" >	 
 		 	<tr>
 		 		<th>지점명 &nbsp;</th>
 		 		<td>${reserv.branch_name } </td>
@@ -50,11 +51,11 @@
 		 	</tr>
 		 	<tr>
 		 		<th>테마명 &nbsp;</th>
-		 		<td> ${reserv.thema_name } </td>
+		 		<td> ${reserv.thema_name} </td>
 		 	</tr>
 			<tr>
 		 		<th>예약자 &nbsp;</th>
-		 		<td> ${reserv.name } </td>
+		 		<td> ${reserv.name} </td>
 		 	</tr>
 		 	<tr>
 		 		<th>연락처 &nbsp;</th>
@@ -72,8 +73,7 @@
 		 		<th>결제여부 &nbsp;</th>
 		 		<td> ${reserv.payment }</td>
 		 	</tr>		
-
-		 </c:forEach> 
+	</c:forEach>
 		 </table>
 		 </div>
 		
@@ -82,7 +82,7 @@
 		<div style="background-color: white; padding: 30px;">
 			<h3>내 정보</h3>
 			<a href="${pageContext.request.contextPath}/reservUp.do">정보수정</a><br>
-			<a href="${pageContext.request.contextPath}/reserv.do">예약정보</a><br>
+			<a href="${pageContext.request.contextPath}/reservation.do">예약정보</a><br>
 		</div>
 		</div>
 	</div>

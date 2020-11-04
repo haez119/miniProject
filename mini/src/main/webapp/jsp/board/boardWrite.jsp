@@ -30,12 +30,12 @@ function formCheck() {
 }
 </script>
 <body>
-	<h1>게시판 등록 페이지</h1>
+	<h1>입력</h1>
 	<table>
 		<tr>
 			<th>번호</th>
-			<th></th>
-			<th></th>
+			<th>작성자</th>
+			<th>비밀번호</th>
 			<th></th>
 		</tr>
 	</table>

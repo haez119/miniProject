@@ -20,6 +20,7 @@ import co.mini.board.command.MemberInsertAction;
 import co.mini.common.Action;
 import co.mini.user.command.ReUpdateAction;
 import co.mini.user.command.ReservAction;
+import co.mini.user.command.ReservationAction;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -37,8 +38,10 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		
 		//민해주
-		map.put("/reserv.do", new ReservAction()); // 예약정보 뿌려줌
-		map.put("/reservUp.do", new ReUpdateAction());
+		map.put("/reservation.do", new ReservationAction()); // 예약 내역 테이블로
+		map.put("/reserv.do", new ReservAction()); // 예약 상세정보 뿌려줌
+		map.put("/reservUp.do", new ReUpdateAction()); // 수정화면 보여줌
+		map.put("/reUpdate.do", new reservUpdateAction());// 수정 할꺼야
 		
 		
 		
