@@ -11,7 +11,8 @@
         <table align="center">
             <tr>
                 <td>아이디</td>
-                <td><input type="text" name="id" /></td>
+                <td><input type="text" name="id" />
+                <input type="button" value="중복확인" onclick="openIdChk()"></td>
             </tr>
             <tr>
                 <td>이름</td>
