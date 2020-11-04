@@ -67,8 +67,8 @@
 		 		<td> ${vo.rank} </td>
 		 	</tr>	
 		 </table>
-		 <button class="btn btn-outline-light" id="save" type="submit">save</button>
-		 <button class="btn btn-outline-light" id="cancel" type="reset">cancel</button>
+		 <button class="btn btn-outline-light" id="save" type="submit">수정</button>
+		 <button class="btn btn-outline-light" id="cancel" type="reset">취소</button>
 
 	</div>
 </form>
