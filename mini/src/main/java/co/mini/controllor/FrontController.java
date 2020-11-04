@@ -72,6 +72,7 @@ public class FrontController extends HttpServlet {
 		
 		
 		
+		
 		//김시무
 		
 	      map.put("/board.do", new BoardAction());
