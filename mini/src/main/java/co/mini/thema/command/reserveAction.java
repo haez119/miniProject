@@ -2,9 +2,12 @@ package co.mini.thema.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.mini.common.Action;
+import co.mini.dao.MemberDao;
 import co.mini.dao.ThemaDao;
+import co.mini.vo.MemberVO;
 import co.mini.vo.ScheduleVo;
 import co.mini.vo.ThemaVO;
 
@@ -24,7 +27,15 @@ public class reserveAction implements Action {
 		thVO.setDate(request.getParameter("date"));
 		request.setAttribute("thVO",thVO );
 		
+
+		HttpSession session =request.getSession(false);
+		String id = (String)session.getAttribute("id");
 		
+		
+		MemberDao memDao= new MemberDao();
+		MemberVO meVo= new MemberVO();
+		meVo=memDao.memUpdate(id);
+		request.setAttribute("meVo", meVo);
 		
 		return "jsp/thema/reserve.jsp";
 	}

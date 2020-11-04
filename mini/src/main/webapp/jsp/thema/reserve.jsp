@@ -33,9 +33,20 @@
 integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous">
 </script>
 <script>
-function selectChange(){
+$(()=>{
 	
-}
+	function comma(str) {
+        str = String(str);
+        return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+    }
+	
+	$('#person').on('change',function(){
+		$("#price").html(comma($('#person option:checked').val()*20000)+'원');
+		$("#price2").val($('#person option:checked').val()*20000);
+	});
+	
+	
+});
 </script>
 </head>
 <body>
@@ -49,32 +60,32 @@ function selectChange(){
    
           <tr>
              <th>지점명 &nbsp;</th>
-             <td>${thVO.branch_name } </td>
+             <td name ="branch_name">${thVO.branch_name } </td>
           </tr>
          <tr>
              <th>예약일자 &nbsp;</th>
-             <td> ${param.date} </td>
+             <td name="date"> ${param.date} </td>
           </tr>
          <tr>
              <th>예약시간</th>
-             <td> ${param.time} 분 </td>
+             <td name="time"> ${param.time}</td>
           </tr>
           <tr>
              <th>테마명 &nbsp;</th>
-             <td>${thVO.thema_name }</td>
+             <td name="thema_name">${thVO.thema_name }</td>
           </tr>
          <tr>
              <th>예약자 &nbsp;</th>
-             <td> ${name} </td>
+             <td name="name">${name}</td>
           </tr>
           <tr>
              <th>연락처 &nbsp;</th>
-             <td> </td>
+             <td name="phone">${meVo.phone}</td>
           </tr>
          <tr>
              <th>인원 &nbsp;</th>
              <td> 
-             <select name="person" onchange="selectChange">
+             <select id="person" name="person">
               <c:forEach var="i" begin="1" end='${thVO.max_per}'>
         	 <option value='${i}'>${i}명</option>
        		 </c:forEach>
@@ -83,7 +94,8 @@ function selectChange(){
           </tr>   
          <tr>
              <th>가격 &nbsp;</th>
-             <td><p id='price'></p></td>
+             <td id='price' name="price">20,000원</td>
+             <input type='hidden'name='price' id='price2'>
           </tr>   
          <tr>
              <th>결제여부 &nbsp;</th>

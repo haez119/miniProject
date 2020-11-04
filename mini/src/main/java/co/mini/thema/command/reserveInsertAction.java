@@ -4,9 +4,12 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.mini.common.Action;
+import co.mini.dao.MemberDao;
 import co.mini.dao.ThemaDao;
+import co.mini.vo.MemberVO;
 import co.mini.vo.ScheduleVo;
 import co.mini.vo.ThemaDisVo;
 import co.mini.vo.ThemaVO;
@@ -28,7 +31,9 @@ public class reserveInsertAction implements Action{
 		
 		themaDao = new ThemaDao();
 		themaDisList=themaDao.DisThemaList();//테마이름의 중복을 제거한 리스트
-	
+		
+		
+		
 		for(ThemaVO thvo : themaList) {
 			themaDao = new ThemaDao();
 			thvo.setSchedulelist(themaDao.selectSchedule(thvo));//테마객체에 번호를 받아서 이용시간 리스트를 넣어주는 부분
