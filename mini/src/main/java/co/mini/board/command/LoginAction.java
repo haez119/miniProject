@@ -34,6 +34,7 @@ public class LoginAction implements Action {
 		HttpSession session = request.getSession(false);
 		 session.setAttribute("id", vo.getId());
 	     session.setAttribute("name", vo.getName());
+	     session.setAttribute("password", vo.getPassword());
 	     
 	     request.setAttribute("vo", vo); 
 	     

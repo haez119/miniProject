@@ -15,8 +15,7 @@ public class ReservationDAO extends DAO{
 	private PreparedStatement psmt; // sql 명령문 실행
 	private ResultSet rs; // select 후에 결과셋 받기 
 	
-	
-	private final String SELECT_ALL = "SELECT * FROM RESERVATION where id = ?";
+
 	
 	private final String SELECT = "select r.no, m.name , r.reservdate, r.personnel, r.price, r.payment, t.thema_name, r.time, m.phone, o.branch_name  " 
 								+ "from reservation r , thema t , member m , onwer o " 
@@ -114,67 +113,6 @@ public class ReservationDAO extends DAO{
 	}
 		
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public List<ReservationVO> selectAll(String sid) { 
-		
-		List<ReservationVO> list = new ArrayList<ReservationVO>();
-		ReservationVO vo;
-		try {
-			psmt = conn.prepareStatement(SELECT_ALL);
-			
-			psmt.setString(1,sid);
-			
-			
-			rs = psmt.executeQuery();
-			
-			while (rs.next()) {
-				vo = new ReservationVO();
-				
-				vo.setNo(rs.getInt("no"));
-				vo.setId(rs.getString("id"));
-				vo.setReservDate(rs.getDate("reservdate"));
-				vo.setPersonnel(rs.getInt("personnel"));
-				vo.setPrice(rs.getInt("price"));
-				vo.setPayment(rs.getString("payment"));
-				vo.setThemaNo(rs.getInt("thema_no"));
-				vo.setTime(rs.getString("time"));
-				
-				list.add(vo);
-			}
-			
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		
-		return list;
-		
-	} 
 	
 	
 	private void close() {
