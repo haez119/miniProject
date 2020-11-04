@@ -29,12 +29,15 @@
 <script>
 
 	$(function(){
+		
+		//var password = prompt('비밀번호를 입력하세요');
+
 		userDelete(); // 삭제
-	
 		userUpdate(); // 수정
 
 	});
 	
+
 	function userUpdate() {
 		
 		$('#btnUpdate').on('click',function(){
@@ -54,7 +57,38 @@
 		});// click
 		
 	}
-	function userDelete() {}
+	function userDelete() {
+		
+		
+		$('#btnDelete').on('click',function(){
+
+			var del = confirm("정말 탈퇴하시겠습니까?");
+			
+			if(del) {
+
+			  $.ajax({
+					url:'/mini/reDelete.do',
+					dataType:'json',
+					error:function(xhr,status,msg){
+						console.log("에러");
+					}, success:function(xhr) {
+						alert("탈퇴되었습니다.");
+						 $(location).attr('href','${pageContext.request.contextPath}/loginPage.do');
+					}
+				});
+				
+			 
+			  
+			  
+			  
+			} else {
+				alert("취소되었습니다.");
+			}
+
+		
+		});
+		
+	}
 	
 
 </script>
@@ -64,7 +98,7 @@
 	<div class="left-box">
 		<div style="background-color: white; padding: 30px;">
 				<h3>내 정보</h3>
-				<a href="${pageContext.request.contextPath}/reservUp.do">정보수정</a><br>
+				<a href="${pageContext.request.contextPath}/memberUp.do">정보수정</a><br>
 				<a href="${pageContext.request.contextPath}/reservation.do">예약정보</a><br>
 		</div>
 	</div>

@@ -123,15 +123,16 @@ public class MemberDao extends DAO {
 		
 	}
 	
-	private final String DELETE = "DELETE * FROM MEMBER WHERE ID = ?";
+	private final String DELETE = "DELETE FROM MEMBER WHERE ID = ?";
 
-	public int memberDelete(String id) {
+	public int memberDelete(MemberVO vo) {
 		int n = 0;
 		
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(DELETE);
 			
-			pstmt.setString(1, id);
+			pstmt.setString(1, vo.getId());
+			
 			int r = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
