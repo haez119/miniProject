@@ -76,10 +76,6 @@
 						 $(location).attr('href','${pageContext.request.contextPath}/loginPage.do');
 					}
 				});
-				
-			 
-			  
-			  
 			  
 			} else {
 				alert("취소되었습니다.");
@@ -102,7 +98,8 @@
 				<a href="${pageContext.request.contextPath}/reservation.do">예약정보</a><br>
 		</div>
 	</div>
-	
+
+
 	<form name="frm" id="frm" >
 
 	<div class="right-box">
@@ -146,7 +143,7 @@
 			<input type="button"  class="btn btn-outline-light" value="수정"  id="btnUpdate" />
 			<input type="reset"  class="btn btn-outline-light" value="취소"/>
 		 </div>
-		
+
 
 
 	</div>

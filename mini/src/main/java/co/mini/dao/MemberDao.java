@@ -83,6 +83,9 @@ public class MemberDao extends DAO {
 				vo.setPassword(rs.getString("password"));
 				vo.setRank(rs.getString("rank"));
 				vo.setCount(rs.getInt("count"));
+				
+				
+				
 
 			}
 

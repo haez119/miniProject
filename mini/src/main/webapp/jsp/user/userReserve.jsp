@@ -81,7 +81,7 @@
 		<div class="left-box">
 		<div style="background-color: white; padding: 30px;">
 			<h3>내 정보</h3>
-			<a href="${pageContext.request.contextPath}/reservUp.do">정보수정</a><br>
+			<a href="${pageContext.request.contextPath}/memberUp.do">정보수정</a><br>
 			<a href="${pageContext.request.contextPath}/reservation.do">예약정보</a><br>
 		</div>
 		</div>
