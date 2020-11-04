@@ -17,6 +17,7 @@ import co.mini.board.command.LoginAction;
 import co.mini.board.command.LoginForm;
 import co.mini.board.command.MemberForm;
 import co.mini.board.command.MemberInsertAction;
+import co.mini.board.command.reserveResultAction;
 import co.mini.common.Action;
 import co.mini.thema.command.reserveAction;
 import co.mini.thema.command.reserveInsertAction;
@@ -53,7 +54,7 @@ public class FrontController extends HttpServlet {
 		// 최재영
 		map.put("/reserveInsert.do", new reserveInsertAction()); //테마예약하기 화면
 		map.put("/reserve.do", new reserveAction()); //예약하기화면 
-		
+		map.put("/reserveResult.do",new reserveResultAction());
 	
 		
 		//임성은
