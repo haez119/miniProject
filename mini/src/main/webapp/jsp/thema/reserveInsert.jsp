@@ -14,49 +14,96 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link href="style.css" rel="stylesheet" type="mini/css/main.css">
+ 
   <style>
-  	#thema_name {
-  		width: 100%;
+  	.thema_name {
+  	width: 300px;
+  	background: black;
+  	font-size:40px;
+	color:white;
+	border-style: none;
+	}
+	.branch_name{
+	width:100px;
+	background: black;
+	color:white;
+	border-style: none;
+	}
+	#date{
+	width: 300px;
+	}
+	.time{
+	width: 80px;
+	background: #1f1f1f;
+	border-color:white;
+	color:white;
+	
+	}
+	.reserve{
+	WIDTH: 80px; 
+	HEIGHT: 20px; 
+	font-size:12px;
+	background: #1f1f1f;
+	border-color:white;
+	color:white;
+	}
+	img {
+	padding-bottom: 30px;
 	}
 	
-	input{
-  		width: 80%;
-	}
-  </style>	
+  </style>
+  <script>
+  function reservefunction(a,b){
+	  document.getElementById('thema_no').value =a;
+	  document.getElementById('time').value=b;
+	  document.frm.submit();
+  }
+  </script>	
 </head>
 <body bgcolor='black'>
 	<h1>예약 등록</h1>
 	
 	<div align="center">
-		<div align="right"><input id="date" name="date" type="date" ></div><!-- 날짜 선택 -->
+		<div align="right">
+		<form id='frm' name='frm' method='post' action='reserve.do' >
+  			<input type='hidden' name='thema_no' id='thema_no'>
+  			<input type='hidden' name='time' id='time'>
+			<input id="date" name="date" type="date" ></div><!-- 날짜 선택 -->
+		</form>
 		<script>
   			document.getElementById('date').value = new Date().toISOString().substring(0, 10);;
 		</script>
-		<form id='frm' name='frm' method='post' action='reserve.do' >
-  		<table border='1'>
+		
+  		<table>
   		<c:forEach items="${themaDisList}" var="themaDis" varStatus="status">
   		<tr><!-- 테마시작 -->
   		<td>
-  			<table border = '1'>
-  			<tr><td><img src ='${pageContext.request.contextPath}/img/${themaDis.thema_img}' width="150px" height="200px" ><td></tr>
-  			<tr><td><input class='timeinput' type='text' id='thema_name' name='thema_name' value='${themaDis.thema_name }'></td></tr>
-  			</table>
+  			<td><img src ='${pageContext.request.contextPath}/img/${themaDis.thema_img}' width="150px" height="200px"  ><td>
   		</td>
   		<td><!-- 지점별 이용시간 시작 -->
+  			<div align="left">
+  			<!-- 테마이름  -->
+  			<input type='text' class='thema_name' name='thema_name' value='${themaDis.thema_name }'>
+  			<c:forEach var="i" begin="1" end='${themaDis.level2}'>
+  			<img src='${pageContext.request.contextPath}/img/kEY.png' width='20px'>
+  			</c:forEach>
+  			</div>
   			<c:forEach items="${themaList}" var="thema" varStatus="status">
+  				
   				<c:if test ='${themaDis.thema_name==thema.thema_name}'><!-- 테마이름 같은거만 -->
-  				<table border="1">
+  				<table>
   				<tr>
-  				<td><input type="text" id="branch_name" name="branch_name" value='${thema.branch_name}'><td>
+  				<td><input type="text" class="branch_name" name="branch_name" value='${thema.branch_name}'><td>
+  				
   				<c:forEach items="${thema.schedulelist}" var="th" varStatus="status">
-  				<c:if test="${th.thema_no == thema.thema_no}">
   				<td>
-  				<input type='text' id='time' name='time' value='${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}'>
-  				<input type='submit' onclick="#"  style="WIDTH: 50px; HEIGHT: 20px; font-size:10px" value='예약가능'/>
-				
+  				
+  				<input type='text' class='time' name='time' value='${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}'>
+  				<input type='button' onclick="reservefunction('${thema.thema_no}','${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}')" class='reserve' value='예약가능' />
+			
 				</td>
-				</c:if>
   				</c:forEach>
+  				
   				</tr><!-- 지점명 -->
   				
   				</table>
@@ -67,7 +114,7 @@
   		</c:forEach>
   		
   		</table>
-  		</form>
+  		
 </div>
 </body>
 </html>

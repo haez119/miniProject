@@ -77,7 +77,7 @@ public class ThemaDao extends DAO {
 		return list;
 	}
 	//테이블이름의 중복제거한 리스트 
-	private final String THEMA_Distinct="select distinct thema_name,thema_img from thema";
+	private final String THEMA_Distinct="select distinct thema_name,thema_img,level2 from thema";
 	public List<ThemaDisVo> DisThemaList() { 
 		List<ThemaDisVo> list = new ArrayList<ThemaDisVo>();
 		try {
@@ -89,18 +89,50 @@ public class ThemaDao extends DAO {
 				ThemaDisVo disVo = new ThemaDisVo();
 				disVo.setThema_name(rs.getString("thema_name"));
 				disVo.setThema_img(rs.getString("thema_img"));
+				disVo.setLevel2(rs.getInt("level2"));
 				list.add(disVo);
 
 			}
 		}catch( SQLException e) {
 			e.printStackTrace();
 		}finally {
-			
+			close();
 		}
 		return list;
 	}
 	
-	
+	//예약정보에 뿌려줄 테마정보를 담은 쿼리문
+	private final String reserve_Thema ="select o.branch_name,t.thema_no,t.thema_name,t.thema_img,t.thema_intro,t.level2,t.max_per\r\n" + 
+			"from thema t , onwer o\r\n" + 
+			"where t.branch_no=o.branch_no\r\n" + 
+			"and thema_no=?\r\n" + 
+			"order by thema_no";
+	public ThemaVO reserve_thema(int thema_no) { 
+		ThemaVO vo = new ThemaVO();
+		try {
+			psmt = conn.prepareStatement(reserve_Thema); // DAO를 상속받고 있어서 conn 정의 안해줘도 사용 가능
+			psmt.setInt(1, thema_no);
+			rs = psmt.executeQuery(); //executeQuery는 반환값이 resultSet, executeUpdate는 반환값이 int타입
+			
+			while (rs.next()) {
+
+				vo = new ThemaVO();
+				vo.setBranch_name(rs.getString("branch_name"));
+				vo.setThema_no(rs.getInt("thema_no"));
+				vo.setThema_name(rs.getString("thema_name"));
+				vo.setThema_img(rs.getString("thema_img"));
+				vo.setLevel2(rs.getInt("level2"));
+				vo.setMax_per(rs.getInt("max_per"));
+				
+
+			}
+		}catch( SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return vo;
+	}
 	
 	
 	

@@ -3,6 +3,17 @@ package co.mini.vo;
 public class ThemaDisVo {
 private String thema_name;
 private String thema_img;
+private int level2;
+
+
+public int getLevel2() {
+	return level2;
+}
+
+public void setLevel2(int level2) {
+	this.level2 = level2;
+}
+
 public String getThema_name() {
 	return thema_name;
 }

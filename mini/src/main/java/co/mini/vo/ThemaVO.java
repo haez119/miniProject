@@ -12,9 +12,16 @@ private String thema_intro;
 private int level2;
 private int max_per;
 private List<ScheduleVo> schedulelist;
+private String date;
 
 
 
+public String getDate() {
+	return date;
+}
+public void setDate(String date) {
+	this.date = date;
+}
 public String getBranch_name() {
 	return branch_name;
 }
