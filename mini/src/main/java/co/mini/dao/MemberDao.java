@@ -42,7 +42,9 @@ public class MemberDao extends DAO {
 		}
 		return vo;
 	}
+	
 	private final String INSERT = "INSERT INTO MEMBER(ID,NAME,PASSWORD,PHONE,EMAIL) VALUES(?,?,?,?,?)";
+	
 	public int insert(MemberVO vo) { // 추가하기
 		int n = 0;
 		try {
@@ -92,11 +94,55 @@ public class MemberDao extends DAO {
 		return vo;
 	}
 	
-	private final String UPDATE = "";
-	// 업데이트 쿼리
-	public void memberUpdate() {
+	
+	
+	private final String UPDATE = "UPDATE MEMBER SET PASSWORD = ?, NAME=? , PHONE =? , EMAIL =?  WHERE ID=?";
+	
+	public int memberUpdate(MemberVO vo) {
+		int n = 0;
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(UPDATE);
+			
+			pstmt.setString(1, vo.getPassword());
+			pstmt.setString(2, vo.getName());
+			pstmt.setString(3, vo.getPhone());
+			pstmt.setString(4, vo.getEmail());
+			pstmt.setString(5, vo.getId());
+			
+			n = pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return n;
 		
 	}
+	
+	private final String DELETE = "DELETE * FROM MEMBER WHERE ID = ?";
+
+	public int memberDelete(String id) {
+		int n = 0;
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(DELETE);
+			
+			pstmt.setString(1, id);
+			int r = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return n;
+	}
+	
 	
 	
 	

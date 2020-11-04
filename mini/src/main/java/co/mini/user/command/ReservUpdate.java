@@ -26,6 +26,8 @@ public class ReservUpdate implements Action {
 		HttpSession session = request.getSession(false);
 		String id = (String) session.getAttribute("id");
 		
+		vo.setId(id);
+		
 		vo = dao.memUpdate(id);
 		request.setAttribute("vo", vo);
 		

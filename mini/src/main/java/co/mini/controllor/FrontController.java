@@ -46,7 +46,7 @@ public class FrontController extends HttpServlet {
 		map.put("/reserv.do", new ReservAction()); // 예약 상세정보 뿌려줌
 		map.put("/reservUp.do", new ReservUpdate()); // 수정화면 보여줌
 		map.put("/reUpdate.do", new ReservUpdateAction());// 수정 할꺼야
-		
+		// map.put("/reDelete.do", new ReservDeleteAction()); 삭제헐꺼야
 		
 	
 		
@@ -107,11 +107,11 @@ public class FrontController extends HttpServlet {
 		Action command = map.get(path);
 		String viewPage = command.exec(request, response);
 		
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage); // 선택한 페이지로 가기
-		dispatcher.forward(request, response);
-		//
-		
+		if(viewPage != null) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage); // 선택한 페이지로 가기
+			dispatcher.forward(request, response);
+			
+		}
 		
 	}
 
