@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import co.mini.common.Action;
 import co.mini.dao.MemberDao;
+import co.mini.dao.ReservationDAO;
 import co.mini.vo.MemberVO;
 
 public class LoginAction implements Action {
@@ -13,9 +14,16 @@ public class LoginAction implements Action {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-//로그인 인증과정을 처리
+		
+		//로그인 인증과정을 처리
 		MemberDao dao = new MemberDao();
+		
+		
 		MemberVO vo = new MemberVO();
+		
+//		ReservationDAO rd = new ReservationDAO();
+//		rd.sId = request.getParameter("id");
+
 		
 		// String msq;
 		vo.setId(request.getParameter("id"));

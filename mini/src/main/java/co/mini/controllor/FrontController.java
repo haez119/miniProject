@@ -19,6 +19,10 @@ import co.mini.board.command.MemberInsertAction;
 import co.mini.common.Action;
 import co.mini.thema.command.reserveAction;
 import co.mini.thema.command.reserveInsertAction;
+import co.mini.user.command.ReUpdateAction;
+import co.mini.user.command.ReUpdateAction;
+import co.mini.user.command.ReUpdateAction;
+import co.mini.user.command.ReUpdateAction;
 import co.mini.user.command.ReservAction;
 
 @WebServlet("*.do")

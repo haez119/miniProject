@@ -13,11 +13,15 @@ public class BoardInsertAction implements Action {
 		// TODO 게시판을 DB에 입력한다.
 		BoardDAO dao = new BoardDAO();
 		BoardVO vo = new BoardVO();
-		
-		vo.setAnswer(request.getParameter("answer"));
+
+		vo.setNo(request.getParameter("no"));
 		vo.setCategory(request.getParameter("category"));
+		vo.setTitle(request.getParameter("title"));
 		vo.setContent(request.getParameter("content"));
-		vo.setId(request.);
+		vo.setId(request.getParameter("id"));
+		vo.setAnswer(request.getParameter("answer"));
+		vo.setShow(request.getParameter("show"));
+
 		return null;
 	}
 }
