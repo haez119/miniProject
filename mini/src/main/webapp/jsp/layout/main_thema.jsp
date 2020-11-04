@@ -18,7 +18,7 @@
 					<li>|</li>
 					<li><a class="menuLink" href="#">테마소개</a></li>
 					<li>|</li>
-					<li><a class="menuLink" href="#">예약</a></li>				
+					<li><a class="menuLink" href="${pageContext.request.contextPath}/reserveInsert.do">예약</a></li>				
 					<li>|</li>
 					<li><a class="menuLink" href="#">이벤트</a></li>				
 					<li>|</li>	
