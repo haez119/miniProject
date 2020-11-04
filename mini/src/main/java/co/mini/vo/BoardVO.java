@@ -9,6 +9,13 @@ public class BoardVO {
 	private String show;
 	private String answer;
 
+	
+	@Override
+	public String toString() {
+		return "BoardVO [no=" + no + ", category=" + category + ", title=" + title + ", content=" + content + ", id="
+				+ id + ", show=" + show + ", answer=" + answer + "]";
+	}
+
 	public BoardVO() {
 		// TODO Auto-generated constructor stub
 	}

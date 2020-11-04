@@ -25,9 +25,9 @@
 					<li>|</li>
 					<li><a class="menuLink" href="${pageContext.request.contextPath}/memberForm.do">회원가입</a></li>		
 						
-					<li><a class="menuLink" href="#">이벤트/공지</a></li>				
+					<li><a class="menuLink" href="#">이벤트</a></li>				
 					<li>|</li>	
-					<li><a class="menuLink" href="#">리뷰/Q&A</a></li>
+					<li><a class="menuLink" href="#">리뷰/Q&A/공지</a></li>
 					<li>|</li>	
 					<li><a class="menuLink" href="${pageContext.request.contextPath}/reserv.do">마이페이지</a></li>
 					<!-- <li>|</li>

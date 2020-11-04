@@ -15,7 +15,7 @@ public class BoardDAO extends DAO {
 	private BoardVO vo;
 
 	private final String SELECT_ALL = "SELECT * FROM BOARD1";
-	// private final String SELECT =
+//  private final String SELECT = 
 //	private final String INSERT =
 //	private final String UPDATE =
 //	private final String DELETE =

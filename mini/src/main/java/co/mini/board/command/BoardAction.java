@@ -14,7 +14,7 @@ public class BoardAction implements Action {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		BoardDAO dao = new BoardDAO();
-		BoardVO vo = new BoardVO();
+//		BoardVO vo = new BoardVO();
 	
 		List<BoardVO> list = dao.selectAll();
 		request.setAttribute("board", list);

@@ -7,7 +7,7 @@ import co.mini.common.Action;
 import co.mini.dao.BoardDAO;
 import co.mini.vo.BoardVO;
 
-public class BoardInsertAction implements Action {
+public class BoardWritetAction implements Action {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO 게시판을 DB에 입력한다.

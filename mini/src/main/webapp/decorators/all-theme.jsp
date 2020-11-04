@@ -30,34 +30,23 @@
 
 <link rel="stylesheet" href="/mini/css/main.css">
 <style>
-div#topMenu {
-	position: absolute;
-	float: left;
-	display: inline-block;
-	top: 20px;
-	left: 250px;
-	color: white;
-}
 
-div#topMenu a {
-	color: white;
-}
 </style>
 <decorator:head />
 </head>
 <body>
-<!-- topMenu라인 -->
-<div class="topHeader">
-	<div id="topMenu">
+	<!-- topMenu라인 -->
+	<div class="topHeader">
+		<div id="topMenu">
 
-		<a href="#">홈</a> &nbsp;|&nbsp; 
-		<a href="#">로그인</a> &nbsp;|&nbsp; 
-		<a href="#">회원가입</a><!--&nbsp;|&nbsp;-->
-		<!-- <a href="#">마이페이지</a>  -->
+			<a class="topmenuLink" href="#">홈</a> &nbsp;|&nbsp; 
+			<a class="topmenuLink" href="#">로그인</a> &nbsp;|&nbsp; 
+			<a class="topmenuLink" href="#">회원가입</a><!--&nbsp;|&nbsp;-->
+			<!-- <a href="#">마이페이지</a>  -->
 
-	</div>
-	<!-- header라인 -->
-	
+		</div>
+		<!-- header라인 -->
+
 		<div id="header">
 			<a href="#"> <img
 				src="${pageContext.request.contextPath}/img/Main.png" alt="main">

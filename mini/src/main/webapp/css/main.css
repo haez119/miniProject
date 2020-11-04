@@ -1,5 +1,26 @@
 @charset "UTF-8";
 
+div#topMenu {
+	position: absolute;
+	float: left;
+	display: inline-block;
+	top: 20px;
+	left: 250px;
+	color: white;
+}
+
+#topMenu .topmenuLink:hover {
+	color: red;
+	background-color: #4d4d4d;
+	
+}
+
+div#topMenu a {
+	color: white;
+	font-weight: bold;
+	font-family: "Trebuchet MS", Dotum, Arial
+}
+
 body {
 	overflow-x: hidden;
 	width: 100%;
@@ -17,7 +38,7 @@ div.topHeader {
 	background: #000 url() 50% 100% repeat-x;
 	background-size: 100% 20%;
 	z-index: 10;
-		position: relative;
+	position: relative;
 }
 
 div#header img {

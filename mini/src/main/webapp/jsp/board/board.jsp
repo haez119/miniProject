@@ -100,9 +100,21 @@ ul, li {
 	text-align: left;
 }
 </style>
+<script> 
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideToggle("slow");
+  });
+});
+</script>
+
 </head>
+
 <body>
 	<h1 align="center">게시판 목록 페이지</h1>
+	
+	
+
 	<div id="mainWrapper">
 
 		<ul>
@@ -119,32 +131,29 @@ ul, li {
 							<li>작성일</li>
 							<li>작성자</li>
 							<li>조회수</li>
+							
 						</ul>
 					</li>
 					<!-- 게시물이 출력될 영역 -->
-					<!-- foreach / el표기 /   -->
+					<!--  / el표기 /   -->
+
+
 
 		<c:forEach var="bo" items="${board}" varStatus="status">
 
 					<li>
 						<ul>
 							<li>${bo.no}</li>
-							<li>${bo.category}</li>
+							<!-- <li>${bo.category}</li> -->	 
 							<li>${bo.title}</li>
 							<li>${bo.content}</li>
 							<li>${bo.id}</li>
-							<li>${bo.show}</li>
-							<li>${bo.answer}</li>
+							<!-- <li>${bo.show}</li> -->
+							<!-- <li>${bo.answer}</li> -->
 						</ul>
-					</li>
-    	
+					</li>   	
+					
 	</c:forEach>
-
-
-
- 			
-
-
 
 					<!-- 게시판 페이징 영역 -->
 					<li>
