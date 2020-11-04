@@ -39,6 +39,13 @@
 	color:white;
 	
 	}
+	.timefail{
+	width: 80px;
+	background: black;
+	border-color:white;
+	color:white;
+	}
+	
 	.reserve{
 	WIDTH: 80px; 
 	HEIGHT: 20px; 
@@ -47,10 +54,21 @@
 	border-color:white;
 	color:white;
 	}
+	.reservefail{
+	WIDTH: 80px; 
+	HEIGHT: 20px; 
+	font-size:12px;
+	background: black;
+	border-color:white;
+	color:white;
+	}
+	
 	img {
 	padding-bottom: 30px;
 	}
-	
+	#timediv{
+	WIDTH: 80px; 
+	}
   </style>
   <script>
   function reservefunction(a,b){
@@ -68,10 +86,14 @@
 		<form id='frm' name='frm' method='post' action='reserve.do' >
   			<input type='hidden' name='thema_no' id='thema_no'>
   			<input type='hidden' name='time' id='time'>
-			<input id="date" name="date" type="date" ></div><!-- 날짜 선택 -->
+			<input id="date" name="date" type="date" >
+			<input id="date_time" name="date_time" type="text" value="${fn:substring(date_time,0,2)}:${fn:substring(date_time,2,4)}">
+			</div><!-- 날짜 선택 -->
+			
 		</form>
 		<script>
-  			document.getElementById('date').value = new Date().toISOString().substring(0, 10);;
+  			document.getElementById('date').value = new Date().toISOString().substring(0, 10);
+  			
 		</script>
 		
   		<table>
@@ -97,10 +119,18 @@
   				
   				<c:forEach items="${thema.schedulelist}" var="th" varStatus="status">
   				<td>
-  				
+  				<c:if test="${th.time>date_time}">
+  				<div align ="center" id="timediv">
   				<input type='text' class='time' name='time' value='${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}'>
   				<input type='button' onclick="reservefunction('${thema.thema_no}','${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}')" class='reserve' value='예약가능' />
-			
+  				</div>
+				</c:if>
+				<c:if test="${th.time<date_time}">
+				<div align ="center" id="timediv">
+  				<input type='text' class='timefail' name='time' value='${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}'>
+  				<input type='text' class='reservefail' value='예약불가능' />
+  				</div>
+  				</c:if>
 				</td>
   				</c:forEach>
   				

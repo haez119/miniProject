@@ -6,7 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import co.mini.vo.MemberVO;
+import co.mini.vo.ReservationVO;
 import co.mini.vo.ScheduleVo;
 import co.mini.vo.ThemaDisVo;
 import co.mini.vo.ThemaVO;
@@ -134,9 +135,29 @@ public class ThemaDao extends DAO {
 		return vo;
 	}
 	
+	//예약정보 인설트 dao
 	
+	private final String INSERT = "insert into reservation(no,id,reservdate,personnel,"
+			+ "price,payment,thema_no,time) values(reservation_Seq.nextval,?,TO_DATE(?,'YYYY/MM/DD'),?,?,?,?,?)";
 	
-	
+	public int insert(ReservationVO vo) { // 추가하기
+		int n = 0;
+		try {
+			psmt = conn.prepareStatement(INSERT);
+			psmt.setString(1, vo.getId());
+			psmt.setString(2, vo.getReservDate());
+			psmt.setInt(3, vo.getPersonnel());
+			psmt.setInt(4, vo.getPrice());
+			psmt.setString(5, vo.getPayment());
+			psmt.setInt(6, vo.getThemaNo());
+			psmt.setString(7, vo.getTime());
+			n = psmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return n;
+	}
 	
 	
 	

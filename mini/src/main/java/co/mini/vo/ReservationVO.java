@@ -6,7 +6,7 @@ public class ReservationVO {
 	
 	private int no;
 	private String id;
-	private Date reservDate; //예약일
+	private String reservDate; //예약일
 	private int personnel; // 인원
 	private int price;
 	private String payment;
@@ -16,6 +16,12 @@ public class ReservationVO {
 	
 	
 	
+	public String getReservDate() {
+		return reservDate;
+	}
+	public void setReservDate(String reservDate) {
+		this.reservDate = reservDate;
+	}
 	public int getNo() {
 		return no;
 	}
@@ -30,12 +36,7 @@ public class ReservationVO {
 		this.id = id;
 	}
 	
-	public Date getReservDate() {
-		return reservDate;
-	}
-	public void setReservDate(Date reservDate) {
-		this.reservDate = reservDate;
-	}
+	
 	
 	public int getPersonnel() {
 		return personnel;
