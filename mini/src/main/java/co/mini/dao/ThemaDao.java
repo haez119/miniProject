@@ -117,7 +117,7 @@ public class ThemaDao extends DAO {
 		return list;
 	}
 	//테이블이름의 중복제거한 리스트 
-	private final String THEMA_Distinct="select distinct thema_name,thema_img,level2 from thema";
+	private final String THEMA_Distinct="select distinct thema_name,thema_img,level2,thema_intro from thema";
 	public List<ThemaDisVo> DisThemaList() { 
 		List<ThemaDisVo> list = new ArrayList<ThemaDisVo>();
 		try {
@@ -130,6 +130,7 @@ public class ThemaDao extends DAO {
 				disVo.setThema_name(rs.getString("thema_name"));
 				disVo.setThema_img(rs.getString("thema_img"));
 				disVo.setLevel2(rs.getInt("level2"));
+				disVo.setThema_intro(rs.getString("thema_intro"));
 				list.add(disVo);
 
 			}
