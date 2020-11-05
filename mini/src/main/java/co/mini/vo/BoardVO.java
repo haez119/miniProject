@@ -1,7 +1,7 @@
 package co.mini.vo;
 
 public class BoardVO {
-	private String no;
+	private int no;
 	private String category;
 	private String title;
 	private String content;
@@ -9,7 +9,6 @@ public class BoardVO {
 	private String show;
 	private String answer;
 
-	
 	@Override
 	public String toString() {
 		return "BoardVO [no=" + no + ", category=" + category + ", title=" + title + ", content=" + content + ", id="
@@ -28,11 +27,11 @@ public class BoardVO {
 		this.title = title;
 	}
 
-	public String getNo() {
+	public int getNo() {
 		return no;
 	}
 
-	public void setNo(String no) {
+	public void setNo(int no) {
 		this.no = no;
 	}
 
