@@ -20,7 +20,7 @@
 					<li>|</li>
 					<li><a class="menuLink" href="${pageContext.request.contextPath}/reserveInsert.do">예약</a></li>				
 					<li>|</li>
-					<li><a class="menuLink" href="#">이벤트</a></li>				
+					<li><a class="menuLink" href="${pageContext.request.contextPath}/eventlist.do">이벤트</a></li>				
 					<li>|</li>	
 					<li><a class="menuLink" href="#">공지사항</a></li>				
 					<li>|</li>	

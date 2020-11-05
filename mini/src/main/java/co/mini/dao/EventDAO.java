@@ -9,12 +9,15 @@ import java.util.List;
 import co.mini.vo.EventVO;
 
 
+
 public class EventDAO extends DAO {
-	private PreparedStatement psmt; 
-	private ResultSet rs; 
+	private PreparedStatement psmt; // sql 명령문 실행
+	private ResultSet rs; // select 후에 결과셋 받기
 	private EventVO vo;
 	
-	private final String SELECT_ALL = "SELECT * FROM EVENT";
+	private final String SELECT_ALL = "select e.event_no, o.branch_name, e.event_name, e.event_content \r\n" + 
+			"from event e join onwer o\r\n" + 
+			"on(e.branch_no = o.branch_no)";
 	
 	public List<EventVO> selectAll() {
 		List<EventVO> list = new ArrayList<EventVO>();
@@ -23,13 +26,10 @@ public class EventDAO extends DAO {
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				vo = new EventVO();
-				vo.setBranch_no(rs.getInt("branch_no"));
 				vo.setEvent_no(rs.getInt("event_no"));
+				vo.setBranch_name(rs.getString("branch_name"));
 				vo.setEvent_name(rs.getString("event_name"));
-				vo.setImg(rs.getString("img"));
 				vo.setEvent_content(rs.getString("event_content"));
-				vo.setEvent_term(rs.getInt("event_term"));
-				vo.setSale(rs.getInt("sale"));
 				list.add(vo);
 			}
 
@@ -38,4 +38,5 @@ public class EventDAO extends DAO {
 		}
 		return list;
 	}
+	
 }
