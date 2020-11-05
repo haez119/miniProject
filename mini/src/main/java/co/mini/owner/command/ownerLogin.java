@@ -9,8 +9,9 @@ public class ownerLogin implements Action {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		// 사장님 아이디 맞는지 확인
+		return "jsp/owner/ownerLoginForm.jsp";
 	}
 
 }

@@ -54,9 +54,19 @@ div#topMenu a {
 <div class="topHeader">
 	<div id="topMenu" style="text-align: right;">
 
-		<a href="#">홈</a> &nbsp;|&nbsp; 
-		<a href="${pageContext.request.contextPath}/loginPage.do">로그인</a> &nbsp;|&nbsp; 
-		<a href="${pageContext.request.contextPath}/memberForm.do">회원가입</a><!--&nbsp;|&nbsp;-->
+		<a href="#">홈</a> &nbsp;|&nbsp;
+		<c:if test="${id eq null }">
+			<a href="${pageContext.request.contextPath}/loginPage.do">로그인</a> &nbsp;|&nbsp; 
+			<a href="${pageContext.request.contextPath}/memberForm.do">회원가입</a><!--&nbsp;|&nbsp;-->
+		</c:if>
+		
+		<c:if test="${id ne null }">
+			<a href="${pageContext.request.contextPath}/logout.do">로그아웃</a> &nbsp;|&nbsp; 
+		</c:if>
+		
+		
+		
+		
 		<!-- <a href="#">마이페이지</a>  -->
 
 	</div>

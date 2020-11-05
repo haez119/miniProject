@@ -30,6 +30,7 @@ import co.mini.user.command.ReservDeleteAction;
 import co.mini.user.command.ReservListAction;
 import co.mini.user.command.ReservUpdate;
 import co.mini.user.command.ReservUpdateAction;
+import co.mini.user.command.logout;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -56,8 +57,8 @@ public class FrontController extends HttpServlet {
 		map.put("/memberUp.do", new MemUpdate());
 		map.put("/password.do", new Password() );
 		
-		map.put("/ownerLogin.do", new ownerLogin() );
-		
+		map.put("/ownerLogin.do", new ownerLogin() ); // 사장님 로그인 
+		map.put("/logout.do", new logout() ); // 로그아웃
 		
 		
 	

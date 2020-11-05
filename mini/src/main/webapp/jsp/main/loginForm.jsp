@@ -8,25 +8,31 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
-$(function(){
-	
-	
 
+	$(function(){
+		
+		var chk = $(".login:checked").val();
+		
+		 $(".login").change(function() {
+			 chk = $(".login:checked").val();
+			 checkId(chk);
+		 });
+		
+		 checkId(chk);
+	});
 
-		if( $(".login:checked").val() == "member" ) {
+	function checkId(chk) {
+		
+		if( chk == "member" ) {
 			
 			$("#frm").attr("action", "${pageContext.request.contextPath}/login.do");
 			
 		} else {
-
+			
 			$("#frm").attr("action", "${pageContext.request.contextPath}/ownerLogin.do");
 		}
-
 	
-
-	
-
-});
+	}
 
 </script>
 
@@ -62,7 +68,7 @@ $(function(){
 				
 				<div style="padding-bottom: 50px;">
 					<button id="btnLogin"type="submit" class="btn btn-outline-light">로그인</button>
-					<button class="btn btn-outline-light" >회원가입</button>
+					<button class="btn btn-outline-light">회원가입</button>
 					<!-- <button type="reset" class="btn btn-light">취소</button> -->
 				</div>
 			</form>
