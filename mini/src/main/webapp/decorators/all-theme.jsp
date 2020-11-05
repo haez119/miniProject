@@ -3,6 +3,7 @@
 <%@ taglib prefix="decorator"
 	uri="http://www.opensymphony.com/sitemesh/decorator"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 
 <!DOCTYPE html>
@@ -52,30 +53,32 @@ div#topMenu a {
 <body>
 <!-- topMenu라인 -->
 <div class="topHeader">
-	<div id="topMenu" style="text-align: right;">
-
-		<a href="#">홈</a> &nbsp;|&nbsp;
-		<c:if test="${id eq null }">
-			<a href="${pageContext.request.contextPath}/loginPage.do">로그인</a> &nbsp;|&nbsp; 
-			<a href="${pageContext.request.contextPath}/memberForm.do">회원가입</a><!--&nbsp;|&nbsp;-->
-		</c:if>
-		
-		<c:if test="${id ne null }">
-			<a href="${pageContext.request.contextPath}/logout.do">로그아웃</a> &nbsp;|&nbsp; 
-		</c:if>
-		
-		
-		
-		
-		<!-- <a href="#">마이페이지</a>  -->
-
-	</div>
+	<jsp:include page="../jsp/layout/sys_thema.jsp" />
 	<!-- header라인 -->
 	
 		<div id="header">
 			<a href="#"> <img
 				src="${pageContext.request.contextPath}/img/Main.png" alt="main">
-				<jsp:include page="../jsp/layout/main_thema.jsp" />
+				
+				<c:set var="iidd" value="${id}" />
+				<c:set var= "idd" value="${fn:substring(iidd ,0 , 5)}" />
+				
+				
+				<c:if test="${idd eq null }">
+					<jsp:include page="../jsp/layout/main_thema.jsp" />
+				</c:if>
+				
+				<c:if test="${idd ne 'admin' }" >
+					<jsp:include page="../jsp/layout/main_thema.jsp" />
+				</c:if>
+				
+				<c:if test="${idd eq 'admin' }" >
+					<jsp:include page="../jsp/layout/owner_main.jsp" />
+				</c:if> 
+					
+					
+					
+					
 			</a>
 
 		</div>

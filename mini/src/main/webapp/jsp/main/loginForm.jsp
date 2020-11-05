@@ -10,7 +10,7 @@
 <script>
 
 	$(function(){
-		
+
 		var chk = $(".login:checked").val();
 		
 		 $(".login").change(function() {
@@ -19,6 +19,7 @@
 		 });
 		
 		 checkId(chk);
+
 	});
 
 	function checkId(chk) {
@@ -67,9 +68,7 @@
 				</table><p></p>
 				
 				<div style="padding-bottom: 50px;">
-					<button id="btnLogin"type="submit" class="btn btn-outline-light">로그인</button>
-					<button class="btn btn-outline-light">회원가입</button>
-					<!-- <button type="reset" class="btn btn-light">취소</button> -->
+					<button id="btnLogin" type="submit" class="btn btn-outline-light">로그인</button>
 				</div>
 			</form>
 		</div>

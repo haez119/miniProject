@@ -22,7 +22,8 @@ public class ReservationDAO extends DAO{
 								+ "where r.thema_no = t.thema_no " 
 								+ "and r.id = m.id " 
 								+ "and t.branch_no = o.branch_no " 
-								+ "and m.id = ? ";
+								+ "and m.id = ? "
+								+ "order by r.reservdate desc";
 	
 
 	public ArrayList<HashMap<String, Object>> selectMap(String sid) {
