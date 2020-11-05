@@ -24,7 +24,6 @@ public class reserveAction implements Action {
 		//테마이름 지점명 이미지 다넘기는 리퀘스트
 		ThemaDao dao = new ThemaDao();
 		thVO=dao.reserve_thema(thema_no);
-		thVO.setDate(request.getParameter("date"));
 		request.setAttribute("thVO",thVO );
 		
 

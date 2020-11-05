@@ -1,15 +1,13 @@
 package co.mini.thema.command;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import co.mini.common.Action;
-import co.mini.dao.MemberDao;
 import co.mini.dao.ThemaDao;
-import co.mini.vo.MemberVO;
 import co.mini.vo.ScheduleVo;
 import co.mini.vo.ThemaDisVo;
 import co.mini.vo.ThemaVO;
@@ -32,7 +30,10 @@ public class reserveInsertAction implements Action{
 		themaDao = new ThemaDao();
 		themaDisList=themaDao.DisThemaList();//테마이름의 중복을 제거한 리스트
 		
-		
+		long time = System.currentTimeMillis();
+		System.out.println(time);
+		SimpleDateFormat simpl = new SimpleDateFormat("kkmm");
+		String s = simpl.format(time);
 		
 		for(ThemaVO thvo : themaList) {
 			themaDao = new ThemaDao();
@@ -40,8 +41,13 @@ public class reserveInsertAction implements Action{
 			
 		}
 		
+		
+
+		
+		
 		request.setAttribute("themaList", themaList); 
 		request.setAttribute("themaDisList", themaDisList); 
+		request.setAttribute("date_time",s );
 		return "jsp/thema/reserveInsert.jsp";
 	}
 

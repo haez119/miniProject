@@ -53,34 +53,34 @@ $(()=>{
    <div>
       <div class="right-box">
       <h2 style="color: white; padding-bottom: 15px" align="center" >${name}님의 예약정보</h2>
-      <form id='frm' name='frm' method='post' action='#' >
+      <form id='frm' name='frm' method='post' action='reserveResult.do' >
       <table border="1" style=" background-color:  rgb(56, 56, 56); color: white;  padding: 15px;" class="table">
       
 <!-- 상세정보 -->   
-   
+  
           <tr>
              <th>지점명 &nbsp;</th>
-             <td name ="branch_name">${thVO.branch_name } </td>
+             <td><input type="text" name ="branch_name" value="${thVO.branch_name}"> </td>
           </tr>
          <tr>
              <th>예약일자 &nbsp;</th>
-             <td name="date"> ${param.date} </td>
+             <td><input type="text"name="date" value= "${param.date}"> </td>
           </tr>
          <tr>
              <th>예약시간</th>
-             <td name="time"> ${param.time}</td>
+             <td><input type="text"name="time" value="${param.time}"></td>
           </tr>
           <tr>
              <th>테마명 &nbsp;</th>
-             <td name="thema_name">${thVO.thema_name }</td>
+             <td><input type="text" name="thema_name" value="${thVO.thema_name}"></td>
           </tr>
          <tr>
              <th>예약자 &nbsp;</th>
-             <td name="name">${name}</td>
+             <td><input type="text" name="name" value="${name}"></td>
           </tr>
           <tr>
              <th>연락처 &nbsp;</th>
-             <td name="phone">${meVo.phone}</td>
+             <td><input type="text" name="phone" value="${meVo.phone}"></td>
           </tr>
          <tr>
              <th>인원 &nbsp;</th>
@@ -96,10 +96,12 @@ $(()=>{
              <th>가격 &nbsp;</th>
              <td id='price' name="price">20,000원</td>
              <input type='hidden'name='price' id='price2'>
+             <input type='hidden' name='thema_no'value='${thVO.thema_no }'>
+             
           </tr>   
          <tr>
              <th>결제여부 &nbsp;</th>
-             <td>미결</td>
+             <td><input type="text" name='payment'value="미결"></td>
               
   
        </table>
