@@ -20,6 +20,7 @@ import co.mini.board.command.MemberForm;
 import co.mini.board.command.MemberInsertAction;
 import co.mini.board.command.reserveResultAction;
 import co.mini.common.Action;
+import co.mini.owner.command.ReservPageAction;
 import co.mini.owner.command.ownerLogin;
 import co.mini.thema.command.reserveAction;
 import co.mini.thema.command.reserveInsertAction;
@@ -60,7 +61,7 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/ownerLogin.do", new ownerLogin() ); // 사장님 로그인 
 		map.put("/logout.do", new logout() ); // 로그아웃
-		
+		map.put("/ownerReservPage.do", new ReservPageAction() );
 		
 	
 		
