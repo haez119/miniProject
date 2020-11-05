@@ -16,7 +16,7 @@
 				<ul>
 					<li><a class="menuLink" href="#">홈</a></li>
 					<li>|</li>
-					<li><a class="menuLink" href="#">테마소개</a></li>
+					<li><a class="menuLink" href="${pageContext.request.contextPath}/reservelist.do">테마소개</a></li>
 					<li>|</li>
 					<li><a class="menuLink" href="${pageContext.request.contextPath}/reserveInsert.do">예약</a></li>				
 					<li>|</li>
