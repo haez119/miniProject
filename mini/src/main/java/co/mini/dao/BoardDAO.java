@@ -15,21 +15,20 @@ public class BoardDAO extends DAO {
 	private BoardVO vo;
 
 	private final String SELECT_ALL = "SELECT * FROM BOARD1";
-//  private final String SELECT = 
-//	private final String INSERT =
-//	private final String UPDATE =
-//	private final String DELETE =
+    private final String SELECT = "SELECT * FROM BOARD1 WHERE ID=?";
+	private final String INSERT = "INSERT INTO BOARD1 VALUES(NO,CATEGORY,TITLE,CONTENT,ID,SHOW,ANSWER)"
+			+ "VALUES(?,?,?,?,?,?,?)";
+	private final String UPDATE = "UPDATE BOARD1 SET NO=?, CATEGORY=?, TITLE=?, CONTENT=?, SHOW=?, ANSWER=? WHERE ID=?";
+	private final String DELETE = "DELETE BOARD1 WHERE ID=?";
 
-	
-	
-	public List<BoardVO> selectAll() {
+	public List<BoardVO> selectAll() { // 전체조회기능
 		List<BoardVO> list = new ArrayList<BoardVO>();
 		try {
 			psmt = conn.prepareStatement(SELECT_ALL);
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				vo = new BoardVO();
-				vo.setNo(rs.getString("no"));
+				vo.setNo(rs.getInt("no"));
 				vo.setCategory(rs.getString("category"));
 				vo.setTitle(rs.getString("title"));
 				vo.setContent(rs.getString("content"));
@@ -38,10 +37,77 @@ public class BoardDAO extends DAO {
 				vo.setAnswer(rs.getNString("answer"));
 				list.add(vo);
 			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	public BoardVO select(BoardVO vo) { // 한행만 조회
+		try {
+			psmt = conn.prepareStatement(SELECT);
+			psmt.setInt(1, vo.getNo()); //vo.getId()
+			rs = psmt.executeQuery();
+			if(rs.next())  {
+				vo.setNo(rs.getInt("no"));
+				vo.setCategory(rs.getString("category"));
+				vo.setTitle(rs.getString("title"));
+				vo.setContent(rs.getString("content"));
+				vo.setId(rs.getString("id"));
+				vo.setShow(rs.getString("show"));
+				vo.setAnswer(rs.getString("answer"));
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
+	
+	public int insert(BoardVO vo) { // 입력기능
+		int n = 0;
+		try {
+			psmt = conn.prepareStatement(INSERT);
+			psmt.setInt(1, vo.getNo());
+			psmt.setString(2, vo.getCategory());
+			psmt.setString(3, vo.getTitle());
+			psmt.setString(4, vo.getContent());
+			psmt.setString(5, vo.getId());
+			psmt.setString(6, vo.getShow());
+			psmt.setString(7, vo.getAnswer());
+			n = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return n; //건수 확인
+	}
+
+	public int update(BoardVO vo) { // 수정기능
+		int n = 0;
+		try {
+			psmt = conn.prepareStatement(UPDATE);
+			psmt.setInt(1, vo.getNo());
+			psmt.setString(2, vo.getCategory());
+			psmt.setString(3, vo.getTitle());
+			psmt.setString(4, vo.getContent());
+			psmt.setString(5, vo.getId());
+			psmt.setString(6, vo.getShow());
+			psmt.setString(7, vo.getAnswer());
+			n = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return n;
+	}
+	public int delete(BoardVO vo) { //삭제기능
+		int n = 0;
+		try {
+			psmt = conn.prepareStatement(DELETE);
+//			psmt.setInt(1, vo.getNo()); 	//번호로 삭제?
+			psmt.setString(1, vo.getId());	//아이디로 삭제?
+			n = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return n;
 	}
 }

@@ -1,4 +1,4 @@
-package co.mini.board.command;
+package co.mini.controllor;
 
 import java.io.IOException;
 
@@ -9,28 +9,26 @@ import co.mini.common.Action;
 import co.mini.dao.BoardDAO;
 import co.mini.vo.BoardVO;
 
-public class BoardWritetAction implements Action {
+public class BoardUpdateAction implements Action {
+
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		// TODO 게시판을 DB에 입력한다.
 		BoardDAO dao = new BoardDAO();
 		BoardVO vo = new BoardVO();
-
-//		vo.setNo(request.parseInt(getParameter("no")));
-		vo.setCategory(request.getParameter("category"));
-		vo.setTitle(request.getParameter("title"));
-		vo.setContent(request.getParameter("content"));
+		
+		vo.setNo(Integer.parseInt(request.getParameter("no")));
 		vo.setId(request.getParameter("id"));
-		vo.setAnswer(request.getParameter("answer"));
-		vo.setShow(request.getParameter("show"));
-
-		dao.insert(vo);
-
+		vo.setCategory(request.getParameter("category"));
+		vo.setContent(request.getParameter("content"));
+		
+		dao.update(vo);
+		
 		try {
-			response.sendRedirect(request.getContextPath() + "/board.do");
+			response.sendRedirect(request.getContextPath()+"/board.do");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
+
 }
