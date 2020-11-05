@@ -23,6 +23,7 @@ import co.mini.common.Action;
 import co.mini.owner.command.ownerLogin;
 import co.mini.thema.command.reserveAction;
 import co.mini.thema.command.reserveInsertAction;
+import co.mini.thema.command.reserveListAction;
 import co.mini.user.command.MemUpdate;
 import co.mini.user.command.Password;
 import co.mini.user.command.ReservAction;
@@ -67,7 +68,7 @@ public class FrontController extends HttpServlet {
 		map.put("/reserveInsert.do", new reserveInsertAction()); //테마예약하기 화면
 		map.put("/reserve.do", new reserveAction()); //예약하기화면 
 		map.put("/reserveResult.do",new reserveResultAction());
-	
+		map.put("/reserveList.do",new reserveListAction());
 		
 		//임성은
 		map.put("/loginPage.do", new LoginForm());
