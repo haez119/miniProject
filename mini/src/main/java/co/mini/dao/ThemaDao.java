@@ -20,7 +20,7 @@ public class ThemaDao extends DAO {
 	ScheduleVo scheduleVo=new ScheduleVo();
 	
 	//테마 vo에서 넘겨받은 테마번호의 이용시간을 리턴
-	private final String SCHEDULE_SELECT = "SELECT * FROM SCHEDULE WHERE THEMA_NO=?"; // 변경 못하게 final 상수로 선언
+	private final String SCHEDULE_SELECT = "SELECT * FROM SCHEDULE WHERE THEMA_NO=? order by time"; // 변경 못하게 final 상수로 선언
 	public List<ScheduleVo> selectSchedule(ThemaVO ThemaVO) {
 		List<ScheduleVo> list = new ArrayList<ScheduleVo>();
 		try {
@@ -45,6 +45,45 @@ public class ThemaDao extends DAO {
 
 		return list;
 	}
+	
+	
+	
+	private final String SCHEDULE_FAIL = "select thema_no,time from SCHEDULE\r\n" + 
+			"minus\r\n" + 
+			"select thema_no,time from reservation\r\n" + 
+			"where reservdate=to_date(?,'YY-MM-DD')\r\n" + 
+			"INTERSECT\r\n" + 
+			"select thema_no,time from SCHEDULE\r\n" + 
+			"where thema_no=?\r\n" + 
+			"order by time"; // 변경 못하게 final 상수로 선언
+	public List<ScheduleVo> failSchedule(ThemaVO ThemaVO,String date) {
+		List<ScheduleVo> list = new ArrayList<ScheduleVo>();
+		try {
+			
+			psmt = conn.prepareStatement(SCHEDULE_FAIL);
+			psmt.setString(1, date);
+			psmt.setInt(2, ThemaVO.getThema_no());
+			
+			rs = psmt.executeQuery();
+			// 한 행만 리턴하니까 while 사용 할 필요x
+			while(rs.next()) {
+				scheduleVo =new ScheduleVo();
+				scheduleVo.setThema_no(rs.getInt("thema_no"));
+				scheduleVo.setTime(rs.getString("time"));
+				list.add(scheduleVo);
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+
+		return list;
+	}
+	
+	
+	
 	//테마정보를 리턴
 	private final String THEMA_SELECT = "select o.branch_name,t.thema_no,t.thema_name,t.thema_img,t.thema_intro,t.level2,t.max_per \r\n" + 
 			"from thema t , onwer o\r\n" + 

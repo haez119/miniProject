@@ -28,6 +28,7 @@
 	background: black;
 	color:white;
 	border-style: none;
+	font-size:20px;
 	}
 	#date{
 	width: 300px;
@@ -76,23 +77,37 @@
 	  document.getElementById('time').value=b;
 	  document.frm.submit();
   }
+  function dateChange(a){
+	  document.getElementById('sysday').value=document.getElementById('date').value;
+	  document.frmInsert.submit();
+  }	 
+	
   </script>	
 </head>
 <body bgcolor='black'>
 	<h1>예약 등록</h1>
-	
+		<form id='frmInsert' name='frmInsert' method='post' action='reserveInsert.do' >
+		<input type="hidden" name="sysday" id="sysday">
+		</form> 
 	<div align="center">
 		<div align="right">
 		<form id='frm' name='frm' method='post' action='reserve.do' >
   			<input type='hidden' name='thema_no' id='thema_no'>
   			<input type='hidden' name='time' id='time'>
-			<input id="date" name="date" type="date" >
+  			<c:if test="${nextday eq null }">
+			<input id="date" name="date" type="date"  value="${date_day}" min="${date_day}" onchange="dateChange()">
+			</c:if>
+			
+			<c:if test="${nextday ne null }">
+			<input id="date" name="date" type="date"  value="${nextday}" min="${date_day}" onchange="dateChange()">
+			</c:if>
+			
 			<input id="date_time" name="date_time" type="text" value="${fn:substring(date_time,0,2)}:${fn:substring(date_time,2,4)}">
 			</div><!-- 날짜 선택 -->
+			</form>
 			
-		</form>
 		<script>
-  			document.getElementById('date').value = new Date().toISOString().substring(0, 10);
+  			
   			
 		</script>
 		
@@ -105,7 +120,7 @@
   		<td><!-- 지점별 이용시간 시작 -->
   			<div align="left">
   			<!-- 테마이름  -->
-  			<input type='text' class='thema_name' name='thema_name' value='${themaDis.thema_name }'>
+  			<input type='text' class='thema_name' name='thema_name' value='${themaDis.thema_name }' readonly="readonly">
   			<c:forEach var="i" begin="1" end='${themaDis.level2}'>
   			<img src='${pageContext.request.contextPath}/img/kEY.png' width='20px'>
   			</c:forEach>
@@ -115,21 +130,51 @@
   				<c:if test ='${themaDis.thema_name==thema.thema_name}'><!-- 테마이름 같은거만 -->
   				<table>
   				<tr>
-  				<td><input type="text" class="branch_name" name="branch_name" value='${thema.branch_name}'><td>
+  				<td><input type="text" class="branch_name" name="branch_name" value='${thema.branch_name}' readonly="readonly"><td>
   				
   				<c:forEach items="${thema.schedulelist}" var="th" varStatus="status">
   				<td>
+  				<c:if test="${nextday ne null}">
+  				<c:if test="${nextday>date_day }">
+  				<div align ="center" id="timediv">
+  				<input type='text' class='time' name='time' value='${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}' readonly="readonly">
+  				<input type='button' onclick="reservefunction('${thema.thema_no}','${th.time}')" class='reserve' value='예약가능' readonly="readonly" />
+  				</div>
+  				</c:if>
+  				</c:if>
+  				<c:if test="${nextday eq date_day}">
   				<c:if test="${th.time>date_time}">
   				<div align ="center" id="timediv">
-  				<input type='text' class='time' name='time' value='${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}'>
-  				<input type='button' onclick="reservefunction('${thema.thema_no}','${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}')" class='reserve' value='예약가능' />
+  				<input type='text' class='time' name='time' value='${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}' readonly="readonly">
+  				<input type='button' onclick="reservefunction('${thema.thema_no}','${th.time}')" class='reserve' value='예약가능' readonly="readonly" />
   				</div>
 				</c:if>
+				</c:if>
+				<c:if test="${nextday eq date_day}">
 				<c:if test="${th.time<date_time}">
 				<div align ="center" id="timediv">
-  				<input type='text' class='timefail' name='time' value='${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}'>
-  				<input type='text' class='reservefail' value='예약불가능' />
+  				<input type='text' class='timefail' name='time' value='${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}' readonly="readonly">
+  				<input type='text' class='reservefail' value='예약불가능' readonly="readonly"/>
   				</div>
+  				</c:if>
+  				</c:if>
+  				
+  				<c:if test="${nextday eq null}">
+  				<c:if test="${th.time>date_time}">
+  				<div align ="center" id="timediv">
+  				<input type='text' class='time' name='time' value='${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}' readonly="readonly">
+  				<input type='button' onclick="reservefunction('${thema.thema_no}','${th.time}')" class='reserve' value='예약가능' readonly="readonly" />
+  				</div>
+				</c:if>
+  				</c:if>
+  				
+  				<c:if test="${nextday eq null}">
+  				<c:if test="${th.time<date_time}">
+				<div align ="center" id="timediv">
+  				<input type='text' class='timefail' name='time' value='${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}' readonly="readonly">
+  				<input type='text' class='reservefail' value='예약불가능' readonly="readonly"/>
+  				</div>
+  				</c:if>
   				</c:if>
 				</td>
   				</c:forEach>

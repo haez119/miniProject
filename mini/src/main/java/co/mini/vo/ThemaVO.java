@@ -15,7 +15,6 @@ private List<ScheduleVo> schedulelist;
 private String date;
 
 
-
 public String getDate() {
 	return date;
 }

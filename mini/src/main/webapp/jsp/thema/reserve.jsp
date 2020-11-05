@@ -68,7 +68,8 @@ $(()=>{
           </tr>
          <tr>
              <th>예약시간</th>
-             <td><input type="text"name="time" value="${param.time}"></td>
+             <td><input type="text" value="${fn:substring(param.time,0,2)}:${fn:substring(param.time,2,4)}">
+             <input type="hidden"name="time" value="${param.time}"></td>
           </tr>
           <tr>
              <th>테마명 &nbsp;</th>
