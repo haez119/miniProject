@@ -30,8 +30,7 @@
 
 			</thead>
 			<tbody>
-				<c:forEach items="${tableList}" var="welcomeWebList"
-					varStatus="status">
+				<c:forEach var="list" items="${eventList}" varStatus="status">
 					<tr>
 						<td><c:out value="${tableList.branch_no}" /></td>
 						<td><c:out value="${tableList.event_no}" /></td>

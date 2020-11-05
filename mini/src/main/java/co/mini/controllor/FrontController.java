@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.mini.board.command.BoardAction;
 import co.mini.board.command.BoardWritetAction;
+import co.mini.board.command.EventListAction;
 import co.mini.board.command.LoginAction;
 import co.mini.board.command.LoginForm;
 import co.mini.board.command.MemberForm;
@@ -64,7 +65,7 @@ public class FrontController extends HttpServlet {
 		map.put("/login.do", new LoginAction()); // 로그인 하면 넘어가는 페이지
 		map.put("/memberForm.do", new MemberForm());
 		map.put("/memberInsert.do", new MemberInsertAction());
-		
+		map.put("/eventlist.do", new EventListAction());
 		
 		
 		
