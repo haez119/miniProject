@@ -60,28 +60,28 @@ $(()=>{
   
           <tr>
              <th>지점명 &nbsp;</th>
-             <td><input type="text" name ="branch_name" value="${thVO.branch_name}"> </td>
+             <td><input type="text" name ="branch_name" value="${thVO.branch_name}" readonly="readonly"> </td>
           </tr>
          <tr>
              <th>예약일자 &nbsp;</th>
-             <td><input type="text"name="date" value= "${param.date}"> </td>
+             <td><input type="text"name="date" value= "${param.date}" readonly="readonly"> </td>
           </tr>
          <tr>
              <th>예약시간</th>
              <td><input type="text" value="${fn:substring(param.time,0,2)}:${fn:substring(param.time,2,4)}">
-             <input type="hidden"name="time" value="${param.time}"></td>
+             <input type="hidden"name="time" value="${param.time}" readonly="readonly"></td>
           </tr>
           <tr>
              <th>테마명 &nbsp;</th>
-             <td><input type="text" name="thema_name" value="${thVO.thema_name}"></td>
+             <td><input type="text" name="thema_name" value="${thVO.thema_name}" readonly="readonly"></td>
           </tr>
          <tr>
              <th>예약자 &nbsp;</th>
-             <td><input type="text" name="name" value="${name}"></td>
+             <td><input type="text" name="name" value="${name}" readonly="readonly"></td>
           </tr>
           <tr>
              <th>연락처 &nbsp;</th>
-             <td><input type="text" name="phone" value="${meVo.phone}"></td>
+             <td><input type="text" name="phone" value="${meVo.phone}" readonly="readonly"></td>
           </tr>
          <tr>
              <th>인원 &nbsp;</th>
@@ -97,12 +97,12 @@ $(()=>{
              <th>가격 &nbsp;</th>
              <td id='price' name="price">20,000원</td>
              <input type='hidden'name='price' id='price2'>
-             <input type='hidden' name='thema_no'value='${thVO.thema_no }'>
+             <input type='hidden' name='thema_no'value='${thVO.thema_no }' readonly="readonly">
              
           </tr>   
          <tr>
              <th>결제여부 &nbsp;</th>
-             <td><input type="text" name='payment'value="미결"></td>
+             <td><input type="text" name='payment'value="미결" readonly="readonly"></td>
               
   
        </table>
