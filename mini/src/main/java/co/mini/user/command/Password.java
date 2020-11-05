@@ -16,12 +16,15 @@ public class Password implements Action {
 		String password = (String) session.getAttribute("password");
 
 		String pw = request.getParameter("pw");
-
+		
+		String test = null;
 
 		if(password.equals(pw)) {			
 			return "/reservUp.do"; // 회원정보 페이지
 		} else {
-			return "jsp/user/passwordFail.jsp"; // 비밀번호 틀림 페이지
+			test = "test";
+			request.setAttribute("test", test); 
+			return "jsp/user/memberPW.jsp"; 
 		}
 	}
 

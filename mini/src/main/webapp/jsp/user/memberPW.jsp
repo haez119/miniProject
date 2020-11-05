@@ -7,7 +7,18 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
 
+	$(document).ready(function() {
+		$('#btnOk').on('click', function() {
+			
+			if('${test}' != "test") {
+				alert("비밀번호가 틀렸습니다.");
+			}
+		});
+	});
+	
+</script>
 </head>
 
 <body>
@@ -19,8 +30,7 @@
 	<input id="pw" name="pw" type="password"><p></p>
 	<button type="submit" class="btn btn-outline-light" id="btnOk">확인</button>
  </form>
- 
- 
+
 </div>
 </body>
 </html>
