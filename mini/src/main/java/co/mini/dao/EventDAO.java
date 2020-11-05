@@ -17,7 +17,8 @@ public class EventDAO extends DAO {
 	
 	private final String SELECT_ALL = "select e.event_no, o.branch_name, e.event_name, e.event_content \r\n" + 
 			"from event e join onwer o\r\n" + 
-			"on(e.branch_no = o.branch_no)";
+			"on(e.branch_no = o.branch_no) "
+			+ "order by 1";
 	
 	public List<EventVO> selectAll() {
 		List<EventVO> list = new ArrayList<EventVO>();

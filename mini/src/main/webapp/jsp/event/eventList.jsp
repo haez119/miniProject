@@ -11,6 +11,9 @@ th {
 background-color : #eeeeee;
 text-align: center;
 }
+td {
+color: white;
+}
 </style>
 </head>
 <body>
