@@ -24,7 +24,7 @@
     }
 </script>
 
-<link rel="stylesheet" href="/mini/css/main2.css">
+<link rel="stylesheet" href="/mini/css/board.css">
 <style>
 
 </style>
@@ -58,13 +58,14 @@
 			<tbody>
 				<!-- 게시물이 출력될 영역 -->
 				<!--  / el표기 /   -->
-				<c:forEach var="bo" items="${board}">
+				<c:forEach items="${board}" var="bo" >
 					<tr>
-						<td>${param.no}</td>
-						<!-- <td>${bo.category}</td> -->
+						<td>${bo.no}</td>
 						<td>${bo.title}</td>
 						<td>${bo.content}</td>
 						<td>${bo.id}</td>
+						<!-- <td>${bo.hit}</td>  이거는 넣어야 함-->
+						<!-- <td>${bo.category}</td> -->
 						<!-- <td>${bo.show}</td> -->
 						<!-- <td>${bo.answer}</td> -->
 					</tr>

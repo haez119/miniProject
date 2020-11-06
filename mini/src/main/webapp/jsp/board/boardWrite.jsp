@@ -12,18 +12,24 @@
 	}
 
 	function formCheck() {
-		var title = document.forms[0].title.value;
-		var writer = document.forms[0].writer.value;
+		var title = document.forms[0].name.value;
+		var writer = document.forms[0].password.value;
+		var content = document.forms[0].title.value;
 		var content = document.forms[0].content.value;
 
-		if (title == null || title == "") {
-			alert('제목을 입력하세요.');
-			document.forms[0].title.focus();
+		if (title == null || name == "") {
+			alert('이름을 입력하세요.');
+			document.forms[0].name.focus();
 			return false;
 		}
-		if (writer == null || writer == "") {
-			alert('작성자를 입력하세요.');
-			document.forms[0].writer.focus();
+		if (writer == null || password == "") {
+			alert('비밀번호를 입력하세요.');
+			document.forms[0].password.focus();
+			return false;
+		}
+		if (content == null || title == "") {
+			alert('제목을 입력하세요.');
+			document.forms[0].title.focus();
 			return false;
 		}
 		if (content == null || content == "") {
@@ -35,6 +41,9 @@
 	//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </script>
 <style>
+table {
+	margin: auto;
+}
 strong {
 	font-size: 11px;
 	font-weight: bold;
@@ -44,22 +53,22 @@ strong {
 </style>
 </head>
 <body>
-	<form name="frm" id="frm" method="post" action="boardInsert.do">
+	<form name="frm" id="frm" method="post" action="boardInsert.do" onsubmit="return formCheck()">
 		<table width="700" border="3" bordercolor="white" align="center">
 			<tr>
 				<td id="name">이름<strong class="importent">(필수)</strong>
 				</td>
-				<td><input type="text" name="name" value="#" size="10"
+				<td><input type="text" name="name" value="${vo.name}" size="10"
 					maxlength="20"></td>
 			</tr>
 			<tr>
 				<td id="password">비밀번호<strong class="importent">(필수)</strong></td>
 				<td><input type="text" name="password" size="10" maxlength="20"
-					value="#" /></td>
+					value="${vo.password}" /></td>
 			</tr>
 			<tr>
 				<td id="title">제목<strong class="importent">(필수)</strong></td>
-				<td><input type="text" name="title" value="" size="50"
+				<td><input type="text" name="title" value="${vo.title}" size="50"
 					maxlength="255"></td>
 			</tr>
 			<tr>
@@ -72,11 +81,11 @@ strong {
 			</tr>
 			<tr>
 				<td id="date">날짜</td>
-				<td><input name="info_Date" type="date" value="#"></td>
+				<td><input name="info_Date" type="date" value="${vo.date}"></td>
 			</tr>
 			<tr>
 				<td id="title">내용<strong class="importent">(필수)</strong></td>
-				<td><input type="text" name="title" value="" size="50"
+				<td><input type="text" name="title" value="${vo.content}" size="50"
 					maxlength="65536" style="width: 550px; height: 250px"></td>
 			</tr>
 
