@@ -83,7 +83,6 @@
   			<img src='${pageContext.request.contextPath}/img/kEY.png' width='20px'>
   			</c:forEach>
   			<p>${themaDis.thema_intro }</p>
-  			<a href="reserveInsert.do" class="button">예약하기</a>
   			</div>
   			</td>
   			</tr>
