@@ -10,7 +10,10 @@ public class themaInsertForm implements Action {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		return "jsp/owner/themaInsert.jsp";
+		return "jsp/owner/themaInsert.jsp";  
+		
+		
+		
 	}
 
 }
