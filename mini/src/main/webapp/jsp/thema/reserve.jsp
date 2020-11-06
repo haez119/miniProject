@@ -27,6 +27,17 @@
   height: 80%;
 }
 
+input{
+	width: 200px;
+	background: rgb(56, 56, 56);
+	border-style:none;
+	color:white;
+	
+	}
+#회원 {
+ padding-top: 30px;
+}	
+
 </style>
 
 <script src="http://code.jquery.com/jquery-3.5.1.js" 
@@ -41,8 +52,8 @@ $(()=>{
     }
 	
 	$('#person').on('change',function(){
-		$("#price").html(comma($('#person option:checked').val()*20000)+'원');
-		$("#price2").val($('#person option:checked').val()*20000);
+		$("#price").html(comma($('#person option:checked').val()*20000*$('#rankSale').val())+'원');
+		$("#price2").val($('#person option:checked').val()*20000*$('#rankSale').val());
 	});
 	
 	
@@ -80,6 +91,26 @@ $(()=>{
              <td><input type="text" name="name" value="${name}" readonly="readonly"></td>
           </tr>
           <tr>
+             <th>회원등급 &nbsp;</th>
+             <td>
+             <input type="text" name="rank" value="${meVo.rank}" readonly="readonly">
+             <c:choose>
+             <c:when test="${meVo.rank=='Silver'}">
+             <input type="hidden" id="rankSale" value=0.95>
+             </c:when>
+             <c:when test="${meVo.rank=='Gold'}">
+             <input type="hidden" id="rankSale" value=0.90>
+             </c:when>
+             <c:when test="${meVo.rank=='VIP'}">
+             <input type="hidden" id="rankSale" value=0.85>
+             </c:when>
+              <c:otherwise>
+              <input type="hidden" id="rankSale" value=1>
+              </c:otherwise>
+             </c:choose>
+             </td>
+          </tr>
+          <tr>
              <th>연락처 &nbsp;</th>
              <td><input type="text" name="phone" value="${meVo.phone}" readonly="readonly"></td>
           </tr>
@@ -95,12 +126,41 @@ $(()=>{
           </tr>   
          <tr>
              <th>가격 &nbsp;</th>
+            
+             <c:choose>
+             <c:when test="${meVo.rank=='Silver'}">
+             <td id='price' name="price">19,000원</td>
+             </c:when>
+             <c:when test="${meVo.rank=='Gold'}">
+             <td id='price' name="price">18,000원</td>
+             </c:when>
+             <c:when test="${meVo.rank=='VIP'}">
+              <td id='price' name="price">17,000원</td>
+             </c:when>
+             <c:otherwise>
              <td id='price' name="price">20,000원</td>
-             <input type='hidden'name='price' id='price2'>
+             </c:otherwise>
+             </c:choose>
+            
+             <c:choose>
+             <c:when test="${meVo.rank=='Silver'}">
+           	 <input type='hidden'name='price' id='price2' value="19000">
+             </c:when>
+             <c:when test="${meVo.rank=='Gold'}">
+             <input type='hidden'name='price' id='price2' value="18000">
+             </c:when>
+             <c:when test="${meVo.rank=='VIP'}">
+             <input type='hidden'name='price' id='price2' value="17000">
+             </c:when>
+             <c:otherwise>
+             <input type='hidden'name='price' id='price2' value="20000">
+             </c:otherwise>
+             </c:choose>	
+            
              <input type='hidden' name='thema_no'value='${thVO.thema_no }' readonly="readonly">
              
-          </tr>   
-         <tr>
+         	 </tr>   
+        	 <tr>
              <th>결제여부 &nbsp;</th>
              <td><input type="text" name='payment'value="미결" readonly="readonly"></td>
               
@@ -109,7 +169,9 @@ $(()=>{
        <div align="right">
        <button type='submit'>예약하기</button>
        <button type='reset'>취소하기</button>
+       
        </div>
+       <img id='회원' src='${pageContext.request.contextPath}/img/회원정보.PNG' height='200px' width='100%' >
        </form>
        </div>
       
@@ -124,5 +186,7 @@ $(()=>{
       </div>
       </div>
    </div>
+   
+    
 </body>
 </html>

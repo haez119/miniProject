@@ -6,47 +6,41 @@
 <head>
 <meta charset="UTF-8">
 <title>이벤트 확인</title>
-
+<style>
+th {
+background-color : #eeeeee;
+text-align: center;
+}
+td {
+color: white;
+}
+</style>
 </head>
-
 <body>
-	<div>
-		<a href="${pageContext.request.contextPath}/eventlist.do"></a>
 		<table class="table table-striped"
 			style="text-align: center; border: 1px solid">
 
 			<thead>
-
 				<tr>
-
-					<th style="background-color: #eeeeee; text-align: center;">지점번호</th>
-					<th style="background-color: #eeeeee; text-align: center;">이벤트번호</th>
-					<th style="background-color: #eeeeee; text-align: center;">이벤트명</th>
-					<th style="background-color: #eeeeee; text-align: center;">이미지경로</th>
-					<th style="background-color: #eeeeee; text-align: center;">이벤트내용</th>
-					<th style="background-color: #eeeeee; text-align: center;">이벤트기간</th>
-					<th style="background-color: #eeeeee; text-align: center;">할인율</th>
+					<th>이벤트번호</th>
+					<th>지점이름</th>
+					<th>이벤트명</th>
+					<th>이벤트내용</th>
+					
 				</tr>
 
 			</thead>
 			<tbody>
-				<c:forEach var="list" items="${eventList}" varStatus="status">
+				<c:forEach var="list" items="${event}" varStatus="status">
 					<tr>
-						<td><c:out value="${tableList.branch_no}" /></td>
-						<td><c:out value="${tableList.event_no}" /></td>
-						<td><c:out value="${tableList.event_name}" /></td>
-						<td><c:out value="${tableList.img}" /></td>
-						<td><c:out value="${tableList.event_content}" /></td>
-						<td><c:out value="${tableList.event_term}" /></td>
-						<td><c:out value="${tableList.sale}" /></td>
-
+						<td>${list.event_no }</td>
+						<td>${list.branch_name}</td>
+						<td>${list.event_name}</td>
+						<td>${list.event_content}</td>
 					</tr>
-
 				</c:forEach>
 
 			</tbody>
 		</table>
-	</div>
-
 </body>
 </html>
