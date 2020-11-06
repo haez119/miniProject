@@ -5,6 +5,7 @@ import java.util.List;
 public class ThemaVO {
 
 private String branch_name;
+private int branch_no;
 private int thema_no ;
 private String thema_name ;
 private String thema_img ;
@@ -15,6 +16,12 @@ private List<ScheduleVo> schedulelist;
 private String date;
 
 
+public int getBranch_no() {
+	return branch_no;
+}
+public void setBranch_no(int branch_no) {
+	this.branch_no = branch_no;
+}
 public String getDate() {
 	return date;
 }
