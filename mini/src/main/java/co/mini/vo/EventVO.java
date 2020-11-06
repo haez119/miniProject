@@ -10,8 +10,18 @@ public class EventVO {
 	private String event_content;
 	private Date start_event;
 	private Date last_event;
-
+	private int sale;
 	
+	
+	public int getSale() {
+		return sale;
+	}
+
+
+	public void setSale(int sale) {
+		this.sale = sale;
+	}
+
 	public Date getLast_event() {
 		return last_event;
 	}
