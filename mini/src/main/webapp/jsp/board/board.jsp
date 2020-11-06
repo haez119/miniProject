@@ -20,7 +20,7 @@
 		});
 	});
     function writeForm(){
-        location.href="infoWriteForm.do"; //글등록 버튼 이동
+        location.href="boardWrite.do"; //글등록 버튼 이동
     }
 </script>
 
@@ -62,9 +62,9 @@
 					<tr>
 						<td>${bo.no}</td>
 						<td>${bo.title}</td>
-						<td>${bo.content}</td>
 						<td>${bo.id}</td>
-						<!-- <td>${bo.hit}</td>  이거는 넣어야 함-->
+						<td>${bo.date}</td>
+						<td>${bo.hit}</td>
 						<!-- <td>${bo.category}</td> -->
 						<!-- <td>${bo.show}</td> -->
 						<!-- <td>${bo.answer}</td> -->

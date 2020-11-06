@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.mini.board.command.BoardAction;
 import co.mini.board.command.BoardUpdateAction;
 import co.mini.board.command.BoardWriteAction;
+import co.mini.board.command.BoardWriteFormAction;
 import co.mini.board.command.EventListAction;
 import co.mini.board.command.LoginAction;
 import co.mini.board.command.LoginForm;
@@ -92,7 +93,7 @@ public class FrontController extends HttpServlet {
 		//김시무
 		
 	      map.put("/board.do", new BoardAction());
-	      map.put("/boardInsert.do", new BoardWriteFormAction()); //게시판 글등록 페이지 이동
+	      map.put("/boardWrite.do", new BoardWriteFormAction()); //게시판 글등록 페이지 이동
 	      map.put("/boardInsert.do", new BoardWriteAction());  	  //게시판 글등록
 	      map.put("/boardUpdate.do", new BoardUpdateAction());	  //게시판 글수정		
 	      

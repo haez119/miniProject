@@ -22,11 +22,6 @@
 			document.forms[0].name.focus();
 			return false;
 		}
-		if (writer == null || password == "") {
-			alert('비밀번호를 입력하세요.');
-			document.forms[0].password.focus();
-			return false;
-		}
 		if (content == null || title == "") {
 			alert('제목을 입력하세요.');
 			document.forms[0].title.focus();
@@ -60,11 +55,6 @@ strong {
 				</td>
 				<td><input type="text" name="name" value="${vo.name}" size="10"
 					maxlength="20"></td>
-			</tr>
-			<tr>
-				<td id="password">비밀번호<strong class="importent">(필수)</strong></td>
-				<td><input type="text" name="password" size="10" maxlength="20"
-					value="${vo.password}" /></td>
 			</tr>
 			<tr>
 				<td id="title">제목<strong class="importent">(필수)</strong></td>
