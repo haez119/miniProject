@@ -1,14 +1,35 @@
 package co.mini.vo;
 
+import java.util.Date;
+
 public class EventVO {
 
 	private int event_no;
 	private String branch_name;
 	private String event_name;
 	private String event_content;
+	private Date start_event;
+	private Date last_event;
+
 	
+	public Date getLast_event() {
+		return last_event;
+	}
+
+	public void setLast_event(Date last_event) {
+		this.last_event = last_event;
+	}
+
+	public Date getStart_event() {
+		return start_event;
+	}
+
+	public void setStart_event(Date start_event) {
+		this.start_event = start_event;
+	}
+
 	public EventVO() {
-		
+	
 	}
 
 	public int getEvent_no() {
