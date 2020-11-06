@@ -35,12 +35,12 @@
 					
 					<tr>
 						<th width="150"> 테마이미지 </th>
-						<td><input type="file" id="img" name="img"></td>
+						<td><input type="file" id="thema_img" name="thema_img"></td>
 					</tr>
 					
 					<tr>
 						<th width="150"> 테마소개 </th>
-						<td><input type="text" id="name" name="name"></td>
+						<td><textarea rows="10" cols="50" id="thema_intro" name="thema_intro"></textarea></td>
 					</tr>
 					<tr>
 						<th width="150"> 난이도 </th>

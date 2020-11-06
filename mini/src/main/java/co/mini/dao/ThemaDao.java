@@ -202,17 +202,18 @@ public class ThemaDao extends DAO {
 	
 	
 	//테마등록
-	private final String INSERT_Thema = "insert into thema values(?,thema_Seq.nextval,?,?,?,?,?)";
+	private final String INSERT_Thema = "insert into thema values(?,?,?,?,?,?,?)";
 	public int insert_Thema(ThemaVO vo) { // 추가하기
 		int n = 0;
 		try {
-			psmt = conn.prepareStatement(INSERT);
+			psmt = conn.prepareStatement(INSERT_Thema);
 			psmt.setInt(1, vo.getBranch_no());
-			psmt.setString(2, vo.getThema_name());
-			psmt.setString(3, vo.getThema_img());
-			psmt.setString(4, vo.getThema_intro());
-			psmt.setInt(5, vo.getLevel2());
-			psmt.setInt(6, vo.getMax_per());
+			psmt.setInt(2, vo.getThema_no());
+			psmt.setString(3, vo.getThema_name());
+			psmt.setString(4, vo.getThema_img());
+			psmt.setString(5, vo.getThema_intro());
+			psmt.setInt(6, vo.getLevel2());
+			psmt.setInt(7, vo.getMax_per());
 			n = psmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -221,11 +222,11 @@ public class ThemaDao extends DAO {
 		return n;
 	}
 	//스케줄러 추가 
-	private final String INSERT_Schedule= "insert into thema values(?,?)";
+	private final String INSERT_Schedule= "insert into schedule values(?,?)";
 	public int insert_Schedule(ScheduleVo vo) { // 추가하기
 		int n = 0;
 		try {
-			psmt = conn.prepareStatement(INSERT);
+			psmt = conn.prepareStatement(INSERT_Schedule);
 			psmt.setInt(1, vo.getThema_no());
 			psmt.setString(2, vo.getTime());
 			n = psmt.executeUpdate();
@@ -245,9 +246,9 @@ public class ThemaDao extends DAO {
 			psmt = conn.prepareStatement(MaxThema); // DAO를 상속받고 있어서 conn 정의 안해줘도 사용 가능
 			rs = psmt.executeQuery(); //executeQuery는 반환값이 resultSet, executeUpdate는 반환값이 int타입
 			
-			while (rs.next()) {
+			if (rs.next()) {
 				
-				n=rs.getInt("thema_no");
+				n=rs.getInt("max(thema_no)+1");
 			}
 		}catch( SQLException e) {
 			e.printStackTrace();

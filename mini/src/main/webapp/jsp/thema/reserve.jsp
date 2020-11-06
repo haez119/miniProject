@@ -94,14 +94,15 @@ $(()=>{
              <th>회원등급 &nbsp;</th>
              <td>
              <input type="text" name="rank" value="${meVo.rank}" readonly="readonly">
-             <c:choose>
-             <c:when test="${meVo.rank=='Silver'}">
+             
+             <c:if test="${meVo.rank eq 'Silver'}">
              <input type="hidden" id="rankSale" value=0.95>
-             </c:when>
-             <c:when test="${meVo.rank=='Gold'}">
+             </c:if>
+             <c:choose>
+             <c:when test="${meVo.rank eq 'Gold'}">
              <input type="hidden" id="rankSale" value=0.90>
              </c:when>
-             <c:when test="${meVo.rank=='VIP'}">
+             <c:when test="${meVo.rank eq 'VIP'}">
              <input type="hidden" id="rankSale" value=0.85>
              </c:when>
               <c:otherwise>
@@ -126,15 +127,15 @@ $(()=>{
           </tr>   
          <tr>
              <th>가격 &nbsp;</th>
-            
+ 
              <c:choose>
-             <c:when test="${meVo.rank=='Silver'}">
+             <c:when test="${meVo.rank eq 'Silver'}">
              <td id='price' name="price">19,000원</td>
              </c:when>
-             <c:when test="${meVo.rank=='Gold'}">
+             <c:when test="${meVo.rank eq 'Gold'}">
              <td id='price' name="price">18,000원</td>
              </c:when>
-             <c:when test="${meVo.rank=='VIP'}">
+             <c:when test="${meVo.rank eq 'VIP'}">
               <td id='price' name="price">17,000원</td>
              </c:when>
              <c:otherwise>
@@ -143,13 +144,13 @@ $(()=>{
              </c:choose>
             
              <c:choose>
-             <c:when test="${meVo.rank=='Silver'}">
+             <c:when test="${meVo.rank eq Silver}">
            	 <input type='hidden'name='price' id='price2' value="19000">
              </c:when>
-             <c:when test="${meVo.rank=='Gold'}">
+             <c:when test="${meVo.rank eq Gold}">
              <input type='hidden'name='price' id='price2' value="18000">
              </c:when>
-             <c:when test="${meVo.rank=='VIP'}">
+             <c:when test="${meVo.rank eq VIP}">
              <input type='hidden'name='price' id='price2' value="17000">
              </c:when>
              <c:otherwise>
