@@ -26,6 +26,7 @@ import co.mini.common.Action;
 import co.mini.owner.command.OwnerInsertAction;
 import co.mini.owner.command.ReservPageAction;
 import co.mini.owner.command.ownerLogin;
+import co.mini.owner.command.ownerThemaListAction;
 import co.mini.owner.command.themaInsertAction;
 import co.mini.owner.command.themaInsertForm;
 import co.mini.thema.command.reserveAction;
@@ -85,7 +86,7 @@ public class FrontController extends HttpServlet {
 		map.put("/reserveList.do",new reserveListAction());
 		map.put("/themaInsert.do",new themaInsertAction());
 		map.put("/themaInsertForm.do",new themaInsertForm());
-		
+		map.put("/ownerThemaList.do",new ownerThemaListAction());
 		//임성은
 		map.put("/loginPage.do", new LoginForm());
 		map.put("/login.do", new LoginAction()); // 로그인 하면 넘어가는 페이지
