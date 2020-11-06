@@ -61,7 +61,7 @@ public class themaInsertAction implements Action {
 			if(n !=0) {
 			page = "reserveList.do"; // 성공하면 리스트 화면 보여주기
 			} else {
-			page = "jsp/owner/thema_insert.jsp"; // 실패하면 fail 페이지 보여주기
+			page = "jsp/owner/themaInsert.jsp"; // 실패하면 fail 페이지 보여주기
 			request.setAttribute("fail", "fail");
 			}
 

@@ -18,7 +18,7 @@
 			alert("테마 등록 실패");
 			</script>
 			</c:if>
-			<form id="frm" name="frm" action="#" method="post" enctype="multipart/form-data">
+			<form id="frm" name="frm" action="themaInsert.do" method="post" enctype="multipart/form-data">
 				<table border="1">
 					<tr>
 						<th width="150"> 지점번호 </th>
