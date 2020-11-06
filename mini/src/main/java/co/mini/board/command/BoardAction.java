@@ -19,6 +19,10 @@ public class BoardAction implements Action {
 		List<BoardVO> list = dao.selectAll();
 		request.setAttribute("board", list);
 		
+		for(int i=0 ;i<list.size();i++)
+			System.out.println(list);
+		
+		
 		return "jsp/board/board.jsp";
 	}
 

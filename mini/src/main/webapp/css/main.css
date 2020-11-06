@@ -12,13 +12,12 @@ div#topMenu {
 #topMenu .topmenuLink:hover {
 	color: red;
 	background-color: #4d4d4d;
-	
 }
 
 div#topMenu a {
 	color: white;
 	font-weight: bold;
-	font-family: "Trebuchet MS", Dotum, Arial
+	font-family: "Trebuchet MS", Dotum, Arial;
 }
 
 body {
