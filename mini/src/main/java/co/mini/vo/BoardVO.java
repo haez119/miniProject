@@ -1,5 +1,7 @@
 package co.mini.vo;
 
+import java.sql.Date;
+
 public class BoardVO {
 	private int no;
 	private String category;
@@ -8,23 +10,11 @@ public class BoardVO {
 	private String id;
 	private String show;
 	private String answer;
-
-	@Override
-	public String toString() {
-		return "BoardVO [no=" + no + ", category=" + category + ", title=" + title + ", content=" + content + ", id="
-				+ id + ", show=" + show + ", answer=" + answer + "]";
-	}
+	private int hit;
+	private Date bdate;
 
 	public BoardVO() {
 		// TODO Auto-generated constructor stub
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
 	}
 
 	public int getNo() {
@@ -41,6 +31,14 @@ public class BoardVO {
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getContent() {
@@ -75,4 +73,26 @@ public class BoardVO {
 		this.answer = answer;
 	}
 
+	public int getHit() {
+		return hit;
+	}
+
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
+
+	public Date getBdate() {
+		return bdate;
+	}
+
+	public void setBdate(Date bdate) {
+		this.bdate = bdate;
+	}
+
+	@Override
+	public String toString() {
+		return "BoardVO [no=" + no + ", category=" + category + ", title=" + title + ", content=" + content + ", id="
+				+ id + ", show=" + show + ", answer=" + answer + ", hit=" + hit + ", bdate=" + bdate + "]";
+	}
+	
 }

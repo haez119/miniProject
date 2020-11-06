@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.mini.board.command.BoardAction;
 import co.mini.board.command.BoardUpdateAction;
 import co.mini.board.command.BoardWriteAction;
+import co.mini.board.command.BoardWriteFormAction;
 import co.mini.board.command.EventListAction;
 import co.mini.board.command.LoginAction;
 import co.mini.board.command.LoginForm;
@@ -22,6 +23,7 @@ import co.mini.board.command.MemberForm;
 import co.mini.board.command.MemberInsertAction;
 import co.mini.board.command.reserveResultAction;
 import co.mini.common.Action;
+import co.mini.owner.command.OwnerInsertAction;
 import co.mini.owner.command.ReservPageAction;
 import co.mini.owner.command.ownerLogin;
 import co.mini.owner.command.themaInsertAction;
@@ -69,7 +71,9 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/ownerLogin.do", new ownerLogin() ); // 사장님 로그인 
 		map.put("/logout.do", new logout() ); // 로그아웃
-		map.put("/ownerReservPage.do", new ReservPageAction() );
+		map.put("/ownerReservPage.do", new ReservPageAction() ); // 사장 예약 정보
+		map.put("/ownerinsert.do", new OwnerInsertAction() ); // 사장 회원가입
+		
 		
 	
 		
@@ -100,7 +104,7 @@ public class FrontController extends HttpServlet {
 		//김시무
 		
 	      map.put("/board.do", new BoardAction());
-	      map.put("/boardInsert.do", new BoardWriteFormAction()); //게시판 글등록 페이지 이동
+	      map.put("/boardWrite.do", new BoardWriteFormAction()); //게시판 글등록 페이지 이동
 	      map.put("/boardInsert.do", new BoardWriteAction());  	  //게시판 글등록
 	      map.put("/boardUpdate.do", new BoardUpdateAction());	  //게시판 글수정		
 	      

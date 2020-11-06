@@ -1,16 +1,16 @@
-package co.mini.controllor;
+package co.mini.owner.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.mini.common.Action;
 
-public class BoardWriteFormAction implements Action {
+public class OwnerInsertAction implements Action {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		// 글등록 페이지 이동
-		return "jsp/admin/info/boardWrite.jsp.jsp";
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

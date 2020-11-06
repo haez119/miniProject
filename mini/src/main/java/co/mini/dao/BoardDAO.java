@@ -15,9 +15,8 @@ public class BoardDAO extends DAO {
 	private BoardVO vo;
 
 	private final String SELECT_ALL = "SELECT * FROM BOARD1";
-    private final String SELECT = "SELECT * FROM BOARD1 WHERE ID=?";
-	private final String INSERT = "INSERT INTO BOARD1 VALUES(NO,CATEGORY,TITLE,CONTENT,ID,SHOW,ANSWER)"
-			+ "VALUES(?,?,?,?,?,?,?)";
+	private final String SELECT = "SELECT * FROM BOARD1 WHERE ID=?";
+	private final String INSERT = "INSERT INTO BOARD1 VALUES(NO,TITLE,BDATE,HIT)" + "VALUES(?,?,?,?)";
 	private final String UPDATE = "UPDATE BOARD1 SET NO=?, CATEGORY=?, TITLE=?, CONTENT=?, SHOW=?, ANSWER=? WHERE ID=?";
 	private final String DELETE = "DELETE BOARD1 WHERE ID=?";
 
@@ -35,6 +34,8 @@ public class BoardDAO extends DAO {
 				vo.setId(rs.getString("id"));
 				vo.setShow(rs.getString("show"));
 				vo.setAnswer(rs.getNString("answer"));
+				vo.setHit(rs.getInt("hit"));
+				vo.setBdate(rs.getDate("bdate"));
 				list.add(vo);
 			}
 		} catch (SQLException e) {
@@ -42,12 +43,13 @@ public class BoardDAO extends DAO {
 		}
 		return list;
 	}
+
 	public BoardVO select(BoardVO vo) { // 한행만 조회
 		try {
 			psmt = conn.prepareStatement(SELECT);
-			psmt.setInt(1, vo.getNo()); //vo.getId()
+			psmt.setInt(1, vo.getNo()); // vo.getId()
 			rs = psmt.executeQuery();
-			if(rs.next())  {
+			if (rs.next()) {
 				vo.setNo(rs.getInt("no"));
 				vo.setCategory(rs.getString("category"));
 				vo.setTitle(rs.getString("title"));
@@ -55,14 +57,15 @@ public class BoardDAO extends DAO {
 				vo.setId(rs.getString("id"));
 				vo.setShow(rs.getString("show"));
 				vo.setAnswer(rs.getString("answer"));
-				
+				vo.setHit(rs.getInt("hit"));
+				vo.setBdate(rs.getDate("bdate"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return vo;
 	}
-	
+
 	public int insert(BoardVO vo) { // 입력기능
 		int n = 0;
 		try {
@@ -74,11 +77,13 @@ public class BoardDAO extends DAO {
 			psmt.setString(5, vo.getId());
 			psmt.setString(6, vo.getShow());
 			psmt.setString(7, vo.getAnswer());
+			psmt.setInt(8, vo.getHit());
+			psmt.setDate(9, vo.getBdate());
 			n = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return n; //건수 확인
+		return n; // 건수 확인
 	}
 
 	public int update(BoardVO vo) { // 수정기능
@@ -92,18 +97,21 @@ public class BoardDAO extends DAO {
 			psmt.setString(5, vo.getId());
 			psmt.setString(6, vo.getShow());
 			psmt.setString(7, vo.getAnswer());
+			psmt.setInt(8, vo.getHit());
+			psmt.setDate(9, vo.getBdate());
 			n = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return n;
 	}
-	public int delete(BoardVO vo) { //삭제기능
+
+	public int delete(BoardVO vo) { // 삭제기능
 		int n = 0;
 		try {
 			psmt = conn.prepareStatement(DELETE);
 //			psmt.setInt(1, vo.getNo()); 	//번호로 삭제?
-			psmt.setString(1, vo.getId());	//아이디로 삭제?
+			psmt.setString(1, vo.getId()); // 아이디로 삭제?
 			n = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

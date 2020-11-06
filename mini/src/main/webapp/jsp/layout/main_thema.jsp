@@ -24,7 +24,7 @@
 					<li>|</li>	
 					<li><a class="menuLink" href="#">공지사항</a></li>				
 					<li>|</li>	
-					<li><a class="menuLink" href="#">리뷰/Q&A</a></li>
+					<li><a class="menuLink" href="${pageContext.request.contextPath}/board.do">리뷰/Q&A</a></li>
 					<%-- <li>|</li>	
 					<li><a class="menuLink" href="${pageContext.request.contextPath}/reservation.do">마이페이지</a></li> --%>
 					<!-- <li>|</li>

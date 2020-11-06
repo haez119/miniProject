@@ -1,6 +1,7 @@
 package co.mini.board.command;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,14 +17,11 @@ public class BoardWriteAction implements Action {
 		BoardDAO dao = new BoardDAO();
 		BoardVO vo = new BoardVO();
 
-//		vo.setNo(request.parseInt(getParameter("no")));
-		vo.setCategory(request.getParameter("category"));
 		vo.setTitle(request.getParameter("title"));
+		vo.setCategory(request.getParameter("category"));
+		vo.setBdate(Date.valueOf(request.getParameter("bdate")));
 		vo.setContent(request.getParameter("content"));
-		vo.setId(request.getParameter("id"));
-		vo.setAnswer(request.getParameter("answer"));
-		vo.setShow(request.getParameter("show"));
-
+		
 		dao.insert(vo);
 
 		try {
