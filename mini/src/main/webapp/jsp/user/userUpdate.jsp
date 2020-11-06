@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+
 .left-box {
   color: black;
   padding-top: 30px;
@@ -143,9 +144,7 @@
 			<input type="button"  class="btn btn-outline-light" value="수정"  id="btnUpdate" />
 			<input type="reset"  class="btn btn-outline-light" value="취소"/>
 		 </div>
-
-
-
+		
 	</div>
 </form>
 

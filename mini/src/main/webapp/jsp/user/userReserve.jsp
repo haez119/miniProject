@@ -8,7 +8,9 @@
 <meta charset="UTF-8">
 <title>예약정보</title>
 <style>
-
+#rank {
+	color: white;
+}
 
 .left-box {
   color: black;
@@ -58,6 +60,10 @@
 		 		<td> ${reserv.name} </td>
 		 	</tr>
 		 	<tr>
+		 		<th>등급 &nbsp;</th>
+		 		<td> ${reserv.rank} </td>
+		 	</tr>
+		 	<tr>
 		 		<th>연락처 &nbsp;</th>
 		 		<td> ${reserv.phone }</td>
 		 	</tr>
@@ -77,7 +83,6 @@
 		 </table>
 		 </div>
 		
-		
 		<div class="left-box">
 		<div style="background-color: white; padding: 30px;">
 			<h3>내 정보</h3>
@@ -85,6 +90,11 @@
 			<a href="${pageContext.request.contextPath}/reservation.do">예약정보</a><br>
 		</div>
 		</div>
+		<img class="right-box" alt="rank" src="${pageContext.request.contextPath}/img/회원정보.PNG">
 	</div>
+	
+	
+	
+	
 </body>
 </html>

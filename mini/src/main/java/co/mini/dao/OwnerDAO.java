@@ -50,37 +50,41 @@ public class OwnerDAO extends DAO {
 	
 	
 	// 세션에 있는 지점번호를 이용하여 조인
-	private final String RESERV_SELECT = "SELECT T.THEMA_NAME, R.ID, R.RESERVDATE, R.PRICE, R.PAYMENT, R.TIME, T.BRANCH_NO  " 
-										+  "FROM THEMA T , RESERVATION R  " 
-										+  "WHERE T.THEMA_NO = R.THEMA_NO  " 
-										+  "AND T.BRANCH_NO = ? ";
+	private final String RESERV_SELECT = "SELECT  R.RESERVDATE, R.TIME, r.id, m.name, m.phone, T.THEMA_NAME,  R.PRICE, R.PAYMENT, m.rank " + 
+										  "FROM THEMA T , RESERVATION R , member m  " + 
+										  "WHERE T.THEMA_NO = R.THEMA_NO " + 
+										  "and r.id = m.id  " + 
+										  "AND T.BRANCH_NO = ? " + 
+										  "order by r.RESERVDATE desc" ;
 	
 	
 	
-	public ArrayList<HashMap<String, Object>> selectMap(String b_no) {
+	public ArrayList<HashMap<String, Object>> selectMap(int b_no) {
 		
 		ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
 		HashMap<String, Object> map;
 		
 		try {
 			psmt = conn.prepareStatement(RESERV_SELECT);
-			psmt.setString(1,b_no);
+			psmt.setInt(1,b_no);
+			
+			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
 				
 				map = new HashMap<String, Object>();
 				
-				map.put("thema_name", rs.getString("THEMA_NAME"));
-				map.put("id", rs.getString("ID"));
 				map.put("reservdate", rs.getString("RESERVDATE"));
+				map.put("time", rs.getString("TIME"));
+				map.put("id", rs.getString("id"));
+				map.put("name", rs.getString("name"));
+				map.put("phone", rs.getString("phone"));
+				map.put("thema_name", rs.getString("THEMA_NAME"));
 				map.put("price", rs.getString("PRICE"));
 				map.put("payment", rs.getString("PAYMENT"));
-				map.put("time", rs.getString("TIME"));
-				map.put("branch_no", rs.getString("BRANCH_NO"));
+				map.put("rank", rs.getString("rank"));
 
-				list.add(map);
-				
-				
+				list.add(map);	
 			}
 			
 			

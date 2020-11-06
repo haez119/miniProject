@@ -17,7 +17,8 @@ public class ReservPageAction implements Action {
 		
 		
 		HttpSession session = request.getSession(false);
-		String b_no = (String) session.getAttribute("branch_no");
+		int b_no = (int) session.getAttribute("branch_no");
+		System.out.println(b_no);
 		
 		OwnerDAO dao = new OwnerDAO();
 		ArrayList<HashMap<String, Object>> list = dao.selectMap(b_no);
