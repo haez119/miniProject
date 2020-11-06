@@ -16,7 +16,7 @@ public class BoardDAO extends DAO {
 
 	private final String SELECT_ALL = "SELECT * FROM BOARD1";
 	private final String SELECT = "SELECT * FROM BOARD1 WHERE ID=?";
-	private final String INSERT = "INSERT INTO BOARD1 VALUES(NO,TITLE,ID,BDATE,HIT)" + "VALUES(?,?,?,?,?)";
+	private final String INSERT = "INSERT INTO BOARD1 VALUES(NO,TITLE,BDATE,HIT)" + "VALUES(?,?,?,?)";
 	private final String UPDATE = "UPDATE BOARD1 SET NO=?, CATEGORY=?, TITLE=?, CONTENT=?, SHOW=?, ANSWER=? WHERE ID=?";
 	private final String DELETE = "DELETE BOARD1 WHERE ID=?";
 
@@ -35,7 +35,7 @@ public class BoardDAO extends DAO {
 				vo.setShow(rs.getString("show"));
 				vo.setAnswer(rs.getNString("answer"));
 				vo.setHit(rs.getInt("hit"));
-				vo.setDate(rs.getDate("bdate"));
+				vo.setBdate(rs.getDate("bdate"));
 				list.add(vo);
 			}
 		} catch (SQLException e) {
@@ -58,7 +58,7 @@ public class BoardDAO extends DAO {
 				vo.setShow(rs.getString("show"));
 				vo.setAnswer(rs.getString("answer"));
 				vo.setHit(rs.getInt("hit"));
-				vo.setDate(rs.getDate("bdate"));
+				vo.setBdate(rs.getDate("bdate"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -78,7 +78,7 @@ public class BoardDAO extends DAO {
 			psmt.setString(6, vo.getShow());
 			psmt.setString(7, vo.getAnswer());
 			psmt.setInt(8, vo.getHit());
-			psmt.setDate(9, vo.getDate());
+			psmt.setDate(9, vo.getBdate());
 			n = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -98,7 +98,7 @@ public class BoardDAO extends DAO {
 			psmt.setString(6, vo.getShow());
 			psmt.setString(7, vo.getAnswer());
 			psmt.setInt(8, vo.getHit());
-			psmt.setDate(9, vo.getDate());
+			psmt.setDate(9, vo.getBdate());
 			n = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

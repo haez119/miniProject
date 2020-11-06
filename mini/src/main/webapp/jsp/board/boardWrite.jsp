@@ -66,7 +66,7 @@ strong {
 			</tr>
 			<tr>
 				<td>날짜</td>
-				<td><input name="info_Date" type="date" value=""></td>
+				<td><input name="bdate" type="date" value=""></td>
 			</tr>
 			<tr>
 				<td>내용<strong class="importent">(필수)</strong></td>

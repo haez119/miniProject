@@ -63,7 +63,7 @@
 						<td>${bo.no}</td>
 						<td>${bo.title}</td>
 						<td>${bo.id}</td>
-						<td>${bo.date}</td>
+						<td>${bo.bdate}</td>
 						<td>${bo.hit}</td>
 						<!-- <td>${bo.category}</td> -->
 						<!-- <td>${bo.show}</td> -->

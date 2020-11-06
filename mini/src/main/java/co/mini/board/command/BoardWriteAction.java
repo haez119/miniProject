@@ -19,7 +19,7 @@ public class BoardWriteAction implements Action {
 
 		vo.setTitle(request.getParameter("title"));
 		vo.setCategory(request.getParameter("category"));
-		vo.setDate(Date.valueOf(request.getParameter("bdate")));
+		vo.setBdate(Date.valueOf(request.getParameter("bdate")));
 		vo.setContent(request.getParameter("content"));
 		
 		dao.insert(vo);
