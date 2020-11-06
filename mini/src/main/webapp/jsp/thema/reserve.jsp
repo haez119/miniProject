@@ -166,6 +166,7 @@ $(()=>{
        <div align="right">
        <button type='submit'>예약하기</button>
        <button type='reset'>취소하기</button>
+       
        </div>
        </form>
        </div>
@@ -181,5 +182,7 @@ $(()=>{
       </div>
       </div>
    </div>
+   
+    <div align="center"><img src='${pageContext.request.contextPath}/img/회원정보.png' height='400px' width='800px'></div>
 </body>
 </html>
