@@ -23,10 +23,11 @@ color: white;
 			<thead>
 				<tr>
 					<th>이벤트번호</th>
-					<th>지점이름</th>
+					<th>지점명</th>
 					<th>이벤트명</th>
 					<th>이벤트내용</th>
-					
+					<th>시작일</th>
+					<th>종료일</th>
 				</tr>
 
 			</thead>
@@ -37,6 +38,8 @@ color: white;
 						<td>${list.branch_name}</td>
 						<td>${list.event_name}</td>
 						<td>${list.event_content}</td>
+						<td>${list.start_event}</td>
+						<td>${list.last_event}</td>
 					</tr>
 				</c:forEach>
 

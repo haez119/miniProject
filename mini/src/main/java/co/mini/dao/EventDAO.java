@@ -15,10 +15,10 @@ public class EventDAO extends DAO {
 	private ResultSet rs; // select 후에 결과셋 받기
 	private EventVO vo;
 	
-	private final String SELECT_ALL = "select e.event_no, o.branch_name, e.event_name, e.event_content \r\n" + 
-			"from event e join onwer o\r\n" + 
-			"on(e.branch_no = o.branch_no) "
-			+ "order by 1";
+	private final String SELECT_ALL = "select e.event_no, o.branch_name, e.event_name, e.event_content, e.start_event, e.start_event + event_term as last_event from event e join onwer o\r\n" + 
+			"on(e.branch_no = o.branch_no)";
+			
+		
 	
 	public List<EventVO> selectAll() {
 		List<EventVO> list = new ArrayList<EventVO>();
@@ -31,6 +31,8 @@ public class EventDAO extends DAO {
 				vo.setBranch_name(rs.getString("branch_name"));
 				vo.setEvent_name(rs.getString("event_name"));
 				vo.setEvent_content(rs.getString("event_content"));
+				vo.setStart_event(rs.getDate("start_event"));
+				vo.setLast_event(rs.getDate("last_event"));
 				list.add(vo);
 			}
 
