@@ -17,19 +17,12 @@ td {
 }
 </style>
 </head>
-
 <body>
-<div class="circle" style="display:none">
-		<a href="#"><img
-			src="${pageContext.request.contextPath}/img/공지.png"
-			class="rounded-circle" alt="Cinque Terre" width="80" height="60"></a>&nbsp;&nbsp;
-		<a href="#"><img
-			src="${pageContext.request.contextPath}/img/QA.jpg"
-			class="rounded-circle" alt="Cinque Terre" width="80" height="60"></a>&nbsp;&nbsp;
-		<a href="#"><img
-			src="${pageContext.request.contextPath}/img/리뷰.jpg"
-			class="rounded-circle" alt="Cinque Terre" width="80" height="60"></a>
-	</div>
+<div id="displayDiv" style="display:none">
+        <img src="${pageContext.request.contextPath}/img/할로윈_event.jpg" width="400" height="300">
+    </div>   
+
+
 	<table class="table table-striped"
 		style="text-align: center; border: 1px solid">
 
@@ -47,8 +40,8 @@ td {
 		</thead>
 		<tbody>
 			<c:forEach var="list" items="${event}" varStatus="status">
-				<tr>
-					<td id="td">${list.event_no }</td>
+				<tr id="td">
+					<td >${list.event_no }</td>
 					<td >${list.branch_name}</td>
 					<td >${list.event_name}</td>
 					<td >${list.event_content}</td>
@@ -57,8 +50,26 @@ td {
 					<td >${list.sale}%</td>
 				</tr>
 			</c:forEach>
-
 		</tbody>
 	</table>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+
+        jQuery("#td").click(function() {
+
+            if(jQuery("#displayDiv").css("display") == "none") {
+
+                jQuery("#displayDiv").css("display", "block");
+            }
+           
+            else {
+
+                jQuery("#displayDiv").css("display", "none");
+            }
+        });
+        
+    });
+</script>
 </body>
 </html>
