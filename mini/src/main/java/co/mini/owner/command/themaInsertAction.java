@@ -35,7 +35,7 @@ public class themaInsertAction implements Action {
 		
 		try {
 			String addPath = request.getServletContext().getRealPath("/img");
-			Part part = request.getPart("img");
+			Part part = request.getPart("thema_img");
 			String fileName = FileUtil.extractFileName(part);
 			if(!fileName.equals("")) {
 			String uploadFile = addPath + File.separator + fileName; // File.separator 구분기호?
@@ -59,7 +59,7 @@ public class themaInsertAction implements Action {
 		
 			String page;
 			if(n !=0) {
-			page = "reserveList.do"; // 성공하면 리스트 화면 보여주기
+			page = "redirect:reserveList.do"; // 성공하면 리스트 화면 보여주기
 			} else {
 			page = "jsp/owner/themaInsert.jsp"; // 실패하면 fail 페이지 보여주기
 			request.setAttribute("fail", "fail");
@@ -67,7 +67,7 @@ public class themaInsertAction implements Action {
 
 		
 		
-		return "reserveList.do";
+		return page;
 	}
 
 }
