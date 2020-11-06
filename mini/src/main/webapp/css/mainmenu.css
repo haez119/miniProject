@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+*{margin: 0; padding: 0;}
+
 #topMenu {
 	height: 30px;
 	width: 1100px;
@@ -32,3 +34,5 @@
 	color: red;
 	background-color: #4d4d4d;
 }
+
+#page{width: 820px; margin: 0px auto;}
