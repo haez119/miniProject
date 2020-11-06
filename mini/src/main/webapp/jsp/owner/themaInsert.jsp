@@ -13,6 +13,11 @@
 	<div align="center">
 		<div><h1>테마등록</h1></div>
 		<div>
+			<c:if test="${fail ne null}">
+			<script>
+			alert("테마 등록 실패");
+			</script>
+			</c:if>
 			<form id="frm" name="frm" action="#" method="post" enctype="multipart/form-data">
 				<table border="1">
 					<tr>

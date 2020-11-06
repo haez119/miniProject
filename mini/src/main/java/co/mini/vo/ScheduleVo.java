@@ -3,6 +3,12 @@ package co.mini.vo;
 public class ScheduleVo {
 private int thema_no;
 private String time;
+
+public ScheduleVo(int thema_no, String time) {
+	super();
+	this.thema_no = thema_no;
+	this.time = time;
+}
 public ScheduleVo() {
 	super();
 }

@@ -12,6 +12,7 @@ import co.mini.common.Action;
 import co.mini.common.FileRenamePolicy;
 import co.mini.common.FileUtil;
 import co.mini.dao.ThemaDao;
+import co.mini.vo.ScheduleVo;
 import co.mini.vo.ThemaVO;
 
 public class themaInsertAction implements Action {
@@ -20,10 +21,11 @@ public class themaInsertAction implements Action {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		ThemaVO themaVo= new ThemaVO();
-	
-		themaVo.setBranch_no(Integer.parseInt(request.getParameter("branch_no")));
 		ThemaDao themaDao = new ThemaDao();
-		themaVo.setThema_no(themaDao.thema_maxthema_no());
+		int thema_no = themaDao.thema_maxthema_no();
+		themaVo.setBranch_no(Integer.parseInt(request.getParameter("branch_no")));
+		
+		themaVo.setThema_no(thema_no);
 		themaVo.setThema_name(request.getParameter("thema_name"));
 		themaVo.setThema_img(request.getParameter("img"));
 		themaVo.setThema_intro(request.getParameter("thema_intro"));
@@ -50,11 +52,19 @@ public class themaInsertAction implements Action {
 			ArrayList<String> list = new ArrayList<>(Arrays.asList(request.getParameterValues("time")));
 			for(String str : list) {
 				themaDao = new ThemaDao();
-				
+				themaDao.insert_Schedule(new ScheduleVo(thema_no,str));
 			}
+			
+			
 		
-		
-		
+			String page;
+			if(n !=0) {
+			page = "reserveList.do"; // 성공하면 리스트 화면 보여주기
+			} else {
+			page = "jsp/owner/thema_insert.jsp"; // 실패하면 fail 페이지 보여주기
+			request.setAttribute("fail", "fail");
+			}
+
 		
 		
 		return "reserveList.do";
