@@ -23,14 +23,16 @@ public class MemberInsertAction implements Action {
 		
 		
 		int n = dao.insert(vo);
-		String page;  
-		if(n != 0) {
-			page ="jsp/main/insertSuccess.jsp";
+
+		if(n == 1) {
+			n = 1;
 		} else {
-			page = "jsp/main/insertSuccess.jsp";
+			n = 2;
 		}
 		
-		return page;
+		request.setAttribute("r", n); 
+		
+		return "jsp/main/loginForm.jsp";
 	}
 
 }

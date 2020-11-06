@@ -44,7 +44,12 @@
 
 
 <body>
-
+	<c:if test="${r == 1}">
+		<script> alert("환영합니다.")</script>
+	</c:if>
+	<c:if test="${r == 2}">
+		<script> alert("회원가입이 실패하였습니다.")</script>
+	</c:if>
 
 	<div align="right">
 		<input type="radio" name="login" class="login"  value="member"  checked/>

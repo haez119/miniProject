@@ -53,16 +53,24 @@ div#topMenu a {
 <body>
 <!-- topMenu라인 -->
 <div class="topHeader">
-	<jsp:include page="../jsp/layout/sys_thema.jsp" />
+	<c:set var="iidd" value="${id}" />
+	<c:set var= "idd" value="${fn:substring(iidd ,0 , 5)}" />
+	
+	<c:if test="${idd eq null }">
+		<jsp:include page="../jsp/layout/sys_thema.jsp" />
+	</c:if>
+	<c:if test="${idd ne 'admin' }" >
+		<jsp:include page="../jsp/layout/main_thema.jsp" />
+	</c:if>
+	
+	<c:if test="${idd eq 'admin' }" >
+		<jsp:include page="../jsp/layout/owner_sys.jsp" />
+	</c:if> 
 	<!-- header라인 -->
 	
 		<div id="header">
 			<a href="#"> <img
 				src="${pageContext.request.contextPath}/img/Main.png" alt="main">
-				
-				<c:set var="iidd" value="${id}" />
-				<c:set var= "idd" value="${fn:substring(iidd ,0 , 5)}" />
-				
 				
 				<c:if test="${idd eq null }">
 					<jsp:include page="../jsp/layout/main_thema.jsp" />

@@ -17,6 +17,7 @@
 		</c:if>
 		
 		<c:if test="${id ne null }">
+			<b> ${thema_name} 점주님</b>
 			<a href="${pageContext.request.contextPath}/logout.do">로그아웃</a> &nbsp;|&nbsp; 
 		</c:if>
 

@@ -93,18 +93,63 @@ public class OwnerDAO extends DAO {
 		} finally {
 			close();
 		}
-		
-		
-		
-		
-		
 		return list;
 		
 	}
 	
+	private final String B_NO_MAX = "SELECT MAX(BRANCH_NO)+1 AS MAX FROM ONWER";
+	
+	public int maxBranchNo () {
+		
+		int max = 0;
+		
+		try {
+			psmt = conn.prepareStatement(B_NO_MAX);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				max = rs.getInt("MAX");				
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		
+		return max;
+	}
 	
 	
+	private final String INSERT = "INSERT INTO ONWER VALUES(? , ? , ? , ? , ? , ? , ? )";
 	
+	public int ownerInsert(OwnerVO vo) {
+		
+		int r = 0;
+		
+		try {
+			psmt = conn.prepareStatement(INSERT);
+			
+			psmt.setString(1, vo.getId());
+			psmt.setInt(2, vo.getBranch_no());
+			psmt.setString(3, vo.getBranch_name());
+			psmt.setString(4, vo.getName());
+			psmt.setString(5, vo.getPassword());
+			psmt.setString(6, vo.getTel());
+			psmt.setString(7, vo.getAddress());
+			
+			r = psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return r;
+	}
+	
+
 	
 	private void close() {
 		try {

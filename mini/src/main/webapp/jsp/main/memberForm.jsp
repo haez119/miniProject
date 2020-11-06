@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,12 +53,12 @@
 		 } else if(chk == "owner"){
 			 $("<tr>")
 			 .append($("<td>")).html("지점번호")
-			 .append($("<td>")).append($("<input>").attr({name: "branch_no", type: "text", value: "지점번호", readonly: "true"}))
+			 .append($("<td>")).append($("<input>").attr({name: "branch_no", type: "text", value: ${max}, readonly: "true"}))
 			 .appendTo("#tbl")
 			 
 			 $("<tr>")
 			 .append($("<td>")).html("아이디")
-			 .append($("<td>")).append($("<input>").attr({name: "id", type: "text", value: "admin+지점번호", readonly: "true"}))
+			 .append($("<td>")).append($("<input>").attr({name: "id", type: "text", value: "admin"+ ${max}, readonly: "true"}))
 			 .appendTo("#tbl")
 			 
 			  $("<tr>")
