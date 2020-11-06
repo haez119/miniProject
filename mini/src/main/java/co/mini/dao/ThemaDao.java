@@ -239,22 +239,22 @@ public class ThemaDao extends DAO {
 	//테마 마지막 번호 구하는방법
 	private final String MaxThema="select max(thema_no)+1 from thema";
 	
-	public ThemaVO thema_maxthema_no() { 
-		ThemaVO vo = new ThemaVO();
+	public int thema_maxthema_no() { 
+		int n = 0;
 		try {
 			psmt = conn.prepareStatement(MaxThema); // DAO를 상속받고 있어서 conn 정의 안해줘도 사용 가능
 			rs = psmt.executeQuery(); //executeQuery는 반환값이 resultSet, executeUpdate는 반환값이 int타입
 			
 			while (rs.next()) {
-				vo = new ThemaVO();
-				vo.setThema_no(rs.getInt("thema_no"));
+				
+				n=rs.getInt("thema_no");
 			}
 		}catch( SQLException e) {
 			e.printStackTrace();
 		}finally {
 			close();
 		}
-		return vo;
+		return n;
 	}
 	
 	
