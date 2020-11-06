@@ -1,6 +1,7 @@
 package co.mini.board.command;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +19,8 @@ public class BoardUpdateAction implements Action {
 		
 		vo.setNo(Integer.parseInt(request.getParameter("no")));
 		vo.setId(request.getParameter("id"));
+		vo.setTitle(request.getParameter("title"));
+		vo.setBdate(Date.valueOf(request.getParameter("bdate")));
 		vo.setCategory(request.getParameter("category"));
 		vo.setContent(request.getParameter("content"));
 		
