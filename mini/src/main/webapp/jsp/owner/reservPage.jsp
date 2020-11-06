@@ -52,8 +52,5 @@ table {
 	</table>
 	
 	
-	
-	
-	
 </body>
 </html>
