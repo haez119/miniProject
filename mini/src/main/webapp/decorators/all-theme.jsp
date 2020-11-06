@@ -60,7 +60,7 @@ div#topMenu a {
 		<jsp:include page="../jsp/layout/sys_thema.jsp" />
 	</c:if>
 	<c:if test="${idd ne 'admin' }" >
-		<jsp:include page="../jsp/layout/main_thema.jsp" />
+		<jsp:include page="../jsp/layout/sys_thema.jsp" />
 	</c:if>
 	
 	<c:if test="${idd eq 'admin' }" >
