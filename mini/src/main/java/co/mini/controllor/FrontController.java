@@ -6,6 +6,7 @@ import java.util.HashMap;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -36,6 +37,11 @@ import co.mini.user.command.ReservUpdateAction;
 import co.mini.user.command.logout;
 
 @WebServlet("*.do")
+@MultipartConfig(maxFileSize=1024*1024*2  	//size of any uploaded file
+,maxRequestSize = 1024*1024*10  //overall size of all uploaded files
+,location="d:/img"
+,fileSizeThreshold = 1024
+)
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    

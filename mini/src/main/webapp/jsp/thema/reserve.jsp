@@ -34,6 +34,9 @@ input{
 	color:white;
 	
 	}
+#회원 {
+ padding-top: 30px;
+}	
 
 </style>
 
@@ -168,6 +171,7 @@ $(()=>{
        <button type='reset'>취소하기</button>
        
        </div>
+       <img id='회원' src='${pageContext.request.contextPath}/img/회원정보.PNG' height='200px' width='100%' >
        </form>
        </div>
       
@@ -183,6 +187,6 @@ $(()=>{
       </div>
    </div>
    
-    <div align="center"><img src='${pageContext.request.contextPath}/img/회원정보.png' height='400px' width='800px'></div>
+    
 </body>
 </html>
