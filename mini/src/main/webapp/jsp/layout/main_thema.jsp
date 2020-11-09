@@ -6,10 +6,28 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
- 	<link rel= "stylesheet" href="/mini/css/mainmenu.css"> 
+ <link rel= "stylesheet" href="/mini/css/mainmenu.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+
+$(function(){
+	
+	var thiss;
+	
+	$('.menuLink').click(function (event) {
+		//event.preventDefault();
+		
+		$(thiss).css( {'background-color':'', color:'' } );
+		$(this).css( {'background-color':'darkgray', color:'black' } );
+
+	});
+		
+});
+</script> 
+
 </head>
 <body>
-	
+
 	<div align="center">
 		<div id='menu'>
 			<nav id="topMenu" >

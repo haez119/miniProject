@@ -118,4 +118,6 @@ public class BoardDAO extends DAO {
 		}
 		return n;
 	}
+	
+	
 }

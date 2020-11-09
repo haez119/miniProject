@@ -145,7 +145,7 @@ public class FrontController extends HttpServlet {
 		String viewPage = command.exec(request, response);  // 명령이 수행되고 나서 보여줄 페이지를 선택
 		// Action이 갖고 있는 메소드? exec의 매개값 => request, response 에 현재 request, response를 넘겨줌
 		if(viewPage != null) {
-			if(viewPage.startsWith("redirect")) {
+			if(viewPage.startsWith("*redirect")) {
 				response.sendRedirect(viewPage.substring(9));
 			}else {
 				// viewPage가 가지고 있는 객체를 유지하면서 전달(forward)

@@ -19,23 +19,19 @@
 			$("#panel").slideDown("slow");
 		});
 	});
-    function writeForm(){
-        location.href="boardWrite.do"; //글등록 버튼 이동
-    }
+	function writeForm() {
+		location.href = "boardWrite.do"; //글등록 버튼 이동
+	}
 </script>
 
 <link rel="stylesheet" href="/mini/css/board.css">
 <style>
-
 </style>
 </head>
 
 <body>
 	<!-- <h1>게시판</h1>  -->
 	<div class="circle">
-		<a href="#"><img
-			src="${pageContext.request.contextPath}/img/공지.png"
-			class="rounded-circle" alt="Cinque Terre" width="80" height="60"></a>&nbsp;&nbsp;
 		<a href="#"><img
 			src="${pageContext.request.contextPath}/img/QA.jpg"
 			class="rounded-circle" alt="Cinque Terre" width="80" height="60"></a>&nbsp;&nbsp;
@@ -45,7 +41,7 @@
 	</div>
 	<br />
 	<div class="table-hover">
-		<table class="table">
+		<table class="table" id="show">
 			<thead>
 				<tr>
 					<th>번호</th>
@@ -58,7 +54,7 @@
 			<tbody>
 				<!-- 게시물이 출력될 영역 -->
 				<!--  / el표기 /   -->
-				<c:forEach items="${board}" var="bo" >
+				<c:forEach items="${board}" var="bo">
 					<tr>
 						<td>${bo.no}</td>
 						<td>${bo.title}</td>
