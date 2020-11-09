@@ -18,6 +18,7 @@ import co.mini.board.command.BoardUpdateAction;
 import co.mini.board.command.BoardWriteAction;
 import co.mini.board.command.BoardWriteFormAction;
 import co.mini.board.command.EventInsertAction;
+import co.mini.board.command.EventInsertForm;
 import co.mini.board.command.EventListAction;
 import co.mini.board.command.LoginAction;
 import co.mini.board.command.LoginForm;
@@ -104,7 +105,7 @@ public class FrontController extends HttpServlet {
 		map.put("/memberInsert.do", new MemberInsertAction());
 		map.put("/eventlist.do", new EventListAction());
 		map.put("/EventInsert.do", new EventInsertAction());
-		
+		map.put("/EventInsertForm.do", new EventInsertForm());
 		
 		
 		

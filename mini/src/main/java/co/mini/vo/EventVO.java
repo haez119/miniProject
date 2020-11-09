@@ -4,14 +4,40 @@ import java.sql.Date;
 
 public class EventVO {
 
+	private int branch_no;
 	private int event_no;
-	private String branch_name;
 	private String event_name;
 	private String event_content;
 	private Date start_event;
 	private Date last_event;
+	private String img;
+	private int event_term;
+	private int sale;
+	private String branch_name;
 	
+
+	public String getBranch_name() {
+		return branch_name;
+	}
+
+	public void setBranch_name(String branch_name) {
+		this.branch_name = branch_name;
+	}
+
+
+	public EventVO() {
 	
+	}
+
+
+	public int getEvent_term() {
+		return event_term;
+	}
+
+	public void setEvent_term(int event_term) {
+		this.event_term = event_term;
+	}
+
 
 	public Date getStart_event() {
 		return start_event;
@@ -32,9 +58,7 @@ public class EventVO {
 		this.last_event = last_event;
 	}
 
-	private int sale;
-	private String img;
-	private int branch_no;
+
 	
 	
 	
@@ -68,10 +92,6 @@ public class EventVO {
 
 	
 
-	public EventVO() {
-	
-	}
-
 	public int getEvent_no() {
 		return event_no;
 	}
@@ -80,13 +100,6 @@ public class EventVO {
 		this.event_no = event_no;
 	}
 	
-	public String getBranch_name() {
-		return branch_name;
-	}
-	
-	public void setBranch_name(String branch_name) {
-		this.branch_name = branch_name;
-	}
 	
 	public String getEvent_name() {
 		return event_name;

@@ -29,7 +29,7 @@ public class EventInsertAction implements Action {
 		dao.insert(vo);
 		
 	
-		return null;
+		return "redirect:evenList.do";
 	}
 
 }
