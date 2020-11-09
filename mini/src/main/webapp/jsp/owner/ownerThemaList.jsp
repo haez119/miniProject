@@ -72,7 +72,7 @@
 	
 		<c:forEach items="${themaList}" var="thema" varStatus="status">
 			
-		<form id='frm' name='frm' method='post' action='jsp/owner/themaUpdate.jsp' >
+		<form id='frm' name='frm' method='post' action='${pageContext.request.contextPath}/ownerthemaUpdate.do' >
 		<table>
   		<tr><!-- 테마시작 -->
   		<td>

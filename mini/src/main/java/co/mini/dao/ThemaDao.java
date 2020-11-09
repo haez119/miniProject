@@ -46,7 +46,31 @@ public class ThemaDao extends DAO {
 		return list;
 	}
 	
-	
+	//테마 vo에서 넘겨받은 테마번호의 이용시간을 리턴
+		private final String TIME = "SELECT TIME FROM SCHEDULE WHERE THEMA_NO=? order by time"; // 변경 못하게 final 상수로 선언
+		public List<String> selectTime(ThemaVO ThemaVO) {
+			List<String> list = new ArrayList<String>();
+			String str="";
+			try {
+				
+				psmt = conn.prepareStatement(TIME);
+				psmt.setInt(1, ThemaVO.getThema_no());
+				
+				rs = psmt.executeQuery();
+				// 한 행만 리턴하니까 while 사용 할 필요x
+				while(rs.next()) {
+					str=rs.getString("time");
+					list.add(str);
+				}
+				
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close();
+			}
+
+			return list;
+		}
 	
 	private final String SCHEDULE_FAIL = "select thema_no,time from SCHEDULE\r\n" + 
 			"minus\r\n" + 
@@ -141,6 +165,8 @@ public class ThemaDao extends DAO {
 		}
 		return list;
 	}
+	
+	
 	
 	//예약정보에 뿌려줄 테마정보를 담은 쿼리문
 	private final String reserve_Thema ="select o.branch_name,t.thema_no,t.thema_name,t.thema_img,t.thema_intro,t.level2,t.max_per\r\n" + 

@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import co.mini.common.Action;
@@ -23,8 +24,10 @@ public class themaInsertAction implements Action {
 		ThemaVO themaVo= new ThemaVO();
 		ThemaDao themaDao = new ThemaDao();
 		int thema_no = themaDao.thema_maxthema_no();
-		themaVo.setBranch_no(Integer.parseInt(request.getParameter("branch_no")));
-		
+		HttpSession session = request.getSession(false);
+	      
+	    int branch_no = (int) session.getAttribute("branch_no");
+		themaVo.setBranch_no(branch_no);
 		themaVo.setThema_no(thema_no);
 		themaVo.setThema_name(request.getParameter("thema_name"));
 		themaVo.setThema_img(request.getParameter("img"));
@@ -59,7 +62,7 @@ public class themaInsertAction implements Action {
 		
 			String page;
 			if(n !=0) {
-			page = "redirect:reserveList.do"; // 성공하면 리스트 화면 보여주기
+			page = "redirect:ownerThemaList.do"; // 성공하면 리스트 화면 보여주기
 			} else {
 			page = "jsp/owner/themaInsert.jsp"; // 실패하면 fail 페이지 보여주기
 			request.setAttribute("fail", "fail");
