@@ -3,29 +3,26 @@ package co.mini.vo;
 import java.sql.Date;
 
 public class ReviewVO {
+	private int no;
 	private String branch_name;
-	private String name;
-	private Date reservdate;
 	private String thema_name;
-	private String phone;
-	
+	private String id;
+	private Date use_date;
+	private String title;
+	private String content;
+	private String star;
+
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
 	public String getBranch_name() {
 		return branch_name;
 	}
 	public void setBranch_name(String branch_name) {
 		this.branch_name = branch_name;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public Date getReservdate() {
-		return reservdate;
-	}
-	public void setReservdate(Date reservdate) {
-		this.reservdate = reservdate;
 	}
 	public String getThema_name() {
 		return thema_name;
@@ -33,11 +30,38 @@ public class ReviewVO {
 	public void setThema_name(String thema_name) {
 		this.thema_name = thema_name;
 	}
-	public String getPhone() {
-		return phone;
+	public String getId() {
+		return id;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setId(String id) {
+		this.id = id;
+	}
+	public Date getUse_date() {
+		return use_date;
+	}
+	public void setUse_date(Date use_date) {
+		this.use_date = use_date;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public String getStar() {
+		return star;
+	}
+	public void setStar(String star) {
+		this.star = star;
 	}
 	
+	
+	
+
 }

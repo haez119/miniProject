@@ -125,13 +125,31 @@ $(document).ready(function() {
 
 	 });
 	 
-	 $('#btnAdd').on('click', function() {
+/* 	 $('#btnAdd').on('click', function() {
 		 
 		 alert("등록되었습니다.");
 		 $("#frm").attr('action','${pageContext.request.contextPath}/reviewboard.do');
 
-	 });
-	
+	 }); */
+	 
+
+	$('#btnAdd').on('click',function(){
+		
+		$.ajax({ 
+		    url: "/mini/reviewboard.do", 
+		    dataType: 'json', 
+		    data: $("#frm").serialize(),
+		    success: function(data) { 
+		        alert("등록완료.");
+		        $(location).attr('href','${pageContext.request.contextPath}/board.do');
+		    },
+		    error:function(xhr, status, message) { 
+		        alert(" status: "+status+" er:"+message);
+		    }
+		});
+		
+	});// click
+			
 
 });
 </script>
@@ -183,13 +201,10 @@ strong {
 				<td>아이디</td>
 				<td><input type="text" id="id" name="id" value="${id}" readonly="readonly"></td>
 			</tr>
-			<tr>
-				<td>이름</td>
-				<td><input type="text" id="name" name="name" value="${vo.name}" readonly="readonly"></td>
-			</tr>
+			
 			<tr>
 				<td id="bdate">이용한 날짜</td>
-				<td><input type="text" id="bdate" name="bdate" value="${vo.reservdate}" readonly="readonly"></td>
+				<td><input type="text" id="bdate" name="bdate" value="${vo.use_date}" readonly="readonly"></td>
 			</tr>
 			
 			<tr>

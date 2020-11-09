@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import co.mini.common.Action;
-import co.mini.dao.ReservationDAO;
+import co.mini.dao.ReviewDAO;
 import co.mini.vo.ReviewVO;
 
 public class reviewInsertAction implements Action {
@@ -21,7 +21,7 @@ public class reviewInsertAction implements Action {
 		String no = request.getParameter("rno");
 		int rno = Integer.parseInt(no);
 		
-		ReservationDAO dao = new ReservationDAO();
+		ReviewDAO dao = new ReviewDAO();
 		ReviewVO vo = new ReviewVO();
 		
 		
