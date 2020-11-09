@@ -11,8 +11,20 @@ public class EventVO {
 	private Date start_event;
 	private Date last_event;
 	private int sale;
+	private String img;
 	
 	
+	
+	public String getImg() {
+		return img;
+	}
+
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+
 	public int getSale() {
 		return sale;
 	}
