@@ -26,6 +26,9 @@ public class EventInsertAction implements Action {
 		vo.setLast_event(Date.valueOf(request.getParameter("last_event")));
 		vo.setSale(Integer.parseInt(request.getParameter("sale")));
 		
+		dao.insert(vo);
+		
+	
 		return null;
 	}
 

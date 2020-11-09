@@ -44,7 +44,7 @@
 					</tr>
 					<tr>
 						<th width="150"> 이벤트시작일 </th>
-						<td width="500"><input name="bdate" type="date" value="">
+						<td width="500"><input name="start_event" type="date" value="">
 					</td>
 					</tr>
 					<tr>

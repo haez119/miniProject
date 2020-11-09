@@ -1,6 +1,6 @@
 package co.mini.vo;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class EventVO {
 
@@ -10,11 +10,43 @@ public class EventVO {
 	private String event_content;
 	private Date start_event;
 	private Date last_event;
+	
+	
+
+	public Date getStart_event() {
+		return start_event;
+	}
+
+	
+	public void setStart_event(Date start_event) {
+		this.start_event = start_event;
+	}
+
+	
+	public Date getLast_event() {
+		return last_event;
+	}
+
+	
+	public void setLast_event(Date last_event) {
+		this.last_event = last_event;
+	}
+
 	private int sale;
 	private String img;
+	private int branch_no;
 	
 	
 	
+	public int getBranch_no() {
+		return branch_no;
+	}
+
+	public void setBranch_no(int branch_no) {
+		this.branch_no = branch_no;
+	}
+
+
 	public String getImg() {
 		return img;
 	}
@@ -34,21 +66,7 @@ public class EventVO {
 		this.sale = sale;
 	}
 
-	public Date getLast_event() {
-		return last_event;
-	}
-
-	public void setLast_event(Date last_event) {
-		this.last_event = last_event;
-	}
-
-	public Date getStart_event() {
-		return start_event;
-	}
-
-	public void setStart_event(Date start_event) {
-		this.start_event = start_event;
-	}
+	
 
 	public EventVO() {
 	
