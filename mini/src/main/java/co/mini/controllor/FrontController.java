@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.mini.board.command.BoardAction;
+import co.mini.board.command.BoardReviewAction;
 import co.mini.board.command.BoardUpdateAction;
 import co.mini.board.command.BoardWriteAction;
 import co.mini.board.command.BoardWriteFormAction;

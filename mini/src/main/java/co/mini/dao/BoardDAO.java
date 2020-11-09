@@ -70,15 +70,12 @@ public class BoardDAO extends DAO {
 		int n = 0;
 		try {
 			psmt = conn.prepareStatement(INSERT);
-			psmt.setInt(1, vo.getNo());
-			psmt.setString(2, vo.getCategory());
-			psmt.setString(3, vo.getTitle());
+			psmt.setString(1, vo.getId());
+			psmt.setString(2, vo.getTitle());
+			psmt.setDate(3, vo.getBdate());
 			psmt.setString(4, vo.getContent());
-			psmt.setString(5, vo.getId());
-			psmt.setString(6, vo.getShow());
-			psmt.setString(7, vo.getAnswer());
-			psmt.setInt(8, vo.getHit());
-			psmt.setDate(9, vo.getBdate());
+			psmt.setString(2, vo.getCategory());
+//			psmt.setString(6, vo.get첨부파일());
 			n = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -90,15 +87,12 @@ public class BoardDAO extends DAO {
 		int n = 0;
 		try {
 			psmt = conn.prepareStatement(UPDATE);
-			psmt.setInt(1, vo.getNo());
-			psmt.setString(2, vo.getCategory());
-			psmt.setString(3, vo.getTitle());
+			psmt.setString(1, vo.getId());
+			psmt.setString(2, vo.getTitle());
+			psmt.setDate(3, vo.getBdate());
 			psmt.setString(4, vo.getContent());
-			psmt.setString(5, vo.getId());
-			psmt.setString(6, vo.getShow());
-			psmt.setString(7, vo.getAnswer());
-			psmt.setInt(8, vo.getHit());
-			psmt.setDate(9, vo.getBdate());
+			psmt.setString(2, vo.getCategory());
+//			psmt.setString(6, vo.get첨부파일());
 			n = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
