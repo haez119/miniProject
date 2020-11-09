@@ -4,17 +4,32 @@ import java.sql.Date;
 
 public class BoardVO {
 	private int no;
-	private String category;
 	private String title;
 	private String content;
 	private String id;
-	private String show;
-	private String answer;
 	private int hit;
-	private Date bdate;
+	private Date board_date;
+	private Integer first;
+	private Integer last;
 
 	public BoardVO() {
-		// TODO Auto-generated constructor stub
+
+	}
+
+	public Integer getFirst() {
+		return first;
+	}
+
+	public void setFirst(Integer first) {
+		this.first = first;
+	}
+
+	public Integer getLast() {
+		return last;
+	}
+
+	public void setLast(Integer last) {
+		this.last = last;
 	}
 
 	public int getNo() {
@@ -23,14 +38,6 @@ public class BoardVO {
 
 	public void setNo(int no) {
 		this.no = no;
-	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
 	}
 
 	public String getTitle() {
@@ -57,22 +64,6 @@ public class BoardVO {
 		this.id = id;
 	}
 
-	public String getShow() {
-		return show;
-	}
-
-	public void setShow(String show) {
-		this.show = show;
-	}
-
-	public String getAnswer() {
-		return answer;
-	}
-
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}
-
 	public int getHit() {
 		return hit;
 	}
@@ -81,18 +72,12 @@ public class BoardVO {
 		this.hit = hit;
 	}
 
-	public Date getBdate() {
-		return bdate;
+	public Date getBoard_date() {
+		return board_date;
 	}
 
-	public void setBdate(Date bdate) {
-		this.bdate = bdate;
+	public void setBoard_date(Date board_date) {
+		this.board_date = board_date;
 	}
 
-	@Override
-	public String toString() {
-		return "BoardVO [no=" + no + ", category=" + category + ", title=" + title + ", content=" + content + ", id="
-				+ id + ", show=" + show + ", answer=" + answer + ", hit=" + hit + ", bdate=" + bdate + "]";
-	}
-	
 }

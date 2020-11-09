@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,10 +37,11 @@
 	<!-- <h1>게시판</h1>  -->
 	<div class="circle">
 		<a><img src="${pageContext.request.contextPath}/img/QA.jpg"
-		class="rounded-circle" alt="Cinque Terre" width="80" height="60" >
-		</a>&nbsp;&nbsp;
-		<a><img src="${pageContext.request.contextPath}/img/리뷰.jpg"
-			class="rounded-circle" alt="Cinque Terre" width="80" height="60" onclick="reviewForm()"></a>
+			class="rounded-circle" alt="Cinque Terre" width="80" height="60">
+		</a>&nbsp;&nbsp; <a><img
+			src="${pageContext.request.contextPath}/img/리뷰.jpg"
+			class="rounded-circle" alt="Cinque Terre" width="80" height="60"
+			onclick="reviewForm()"></a>
 	</div>
 	<br />
 	<div class="table-hover">
@@ -56,16 +58,13 @@
 			<tbody>
 				<!-- 게시물이 출력될 영역 -->
 				<!--  / el표기 /   -->
-				<c:forEach items="${board}" var="bo">
+				<c:forEach var="bo" items="${board}">
 					<tr>
 						<td>${bo.no}</td>
 						<td>${bo.title}</td>
 						<td>${bo.id}</td>
-						<td>${bo.bdate}</td>
+						<td>${bo.board_date}</td>
 						<td>${bo.hit}</td>
-						<!-- <td>${bo.category}</td> -->
-						<!-- <td>${bo.show}</td> -->
-						<!-- <td>${bo.answer}</td> -->
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -77,8 +76,9 @@
 	</div>
 
 	<!-- 검색 부분 -->
-	<div class="searchForm" id="searchForm">
-		<form>
+	<div class="searchForm">
+		<form  name="searchFrm">
+		<input name="p" value="1">
 			<select name="opt">
 				<option value="0">제목</option>
 				<option value="1">내용</option>
@@ -89,5 +89,15 @@
 		</form>
 	</div>
 	<br>
+	<script>
+		
+		
+			function goPage(p) {
+				//location.href="memberList.do?p="+p + "";
+				searchFrm.p.value = p;
+				searchFrm.submit();
+			}
+		</script>
+		<my:paging paging="${paging}" jsfunc="goPage" />
 </body>
 </html>

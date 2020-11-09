@@ -35,7 +35,7 @@ strong {
 			</tr>
 			<tr>
 				<td>날짜</td>
-				<td>${vo.bdate}</td>
+				<td>${vo.board_date}</td>
 			</tr>
 			<tr>
 				<td>내용<strong class="importent">(필수)</strong></td>

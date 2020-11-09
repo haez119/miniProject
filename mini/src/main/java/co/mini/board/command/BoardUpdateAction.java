@@ -20,8 +20,7 @@ public class BoardUpdateAction implements Action {
 		vo.setNo(Integer.parseInt(request.getParameter("no")));
 		vo.setId(request.getParameter("id"));
 		vo.setTitle(request.getParameter("title"));
-		vo.setBdate(Date.valueOf(request.getParameter("bdate")));
-		vo.setCategory(request.getParameter("category"));
+		vo.setBoard_date(Date.valueOf(request.getParameter("board_date")));
 		vo.setContent(request.getParameter("content"));
 		
 		dao.update(vo);

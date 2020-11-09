@@ -14,35 +14,38 @@ public class BoardDAO extends DAO {
 	private ResultSet rs; // select 후에 결과셋 받기
 	private BoardVO vo;
 
-	private final String SELECT_ALL = "SELECT * FROM BOARD1";
-	private final String SELECT = "SELECT * FROM BOARD1 WHERE ID=?";
-	private final String INSERT = "INSERT INTO BOARD1 VALUES(NO,TITLE,BDATE,HIT)" + "VALUES(?,?,?,?)";
-	private final String UPDATE = "UPDATE BOARD1 SET NO=?, CATEGORY=?, TITLE=?, CONTENT=?, SHOW=?, ANSWER=? WHERE ID=?";
-	private final String DELETE = "DELETE BOARD1 WHERE ID=?";
+	private final String SELECT_ALL = "select * from( select a.*, rownum rn from (" + "SELECT * FROM BOARD order by no desc"
+			+ ") a  ) b  where rn between ? and ?";
+	private final String SELECT = "SELECT * FROM BOARD WHERE ID=?";
+	private final String INSERT = "INSERT INTO board( no, title, content, id, board_date ) VALUES (board_seq.NEXTVAL,?,?,?,sysdate)";
+	private final String UPDATE = "UPDATE BOARD SET NO=?, TITLE=?, CONTENT=?, DATE=? WHERE ID=?";
+	private final String DELETE = "DELETE BOARD WHERE ID=?";
 
-	public List<BoardVO> selectAll() { // 전체조회기능
+	public List<BoardVO> selectAll(BoardVO mvo) { // 전체조회기능
 		List<BoardVO> list = new ArrayList<BoardVO>();
 		try {
 			psmt = conn.prepareStatement(SELECT_ALL);
+			psmt.setInt(1, mvo.getFirst());
+			psmt.setInt(2, mvo.getLast());
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				vo = new BoardVO();
 				vo.setNo(rs.getInt("no"));
-				vo.setCategory(rs.getString("category"));
 				vo.setTitle(rs.getString("title"));
 				vo.setContent(rs.getString("content"));
 				vo.setId(rs.getString("id"));
-				vo.setShow(rs.getString("show"));
-				vo.setAnswer(rs.getNString("answer"));
 				vo.setHit(rs.getInt("hit"));
-				vo.setBdate(rs.getDate("bdate"));
+				vo.setBoard_date(rs.getDate("board_date"));
 				list.add(vo);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close();
 		}
 		return list;
 	}
+
 
 	public BoardVO select(BoardVO vo) { // 한행만 조회
 		try {
@@ -51,34 +54,50 @@ public class BoardDAO extends DAO {
 			rs = psmt.executeQuery();
 			if (rs.next()) {
 				vo.setNo(rs.getInt("no"));
-				vo.setCategory(rs.getString("category"));
 				vo.setTitle(rs.getString("title"));
 				vo.setContent(rs.getString("content"));
 				vo.setId(rs.getString("id"));
-				vo.setShow(rs.getString("show"));
-				vo.setAnswer(rs.getString("answer"));
 				vo.setHit(rs.getInt("hit"));
-				vo.setBdate(rs.getDate("bdate"));
+				vo.setBoard_date(rs.getDate("board_date"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			close();
 		}
 		return vo;
 	}
 
-	public int insert(BoardVO vo) { // 입력기능
+	public int count(BoardVO vo) { // 한행만 조회
+		int cnt = 0;
+		try {
+			String sql = "select count(*) from board";
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			rs.next();
+			cnt = rs.getInt(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	
+	public int Insert(BoardVO vo) { // 입력기능
 		int n = 0;
 		try {
 			psmt = conn.prepareStatement(INSERT);
-			psmt.setString(1, vo.getId());
-			psmt.setString(2, vo.getTitle());
-			psmt.setDate(3, vo.getBdate());
-			psmt.setString(4, vo.getContent());
-			psmt.setString(2, vo.getCategory());
-//			psmt.setString(6, vo.get첨부파일());
+			psmt.setString(1, vo.getTitle());
+			psmt.setString(2, vo.getContent());
+			psmt.setString(3, vo.getId());
+//			psmt.setDate(3, vo.getBoard_date());
+//			psmt.setString(5, vo.get첨부파일());
 			n = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close();
 		}
 		return n; // 건수 확인
 	}
@@ -89,13 +108,14 @@ public class BoardDAO extends DAO {
 			psmt = conn.prepareStatement(UPDATE);
 			psmt.setString(1, vo.getId());
 			psmt.setString(2, vo.getTitle());
-			psmt.setDate(3, vo.getBdate());
+			psmt.setDate(3, vo.getBoard_date());
 			psmt.setString(4, vo.getContent());
-			psmt.setString(2, vo.getCategory());
 //			psmt.setString(6, vo.get첨부파일());
 			n = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close();
 		}
 		return n;
 	}
@@ -109,9 +129,22 @@ public class BoardDAO extends DAO {
 			n = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close();
 		}
 		return n;
 	}
-	
-	
+
+	private void close() {
+		try {
+			if (rs != null)
+				rs.close();
+			if (psmt != null)
+				psmt.close();
+			if (conn != null)
+				conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

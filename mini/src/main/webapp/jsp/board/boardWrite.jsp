@@ -7,10 +7,7 @@
 <title>글등록</title>
 
 <script>
-	function listFrm() {
-		location.href = "board.do";
-	}
-
+	
 	function formCheck() {
 		//var name = document.forms[0].name.value;
 		var title = document.forms[0].title.value;
@@ -33,9 +30,14 @@
 			return false;
 		}
 	}
+	function listFrm() {
+		location.href = "board.do";
+	}
+
 	function writeForm() {
 		location.href = "board.do"; //등록 버튼
 	}
+	
 	//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </script>
 <style>
@@ -50,40 +52,44 @@ strong {
 	font-weight: bold;
 }
 </style>
+<script type="text/javascript">
+
+</script>
+
 </head>
 <body>
 	<form name="frm" id="frm" method="post" action="boardInsert.do"
 		onsubmit="return formCheck()" enctype="multipart/form-data">
-		<input type="hidden" name="id" value="${sessionScope.sessionID}">
+		<input type="hidden" name="id" value="">
 		<table width="700" border="3" bordercolor="hotpink" align="center">
 
 			<tr>
-				<td id="title">작성자</td>
-				<td>${sessionScope.sessionID}</td>
+				<td id="title">&nbsp;&nbsp;작성자</td>
+				<td>&nbsp;&nbsp;${id}</td>
 			</tr>
 			<tr>
-				<td>제목<strong class="importent">(필수)</strong></td>
+				<td>&nbsp;&nbsp;제목<strong class="importent">(필수)</strong></td>
 				<td><input type="text" name="title" value="" size="50"
 					maxlength="255"></td>
 			</tr>
 			<tr>
-				<td>날짜</td>
-				<td><input name="bdate" type="date" value=""></td>
+				<td>&nbsp;&nbsp;날짜</td>
+				<td><input type="date" name="board_date" value=""></td>
 			</tr>
 			<tr>
-				<td>내용<strong class="importent">(필수)</strong></td>
+				<td>&nbsp;&nbsp;내용<strong class="importent">(필수)</strong></td>
 				<td><input type="text" name="content" value="" size="50"
 					maxlength="65536" style="width: 550px; height: 250px"></td>
 			</tr>
 			<tr>
-				<td id="title">파일첨부</td>
+				<td id="title">&nbsp;&nbsp;파일첨부</td>
 				<td><input type="file" name="board_file" /></td>
 			</tr>
 			<tr>
 				<td align="center" colspan="3">
 					<input type="button" value="목록" onclick="listFrm()">
-					<input type="button" value="등록" onclick="listFrm()"> 
-					<input type="button" value="작성취소" onclick="listFrm()">
+					<input type="submit" value="등록" >
+					<input type="reset" value="작성취소" >
 				</td>
 			</tr>
 		</table>
