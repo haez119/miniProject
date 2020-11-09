@@ -8,8 +8,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="extensions/addrbar/bootstrap-table-addrbar.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- <script src="extensions/addrbar/bootstrap-table-addrbar.js"></script> -->
 <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
 
 <style>
 .left-box {
@@ -36,7 +38,7 @@ table {
 
 	$(document).ready(function() {
 		
-		 $('.reserv').on('click', function() {
+		 $("input[name='reserv']").on('click', function() {
 			 let tr = $(this).parent().parent().children();
 			 let rno = tr[0].childNodes[0].nodeValue;
 			 
@@ -45,42 +47,15 @@ table {
 		 });
 		 
 		 
-		 $('.review').on('click', function() {
+		 $("input[name='review']").on('click', function() {
 			
-			 let id = "${id}";
-			 let password = "${password}";
-			 let name = "${name}";
-			 
+			 alert("리뷰등록 페이지로 이동합니다.")
 			 let tr = $(this).parent().parent().children();
+			 let rno = tr[0].childNodes[0].nodeValue;
 			 
-			 let re_name = tr[1].childNodes[0].nodeValue;
-			 let date = tr[2].childNodes[0].nodeValue;
-			 let thema = tr[4].childNodes[0].nodeValue;
-			 
-			 $.ajax({ 
-				    url: "/mini/reviewInsert.do", 
-				    dataType: 'json', 
-				    data: {
-				    	   "id": id, 
-				    	   "password":password, 
-				    	   "name":name, 
-				    	   "re_name":re_name, 
-				    	   "date":date, 
-				    	   "thema":thema 
-				    	   },
-				    success: function(data) { 
-				        alert("수정되었습니다.");
-				    },
-				    error:function(xhr, status, message) { 
-				        alert(" status: "+status+" er:"+message);
-				    }
-				});
+			 $(location).attr('href','${pageContext.request.contextPath}/reviewInsert.do?rno=' + rno);
 
-			 
-			 
 		 });
-		
-		
 		
 	});
 
@@ -100,15 +75,15 @@ table {
 			<thead class="thead-dark">
 			  <tr>
 			    <th scope="col">예약번호</th>
-				<th scope="col">지점명</th>
+				<th scope="col">지점</th>
 				<th scope="col">예약일자</th>
 				<th scope="col">입장시간</th>
-				<th scope="col">테마명</th>
+				<th scope="col">테마</th>
 				<th scope="col">인원</th>
 				<th scope="col">가격</th>
 				<th scope="col">결제여부</th>
-				<th scope="col">상세보기</th>
-				<th scope="col">리뷰등록</th>
+				<th scope="col"></th>
+				<th scope="col"></th>
 			  </tr>
 			</thead>
 			<tbody>
@@ -123,8 +98,8 @@ table {
 					<td>${reserv.personnel} 명</td>
 					<td>${reserv.price} 원</td>
 					<td>${reserv.payment}</td>
-					<td><input class="reserv" type="button" value="상세보기" ></td>
-					<td><input class="review" type="button" value="리뷰" ></td>
+					<td><input class="btn btn-dark" name="reserv" type="button" value="상세" ></td>
+					<td><input class="btn btn-dark" name="review" type="button" value="리뷰" ></td>
 				  </tr>
 				  
 				 </c:forEach>

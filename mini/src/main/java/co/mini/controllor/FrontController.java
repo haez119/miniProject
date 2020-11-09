@@ -23,6 +23,7 @@ import co.mini.board.command.LoginAction;
 import co.mini.board.command.LoginForm;
 import co.mini.board.command.MemberForm;
 import co.mini.board.command.MemberInsertAction;
+import co.mini.board.command.ReviewBoardAction;
 import co.mini.board.command.reserveResultAction;
 import co.mini.common.Action;
 import co.mini.owner.command.OwnerInsertAction;
@@ -81,7 +82,7 @@ public class FrontController extends HttpServlet {
 		map.put("/ownerReservPage.do", new ReservPageAction() ); // 사장 예약 정보
 		map.put("/ownerinsert.do", new OwnerInsertAction() ); // 사장 회원가입
 		map.put("/reviewInsert.do", new reviewInsertAction() ); // 사장 회원가입
-		
+		map.put("/reviewboard.do", new ReviewBoardAction());
 		
 		
 	

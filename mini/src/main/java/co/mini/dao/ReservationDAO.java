@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import co.mini.vo.ReservationVO;
+import co.mini.vo.ReviewVO;
 
 // reservation 테이블 DAO
 public class ReservationDAO extends DAO{
@@ -114,6 +115,49 @@ public class ReservationDAO extends DAO{
       return list;
    }
       
+   
+   String REVIEW = "select o.branch_name, m.id, m.name , r.reservdate,t.thema_name, m.phone  " + 
+   					"from reservation r , thema t , member m , onwer o " + 
+   					"where r.thema_no = t.thema_no " + 
+   					"and r.id = m.id " + 
+   					"and t.branch_no = o.branch_no  " + 
+   					"and m.id = ? " + 
+   					"and r.no = ?";
+   
+   
+   public ReviewVO reviewInsert(String sid, int rno) {
+	      
+	      ReviewVO vo = null;
+	      
+	      try {
+	         psmt = conn.prepareStatement(REVIEW);
+	         
+	         psmt.setString(1,sid);
+	         psmt.setInt(2,rno);
+	         
+	         rs = psmt.executeQuery();
+	         
+	         if(rs.next()) {
+	        	vo = new ReviewVO();
+	        	vo.setBranch_name(rs.getString("branch_name"));
+	        	vo.setName(rs.getString("name"));
+	        	vo.setReservdate(rs.getDate("reservdate"));
+	        	vo.setThema_name(rs.getString("thema_name"));
+	        	vo.setPhone(rs.getString("phone"));
+
+	         }
+	         
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         close();
+	      }
+	      return vo;
+	   }
+	      
+   
+   
+   
    
    
    

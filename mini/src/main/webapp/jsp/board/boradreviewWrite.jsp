@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -99,13 +101,39 @@ star-input>.input.focus {
 	vertical-align: middle;
 }
 </style>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
-	$('#star_grade a').click(function() {
-		$(this).parent().children("a").removeClass("on"); /* 별점의 on 클래스 전부 제거 */
-		let start = $(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
-		return false;
+$(document).ready(function() {
+	
+	$("#hiddenStar").val('1');
+
+	$('.input').on('click','input' ,function() {
+		
+		$("#star").append().html("");
+		
+		let star = $(this).val();
+		$("#star").append(star);
+		$("#hiddenStar").val(star);
+		
+
 	});
+	
+	 $('#btnlist').on('click', function() {
+			
+		 alert("목록 페이지로 이동합니다.");
+		 $(location).attr('href','${pageContext.request.contextPath}/board.do');
+
+	 });
+	 
+	 $('#btnAdd').on('click', function() {
+		 
+		 alert("등록되었습니다.");
+		 $("#frm").attr('action','${pageContext.request.contextPath}/reviewboard.do');
+
+	 });
+	
+
+});
 </script>
 <style type="text/css">
 table {
@@ -125,14 +153,14 @@ strong {
 	<div align="center">
 	 <span class="star-input"> 
 		<span class="input"> 
-			<input type="radio" name="star-input" value="1" id="p1"> <label for="p1">1</label> 
-			<input type="radio" name="star-input" value="2"	id="p2"> <label for="p2">2</label> 
-			<input type="radio"	name="star-input" value="3" id="p3"> <label for="p3">3</label>
-			<input type="radio" name="star-input" value="4" id="p4"> <label	for="p4">4</label> 
-			<input type="radio" name="star-input" value="5"	id="p5"> <label for="p5">5</label>
+			<input type="radio" class="star-input" value="1" id="p1"> <label for="p1" value="1"></label> 
+			<input type="radio" class="star-input" value="2" id="p2"> <label for="p2" value="2"></label> 
+			<input type="radio"	class="star-input" value="3" id="p3"> <label for="p3" value="3"></label>
+			<input type="radio" class="star-input" value="4" id="p4"> <label for="p4" value="4"></label> 
+			<input type="radio" class="star-input" value="5" id="p5"> <label for="p5" value="5"></label>
 		</span> 
 		<output for="star-input">
-			<b>5</b>점
+			<b id="star">5</b>점
 		</output>
 	 </span>
 	</div>
@@ -141,51 +169,46 @@ strong {
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/star.js"></script>
 
-		<form name="frm" id="frm" method="post" action="boardInsert.do"
-			onsubmit="return formCheck()" enctype="multipart/form-data">
-		<input type="hidden" name="id" value="${sessionScope.sessionID}">
+		<form name="frm" id="frm" method="post">
 		<table width="700" border="3" bordercolor="hotpink" align="center">
-
+			<tr >
+				<td>지점</td>
+				<td><input type="text" id="b_name" name="b_name" value="${vo.branch_name}" readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td>테마</td>
+				<td><input type="text" id="thema" name="thema" value="${vo.thema_name}" readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td>아이디</td>
+				<td><input type="text" id="id" name="id" value="${id}" readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td>이름</td>
+				<td><input type="text" id="name" name="name" value="${vo.name}" readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td id="bdate">이용한 날짜</td>
+				<td><input type="text" id="bdate" name="bdate" value="${vo.reservdate}" readonly="readonly"></td>
+			</tr>
+			
 			<tr>
 				<td id="title">제목</td>
-				<td>#</td>
+				<td><input type="text" id="title" name="title"  size="50" maxlength="255" ></td>
 			</tr>
 			<tr>
-				<td id="name">아이디</td>
-				<td>#</td>
+				<td>내용<b class="importent"></b></td>
+				<td><input type="text" id="content" name="content" size="50" maxlength="65536" style=" width: 550px; height: 250px; "></td>
 			</tr>
 			<tr>
-				<td id="name">이름</td>
-				<td>#</td>
+				<td><input type="hidden" id="hiddenStar" name="hiddenStar"></td>
 			</tr>
-			<tr>
-				<td id="password">비밀번호<strong class="importent">(필수)</strong></td>
-				<td><input name="password" type="#" value="#"></td>
-			</tr>
-			<tr>
-				<td id="bdate">날짜</td>
-				<td>#</td>
-			</tr>
-			<tr>
-				<td id="지점?">지점</td>
-				<td>#</td>
-			</tr>
-			<tr>
-				<td>테마<strong class="importent">(필수)</strong></td>
-				<td><input type="text" name="title" value="" size="50"
-					maxlength="255"></td>
-			</tr>
-			<tr>
-				<td>내용<strong class="importent">(필수)</strong></td>
-				<td><input type="text" name="content" value="" size="50"
-					maxlength="65536" style="width: 550px; height: 250px"></td>
-			</tr>
-		
+
 			<tr>
 				<td align="center" colspan="3">
-				<input type="button" value="목록" onclick="#">
-				<input type="button" value="등록" onclick="#"> 
-				<input type="button" value="작성취소" onclick="#"></td>
+				<input style="margin: 10px" class="btn btn-outline-light" id="btnlist" type="button" value="목록" >
+				<input style="margin: 10px" class="btn btn-outline-light" id="btnAdd" type="button" value="등록"> 
+				<input style="margin: 10px" class="btn btn-outline-light" id="btnCancel" type="button" value="작성취소"></td>
 			</tr>
 		</table>
 	</form>
