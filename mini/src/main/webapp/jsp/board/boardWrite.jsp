@@ -33,6 +33,9 @@
 			return false;
 		}
 	}
+	function writeForm() {
+		location.href = "board.do"; //등록 버튼
+	}
 	//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </script>
 <style>
@@ -77,9 +80,11 @@ strong {
 				<td><input type="file" name="board_file" /></td>
 			</tr>
 			<tr>
-				<td align="center" colspan="3"><input type="button" value="목록">
-					<input type="button" value="등록" onclick="listFrm()"> <input
-					type="button" value="작성취소" onclick="listFrm()"></td>
+				<td align="center" colspan="3">
+					<input type="button" value="목록" onclick="listFrm()">
+					<input type="button" value="등록" onclick="listFrm()"> 
+					<input type="button" value="작성취소" onclick="listFrm()">
+				</td>
 			</tr>
 		</table>
 	</form>

@@ -22,8 +22,8 @@
 	function writeForm() {
 		location.href = "boardWrite.do"; //글등록 버튼 이동
 	}
-	function reviewForm() {
-		location.href = "boardReview.do"; //리뷰페이지 버튼 이동
+	function boardForm() {
+		location.href = "board.do"; //Q&A 버튼 이동
 	}
 </script>
 
@@ -35,11 +35,11 @@
 <body>
 	<!-- <h1>게시판</h1>  -->
 	<div class="circle">
-		<a><img src="${pageContext.request.contextPath}/img/QA.jpg"
-		class="rounded-circle" alt="Cinque Terre" width="80" height="60" >
-		</a>&nbsp;&nbsp;
-		<a><img src="${pageContext.request.contextPath}/img/리뷰.jpg"
-			class="rounded-circle" alt="Cinque Terre" width="80" height="60" onclick="reviewForm()"></a>
+		<a><img	src="${pageContext.request.contextPath}/img/QA.jpg"
+			class="rounded-circle" alt="Cinque Terre" width="80" height="60" onclick="boardForm()">
+			</a>&nbsp;&nbsp;
+		<a><img	src="${pageContext.request.contextPath}/img/리뷰.jpg"
+			class="rounded-circle" alt="Cinque Terre" width="80" height="60"></a>
 	</div>
 	<br />
 	<div class="table-hover">
@@ -47,10 +47,12 @@
 			<thead>
 				<tr>
 					<th>번호</th>
-					<th>제목</th>
 					<th>작성자</th>
-					<th>날짜</th>
+					<th>지점명</th>
+					<th>테마</th>
+					<th>별점</th>
 					<th>조회수</th>
+
 				</tr>
 			</thead>
 			<tbody>

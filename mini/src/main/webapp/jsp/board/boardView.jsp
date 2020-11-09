@@ -26,7 +26,7 @@ strong {
 		<table width="700" border="3" bordercolor="hotpink" align="center">
 
 			<tr>
-				<td id="title">작성자</td>
+				<td id="id">작성자</td>
 				<td>${sessionScope.sessionID}</td>
 			</tr>
 			<tr>
@@ -46,9 +46,11 @@ strong {
 				<td><input type="file" name="board_file" /></td>
 			</tr>
 			<tr>
-				<td align="center" colspan="3"><input type="button" value="목록">
-					<input type="button" value="등록" onclick="listFrm()"> <input
-					type="button" value="작성취소" onclick="listFrm()"></td>
+				<td align="center" colspan="3">
+					<input type="button" value="등록" onclick="listFrm()"> 
+					<input type="button" value="작성취소" onclick="listFrm()"> 
+					<input type="button" value="목록">
+				</td>
 			</tr>
 		</table>
 	</form>
