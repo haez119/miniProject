@@ -69,27 +69,37 @@
 <body>
 	<h1>테마 리스트</h1>
 	<div align="center">
-	<table>	
+	
 		<c:forEach items="${themaList}" var="thema" varStatus="status">
-		<form id='frm' name='frm' method='post' action='themaUpdate.do' >
+			
+		<form id='frm' name='frm' method='post' action='ownerthemaUpdate.do' >
+		<table>
   		<tr><!-- 테마시작 -->
   		<td>
   			<td><img src ='${pageContext.request.contextPath}/img/${thema.thema_img}' width="150px" height="200px"  ><td>
   		</td>
   		<td>
   			<div align="left">
+  			<table>
   			<!-- 테마이름  -->
   			<input type='text' class='thema_name' name='thema_name' value='${thema.thema_name }' readonly="readonly">
   			<c:forEach var="i" begin="1" end='${thema.level2}'>
   			<img src='${pageContext.request.contextPath}/img/kEY.png' width='20px'>
+  			<input type="hidden" name="level2" value="${thema.level2}">
   			</c:forEach>
-  			<p>${thema.thema_intro }</p><button type="submit">수정/삭제</button>
-  			</div>
+  			<p>${thema.thema_intro}</p>
+  			<input type="hidden" name="thema_intro" value="${thema.thema_intro }">
   			</td>
+  			<tr><td> 최대 예약인원 ${thema.max_per}</td></tr>
+  			<tr><td><button type="submit">수정/삭제</button></td></tr>
+  			</table>
+  			</div>
+  			
   			</tr>
+  		</table>	
   		</form>	
   			</c:forEach>
-	</table>
+	
 	</div>
 </body>
 </html>

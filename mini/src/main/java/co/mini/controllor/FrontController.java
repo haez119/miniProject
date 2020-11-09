@@ -29,6 +29,7 @@ import co.mini.owner.command.ownerLogin;
 import co.mini.owner.command.ownerThemaListAction;
 import co.mini.owner.command.ownerthemaUpdateAction;
 import co.mini.owner.command.reviewInsertAction;
+import co.mini.owner.command.themaDelete;
 import co.mini.owner.command.themaInsertAction;
 import co.mini.owner.command.themaInsertForm;
 import co.mini.thema.command.reserveAction;
@@ -92,6 +93,7 @@ public class FrontController extends HttpServlet {
 		map.put("/themaInsertForm.do",new themaInsertForm());
 		map.put("/ownerThemaList.do",new ownerThemaListAction());
 		map.put("/ownerthemaUpdate.do",new ownerthemaUpdateAction());
+		map.put("/themaDelete",new themaDelete());
 		//임성은
 		map.put("/loginPage.do", new LoginForm());
 		map.put("/login.do", new LoginAction()); // 로그인 하면 넘어가는 페이지
