@@ -287,6 +287,22 @@ public class ThemaDao extends DAO {
 		}
 		return list;
 	}
+	//delete
+	private final String Delete_Thema= "Delete from thema where thema_no=?";
+	public int Delete_Thema(int thema_no) { // 추가하기
+		int n = 0;
+		try {
+			psmt = conn.prepareStatement(Delete_Thema);
+			psmt.setInt(1, thema_no);
+			
+			n = psmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return n;
+	}
+	
 	
 	private void close() {
 		try {
