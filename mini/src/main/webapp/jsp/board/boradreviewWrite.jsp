@@ -105,7 +105,7 @@ star-input>.input.focus {
 <script>
 $(document).ready(function() {
 	
-	$("#hiddenStar").val('1');
+	$("#hiddenStar").val('5');
 
 	$('.input').on('click','input' ,function() {
 		
