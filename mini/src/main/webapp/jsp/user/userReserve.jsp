@@ -78,8 +78,12 @@
 			<tr>
 		 		<th>결제여부 &nbsp;</th>
 		 		<td> ${reserv.payment }</td>
-		 	</tr>		
+		 	</tr>
 	</c:forEach>
+			<tr>
+		 		<th>리뷰등록 &nbsp;</th>
+		 		<td> <button>리뷰</button> </td>
+		 	</tr>	
 		 </table>
 		 </div>
 		
