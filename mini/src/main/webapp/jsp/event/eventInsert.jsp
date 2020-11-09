@@ -12,7 +12,7 @@
 		<div><h1>이벤트등록</h1></div>
 		<div>
 			
-			<form id="frm" name="frm" action="eventInsert.do" method="post" enctype="multipart/form-data">
+			<form id="frm" name="frm" action="eventInsertForm.do" method="post" enctype="multipart/form-data">
 				<table border="1">
 					<tr>
 						<th width="150"> 지점번호 </th>
