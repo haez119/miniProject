@@ -27,6 +27,7 @@ import co.mini.owner.command.OwnerInsertAction;
 import co.mini.owner.command.ReservPageAction;
 import co.mini.owner.command.ownerLogin;
 import co.mini.owner.command.ownerThemaListAction;
+import co.mini.owner.command.ownerthemaUpdateAction;
 import co.mini.owner.command.themaInsertAction;
 import co.mini.owner.command.themaInsertForm;
 import co.mini.thema.command.reserveAction;
@@ -82,11 +83,12 @@ public class FrontController extends HttpServlet {
 		// 최재영
 		map.put("/reserveInsert.do", new reserveInsertAction()); //테마예약하기 화면
 		map.put("/reserve.do", new reserveAction()); //예약하기화면 
-		map.put("/reserveResult.do",new reserveResultAction());
+		map.put("/reserveResult.do",new reserveResultAction());//예약결과화면
 		map.put("/reserveList.do",new reserveListAction());
 		map.put("/themaInsert.do",new themaInsertAction());
 		map.put("/themaInsertForm.do",new themaInsertForm());
 		map.put("/ownerThemaList.do",new ownerThemaListAction());
+		map.put("/ownerthemaUpdate.do",new ownerthemaUpdateAction());
 		//임성은
 		map.put("/loginPage.do", new LoginForm());
 		map.put("/login.do", new LoginAction()); // 로그인 하면 넘어가는 페이지
@@ -145,7 +147,7 @@ public class FrontController extends HttpServlet {
 		String viewPage = command.exec(request, response);  // 명령이 수행되고 나서 보여줄 페이지를 선택
 		// Action이 갖고 있는 메소드? exec의 매개값 => request, response 에 현재 request, response를 넘겨줌
 		if(viewPage != null) {
-			if(viewPage.startsWith("*redirect")) {
+			if(viewPage.startsWith("redirect")) {
 				response.sendRedirect(viewPage.substring(9));
 			}else {
 				// viewPage가 가지고 있는 객체를 유지하면서 전달(forward)

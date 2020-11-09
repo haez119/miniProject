@@ -22,10 +22,7 @@
 				<table border="1">
 					<tr>
 						<th width="150"> 지점번호 </th>
-						<td width="500"><select id="branch_no" name="branch_no">
-              			<c:forEach var="i" begin="1" end='${branch_no }'>
-        	 			<option value='${i}'>${i}</option>
-        	 			</c:forEach>
+						<td width="500">${branch_no}
         	 			</td>
 					</tr>
 					<tr>

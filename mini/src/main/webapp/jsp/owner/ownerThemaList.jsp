@@ -67,26 +67,27 @@
 
 </head>
 <body>
-	<h1>테마 소개</h1>
+	<h1>테마 리스트</h1>
 	<div align="center">
 	<table>	
-		<c:forEach items="${themaDisList}" var="themaDis" varStatus="status">
+		<c:forEach items="${themaList}" var="thema" varStatus="status">
+		<form id='frm' name='frm' method='post' action='themaUpdate.do' >
   		<tr><!-- 테마시작 -->
   		<td>
-  			<td><img src ='${pageContext.request.contextPath}/img/${themaDis.thema_img}' width="150px" height="200px"  ><td>
+  			<td><img src ='${pageContext.request.contextPath}/img/${thema.thema_img}' width="150px" height="200px"  ><td>
   		</td>
-  		<td><!-- 지점별 이용시간 시작 -->
+  		<td>
   			<div align="left">
   			<!-- 테마이름  -->
-  			<input type='text' class='thema_name' name='thema_name' value='${themaDis.thema_name }' readonly="readonly">
-  			<c:forEach var="i" begin="1" end='${themaDis.level2}'>
+  			<input type='text' class='thema_name' name='thema_name' value='${thema.thema_name }' readonly="readonly">
+  			<c:forEach var="i" begin="1" end='${thema.level2}'>
   			<img src='${pageContext.request.contextPath}/img/kEY.png' width='20px'>
   			</c:forEach>
-  			<p>${themaDis.thema_intro }</p>
+  			<p>${thema.thema_intro }</p><button type="submit">수정/삭제</button>
   			</div>
   			</td>
   			</tr>
-  			
+  		</form>	
   			</c:forEach>
 	</table>
 	</div>

@@ -258,9 +258,35 @@ public class ThemaDao extends DAO {
 		return n;
 	}
 	
+	private final String mybranch="select * from thema where branch_no=?";
+	//월요일날 할거
 	
-	
-	
+	public List<ThemaVO> mybranchList(int branch_no) { 
+		List<ThemaVO> list = new ArrayList<ThemaVO>();
+		try {
+			psmt = conn.prepareStatement(mybranch); // DAO를 상속받고 있어서 conn 정의 안해줘도 사용 가능
+			psmt.setInt(1, branch_no);
+			rs = psmt.executeQuery(); //executeQuery는 반환값이 resultSet, executeUpdate는 반환값이 int타입
+			
+			while (rs.next()) {
+
+				ThemaVO disVo = new ThemaVO();
+				disVo.setThema_no(rs.getInt("thema_no"));
+				disVo.setThema_name(rs.getString("thema_name"));
+				disVo.setThema_img(rs.getString("thema_img"));
+				disVo.setThema_intro(rs.getString("thema_intro"));
+				disVo.setLevel2(rs.getInt("level2"));
+				disVo.setMax_per(rs.getInt("max_per"));
+				list.add(disVo);
+
+			}
+		}catch( SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return list;
+	}
 	
 	private void close() {
 		try {
