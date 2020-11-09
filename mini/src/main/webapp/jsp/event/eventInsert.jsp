@@ -15,19 +15,13 @@
 			<form id="frm" name="frm" action="eventInsertForm.do" method="post" enctype="multipart/form-data">
 				<table border="1">
 					<tr>
-						<th width="150"> 지점번호 </th>
-						<td width="500"><select id="branch_no" name="branch_no">
-              			<c:forEach var="i" begin="1" end='${branch_no }'>
-        	 			<option value='${i}'>${i}</option>
-        	 			</c:forEach>
+						<th width="150"> 지점명 </th>
+						<td width="500">${branch_no}
         	 			</td>
 					</tr>
 					<tr>
 						<th width="150"> 이벤트번호 </th>
-						<td width="500"><select id="event_no" name="event_no">
-              			<c:forEach var="i" begin="1" end='${event_no }'>
-        	 			<option value='${i}'>${i}</option>
-        	 			</c:forEach>
+						<td width="500">${event_no} 
 					</tr>
 					<tr>
 					<th width="150"> 이벤트명</th>
