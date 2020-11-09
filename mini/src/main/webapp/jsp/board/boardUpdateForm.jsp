@@ -5,6 +5,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+
 <script type="text/javascript">
 	function changeView() {
 		lacation.href = "BoardListAction.do?page=${no}";
@@ -39,7 +40,7 @@
 		<table width="700" border="3" bordercolor="lightgray" align="center">
 			<tr>
 				<td id="title">작성자</td>
-				<td>${board.board_id}</td>
+				<td>${vo.id}</td>
 			</tr>
 			<tr>
 				<td id="title">제 목</td>
@@ -54,10 +55,7 @@
 			</tr>
 			<!-- 답글이 아닐 경우에만 파일 첨부 가능하도록 처리 -->
 			<c:if test="${board.board_parent==0}">
-				<tr>
-					<td id="title">기존 파일</td>
-					<td>&nbsp;&nbsp; ${board.board_file}</td>
-				</tr>
+
 				<tr>
 					<td id="title">첨부파일</td>
 					<td><input type="file" name="board_file" /></td>
