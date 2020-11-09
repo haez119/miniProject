@@ -121,19 +121,23 @@ strong {
 </head>
 
 <body>
-
-	<span class="star-input"> <span class="input"> <input
-			type="radio" name="star-input" value="1" id="p1"> <label
-			for="p1">1</label> <input type="radio" name="star-input" value="2"
-			id="p2"> <label for="p2">2</label> <input type="radio"
-			name="star-input" value="3" id="p3"> <label for="p3">3</label>
-			<input type="radio" name="star-input" value="4" id="p4"> <label
-			for="p4">4</label> <input type="radio" name="star-input" value="5"
-			id="p5"> <label for="p5">5</label>
-	</span> <output for="star-input">
+	<div align="center">
+	 <span class="star-input"> 
+		<span class="input"> 
+			<input type="radio" name="star-input" value="1" id="p1"> <label for="p1">1</label> 
+			<input type="radio" name="star-input" value="2"	id="p2"> <label for="p2">2</label> 
+			<input type="radio"	name="star-input" value="3" id="p3"> <label for="p3">3</label>
+			<input type="radio" name="star-input" value="4" id="p4"> <label	for="p4">4</label> 
+			<input type="radio" name="star-input" value="5"	id="p5"> <label for="p5">5</label>
+		</span> 
+		<output for="star-input">
 			<b>5</b>점
 		</output>
-	</span>
+	 </span>
+	</div>
+	<br>
+
+	
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/star.js"></script>
 
@@ -155,8 +159,8 @@ strong {
 				<td><input name="password" type="#" value="#"></td>
 			</tr>
 			<tr>
-				<td>날짜</td>
-				<td><input name="bdate" type="date" value=""></td>
+				<td id="bdate">날짜</td>
+				<td>#</td>
 			</tr>
 			<tr>
 				<td id="지점?">지점</td>
