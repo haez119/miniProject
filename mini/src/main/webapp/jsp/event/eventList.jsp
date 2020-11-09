@@ -18,11 +18,6 @@ td {
 </style>
 </head>
 <body>
-<div id="displayDiv" style="display:none">
-        <img src="${pageContext.request.contextPath}/img/할로윈_event.jpg" width="400" height="300">
-    </div>   
-
-
 	<table class="table table-striped"
 		style="text-align: center; border: 1px solid">
 
@@ -31,7 +26,7 @@ td {
 				<th>이벤트번호</th>
 				<th>지점명</th>
 				<th>이벤트명</th>
-				<th>이벤트내용</th>
+				
 				<th>시작일</th>
 				<th>종료일</th>
 				<th>할인율</th>
@@ -40,36 +35,29 @@ td {
 		</thead>
 		<tbody>
 			<c:forEach var="list" items="${event}" varStatus="status">
-				<tr id="td">
-					<td >${list.event_no }</td>
-					<td >${list.branch_name}</td>
-					<td >${list.event_name}</td>
-					<td >${list.event_content}</td>
-					<td >${list.start_event}</td>
-					<td >${list.last_event}</td>
-					<td >${list.sale}%</td>
+				<tr class='tr'>
+					<td style='cursor: pointer'>${list.event_no }</td>
+					<td>${list.branch_name}</td>
+					<td>${list.event_name}</td>
+					
+					<td>${list.start_event}</td>
+					<td>${list.last_event}</td>
+					<td>${list.sale}%</td>
 				</tr>
+				<tr style="display: none" ><td colspan='3'><img id="img"
+						
+						src="${pageContext.request.contextPath}/img/${list.img}"
+						width="400" height="300"><td colspan='3'>${list.event_content}</td></tr>
 			</c:forEach>
 		</tbody>
 	</table>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script type="text/javascript">
-    jQuery(document).ready(function() {
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+		$('.tr').click(function() {
+	
+				$(this).next().toggle();
 
-        jQuery("#td").click(function() {
-
-            if(jQuery("#displayDiv").css("display") == "none") {
-
-                jQuery("#displayDiv").css("display", "block");
-            }
-           
-            else {
-
-                jQuery("#displayDiv").css("display", "none");
-            }
-        });
-        
-    });
-</script>
+		});
+	</script>
 </body>
 </html>
