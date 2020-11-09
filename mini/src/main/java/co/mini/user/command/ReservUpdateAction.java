@@ -22,6 +22,7 @@ public class ReservUpdateAction implements Action {
 		HttpSession session = request.getSession(false);
 		
 		String id = (String) session.getAttribute("id");
+		
 		String password = request.getParameter("password");
 		String name = request.getParameter("name");
 		String phone = request.getParameter("phone");

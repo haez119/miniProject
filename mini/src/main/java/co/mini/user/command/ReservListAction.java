@@ -21,10 +21,16 @@ public class ReservListAction implements Action {
 		ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
 		
 		HttpSession session = request.getSession(false);
+		
 		String id = (String) session.getAttribute("id");
+		String password = (String) session.getAttribute("password");
+		String name = (String) session.getAttribute("name");
+		
 		
 		list = dao.selectMap(id);
 		
+		
+		session.setAttribute("id", id);	
 		request.setAttribute("reservs", list);
 		
 		

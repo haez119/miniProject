@@ -28,6 +28,7 @@ import co.mini.owner.command.ReservPageAction;
 import co.mini.owner.command.ownerLogin;
 import co.mini.owner.command.ownerThemaListAction;
 import co.mini.owner.command.ownerthemaUpdateAction;
+import co.mini.owner.command.reviewInsertAction;
 import co.mini.owner.command.themaInsertAction;
 import co.mini.owner.command.themaInsertForm;
 import co.mini.thema.command.reserveAction;
@@ -76,6 +77,8 @@ public class FrontController extends HttpServlet {
 		map.put("/logout.do", new logout() ); // 로그아웃
 		map.put("/ownerReservPage.do", new ReservPageAction() ); // 사장 예약 정보
 		map.put("/ownerinsert.do", new OwnerInsertAction() ); // 사장 회원가입
+		map.put("/reviewInsert.do", new reviewInsertAction() ); // 사장 회원가입
+		
 		
 		
 	

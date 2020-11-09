@@ -16,7 +16,7 @@
   color: black;
   padding-top: 30px;
   float: left;
-  width: 20%;
+  width: 15%;
   
 }
 .right-box {
@@ -24,7 +24,7 @@
   color: black;
   padding-top: 30px;
   float: right;
-  width: 75%;
+  width: 80%;
 }
 
 table {
@@ -36,12 +36,47 @@ table {
 
 	$(document).ready(function() {
 		
-		 $('#tbl').on('click', 'td', function() {
-			 
-			 let tr = $(this).parent().children();
+		 $('.reserv').on('click', function() {
+			 let tr = $(this).parent().parent().children();
 			 let rno = tr[0].childNodes[0].nodeValue;
 			 
 			 $(location).attr('href','${pageContext.request.contextPath}/reserv.do?rno=' + rno);
+			 
+		 });
+		 
+		 
+		 $('.review').on('click', function() {
+			
+			 let id = "${id}";
+			 let password = "${password}";
+			 let name = "${name}";
+			 
+			 let tr = $(this).parent().parent().children();
+			 
+			 let re_name = tr[1].childNodes[0].nodeValue;
+			 let date = tr[2].childNodes[0].nodeValue;
+			 let thema = tr[4].childNodes[0].nodeValue;
+			 
+			 $.ajax({ 
+				    url: "/mini/reviewInsert.do", 
+				    dataType: 'json', 
+				    data: {
+				    	   "id": id, 
+				    	   "password":password, 
+				    	   "name":name, 
+				    	   "re_name":re_name, 
+				    	   "date":date, 
+				    	   "thema":thema 
+				    	   },
+				    success: function(data) { 
+				        alert("수정되었습니다.");
+				    },
+				    error:function(xhr, status, message) { 
+				        alert(" status: "+status+" er:"+message);
+				    }
+				});
+
+			 
 			 
 		 });
 		
@@ -72,6 +107,8 @@ table {
 				<th scope="col">인원</th>
 				<th scope="col">가격</th>
 				<th scope="col">결제여부</th>
+				<th scope="col">상세보기</th>
+				<th scope="col">리뷰등록</th>
 			  </tr>
 			</thead>
 			<tbody>
@@ -86,6 +123,8 @@ table {
 					<td>${reserv.personnel} 명</td>
 					<td>${reserv.price} 원</td>
 					<td>${reserv.payment}</td>
+					<td><input class="reserv" type="button" value="상세보기" ></td>
+					<td><input class="review" type="button" value="리뷰" ></td>
 				  </tr>
 				  
 				 </c:forEach>

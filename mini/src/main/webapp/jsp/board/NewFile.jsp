@@ -99,10 +99,11 @@ star-input>.input.focus {
 	vertical-align: middle;
 }
 </style>
+
 <script>
 	$('#star_grade a').click(function() {
 		$(this).parent().children("a").removeClass("on"); /* 별점의 on 클래스 전부 제거 */
-		$(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
+		let start = $(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
 		return false;
 	});
 </script>
@@ -137,17 +138,20 @@ strong {
 	</div>
 	<br>
 
-	
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/star.js"></script>
 
 		<form name="frm" id="frm" method="post" action="boardInsert.do"
-		onsubmit="return formCheck()" enctype="multipart/form-data">
+			onsubmit="return formCheck()" enctype="multipart/form-data">
 		<input type="hidden" name="id" value="${sessionScope.sessionID}">
 		<table width="700" border="3" bordercolor="hotpink" align="center">
 
 			<tr>
-				<td id="title">작성자</td>
+				<td id="title">제목</td>
+				<td>#</td>
+			</tr>
+			<tr>
+				<td id="name">아이디</td>
 				<td>#</td>
 			</tr>
 			<tr>
