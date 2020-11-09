@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
  <style>
+
   	.thema_name {
   	width: 300px;
   	background: black;

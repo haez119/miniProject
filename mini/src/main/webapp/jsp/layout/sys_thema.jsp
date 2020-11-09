@@ -17,9 +17,10 @@
 		</c:if>
 		
 		<c:if test="${name ne null }">
-			<b> ${id} 회원님 </b>
+			
 			<a href="${pageContext.request.contextPath}/reservation.do">마이페이지</a> &nbsp;|&nbsp; 
 			<a href="${pageContext.request.contextPath}/logout.do">로그아웃</a> &nbsp;|&nbsp; 
+			<b> ${id} 회원님 </b>
 			
 		</c:if>
 
