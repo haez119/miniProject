@@ -16,7 +16,7 @@ $(function(){
 
 </head>
 <body>
-	<form id="frm" name="frm" method="post" action="${pageContext.request.contextPath}/aaaa.do">
+	<form id="frm" name="frm" method="post" action="${pageContext.request.contextPath}/noticeInsert.do">
 		<table border="1">
 			<tr>
 				<th width="150"> 지점명 </th>
@@ -24,7 +24,7 @@ $(function(){
 			</tr>
 			<tr>
 				<th width="150"> 아이디 </th>
-				<td width="500"><input type="text" id="id" name="id" readonly="readonly"></td>
+				<td width="500"><input type="text" id="id" name="id" readonly="readonly" value="${id}"></td>
 			</tr>
 			<tr>
 				<th width="150"> 등록일 </th>

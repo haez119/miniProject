@@ -22,10 +22,9 @@
 					<li>|</li>
 					<li><a class="menuLink" href="${pageContext.request.contextPath}/eventInsertForm.do">이벤트 등록</a></li>				
 					<li>|</li>	
-					<li><a class="menuLink" href="#">공지사항 등록</a></li>				
+					<li><a class="menuLink" href="${pageContext.request.contextPath}/noticeView.do">공지사항 등록</a></li>				
 					<li>|</li>	
 					<li><a class="menuLink" href="#">리뷰/Q&A 확인</a></li>
-					
 					<!-- <li>|</li>
 					<li><a class="menuLink" href="#">오시는길</a></li> -->
 				</ul>
