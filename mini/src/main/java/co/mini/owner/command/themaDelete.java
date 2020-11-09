@@ -18,9 +18,9 @@ public class themaDelete implements Action {
 
 		String page;
 		if(n !=0) {
-		page = "redirect:reserveList.do"; // 성공하면 리스트 화면 보여주기
+		page = "redirect:ownerThemaList.do"; // 성공하면 리스트 화면 보여주기
 		} else {
-		page = "jsp/owner/themaInsert.jsp"; // 실패하면 fail 페이지 보여주기
+		page = "redirect:ownerthemaUpdate.do"; // 실패하면 fail 페이지 보여주기
 		request.setAttribute("fail", "fail");
 		}
 

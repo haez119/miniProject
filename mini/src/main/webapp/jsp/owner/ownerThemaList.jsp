@@ -72,7 +72,7 @@
 	
 		<c:forEach items="${themaList}" var="thema" varStatus="status">
 			
-		<form id='frm' name='frm' method='post' action='ownerthemaUpdate.do' >
+		<form id='frm' name='frm' method='post' action='jsp/owner/themaUpdate.jsp' >
 		<table>
   		<tr><!-- 테마시작 -->
   		<td>
@@ -83,14 +83,17 @@
   			<table>
   			<!-- 테마이름  -->
   			<input type='text' class='thema_name' name='thema_name' value='${thema.thema_name }' readonly="readonly">
+  			<input type="hidden" name="thema_no" value="${thema.thema_no}">
   			<c:forEach var="i" begin="1" end='${thema.level2}'>
   			<img src='${pageContext.request.contextPath}/img/kEY.png' width='20px'>
-  			<input type="hidden" name="level2" value="${thema.level2}">
   			</c:forEach>
+  			<input type="hidden" name="level2" value="${thema.level2}">
   			<p>${thema.thema_intro}</p>
   			<input type="hidden" name="thema_intro" value="${thema.thema_intro }">
   			</td>
-  			<tr><td> 최대 예약인원 ${thema.max_per}</td></tr>
+  			<tr><td> 최대 예약인원 ${thema.max_per}
+  				<input type="hidden" name="max_per" value="${thema.max_per}">
+  			</td></tr>
   			<tr><td><button type="submit">수정/삭제</button></td></tr>
   			</table>
   			</div>

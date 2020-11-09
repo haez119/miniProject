@@ -10,6 +10,7 @@ public class ownerthemaUpdateAction implements Action {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
+
 		return "jsp/owner/themaUpdate.jsp";
 	}
 
