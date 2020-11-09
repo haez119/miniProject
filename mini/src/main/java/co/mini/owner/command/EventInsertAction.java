@@ -22,7 +22,7 @@ public class EventInsertAction implements Action {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		EventVO eventVo= new EventVO();
 		EventDAO eventDao = new EventDAO();
-		int event_no = EventDAO.maxevent();
+	//	int event_no = EventDAO.maxevent();
 		HttpSession session = request.getSession(false);
 		
 		eventVo.setBranch_no(Integer.parseInt(request.getParameter("branch_no")));
