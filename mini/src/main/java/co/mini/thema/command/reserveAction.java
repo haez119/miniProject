@@ -5,10 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import co.mini.common.Action;
+import co.mini.dao.EventDAO;
 import co.mini.dao.MemberDao;
 import co.mini.dao.ThemaDao;
+import co.mini.vo.EventVO;
 import co.mini.vo.MemberVO;
-import co.mini.vo.ScheduleVo;
 import co.mini.vo.ThemaVO;
 
 public class reserveAction implements Action {
@@ -26,6 +27,11 @@ public class reserveAction implements Action {
 		thVO=dao.reserve_thema(thema_no);
 		request.setAttribute("thVO",thVO );
 		
+		EventVO eventvo= new EventVO();
+		EventDAO eventDao = new EventDAO();
+		eventvo=eventDao.event_thema(request.getParameter("date"));
+		
+		request.setAttribute("eventvo", eventvo);
 
 		HttpSession session =request.getSession(false);
 		String id = (String)session.getAttribute("id");

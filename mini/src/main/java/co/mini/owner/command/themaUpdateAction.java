@@ -18,6 +18,7 @@ public class themaUpdateAction implements Action {
 		// TODO Auto-generated method stub
 		ThemaDao themadao=new ThemaDao();
 		ThemaVO themaVo= new ThemaVO();
+		themaVo.setThema_no(Integer.parseInt(request.getParameter("thema_no")));
 		themaVo.setThema_name(request.getParameter("thema_name"));
 		themaVo.setThema_intro(request.getParameter("thema_intro"));
 		themaVo.setLevel2(Integer.parseInt(request.getParameter("level2")));
@@ -39,8 +40,8 @@ public class themaUpdateAction implements Action {
 		if(n !=0) {
 		page = "redirect:ownerThemaList.do"; // 성공하면 리스트 화면 보여주기
 		} else {
-		page = "jsp/owner/themaUpdate.jsp"; // 실패하면 fail 페이지 보여주기
-		request.setAttribute("fail", "fail");
+		page = "redirect:ownerThemaList.do"; // 실패하면 fail 페이지 보여주기
+		request.setAttribute("fail2", "fail");
 		}
 		return page;
 	}
