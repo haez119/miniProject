@@ -63,6 +63,7 @@ table {
 </head>
 <body>
 <!-- 테이블 -->
+	<form id='frm' name='frm' method='post' action='payment.do' >
 	<div class="left-box">
 		<div style="background-color: white; padding: 30px;">
 			<h3>내 정보</h3>
@@ -97,7 +98,7 @@ table {
 					<td>${reserv.thema_name} </td>
 					<td>${reserv.personnel} 명</td>
 					<td>${reserv.price} 원</td>
-					<td>${reserv.payment}</td>
+					<td>${reserv.payment}<button type = "submit">결제하기</button></td>
 					<td><input class="btn btn-dark" name="reserv" type="button" value="상세" ></td>
 					<td><input class="btn btn-dark" name="review" type="button" value="리뷰" ></td>
 				  </tr>
@@ -105,7 +106,7 @@ table {
 				 </c:forEach>
 			</tbody>
 		</table>
-	
+	</form>
 	</div>
 	
 	
