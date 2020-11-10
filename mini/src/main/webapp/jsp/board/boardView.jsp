@@ -12,6 +12,11 @@ function deleteFrm(){
 	location.href="baardDelete.do?no=${vo.no}";
 	
 }
+function listFrm(){
+	
+	location.href= "board.do";
+	
+}
 </script>
 
 <style>
@@ -21,6 +26,7 @@ table {
 td {
 	text-align: center;
 }
+
 </style>
 </head>
 <body>
@@ -39,7 +45,7 @@ td {
 			</tr>
 			<tr>
 				<td>제목</td>
-				<td><input type="text" name = "title" value="${vo.title}"></td>
+				<td><input type="text" name="title" value="${vo.title}"></td>
 			</tr>
 			<tr>
 				<td>날짜</td>

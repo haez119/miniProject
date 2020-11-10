@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import co.mini.vo.BoardVO;
 
 public class BoardDAO extends DAO {
@@ -130,6 +131,7 @@ public class BoardDAO extends DAO {
 			psmt.setInt(1, vo.getNo()); 	//번호로 삭제?
 //			psmt.setString(1, vo.getId()); // 아이디로 삭제?
 			n = psmt.executeUpdate();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -137,7 +139,24 @@ public class BoardDAO extends DAO {
 		}
 		return n;
 	}
-
+	
+	//조회수 증가
+	private final String update_hit= "update board set hit=nvl(hit,0)+1 where no=?";
+	
+	public int update_hit(BoardVO vo) {
+		int n= 0;
+		try {
+			psmt = conn.prepareStatement(update_hit);
+			psmt.setInt(1, vo.getNo());
+			n = psmt.executeUpdate();
+			
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return n;
+		
+	}
 	private void close() {
 		try {
 			if (rs != null)

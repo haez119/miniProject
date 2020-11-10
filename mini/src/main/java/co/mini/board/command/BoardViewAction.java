@@ -20,6 +20,8 @@ public class BoardViewAction implements Action {
 		
 		vo.setNo(no);		
 		
+		dao.update_hit(vo);
+	
 		vo = dao.select(vo);
 		System.out.println(vo);
 		request.setAttribute("vo", vo);

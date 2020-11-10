@@ -36,9 +36,12 @@
 			<thead>
 				<tr>
 					<th>번호</th>
-					<th>작성자</th>
 					<th>지점명</th>
 					<th>테마</th>
+					<th>작성자</th>
+					<th>이용날짜</th>
+					<th>제목</th>
+					<th>내용</th>
 					<th>별점</th>
 					<th>조회수</th>
 
@@ -50,13 +53,14 @@
 				<c:forEach items="${board}" var="bo">
 					<tr>
 						<td>${bo.no}</td>
+						<td>${id}</td>
+						<td>${bo.branch_name}</td>
+						<td>${bo.thema_name}</td>
+						<td>${vo.use_date}</td>
 						<td>${bo.title}</td>
-						<td>${bo.id}</td>
-						<td>${bo.bdate}</td>
+						<td>${bo.content}</td>
 						<td>${bo.hit}</td>
-						<!-- <td>${bo.category}</td> -->
-						<!-- <td>${bo.show}</td> -->
-						<!-- <td>${bo.answer}</td> -->
+						<td>${bo.star}</td
 					</tr>
 				</c:forEach>
 			</tbody>
