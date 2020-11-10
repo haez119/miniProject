@@ -8,19 +8,8 @@
 <title>게시판 목록</title>
 
 <script>
-	$(document).ready(function() {
-		$("#flip").click(function() {
-			$("#panel").slideToggle("slow");
-		});
-	});
-
-	$(document).ready(function() {
-		$("#flip").click(function() {
-			$("#panel").slideDown("slow");
-		});
-	});
 	function writeForm() {
-		location.href = "boardWrite.do"; //글등록 버튼 이동
+		location.href = "boardreviewWrite.do"; //글등록 버튼 이동
 	}
 	function boardForm() {
 		location.href = "board.do"; //Q&A 버튼 이동

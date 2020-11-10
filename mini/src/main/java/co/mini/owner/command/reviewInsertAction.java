@@ -31,8 +31,8 @@ public class reviewInsertAction implements Action {
 		request.setAttribute("id", id);
 		
 		//request.setAttribute("list", list);
-
-		return "jsp/board/boradreviewWrite.jsp";
+    
+		return "jsp/board/boardreviewWrite.jsp";
 	}
 
 }

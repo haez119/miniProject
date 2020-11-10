@@ -19,7 +19,7 @@ public class BoardDAO extends DAO {
 	private final String SELECT = "SELECT * FROM BOARD WHERE NO=?";  // 게시판 뷰페이지
 	private final String INSERT = "INSERT INTO board(NO, TITLE, CONTENT, ID, BOARD_DATE) VALUES (board_seq.NEXTVAL,?,?,?,sysdate)";
 
-	private final String DELETE = "DELETE BOARD WHERE NO=?";
+	
 
 	public List<BoardVO> selectAll(BoardVO mvo) { // 전체조회기능
 		List<BoardVO> list = new ArrayList<BoardVO>();
@@ -108,9 +108,10 @@ public class BoardDAO extends DAO {
 			psmt = conn.prepareStatement(UPDATE);
 			
 			psmt.setString(1, vo.getTitle());
-			psmt.setDate(2, vo.getBoard_date());
+			psmt.setString(2, vo.getContent());
+			psmt.setDate(3, vo.getBoard_date());
 //			psmt.setString(3, vo.get첨부파일());
-			psmt.setInt(3, vo.getNo());
+			psmt.setInt(4, vo.getNo());
 
 			n = psmt.executeUpdate();
 		} catch (SQLException e) {
@@ -121,6 +122,7 @@ public class BoardDAO extends DAO {
 		return n;
 	}
 
+	private final String DELETE = "DELETE BOARD WHERE NO=?";
 	public int delete(BoardVO vo) { // 삭제기능
 		int n = 0;
 		try {

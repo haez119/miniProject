@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -18,18 +18,18 @@
 		var content = document.forms[0].content.value;
 
 		/*	if (name == null || name == "") {
-				alert('ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä.');
+				alert('ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”.');
 				document.forms[0].name.focus();
 				return false;
 			} 
 		 */
 		if (title == null || title == "") {
-			alert('Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä.');
+			alert('ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš”.');
 			document.forms[0].title.focus();
 			return false;
 		}
 		if (content == null || content == "") {
-			alert('³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä.');
+			alert('ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”.');
 			document.forms[0].content.focus();
 			return false;
 		}
@@ -39,7 +39,7 @@
 	}
 
 	function writeForm() {
-		location.href = "board.do"; //µî·Ï ¹öÆ°
+		location.href = "board.do"; //ë“±ë¡ ë²„íŠ¼
 	}
 	
 	//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -57,8 +57,6 @@ strong {
 }
 </style>
 
-<% request.setCharacterEncoding("utf-8");%>
-
 </head>
 <body>
 	<form name="frm" id="frm" method="post" action="boardUpdateAction.do"
@@ -67,37 +65,37 @@ strong {
 		<table width="700" border="3" bordercolor="hotpink" align="center">
 
 			<tr>
-				<td id="title">&nbsp;&nbsp;¹øÈ£</td>
-				<td>&nbsp;&nbsp;${vo.no}</td>
+				<td id="title">&nbsp;&nbsp;ë²ˆí˜¸</td>
+				<td><input name="no" value="${vo.no}"></td>
 			</tr>
 			<tr>
-				<td id="title">&nbsp;&nbsp;ÀÛ¼ºÀÚ</td>
-				<td>&nbsp;&nbsp;${id}</td>
+				<td id="title">&nbsp;&nbsp;ì‘ì„±ì</td>
+				<td><input name="no" value="${id}"></td>
 			</tr>
 			<tr>
-				<td>&nbsp;&nbsp;Á¦¸ñ<strong class="importent">(ÇÊ¼ö)</strong></td>
+				<td>&nbsp;&nbsp;ì œëª©<strong class="importent">(í•„ìˆ˜)</strong></td>
 				<td><input type="text" name="title" size="50" maxlength="255" value="${vo.title}"></td>
 			</tr>
 			<tr>
-				<td>&nbsp;&nbsp;³¯Â¥</td>
+				<td>&nbsp;&nbsp;ë‚ ì§œ</td>
 				<td><input type="date" name="board_date" value="${vo.board_date}"></td>
 			</tr>
 			<tr>
-				<td>&nbsp;&nbsp;³»¿ë<strong class="importent">(ÇÊ¼ö)</strong></td>
+				<td>&nbsp;&nbsp;ë‚´ìš©<strong class="importent">(í•„ìˆ˜)</strong></td>
 				<td><input type="text" name="content" value="${vo.content}" size="50"
 					maxlength="65536" style="width: 550px; height: 250px"></td>
 			</tr>
 			<tr>
-				<td id="title">&nbsp;&nbsp;ÆÄÀÏÃ·ºÎ</td>
+				<td id="title">&nbsp;&nbsp;íŒŒì¼ì²¨ë¶€</td>
 				<td><input type="file" name="board_file" /></td>
 			</tr>
 
 		</table>
 		<br>
 		<div align="center">
-			<button id="btn" type="submit">¼öÁ¤</button>
-			<button id="btn" type="reset">»èÁ¦</button>
-			<button id="btn" type="submit" onclick="listFrm()">¸ñ·Ï</button>
+			<button id="btn" type="submit">ìˆ˜ì •</button>
+			<button id="btn" type="reset">ì·¨ì†Œ</button>
+			<button id="btn" type="submit" onclick="listFrm()">ëª©ë¡</button>
 		</div>
 	</form>
 	<br>

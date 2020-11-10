@@ -53,9 +53,9 @@
 			 alert("리뷰등록 페이지로 이동합니다.")
 			 let tr = $(this).parent().parent().children();
 			 let rno = tr[0].childNodes[0].nodeValue;
-			 let input = tr[10].childNodes[0];
+			 //let input = tr[10].childNodes[0];
 			 
-			 $(input).attr("disabled", "disabled");
+			 //$(input).attr("disabled", "disabled");
 			 $(location).attr('href','${pageContext.request.contextPath}/reviewInsert.do?rno=' + rno);
 
 		 });
