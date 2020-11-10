@@ -124,7 +124,11 @@ $(()=>{
        		 </c:forEach>
              </select>
              </td>
-          </tr>   
+          </tr>
+          <tr>
+          	<td>진행중인 이벤트</td><td>${eventvo.event_name} ${eventvo.sale}% 할인</td>
+          </tr>
+         
          <tr>
              <th>가격 &nbsp;</th>
  

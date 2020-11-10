@@ -30,6 +30,12 @@
 
 <link rel="stylesheet" href="/mini/css/board.css">
 <style>
+div.searchForm {
+text-align: center;
+}
+pagination {
+ float: left;
+}
 </style>
 </head>
 
@@ -78,7 +84,7 @@
 	<!-- 검색 부분 -->
 	<div class="searchForm">
 		<form  name="searchFrm">
-		<input name="p" value="1">
+		현재페이지<input name="p" value="1" style="width:20px; text-align: center; ">
 			<select name="opt">
 				<option value="0">제목</option>
 				<option value="1">내용</option>

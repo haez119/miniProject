@@ -334,7 +334,7 @@ public class ThemaDao extends DAO {
 		public int Delete_Thema(int thema_no) { // 추가하기
 			int n = 0;
 			try {
-				psmt = conn.prepareStatement(Delete_Thema);
+				psmt = conn.prepareStatement(Delete_time);
 				psmt.setInt(1, thema_no);
 				
 				n = psmt.executeUpdate();

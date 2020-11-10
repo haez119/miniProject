@@ -29,7 +29,7 @@
   width: 80%;
 }
 
-table {
+.table {
 	background-color: white;
 	color: black;
 	width: max-content;

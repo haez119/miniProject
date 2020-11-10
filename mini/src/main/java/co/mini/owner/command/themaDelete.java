@@ -20,7 +20,7 @@ public class themaDelete implements Action {
 		if(n !=0) {
 		page = "redirect:ownerThemaList.do"; // 성공하면 리스트 화면 보여주기
 		} else {
-		page = "redirect:ownerthemaUpdate.do"; // 실패하면 fail 페이지 보여주기
+		page = "ownerThemaList.do"; // 실패하면 fail 페이지 보여주기
 		request.setAttribute("fail", "fail");
 		}
 

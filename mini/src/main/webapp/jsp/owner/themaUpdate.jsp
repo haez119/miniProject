@@ -92,13 +92,13 @@ $(function(){
 						<input type="checkbox" id="time" name="time" value="2320">23:20
 						</td>
 						<script>
-						$('[name="time"]').val(${list});
+						$('[name="time"]').val(${list})
 						</script>
 						</td>
 					</tr>
 					<tr>
 						<td colspan='2' align="center">
-							<button  id="update" >수정하기</button>&nbsp;&nbsp;
+							<button type="submit" id="update" >수정하기</button>&nbsp;&nbsp;
 							<button type="button" id="delbtn" >삭제하기</button>
 							<input type="reset" value=" 취  소 ">
 						</td>

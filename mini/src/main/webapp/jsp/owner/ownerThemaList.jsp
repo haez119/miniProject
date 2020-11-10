@@ -69,7 +69,13 @@
 <body>
 	<h1>테마 리스트</h1>
 	<div align="center">
-	
+		<c:if test="${fail ne null }">
+		<script> alert("테마 삭제 실패")</script>
+		</c:if>
+		
+		<c:if test="${fail2 ne null }">
+		<script> alert("테마 수정 실패")</script>
+		</c:if>
 		<c:forEach items="${themaList}" var="thema" varStatus="status">
 			
 		<form id='frm' name='frm' method='post' action='${pageContext.request.contextPath}/ownerthemaUpdate.do' >
