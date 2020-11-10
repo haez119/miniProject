@@ -35,6 +35,7 @@ public class BoardAction implements Action {
 		paging.setTotalRecord(cntdao.count(vo));
 		// 페이징 객체를 저장
 		request.setAttribute("paging", paging);
+		
 		// 해당 페이지의 리스트만 조회
 		List<BoardVO> list = dao.selectAll(vo);
 		request.setAttribute("board", list);

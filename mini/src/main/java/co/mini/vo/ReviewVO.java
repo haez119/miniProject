@@ -10,10 +10,10 @@ public class ReviewVO {
 	private Date use_date;
 	private String title;
 	private String content;
-	private String star;
+	private int star;
 
 	public ReviewVO() {
-		
+
 	}
 
 	public int getNo() {
@@ -72,11 +72,11 @@ public class ReviewVO {
 		this.content = content;
 	}
 
-	public String getStar() {
+	public int getStar() {
 		return star;
 	}
 
-	public void setStar(String star) {
+	public void setStar(int star) {
 		this.star = star;
 	}
 

@@ -12,7 +12,7 @@
 		location.href = "boardreviewWrite.do"; //글등록 버튼 이동
 	}
 	function boardForm() {
-		location.href = "board.do"; //Q&A 버튼 이동
+		location.href = "board.do"; //Q&A페이지 버튼 이동
 	}
 </script>
 
@@ -50,17 +50,16 @@
 			<tbody>
 				<!-- 게시물이 출력될 영역 -->
 				<!--  / el표기 /   -->
-				<c:forEach items="${board}" var="bo">
+				<c:forEach items="${boardreview}" var="vo">
 					<tr>
-						<td>${bo.no}</td>
-						<td>${id}</td>
-						<td>${bo.branch_name}</td>
-						<td>${bo.thema_name}</td>
+						<td>${vo.no}</td>
+						<td>${vo.id}</td>
+						<td>${vo.branch_name}</td>
+						<td>${vo.thema_name}</td>
 						<td>${vo.use_date}</td>
-						<td>${bo.title}</td>
-						<td>${bo.content}</td>
-						<td>${bo.hit}</td>
-						<td>${bo.star}</td
+						<td>${vo.title}</td>
+						<td>${vo.content}</td>
+						<td>${vo.star}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

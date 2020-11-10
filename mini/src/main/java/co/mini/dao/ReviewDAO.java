@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 
 import co.mini.vo.ReviewVO;
 
@@ -90,7 +90,7 @@ public class ReviewDAO extends DAO {
 			psmt.setDate(5, vo.getUse_date());
 			psmt.setString(6, vo.getTitle());
 			psmt.setString(7, vo.getContent());
-			psmt.setString(8, vo.getStar());
+			psmt.setInt(8, vo.getStar());
 			psmt.setInt(9, rno);
 			
 			psmt.executeUpdate();
@@ -105,38 +105,36 @@ public class ReviewDAO extends DAO {
 		
 	  }
 	  
+	  private ReviewVO vo;
 	  
-	 private final String DISABLE = "SELECT RE_NO FROM REVIEW";
-	 
-	 public ArrayList<HashMap<String, Object>> btnDis() {
-		 
-		 ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
-	     HashMap<String, Object> map = null;
-	     
-	     try {
-			psmt = conn.prepareStatement(DISABLE);
-			
+	  private final String select_all = "select * from review";
+	  
+	  public List<ReviewVO> selectAll() {
+		  List<ReviewVO> list = new ArrayList<ReviewVO>();
+		  try {
+			psmt = conn.prepareStatement(select_all);
 			rs = psmt.executeQuery();
-			
 			while(rs.next()) {
+				vo = new ReviewVO();
+				vo.setNo(rs.getInt("no"));
+				vo.setBranch_name(rs.getString("branch_name"));
+				vo.setThema_name(rs.getString("thema_name"));
+				vo.setId(rs.getString("id"));
+				vo.setUse_date(rs.getDate("use_date"));
+				vo.setTitle(rs.getString("title"));
+				vo.setContent(rs.getString("content"));
+				vo.setStar(rs.getInt("star"));
 				
-				 map = new HashMap<String, Object>();
-				 map.put("no",rs.getInt("RE_NO"));
-				 list.add(map);
 			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-	         close();
-	    }
-	      return list;
-	 }
+		}finally {
+			close();
+		}
+		return list;
+	}
 	  
-	  
-	  
-	  
-	  
+
 	  
 	  
 	   private void close() {
