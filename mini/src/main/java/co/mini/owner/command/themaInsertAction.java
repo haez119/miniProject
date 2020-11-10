@@ -38,35 +38,36 @@ public class themaInsertAction implements Action {
 		
 		try {
 			String addPath = request.getServletContext().getRealPath("/img");
+			System.out.println(addPath);
 			Part part = request.getPart("thema_img");
 			String fileName = FileUtil.extractFileName(part);
 			if(!fileName.equals("")) {
-			String uploadFile = addPath + File.separator + fileName; // File.separator 구분기호?
-			File renameFile = FileRenamePolicy.rename(new File(uploadFile));
-			part.write(renameFile.getAbsolutePath()); //절대경로
-			themaVo.setThema_img(renameFile.getName());
-			// vo.setImg(request.getParameter("img")); 이거 아니야
+				String uploadFile = addPath + File.separator + fileName; // File.separator 구분기호?
+				File renameFile = FileRenamePolicy.rename(new File(uploadFile));
+				part.write(addPath + File.separator + renameFile.getName()); //절대경로
+				themaVo.setThema_img(renameFile.getName());
+				// vo.setImg(request.getParameter("img")); 이거 아니야
 			}
-			} catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-			}
-			int n = themaDao.insert_Thema(themaVo);
+		}
+		int n = themaDao.insert_Thema(themaVo);
 			
-			ArrayList<String> list = new ArrayList<>(Arrays.asList(request.getParameterValues("time")));
-			for(String str : list) {
-				themaDao = new ThemaDao();
-				themaDao.insert_Schedule(new ScheduleVo(thema_no,str));
-			}
-			
+		ArrayList<String> list = new ArrayList<>(Arrays.asList(request.getParameterValues("time")));
+		for(String str : list) {
+			themaDao = new ThemaDao();
+			themaDao.insert_Schedule(new ScheduleVo(thema_no,str));
+		}
+		
 			
 		
-			String page;
-			if(n !=0) {
-			page = "redirect:ownerThemaList.do"; // 성공하면 리스트 화면 보여주기
-			} else {
-			page = "jsp/owner/themaInsert.jsp"; // 실패하면 fail 페이지 보여주기
-			request.setAttribute("fail", "fail");
-			}
+		String page;
+		if(n !=0) {
+		page = "redirect:ownerThemaList.do"; // 성공하면 리스트 화면 보여주기
+		} else {
+		page = "jsp/owner/themaInsert.jsp"; // 실패하면 fail 페이지 보여주기
+		request.setAttribute("fail", "fail");
+		}
 
 		
 		
