@@ -12,16 +12,24 @@
 		<div><h1>이벤트등록</h1></div>
 		<div>
 			
-			<form id="frm" name="frm" action="eventInsertForm.do" method="post" enctype="multipart/form-data">
+			<form id="frm" name="frm" action="EventInsert.do" method="post" enctype="multipart/form-data">
 				<table border="1">
 					<tr>
 						<th width="150"> 지점명 </th>
-						<td width="500">${branch_no}
+						<td width="500">${branch_name}
         	 			</td>
 					</tr>
+					
+					<tr>
+						<th width="150"><input type="hidden" value="${branch_no}" name="branch_no" id="branch_no"> </th>
+					</tr>
+					
+					
+					
+					
 					<tr>
 						<th width="150"> 이벤트번호 </th>
-						<td width="500">${event_no} 
+						<td width="500"><input readonly value="${max}" name="event_no" id="event_no">
 					</tr>
 					<tr>
 					<th width="150"> 이벤트명</th>
@@ -38,7 +46,7 @@
 					</tr>
 					<tr>
 						<th width="150"> 이벤트시작일 </th>
-						<td width="500"><input name="start_event" type="date" value="">
+						<td width="500"><input name="start_event" type="date">
 					</td>
 					</tr>
 					<tr>
@@ -50,7 +58,7 @@
 					<tr>
 						<th width="150"> 할인율 </th>
 						<td>
-						<input type="text" name="sale" value="" >
+						<input type="text" name="sale" >
 						</td>
 					</tr>
 					<tr>

@@ -22,13 +22,21 @@ public class EventDAO extends DAO {
    
    //private final String SELECT = "SELECT * FROM EVENT WHERE EVENT_NO = ?";
 
-   private final String INSERT = "INSERT INTO EVENT VALUES(?,?,?,?,?,?,?,?)";
+  
    
 //   private final String UPDATE = "UPDATE EVENT SET BRANCH_NO = ? ,BRANCH_NAME = ?, EVENT_NAME = ?, IMG = ?, EVENT_CONTENT = ?,  EVENT_TERM = ?, SALE = ? START_EVENT = ?";
 //   
 //   private final String DELETE = "DELETE FROM EVENT WHERE EVENT_NO = ?";
    
-   private final String MaxEvent="select max(event_no)+1 from event";
+  
+   
+   
+   
+   
+   
+   
+   
+   
 
    public List<EventVO> selectAll() {
       List<EventVO> list = new ArrayList<EventVO>();
@@ -43,7 +51,7 @@ public class EventDAO extends DAO {
             vo.setEvent_content(rs.getString("event_content"));
             vo.setStart_event(rs.getDate("start_event"));
             vo.setLast_event(rs.getDate("last_event"));
-            vo.setSale(rs.getInt("sale"));
+            vo.setSale(rs.getDouble("sale"));
             vo.setImg(rs.getString("img"));
             list.add(vo);
          }
@@ -53,19 +61,21 @@ public class EventDAO extends DAO {
       }
       return list;
    }
-
+   private final String INSERT = "INSERT INTO EVENT VALUES(?,?,?,?,?,?,?,?)";
    public int insert(EventVO vo) {
       int n = 0;
       try {
          psmt = conn.prepareStatement(INSERT);
-         psmt.setInt(1, vo.getBranch_no());
+         int a = vo.getBranch_no();
+         psmt.setInt(1, a);
          psmt.setInt(2, vo.getEvent_no());
          psmt.setString(3, vo.getEvent_name());
          psmt.setString(4, vo.getImg());
          psmt.setString(5, vo.getEvent_content());
-         psmt.setDate(6,vo.getStart_event());
-         psmt.setDate(7,vo.getLast_event());
-         psmt.setInt(8,vo.getSale());
+         psmt.setInt(6, vo.getEvent_term());
+         psmt.setDouble(7, vo.getSale());
+         psmt.setDate(8, vo.getStart_event());
+         
          n = psmt.executeUpdate();
       } catch (SQLException e) {
          e.printStackTrace();
@@ -73,6 +83,10 @@ public class EventDAO extends DAO {
       return n;
 
    }
+   
+   private final String MaxEvent="select max(event_no)+1 as max from event";
+   
+   
    public int maxevent() {
       int n = 0;
       try {
@@ -80,7 +94,7 @@ public class EventDAO extends DAO {
          rs = psmt.executeQuery();
          
          if (rs.next()) {
-            n=rs.getInt("max(event_no)+1");
+            n=rs.getInt("max");
          }
       } catch ( SQLException e) {
          e.printStackTrace();
@@ -92,11 +106,11 @@ public class EventDAO extends DAO {
    }
 
      private final String event_thema="select e.img, e.event_no, o.branch_name,o.branch_no, e.event_name, e.event_content, e.start_event, e.start_event + event_term as last_event,(1-e.sale)*100 as sale from event e join onwer o\r\n" + 
-     		"on(e.branch_no = o.branch_no)\r\n" + 
-     		"where start_event<to_date(?,'YY-MM-DD') AND (start_event+event_term)>to_date(?,'YY-MM-DD')AND o.branch_name=?";
+           "on(e.branch_no = o.branch_no)\r\n" + 
+           "where start_event<to_date(?,'YY-MM-DD') AND (start_event+event_term)>to_date(?,'YY-MM-DD')AND o.branch_name=?";
          
          public EventVO event_thema(String date,String branch_name) {
-        	 EventVO vo = new EventVO();
+            EventVO vo = new EventVO();
             try {
                psmt = conn.prepareStatement(event_thema);
                psmt.setString(1, date);
@@ -106,7 +120,7 @@ public class EventDAO extends DAO {
                rs = psmt.executeQuery();
                if (rs.next()) {
                   vo.setEvent_name(rs.getString("event_name"));
-                  vo.setSale(rs.getInt("sale"));
+                  vo.setSale(rs.getDouble("sale"));
 //                  /*
 //                   * vo.setAnswer(rs.getString("answer")); vo.setHit(rs.getInt("hit"));
 //                   * vo.setBdate(rs.getDate("bdate"));
