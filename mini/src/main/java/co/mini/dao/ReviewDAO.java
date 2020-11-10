@@ -3,6 +3,8 @@ package co.mini.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import co.mini.vo.ReviewVO;
 
@@ -103,7 +105,38 @@ public class ReviewDAO extends DAO {
 		
 	  }
 	  
+	  
+	 private final String DISABLE = "SELECT RE_NO FROM REVIEW";
+	 
+	 public ArrayList<HashMap<String, Object>> btnDis() {
+		 
+		 ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+	     HashMap<String, Object> map = null;
+	     
+	     try {
+			psmt = conn.prepareStatement(DISABLE);
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				 map = new HashMap<String, Object>();
+				 map.put("no",rs.getInt("RE_NO"));
+				 list.add(map);
+			}
 
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+	         close();
+	    }
+	      return list;
+	 }
+	  
+	  
+	  
+	  
+	  
 	  
 	  
 	   private void close() {

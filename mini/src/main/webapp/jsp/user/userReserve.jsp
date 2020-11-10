@@ -84,6 +84,10 @@
 		 		<th>결제여부 &nbsp;</th>
 		 		<td> ${reserv.payment }</td>
 		 	</tr>
+		 	<tr>
+		 		<th>이용횟수 &nbsp;</th>
+		 		<td> ${reserv.count }</td>
+		 	</tr>
 	</c:forEach>
 		 </table>
 		 <div align="left">

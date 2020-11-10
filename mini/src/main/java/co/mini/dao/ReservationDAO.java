@@ -15,7 +15,7 @@ public class ReservationDAO extends DAO{
    
 
    
-   private final String SELECT = "select r.no, m.name , r.reservdate, r.personnel, r.price, r.payment, t.thema_name, r.time, m.phone, o.branch_name  " 
+   private final String SELECT = "select r.no, m.name , r.reservdate, r.personnel, r.price, r.payment, t.thema_name, r.time, m.phone, o.branch_name , m.count " 
                         + "from reservation r , thema t , member m , onwer o " 
                         + "where r.thema_no = t.thema_no " 
                         + "and r.id = m.id " 
@@ -51,6 +51,7 @@ public class ReservationDAO extends DAO{
             map.put("time",rs.getString("TIME"));
             map.put("phone",rs.getString("phone"));
             map.put("branch_name",rs.getString("branch_name"));
+            map.put("count",rs.getString("count"));
             
             list.add(map);
          }
@@ -65,7 +66,7 @@ public class ReservationDAO extends DAO{
       
    
    
-   String reSelect = "select o.branch_name, r.reservdate, r.time, t.thema_name, m.name, m.phone, r.personnel, r.price, r.payment, m.rank, r.no " + 
+   String reSelect = "select o.branch_name, r.reservdate, r.time, t.thema_name, m.name, m.phone, r.personnel, r.price, r.payment, m.rank, r.no, m.count  " + 
                  "from reservation r , thema t , member m , onwer o " + 
                    "where r.thema_no = t.thema_no " + 
                    "and r.id = m.id " + 
@@ -101,6 +102,7 @@ public class ReservationDAO extends DAO{
             map.put("payment",rs.getString("PAYMENT"));
             map.put("rank",rs.getString("rank"));
             map.put("rno",rs.getInt("no"));
+            map.put("count",rs.getInt("count"));
             
             list.add(map);
          }

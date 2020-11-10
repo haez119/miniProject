@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import co.mini.common.Action;
 import co.mini.dao.ReservationDAO;
+import co.mini.dao.ReviewDAO;
 
 public class ReservListAction implements Action {
 
@@ -29,10 +30,16 @@ public class ReservListAction implements Action {
 		
 		list = dao.selectMap(id);
 		
+		ArrayList<HashMap<String, Object>> rlist = new ArrayList<HashMap<String, Object>>();
+		ReviewDAO rDao = new ReviewDAO();
+		
+		rlist = rDao.btnDis();
+		System.out.println(rlist);
+		
 		
 		session.setAttribute("id", id);	
 		request.setAttribute("reservs", list);
-		
+		request.setAttribute("rlist", rlist);
 		
 		
 		return "jsp/user/reservation.jsp";

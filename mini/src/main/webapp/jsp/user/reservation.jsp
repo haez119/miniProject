@@ -38,6 +38,22 @@
 <script>
 
 	$(document).ready(function() {
+		
+		var trArry = $("tr");
+		var rrno = "";
+		
+		console.log("${rlist}");
+
+		
+		
+		
+
+		for(i=1; i<trArry.length; i++) {
+			rrno = trArry[i].childNodes[1].childNodes[0].nodeValue;
+			console.log(rrno);
+		}
+		
+		
 		// 상세
 		 $("input[name='reserv']").on('click', function() {
 			 let tr = $(this).parent().parent().children();
@@ -56,8 +72,9 @@
 			 
 			 //$(input).attr("disabled", "disabled");
 			 $(location).attr('href','${pageContext.request.contextPath}/reviewInsert.do?rno=' + rno);
-
+			
 		 });
+		 
 		
 	});
 
