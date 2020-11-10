@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.mini.board.command.BoardAction;
 import co.mini.board.command.BoardDeleteAction;
 import co.mini.board.command.BoardReviewAction;
+import co.mini.board.command.BoardUpateFormAction;
 import co.mini.board.command.BoardUpdateAction;
 import co.mini.board.command.BoardViewAction;
 import co.mini.board.command.BoardWriteAction;
