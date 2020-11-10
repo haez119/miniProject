@@ -125,13 +125,6 @@ $(document).ready(function() {
 
 	 });
 	 
-/* 	 $('#btnAdd').on('click', function() {
-		 
-		 alert("등록되었습니다.");
-		 $("#frm").attr('action','${pageContext.request.contextPath}/reviewboard.do');
-
-	 }); */
-	 
 
 	$('#btnAdd').on('click',function(){
 		

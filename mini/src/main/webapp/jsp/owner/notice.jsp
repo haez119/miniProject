@@ -7,16 +7,31 @@
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-$(function(){
+$(document).ready(function() {
 	
-	
+	$('#btnAdd').on('click',function(){
+		
+		$.ajax({ 
+		    url: "/mini/noticeInsert.do", 
+		    dataType: 'json', 
+		    data: $("#frm").serialize(),
+		    success: function(data) { 
+		    	 alert("등록완료.");
+			     $(location).attr('href','${pageContext.request.contextPath}');
+		    },
+		    error:function(xhr, status, message) { 
+		        alert(" status: "+status+" er:"+message);
+		    }
+		});
+		
+	});
 
 });
 </script>
 
 </head>
 <body>
-	<form id="frm" name="frm" method="post" action="${pageContext.request.contextPath}/noticeInsert.do">
+	<form id="frm" name="frm">
 		<table border="1">
 			<tr>
 				<th width="150"> 지점명 </th>
@@ -40,7 +55,7 @@ $(function(){
 			</tr>
 			<tr>
 				<td colspan='2' align="center">
-					<input class="btn btn-outline-light" style="margin: 10px" type="submit" id="btnAdd" value="등록">
+					<input class="btn btn-outline-light" style="margin: 10px" type="button" id="btnAdd" value="등록">
 					<input class="btn btn-outline-light" style="margin: 10px" type="reset" value="취소">
 				</td>
 			</tr>

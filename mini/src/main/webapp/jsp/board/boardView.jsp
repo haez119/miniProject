@@ -6,6 +6,12 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<script>
+	function writeForm() {
+		location.href = "board.do";
+	}
+</script>
+
 <style>
 table {
 	margin: auto;
@@ -22,20 +28,20 @@ strong {
 <body>
 	<form name="frm" id="frm" method="post" action="boardInsert.do"
 		onsubmit="return formCheck()" enctype="multipart/form-data">
-		<input type="hidden" name="id" value="${sessionScope.sessionID}">
+		<input type="hidden" name="id" value="">
 		<table width="700" border="3" bordercolor="hotpink" align="center">
 
 			<tr>
 				<td id="id">작성자</td>
-				<td>${sessionScope.sessionID}</td>
+				<td>${id}</td>
 			</tr>
 			<tr>
 				<td>제목<strong class="importent">(필수)</strong></td>
-				<td>${vo.title}</td>
+				<td>${title}</td>
 			</tr>
 			<tr>
 				<td>날짜</td>
-				<td>${vo.board_date}</td>
+				<td>${board_date}</td>
 			</tr>
 			<tr>
 				<td>내용<strong class="importent">(필수)</strong></td>
@@ -46,11 +52,9 @@ strong {
 				<td><input type="file" name="board_file" /></td>
 			</tr>
 			<tr>
-				<td align="center" colspan="3">
-					<input type="button" value="등록" onclick="listFrm()"> 
-					<input type="button" value="작성취소" onclick="listFrm()"> 
-					<input type="button" value="목록">
-				</td>
+				<td align="center" colspan="3"><input type="button" value="수정"
+					onclick="listFrm()"> <input type="reset" value="작성취소">
+					<input type="button" value="목록"></td>
 			</tr>
 		</table>
 	</form>
