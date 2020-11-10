@@ -18,8 +18,8 @@ public class BoardDAO extends DAO {
 			+ ") a  ) b  where rn between ? and ?"; // 게시판 리스트
 	private final String SELECT = "SELECT * FROM BOARD WHERE NO=?";  // 게시판 뷰페이지
 	private final String INSERT = "INSERT INTO board(NO, TITLE, CONTENT, ID, BOARD_DATE) VALUES (board_seq.NEXTVAL,?,?,?,sysdate)";
-	private final String UPDATE = "UPDATE BOARD SET NO=?, TITLE=?, CONTENT=?, DATE=SYSDATE WHERE NO=?";
-	private final String DELETE = "DELETE BOARD WHERE ID=?";
+
+	private final String DELETE = "DELETE BOARD WHERE NO=?";
 
 	public List<BoardVO> selectAll(BoardVO mvo) { // 전체조회기능
 		List<BoardVO> list = new ArrayList<BoardVO>();
@@ -101,16 +101,17 @@ public class BoardDAO extends DAO {
 		}
 		return n; // 건수 확인
 	}
-
+	private final String UPDATE = "UPDATE BOARD SET TITLE=?, CONTENT=?, BOARD_DATE=TO_DATE(?,'YY-MM-DD')  WHERE NO=?";
 	public int update(BoardVO vo) { // 수정기능
 		int n = 0;
 		try {
 			psmt = conn.prepareStatement(UPDATE);
-			psmt.setString(1, vo.getId());
-			psmt.setString(2, vo.getTitle());
-			psmt.setDate(3, vo.getBoard_date());
-			psmt.setString(4, vo.getContent());
-//			psmt.setString(6, vo.get첨부파일());
+			
+			psmt.setString(1, vo.getTitle());
+			psmt.setDate(2, vo.getBoard_date());
+//			psmt.setString(3, vo.get첨부파일());
+			psmt.setInt(3, vo.getNo());
+
 			n = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -124,8 +125,8 @@ public class BoardDAO extends DAO {
 		int n = 0;
 		try {
 			psmt = conn.prepareStatement(DELETE);
-//			psmt.setInt(1, vo.getNo()); 	//번호로 삭제?
-			psmt.setString(1, vo.getId()); // 아이디로 삭제?
+			psmt.setInt(1, vo.getNo()); 	//번호로 삭제?
+//			psmt.setString(1, vo.getId()); // 아이디로 삭제?
 			n = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

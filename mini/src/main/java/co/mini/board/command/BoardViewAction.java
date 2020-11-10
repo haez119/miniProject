@@ -14,7 +14,7 @@ public class BoardViewAction implements Action {
 		// View페이지로 이동
 		BoardDAO dao = new BoardDAO();
 		BoardVO vo = new BoardVO();
-		int no = Integer.parseInt(request.getParameter("No"));
+		int no = Integer.parseInt(request.getParameter("no"));
 		
 		System.out.println(no);
 		

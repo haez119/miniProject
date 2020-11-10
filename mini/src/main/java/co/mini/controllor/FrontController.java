@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.mini.board.command.BoardAction;
+import co.mini.board.command.BoardDeleteAction;
 import co.mini.board.command.BoardReviewAction;
 import co.mini.board.command.BoardUpdateAction;
 import co.mini.board.command.BoardViewAction;
@@ -130,15 +131,14 @@ public class FrontController extends HttpServlet {
 		
 		
 		
-		
 		//김시무
 	    map.put("/board.do", new BoardAction());   				//게시판 메인 페이지 이동
 	    map.put("/boardWrite.do", new BoardWriteFormAction());  //게시판 글등록 페이지 이동
 	    map.put("/boardInsert.do", new BoardWriteAction());  	//게시판 글등록
-	    map.put("/boardUpdate.do", new BoardUpdateAction());	//게시판 글수정		
+	    map.put("/boardUpdate.do", new BoardUpdateAction());	//게시판 글수정
 	    map.put("/boardReview.do", new BoardReviewAction());	//리뷰게시판 페이지 이동
-	    map.put("/boardView.do", new BoardViewAction());	
-		
+	    map.put("/boardView.do", new BoardViewAction());		//게시판 뷰페이지 이동
+		map.put("/baardDelete.do", new BoardDeleteAction());	
 		
 		
 		
@@ -179,11 +179,6 @@ public class FrontController extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage); // 선택한 페이지로 가기
 				dispatcher.forward(request, response); // 전달
 			}
-	
 		}
-
-		
-		
 	}
-
 }

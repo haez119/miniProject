@@ -7,17 +7,7 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <script>
-	function listFrm(){
-		location.href="board.do";
-	}
-	
-	function deleteFrm(){
-		location.href="${pageContext.request.contextPath}/boardUpdate.do?No=${bo.no}";
-		
-	}
-	function updateFrm(){
-		location.href="#";
-	}
+
 </script>
 
 <style>
@@ -30,30 +20,30 @@ td {
 </style>
 </head>
 <body>
-	<form name="frm" id="frm" method="post" action="boardInsert.do"
+	<form name="frm" id="frm" method="post" action="${pageContext.request.contextPath}/boardUpdate2.do"
 		onsubmit="return formCheck()" enctype="multipart/form-data">
 		<input type="hidden" name="id" value="">
 		<table width="700" border="3" bordercolor="hotpink" align="center">
 	
 			<tr>
 				<td>번호</td>
-				<td id="a">${vo.no}</td>
+				<td><input type="text"  name ="no" value="${vo.no}" ></td>
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<td id="a">${vo.id}</td>
+				<td>${id}</td>
 			</tr>
 			<tr>
 				<td>제목</td>
-				<td id="a">${vo.title}</td>
+				<td><input type="text" name = "title" value="${vo.title}"></td>
 			</tr>
 			<tr>
 				<td>날짜</td>
-				<td id="a">${vo.board_date}</td>
+				<td><input type ="text" name="board_date" value="${vo.board_date}"></td>
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td id="a">${vo.content}</td>
+				<td><input type="text" name="content" value="${vo.content}"></td>
 			</tr>
 			<tr>
 				<td>파일첨부</td>
@@ -62,7 +52,7 @@ td {
 			<tr>
 				<td align="center" colspan="3">
 					<input type="button" value="목록" onclick="listFrm()"> 
-					<input type="button" value="수정" onclick="updateFrm()"> 
+					<input type="submit" value="수정"> 
 					<input type="button" value="삭제">
 				</td>
 			</tr>

@@ -68,7 +68,7 @@ pagination {
 				<c:forEach var="bo" items="${board}">
 					<tr>  
 						<td>${bo.no}</td>
-						<td><a href="${pageContext.request.contextPath}/boardView.do?No=${bo.no}">${bo.title}</a></td>
+						<td><a href="${pageContext.request.contextPath}/boardView.do?no=${bo.no}">${bo.title}</a></td>
 						<td>${bo.id}</td>						
 						<td>${bo.board_date}</td>
 						<td>${bo.hit}</td>

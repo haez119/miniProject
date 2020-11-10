@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 
 <script type="text/javascript">
-	function listFrm()() {
+	function listFrm() {
 		lacation.href = "board.do";
 	}
 	
@@ -66,35 +66,38 @@ strong {
 		<table width="700" border="3" bordercolor="hotpink" align="center">
 
 			<tr>
+				<td id="title">&nbsp;&nbsp;번호</td>
+				<td>&nbsp;&nbsp;${vo.no}</td>
+			</tr>
+			<tr>
 				<td id="title">&nbsp;&nbsp;작성자</td>
-				<td>&nbsp;&nbsp;${id}</td>
+				<td>&nbsp;&nbsp;${vo.id}</td>
 			</tr>
 			<tr>
 				<td>&nbsp;&nbsp;제목<strong class="importent">(필수)</strong></td>
-				<td><input type="text" name="title" value="" size="50"
-					maxlength="255"></td>
+				<td><input type="text" name="title" size="50" maxlength="255" value="${vo.title}"></td>
 			</tr>
 			<tr>
 				<td>&nbsp;&nbsp;날짜</td>
-				<td><input type="date" name="board_date" value=""></td>
+				<td><input type="date" name="board_date" value="${vo.board_date}"></td>
 			</tr>
 			<tr>
 				<td>&nbsp;&nbsp;내용<strong class="importent">(필수)</strong></td>
-				<td><input type="text" name="content" value="" size="50"
+				<td><input type="text" name="content" value="${vo.content}" size="50"
 					maxlength="65536" style="width: 550px; height: 250px"></td>
 			</tr>
 			<tr>
 				<td id="title">&nbsp;&nbsp;파일첨부</td>
 				<td><input type="file" name="board_file" /></td>
 			</tr>
-			
+
 		</table>
 		<br>
-				<div align="center">
-				<button id="btn" type="submit">수정</button>
-				<button id="btn" type="reset">삭제</button>
-				<button id="btn" type="submit" onclick="listFrm()">목록</button>
-			</div>
+		<div align="center">
+			<button id="btn" type="submit">수정</button>
+			<button id="btn" type="reset">삭제</button>
+			<button id="btn" type="submit" onclick="listFrm()">목록</button>
+		</div>
 	</form>
 	<br>
 </body>
