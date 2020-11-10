@@ -1,6 +1,5 @@
 package co.mini.board.command;
 
-import java.io.IOException;
 import java.sql.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,14 +23,10 @@ public class BoardUpdateAction implements Action {
 		vo.setBoard_date(Date.valueOf(request.getParameter("board_date")));
 		vo.setContent(request.getParameter("content"));
 		
-		dao.update(vo);
 		
-		try {
-			response.sendRedirect(request.getContextPath()+"/board.do");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return null;
+		request.setAttribute("vo", vo);
+	
+		return "/jsp/board/boardUpdate.jsp";
 	}
 
 }

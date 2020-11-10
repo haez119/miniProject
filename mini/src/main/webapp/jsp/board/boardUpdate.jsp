@@ -1,9 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="EUC-KR"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
 
 <script type="text/javascript">
@@ -56,11 +57,11 @@ strong {
 }
 </style>
 
-
+<% request.setCharacterEncoding("utf-8");%>
 
 </head>
 <body>
-	<form name="frm" id="frm" method="post" action="boardInsert.do"
+	<form name="frm" id="frm" method="post" action="boardUpdateAction.do"
 		onsubmit="return formCheck()" enctype="multipart/form-data">
 		<input type="hidden" name="id" value="">
 		<table width="700" border="3" bordercolor="hotpink" align="center">
@@ -71,7 +72,7 @@ strong {
 			</tr>
 			<tr>
 				<td id="title">&nbsp;&nbsp;작성자</td>
-				<td>&nbsp;&nbsp;${vo.id}</td>
+				<td>&nbsp;&nbsp;${id}</td>
 			</tr>
 			<tr>
 				<td>&nbsp;&nbsp;제목<strong class="importent">(필수)</strong></td>

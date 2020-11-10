@@ -24,7 +24,6 @@ import co.mini.board.command.LoginAction;
 import co.mini.board.command.LoginForm;
 import co.mini.board.command.MemberForm;
 import co.mini.board.command.MemberInsertAction;
-import co.mini.board.command.Notice;
 import co.mini.board.command.ReviewBoardAction;
 import co.mini.board.command.reserveResultAction;
 import co.mini.common.Action;
@@ -97,7 +96,6 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeView.do", new NoticeViewAction()); // 공지사항 등록 화면
 		map.put("/noticeInsert.do", new NoticeInsertAction()); // 공지사항 등록
 		map.put("/noticeList.do", new NoticeListAction()); // 공지사항 리스트
-		map.put("/notice.do", new Notice()); // 공지사항 세부
 	
 		
 		// 최재영
@@ -134,12 +132,13 @@ public class FrontController extends HttpServlet {
 		
 		
 		//김시무
-	    map.put("/board.do", new BoardAction());   				//게시판 메인 페이지 이동
-	    map.put("/boardWrite.do", new BoardWriteFormAction());  //게시판 글등록 페이지 이동
-	    map.put("/boardInsert.do", new BoardWriteAction());  	//게시판 글등록
-	    map.put("/boardUpdate.do", new BoardUpdateAction());	//게시판 글수정
-	    map.put("/boardReview.do", new BoardReviewAction());	//리뷰게시판 페이지 이동
-	    map.put("/boardView.do", new BoardViewAction());		//게시판 뷰페이지 이동
+	    map.put("/board.do", new BoardAction());   					  //게시판 메인 페이지 이동
+	    map.put("/boardWrite.do", new BoardWriteFormAction());  	  //게시판 글등록 페이지 이동
+	    map.put("/boardInsert.do", new BoardWriteAction());  		  //게시판 글등록
+	    map.put("/boardUpdate.do", new BoardUpdateAction());		  //게시판 글수정
+	    map.put("/boardUpdateAction.do", new BoardUpateFormAction()); 
+	    map.put("/boardReview.do", new BoardReviewAction());	 	  //리뷰게시판 페이지 이동
+	    map.put("/boardView.do", new BoardViewAction());			  //게시판 뷰페이지 이동
 		map.put("/baardDelete.do", new BoardDeleteAction());	
 		
 		

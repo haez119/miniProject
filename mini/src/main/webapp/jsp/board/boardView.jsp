@@ -20,7 +20,7 @@ td {
 </style>
 </head>
 <body>
-	<form name="frm" id="frm" method="post" action="${pageContext.request.contextPath}/boardUpdate2.do"
+	<form name="frm" id="frm" method="post" action="${pageContext.request.contextPath}/boardUpdate.do"
 		onsubmit="return formCheck()" enctype="multipart/form-data">
 		<input type="hidden" name="id" value="">
 		<table width="700" border="3" bordercolor="hotpink" align="center">
