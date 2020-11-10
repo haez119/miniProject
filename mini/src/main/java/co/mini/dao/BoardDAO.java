@@ -15,8 +15,8 @@ public class BoardDAO extends DAO {
 	private BoardVO vo;
 
 	private final String SELECT_ALL = "select * from( select a.*, rownum rn from (" + "SELECT * FROM BOARD order by no desc"
-			+ ") a  ) b  where rn between ? and ?";
-	private final String SELECT = "SELECT * FROM BOARD WHERE ID=?";
+			+ ") a  ) b  where rn between ? and ?"; // 게시판 리스트
+	private final String SELECT = "SELECT * FROM BOARD WHERE ID=?"; 
 	private final String INSERT = "INSERT INTO board( no, title, content, id, board_date ) VALUES (board_seq.NEXTVAL,?,?,?,sysdate)";
 	private final String UPDATE = "UPDATE BOARD SET NO=?, TITLE=?, CONTENT=?, DATE=? WHERE ID=?";
 	private final String DELETE = "DELETE BOARD WHERE ID=?";
@@ -91,7 +91,7 @@ public class BoardDAO extends DAO {
 			psmt.setString(1, vo.getTitle());
 			psmt.setString(2, vo.getContent());
 			psmt.setString(3, vo.getId());
-//			psmt.setDate(3, vo.getBoard_date());
+//			psmt.setDate(3, vo.getBoard_date()); //sysdate로 받고
 //			psmt.setString(5, vo.get첨부파일());
 			n = psmt.executeUpdate();
 		} catch (SQLException e) {
