@@ -126,6 +126,7 @@ $(()=>{
              </td>
           </tr>
           <tr>
+          
           	<td>진행중인 이벤트</td><td>${eventvo.event_name} ${eventvo.sale}% 할인</td>
           </tr>
          
@@ -184,7 +185,7 @@ $(()=>{
       <div class="left-box">
       <div style="background-color: black; padding: 30px;">
    
-         <img src='${pageContext.request.contextPath}/img/${thVO.thema_img}' height='400px' width='300px'><br>
+         <img src='${pageContext.request.contextPath}/img/${thVO.thema_img}' height='700px' width='400px'><br>
   		 <c:forEach var="i" begin="1" end='${thVO.level2}'>
   			<img src='${pageContext.request.contextPath}/img/kEY.png' width='20px'>
   	     </c:forEach>

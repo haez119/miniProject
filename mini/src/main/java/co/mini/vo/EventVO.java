@@ -116,6 +116,14 @@ public class EventVO {
 	public void setEvent_content(String event_content) {
 		this.event_content = event_content;
 	}
+
+	@Override
+	public String toString() {
+		return "EventVO [branch_no=" + branch_no + ", event_no=" + event_no + ", event_name=" + event_name
+				+ ", event_content=" + event_content + ", start_event=" + start_event + ", last_event=" + last_event
+				+ ", img=" + img + ", event_term=" + event_term + ", sale=" + sale + ", branch_name=" + branch_name
+				+ "]";
+	}
 	
 	
 	
