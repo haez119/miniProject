@@ -17,27 +17,7 @@ public class EventDAO extends DAO {
 
    private final String SELECT_ALL = "select e.img, e.event_no, o.branch_name, e.event_name, e.event_content, e.start_event, e.start_event + event_term as last_event,(1-e.sale)*100 as sale from event e join onwer o\r\n"
          + "on(e.branch_no = o.branch_no) order by event_no";
-   
-   
-   
-   //private final String SELECT = "SELECT * FROM EVENT WHERE EVENT_NO = ?";
-
-  
-   
-//   private final String UPDATE = "UPDATE EVENT SET BRANCH_NO = ? ,BRANCH_NAME = ?, EVENT_NAME = ?, IMG = ?, EVENT_CONTENT = ?,  EVENT_TERM = ?, SALE = ? START_EVENT = ?";
-//   
-//   private final String DELETE = "DELETE FROM EVENT WHERE EVENT_NO = ?";
-   
-  
-   
-   
-   
-   
-   
-   
-   
-   
-
+ 
    public List<EventVO> selectAll() {
       List<EventVO> list = new ArrayList<EventVO>();
       try {
@@ -132,13 +112,61 @@ public class EventDAO extends DAO {
             }
          return vo;
       }
-   
-   
-   
-   
-   
-   
-   
+         private final String UPDATE = "UPDATE EVENT SET BRANCH_NO = ? ,BRANCH_NAME = ?, EVENT_NAME = ?, IMG = ?, EVENT_CONTENT = ?,  EVENT_TERM = ?, SALE = ? START_EVENT = ?";
+         public int update(EventVO vo) {
+            int n = 0;
+            try {
+               psmt = conn.prepareStatement(UPDATE);
+               psmt.setInt(1, vo.getBranch_no());
+               psmt.setString(2, vo.getBranch_name());
+               psmt.setString(3, vo.getEvent_name());
+               psmt.setString(4, vo.getEvent_content());
+               psmt.setDate(6,vo.getStart_event());
+               psmt.setDate(7,vo.getLast_event());
+               psmt.setDouble(8,vo.getSale());
+               n = psmt.executeUpdate();
+            } catch (SQLException e) {
+               e.printStackTrace();
+            } 
+            return n;
+         }
+         
+         private final String DELETE = "DELETE FROM EVENT WHERE EVENT_NO = ?";
+         public int delete(EventVO vo) {
+            int n = 0;
+            try {
+               psmt = conn.prepareStatement(DELETE);
+               psmt.setInt(1, vo.getEvent_no());
+            } catch (SQLException e) {
+               e.printStackTrace();
+            }
+            return n;
+            
+         }
+         private final String SELECT = "SELECT * FROM EVENT WHERE EVENT_NO = ?";
+         public EventVO select(EventVO vo) {
+               try {
+                  psmt = conn.prepareStatement(SELECT);
+                  psmt.setInt(1, vo.getEvent_no());
+                  rs = psmt.executeQuery();
+                  if (rs.next()) {
+                     vo.setBranch_no(rs.getInt("branch_no"));
+                     vo.setEvent_no(rs.getInt("event_no"));
+                     vo.setEvent_name(rs.getString("event_name"));
+                     vo.setImg(rs.getString("img"));
+                     vo.setEvent_content(rs.getString("event_content"));
+                     vo.setStart_event(rs.getDate("start_event"));
+                     vo.setLast_event(rs.getDate("last_event"));
+                     vo.setSale(rs.getDouble("sale"));
+                      
+                  }
+                  
+               } catch (Exception e) {
+                  e.printStackTrace();
+               }
+            return vo;
+         }
+
    private void close() {
       try {
          if(rs != null)rs.close();
@@ -148,66 +176,5 @@ public class EventDAO extends DAO {
          e.printStackTrace();
       }
    }
-   
-   
-   
-   
-   
-   
-   
-   
-   
-//   public int update(EventVO vo) {
-//      int n = 0;
-//      try {
-//         psmt = conn.prepareStatement(UPDATE);
-//         psmt.setInt(1, vo.getBranch_no());
-//         psmt.setString(2, vo.getBranch_name());
-//         psmt.setString(3, vo.getEvent_name());
-//         psmt.setString(4, vo.getEvent_content());
-//         psmt.setDate(6,vo.getStart_event());
-//         psmt.setDate(7,vo.getLast_event());
-//         psmt.setInt(8,vo.getSale());
-//         n = psmt.executeUpdate();
-//      } catch (SQLException e) {
-//         e.printStackTrace();
-//      } 
-//      return n;
-//   }
-//   public int delete(EventVO vo) {
-//      int n = 0;
-//      try {
-//         psmt = conn.prepareStatement(DELETE);
-//         psmt.setInt(1, vo.getEvent_no());
-//      } catch (SQLException e) {
-//         e.printStackTrace();
-//      }
-//      return n;
-//      
-//   }
-//   public EventVO select(EventVO vo) {
-//         try {
-//            psmt = conn.prepareStatement(SELECT);
-//            psmt.setInt(1, vo.getEvent_no());
-//            rs = psmt.executeQuery();
-//            if (rs.next()) {
-//               vo.setBranch_no(rs.getInt("branch_no"));
-//               vo.setEvent_no(rs.getInt("event_no"));
-//               vo.setEvent_name(rs.getString("event_name"));
-//               vo.setImg(rs.getString("img"));
-//               vo.setEvent_content(rs.getString("event_content"));
-//               vo.setStart_event(rs.getDate("start_event"));
-//               vo.setLast_event(rs.getDate("last_event"));
-//               vo.setSale(rs.getInt("sale"));
-//                
-//            }
-//            
-//         } catch (Exception e) {
-//            e.printStackTrace();
-//         }
-//      return vo;
-//   }
-
-   
-
+ 
 }

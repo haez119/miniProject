@@ -11,7 +11,11 @@
 	<div align="center">
 		<div><h1>이벤트등록</h1></div>
 		<div>
-			
+			<c:if test="${fail ne null}">
+			<script>
+			alert("이벤트 등록 실패");
+			</script>
+			</c:if>
 			<form id="frm" name="frm" action="EventInsert.do" method="post" enctype="multipart/form-data">
 				<table border="1">
 					<tr>

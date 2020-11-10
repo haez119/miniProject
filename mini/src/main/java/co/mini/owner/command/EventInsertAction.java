@@ -23,8 +23,8 @@ public class EventInsertAction implements Action {
 		eventVo.setBranch_no(Integer.parseInt(request.getParameter("branch_no")));
 		eventVo.setEvent_no(Integer.parseInt(request.getParameter("event_no")));
 		eventVo.setEvent_name(request.getParameter("event_name"));
-		eventVo.setImg("img");
-		// eventVo.setImg(request.getParameter("event_img"));
+		//eventVo.setImg("img");
+		eventVo.setImg(request.getParameter("img"));
 		eventVo.setEvent_content(request.getParameter("event_content"));
 		eventVo.setStart_event(Date.valueOf(request.getParameter("start_event")));
 		eventVo.setEvent_term(Integer.parseInt(request.getParameter("event_term")));
@@ -39,7 +39,7 @@ public class EventInsertAction implements Action {
 				File renameFile = FileRenamePolicy.rename(new File(uploadFile));
 				part.write(renameFile.getAbsolutePath()); // 절대경로
 				eventVo.setImg(renameFile.getName());
-				// vo.setImg(request.getParameter("img")); 이거 아니야
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -51,7 +51,7 @@ public class EventInsertAction implements Action {
 		if(vo !=0) {
 		page = "redirect:eventlist.do"; // 성공하면 리스트 화면 보여주기
 		} else {
-		page = "jsp/event/eventInsert.jsp"; // 실패하면 fail 페이지 보여주기
+		page = "jsp/event/eventList.jsp"; 
 		request.setAttribute("fail", "fail");
 		}
 
