@@ -18,6 +18,8 @@ td {
 </style>
 </head>
 <body>
+<h1>이벤트 리스트</h1>
+
 	<table class="table table-striped"
 		style="text-align: center; border: 1px solid">
 
