@@ -29,7 +29,6 @@ public class ReservAction implements Action {
 
 		request.setAttribute("reservs", list); // members => jsp에서 items와 같음
 		
-		
 		return "jsp/user/userReserve.jsp";
 		
 	}

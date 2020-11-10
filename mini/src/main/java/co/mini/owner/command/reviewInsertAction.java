@@ -29,6 +29,7 @@ public class reviewInsertAction implements Action {
 		
 		request.setAttribute("vo", vo);
 		request.setAttribute("id", id);
+		request.setAttribute("rno", rno);
 		
 		//request.setAttribute("list", list);
     

@@ -174,7 +174,8 @@ table {
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/star.js"></script>
 
-		<form name="frm" id="frm" method="post">
+	<form name="frm" id="frm" method="post">
+		<input name="rno" id="rno" type="hidden" value="${rno}">
 		<table width="700" border="3" bordercolor="hotpink" align="center">
 			<tr >
 				<td>지점</td>
@@ -205,7 +206,6 @@ table {
 			<tr>
 				<td><input type="hidden" id="hiddenStar" name="hiddenStar"></td>
 			</tr>
-
 			<tr>
 				<td align="center" colspan="3">
 				<input style="margin: 10px" class="btn btn-outline-light" id="btnlist" type="button" value="목록" >

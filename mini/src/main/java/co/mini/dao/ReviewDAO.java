@@ -73,10 +73,10 @@ public class ReviewDAO extends DAO {
 	  
 	  
 	  
-	  private final String INSERT= "INSERT INTO REVIEW VALUES(? , ? , ? , ? ,  ? , ? , ? , ? , DEFAULT)";
+	  private final String INSERT= "INSERT INTO REVIEW VALUES(? , ? , ? , ? ,  ? , ? , ? , ? , DEFAULT, ?)";
 	  
 	  
-	  public void insertReview(ReviewVO vo) {
+	  public void insertReview(ReviewVO vo, int rno) {
 		  
 		  try {
 			psmt = conn.prepareStatement(INSERT);
@@ -89,6 +89,7 @@ public class ReviewDAO extends DAO {
 			psmt.setString(6, vo.getTitle());
 			psmt.setString(7, vo.getContent());
 			psmt.setString(8, vo.getStar());
+			psmt.setInt(9, rno);
 			
 			psmt.executeUpdate();
 			

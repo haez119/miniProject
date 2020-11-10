@@ -42,7 +42,11 @@
 	<c:forEach var="reserv" items="${reservs}" >	 
 		 	<tr>
 		 		<th>지점명 &nbsp;</th>
-		 		<td>${reserv.branch_name } <input type="hidden" name="branch_name" value="${reserv.branch_name }"></td>
+		 		<td>${reserv.branch_name } 
+		 			<input type="hidden" name="branch_name" value="${reserv.branch_name}">
+		 			<input type="hidden" name="no"  value="${reserv.rno}">
+		 		
+		 		</td>
 		 	</tr>
 			<tr>
 		 		<th>예약일자 &nbsp;</th>
