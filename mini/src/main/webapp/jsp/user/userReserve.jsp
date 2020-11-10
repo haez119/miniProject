@@ -42,15 +42,15 @@
 	<c:forEach var="reserv" items="${reservs}" >	 
 		 	<tr>
 		 		<th>지점명 &nbsp;</th>
-		 		<td>${reserv.branch_name } </td>
+		 		<td>${reserv.branch_name } <input type="hidden" name="branch_name" value="${reserv.branch_name }"></td>
 		 	</tr>
 			<tr>
 		 		<th>예약일자 &nbsp;</th>
-		 		<td> ${reserv.reservdate } </td>
+		 		<td> ${reserv.reservdate } <input type="hidden" name="reservdate" value="${reserv.reservdate }"></td>
 		 	</tr>
 			<tr>
 		 		<th>입장시간 &nbsp;</th>
-		 		<td> ${fn:substring(reserv.time,0,2)}시 ${fn:substring(reserv.time,2,4)}분 </td>
+		 		<td> ${fn:substring(reserv.time,0,2)}시 ${fn:substring(reserv.time,2,4)}분<input type="hidden" name="time" value="${reserv.time}"> </td>
 		 	</tr>
 		 	<tr>
 		 		<th>테마명 &nbsp;</th>
@@ -74,7 +74,7 @@
 		 	</tr>	
 			<tr>
 		 		<th>가격 &nbsp;</th>
-		 		<td> ${reserv.price } 원</td>
+		 		<td> ${reserv.price } 원<input type="hidden" name="price" value="${reserv.price}"> </td>
 		 	</tr>	
 			<tr>
 		 		<th>결제여부 &nbsp;</th>
