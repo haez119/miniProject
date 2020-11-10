@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import co.mini.vo.NoticeVO;
+import co.mini.vo.ReviewVO;
 
 public class NoticeDAO  extends DAO {
 	
@@ -95,9 +96,10 @@ public class NoticeDAO  extends DAO {
 		  }
 	
 	  
-		  private final String SELECTALL = "SELECT N.NO, O.BRANCH_NAME, N.INSERT_DATE, N.TITLE, N.CONTENT " + 
+		  private final String SELECTALL = "SELECT N.NO, O.BRANCH_NAME, N.INSERT_DATE, N.TITLE  " + 
 				  							"FROM NOTICE N , ONWER O  " + 
-				  							"WHERE N.BRANCH_NO = O.BRANCH_NO ";
+				  							"WHERE N.BRANCH_NO = O.BRANCH_NO " +
+				  							"ORDER BY 1";
 		  
 		  public ArrayList<HashMap<String, Object>> select_mem() {
 			  
@@ -117,29 +119,55 @@ public class NoticeDAO  extends DAO {
 		            map.put("branch_name",rs.getString("BRANCH_NAME"));
 		            map.put("insert_date",rs.getDate("INSERT_DATE"));
 		            map.put("title",rs.getString("TITLE"));
-		            map.put("content",rs.getString("CONTENT"));
 		           
-		            
 		            list.add(map);
 		         }
-				
-				
-				
+
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} finally {
 		         close();
 		    }
-		      
-		      
-			  
+
 			  return list;
 		  }
 		  
 		  
+		  private final String SELECT_DETAIL = "SELECT N.NO, O.BRANCH_NAME, N.INSERT_DATE, N.TITLE, N.CONTENT  " + 
+		  								      "FROM NOTICE N , ONWER O  " + 
+		  								      "WHERE N.BRANCH_NO = O.BRANCH_NO  " + 
+		  								      "AND N.NO = ? "; 
 		  
-		  
-		  
+		  public NoticeVO detail_select(int b_no) {
+			  
+			  NoticeVO vo = new NoticeVO();
+			  
+			  try {
+				psmt = conn.prepareStatement(SELECT_DETAIL);
+				
+				psmt.setInt(1, b_no);
+				 
+				rs = psmt.executeQuery();
+				
+				 if(rs.next()) {
+			        	
+		        	vo.setNo(rs.getInt("NO"));
+		        	vo.setBranch_name(rs.getString("BRANCH_NAME"));
+		        	vo.setInsert_date(rs.getDate("INSERT_DATE"));
+		        	vo.setTitle(rs.getString("TITLE"));
+		        	vo.setContent(rs.getString("CONTENT"));
+			        	
+			     }
+				
+				
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			  
+			  
+			  return vo;
+		  }
 		  
 		  
 		  

@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class NoticeVO {
 	
+	// insert 용
 	private int no;
 	private int branch_no;
 	private String id;
@@ -11,6 +12,18 @@ public class NoticeVO {
 	private String title;
 	private String content;
 	
+	// select 용 추가
+	
+	private String branch_name;
+	
+	
+	
+	public String getBranch_name() {
+		return branch_name;
+	}
+	public void setBranch_name(String branch_name) {
+		this.branch_name = branch_name;
+	}
 	
 	
 	public int getNo() {

@@ -24,6 +24,7 @@ import co.mini.board.command.LoginAction;
 import co.mini.board.command.LoginForm;
 import co.mini.board.command.MemberForm;
 import co.mini.board.command.MemberInsertAction;
+import co.mini.board.command.Notice;
 import co.mini.board.command.ReviewBoardAction;
 import co.mini.board.command.reserveResultAction;
 import co.mini.common.Action;
@@ -96,7 +97,7 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeView.do", new NoticeViewAction()); // 공지사항 등록 화면
 		map.put("/noticeInsert.do", new NoticeInsertAction()); // 공지사항 등록
 		map.put("/noticeList.do", new NoticeListAction()); // 공지사항 리스트
-	
+		map.put("/notice.do", new Notice()); // 공지사항 세부
 		
 		// 최재영
 		map.put("/reserveInsert.do", new reserveInsertAction()); //테마예약하기 화면
