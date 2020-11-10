@@ -35,7 +35,7 @@ public class ReviewBoardAction implements Action {
 		
 		vo.setTitle(request.getParameter("title"));
 		vo.setContent(request.getParameter("content"));
-		vo.setStar(request.getParameter("hiddenStar"));
+		vo.setStar(Integer.parseInt(request.getParameter("hiddenStar")));
 		int rno = Integer.parseInt(request.getParameter("rno"));
 		
 		dao = new ReviewDAO();
