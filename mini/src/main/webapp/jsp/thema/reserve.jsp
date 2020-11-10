@@ -46,16 +46,20 @@ integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="ano
 <script>
 $(()=>{
 	
+
+	
 	function comma(str) {
         str = String(str);
         return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
     }
 	
-	$('#person').on('change',function(){
-		$("#price").html(comma($('#person option:checked').val()*20000*$('#rankSale').val())+'원');
-		$("#price2").val($('#person option:checked').val()*20000*$('#rankSale').val());
-	});
 	
+	
+	$('#person').on('change',function(){
+		$("#price").html(comma($('#person option:checked').val()*20000*(1-$('#sale').val())*$('#rankSale').val())+'원');
+		$("#price2").val($('#person option:checked').val()*20000*(1-$('#sale').val())*$('#rankSale').val());
+	});
+	$('#person').change();
 	
 });
 </script>
@@ -127,12 +131,22 @@ $(()=>{
           </tr>
           <tr>
           
-          	<td>진행중인 이벤트</td><td>${eventvo.event_name} ${eventvo.sale}% 할인</td>
+          	<td>진행중인 이벤트</td><td>${eventvo.event_name} ${eventvo.sale}% 할인
+          	<c:if test = "${eventvo.sale ne 0}">
+          	<input type="hidden" id="sale" name="sale" value="0.${eventvo.sale}">
+          	</c:if>
+          	<c:if test = "${eventvo.sale eq 0}">
+          	<input type="hidden" id="sale" name="sale" value="0">
+          	</c:if>
+          	
+          	</td>
+          	
           </tr>
          
          <tr>
              <th>가격 &nbsp;</th>
- 
+ 			 
+ 			 <c:if test = "${eventvo.sale eq 0}">
              <c:choose>
              <c:when test="${meVo.rank eq 'Silver'}">
              <td id='price' name="price">19,000원</td>
@@ -147,6 +161,29 @@ $(()=>{
              <td id='price' name="price">20,000원</td>
              </c:otherwise>
              </c:choose>
+             </c:if>
+             
+             <c:if test = "${eventvo.sale ne 0}">
+             <c:choose>
+             <c:when test="${meVo.rank eq 'Silver'}">
+             <td id='price' name="price" onload="loadfucntion()">19000</td>
+             </c:when>
+             <c:when test="${meVo.rank eq 'Gold'}">
+             <td id='price' name="price" onload="loadfucntion()">18000</td>
+             </c:when>
+             <c:when test="${meVo.rank eq 'VIP'}">
+              <td id='price' name="price" onload="loadfucntion()">17000</td>
+             </c:when>
+             <c:otherwise>
+             <td id='price' name="price" onload="loadfucntion()">20000</td>
+             </c:otherwise>
+             </c:choose>
+             </c:if>
+             
+             
+             
+             
+             
             
              <c:choose>
              <c:when test="${meVo.rank eq Silver}">

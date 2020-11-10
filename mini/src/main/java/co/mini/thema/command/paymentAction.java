@@ -10,7 +10,7 @@ public class paymentAction implements Action {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		return null;
+		return "jsp/thema/payment.jsp";
 	}
 
 }
