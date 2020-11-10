@@ -19,16 +19,15 @@ public class BoardUpateFormAction implements Action {
 		BoardVO vo = new BoardVO();
 
 		vo.setNo(Integer.parseInt(request.getParameter("no")));
-
 		vo.setId(request.getParameter("id"));
 		vo.setTitle(request.getParameter("title"));
 		vo.setBoard_date(Date.valueOf(request.getParameter("board_date")));
 		vo.setContent(request.getParameter("content"));
 
 		dao.update(vo);
-		
+
 		try {
-			response.sendRedirect(request.getContextPath()+"/board.do");
+			response.sendRedirect(request.getContextPath() + "/board.do");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

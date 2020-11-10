@@ -7,7 +7,11 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <script>
-
+function deleteFrm(){
+	
+	location.href="baardDelete.do?no=${vo.no}";
+	
+}
 </script>
 
 <style>
@@ -53,7 +57,7 @@ td {
 				<td align="center" colspan="3">
 					<input type="button" value="목록" onclick="listFrm()"> 
 					<input type="submit" value="수정"> 
-					<input type="button" value="삭제">
+					<input type="button" value="삭제" onclick="deleteFrm()">
 				</td>
 			</tr>
 		</table>
