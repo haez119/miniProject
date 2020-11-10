@@ -367,27 +367,40 @@ public class ThemaDao extends DAO {
 			return n;
 		}
 	
-//		
-//		private final String update_pay = "update thema set thema_name=?"
-//				+ ",thema_intro=?,level2=?,max_per=? where thema_no=?";
-//		public int update_Thema(ThemaVO vo) { // 추가하기
-//			int n = 0;
-//			try {
-//				psmt = conn.prepareStatement(update_Thema);
-//				psmt.setString(1, vo.getThema_name());
-//				psmt.setString(2, vo.getThema_intro());
-//				psmt.setInt(3, vo.getLevel2());
-//				psmt.setInt(4, vo.getMax_per());
-//				psmt.setInt(5, vo.getThema_no());
-//				
-//				
-//				n = psmt.executeUpdate();
-//
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			}
-//			return n;
-//		}
+//결제		
+		private final String update_pay = "update reservation set payment='결제' where no=?";
+		public int update_pay(int no) { // 추가하기
+			int n = 0;
+			try {
+				psmt = conn.prepareStatement(update_pay);
+				psmt.setInt(1, no);
+				
+				
+				
+				n = psmt.executeUpdate();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return n;
+		}
+		
+		private final String update_rank = "update member set count=count+1,rank=get_rank(count) where id=?";
+		public int update_rank(String id) { // 추가하기
+			int n = 0;
+			try {
+				psmt = conn.prepareStatement(update_rank);
+				psmt.setString(1, id);
+				
+				
+				
+				n = psmt.executeUpdate();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return n;
+		}
 		
 		
 	
