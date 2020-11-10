@@ -3,6 +3,8 @@ package co.mini.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import co.mini.vo.NoticeVO;
 
@@ -93,6 +95,55 @@ public class NoticeDAO  extends DAO {
 		  }
 	
 	  
+		  private final String SELECTALL = "SELECT N.NO, O.BRANCH_NAME, N.INSERT_DATE, N.TITLE, N.CONTENT " + 
+				  							"FROM NOTICE N , ONWER O  " + 
+				  							"WHERE N.BRANCH_NO = O.BRANCH_NO ";
+		  
+		  public ArrayList<HashMap<String, Object>> select_mem() {
+			  
+			  ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+		      HashMap<String, Object> map;
+		      
+		      try {
+				psmt = conn.prepareStatement(SELECTALL);
+				
+				rs = psmt.executeQuery();
+				
+				while(rs.next()) {
+		            
+		            map = new HashMap<String, Object>();
+		            
+		            map.put("no",rs.getInt("NO"));
+		            map.put("branch_name",rs.getString("BRANCH_NAME"));
+		            map.put("insert_date",rs.getDate("INSERT_DATE"));
+		            map.put("title",rs.getString("TITLE"));
+		            map.put("content",rs.getString("CONTENT"));
+		           
+		            
+		            list.add(map);
+		         }
+				
+				
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+		         close();
+		    }
+		      
+		      
+			  
+			  return list;
+		  }
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
 	  private void close() {
 	      try {
 	         if(rs != null) rs.close();

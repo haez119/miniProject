@@ -40,7 +40,7 @@ $(function(){
 					<li>|</li>
 					<li><a class="menuLink" href="${pageContext.request.contextPath}/eventlist.do">이벤트</a></li>				
 					<li>|</li>	
-					<li><a class="menuLink" href="#">공지사항</a></li>				
+					<li><a class="menuLink" href="${pageContext.request.contextPath}/noticeList.do">공지사항</a></li>				
 					<li>|</li>	
 					<li><a class="menuLink" href="${pageContext.request.contextPath}/board.do">리뷰/Q&A</a></li>
 					<%-- <li>|</li>	
