@@ -44,7 +44,6 @@ import co.mini.owner.command.themaDelete;
 import co.mini.owner.command.themaInsertAction;
 import co.mini.owner.command.themaInsertForm;
 import co.mini.owner.command.themaUpdateAction;
-
 import co.mini.thema.command.reserveAction;
 import co.mini.thema.command.reserveInsertAction;
 import co.mini.thema.command.reserveListAction;
@@ -56,6 +55,7 @@ import co.mini.user.command.ReservListAction;
 import co.mini.user.command.ReservUpdate;
 import co.mini.user.command.ReservUpdateAction;
 import co.mini.user.command.logout;
+import payment.paymentAction;
 
 @WebServlet("*.do")
 @MultipartConfig(maxFileSize=1024*1024*2  	//size of any uploaded file
@@ -111,6 +111,7 @@ public class FrontController extends HttpServlet {
 		map.put("/ownerthemaUpdate.do",new ownerthemaUpdateAction());
 		map.put("/themaDelete.do",new themaDelete());
 		map.put("/themaUpdate.do",new themaUpdateAction());
+		map.put("/payment.do",new paymentAction());
 		
 		
 		

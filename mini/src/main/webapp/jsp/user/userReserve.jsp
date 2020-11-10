@@ -82,7 +82,7 @@
 		 	</tr>
 	</c:forEach>
 		 </table>
-		 <div align="center">
+		 <div align="left">
 		 <button type="submit">결제하기</button>
 		 </div>
 		 </form>
