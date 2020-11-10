@@ -20,6 +20,7 @@ public class NoticeDAO  extends DAO {
 		  
 		  try {
 			psmt = conn.prepareStatement(INSERT);
+			
 			psmt.setInt(1, vo.getNo());
 			psmt.setInt(2, vo.getBranch_no());
 			psmt.setString(3, vo.getId());

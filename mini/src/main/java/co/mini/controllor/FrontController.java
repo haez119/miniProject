@@ -28,6 +28,7 @@ import co.mini.common.Action;
 import co.mini.owner.command.EventInsertAction;
 import co.mini.owner.command.EventInsertForm;
 import co.mini.owner.command.NoticeInsertAction;
+import co.mini.owner.command.NoticeListAction;
 import co.mini.owner.command.NoticeViewAction;
 import co.mini.owner.command.OwnerInsertAction;
 import co.mini.owner.command.ReservPageAction;
@@ -89,9 +90,9 @@ public class FrontController extends HttpServlet {
 		map.put("/reviewboard.do", new ReviewBoardAction()); // 리뷰 등록
 		
 
-		map.put("/noticeView.do", new NoticeViewAction()); // 공지사항 뿌리기
+		map.put("/noticeView.do", new NoticeViewAction()); // 공지사항 등록 화면
 		map.put("/noticeInsert.do", new NoticeInsertAction()); // 공지사항 등록
-		
+		map.put("/noticeList.do", new NoticeListAction()); // 공지사항 리스트
 	
 		
 		// 최재영

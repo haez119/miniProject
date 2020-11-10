@@ -24,14 +24,16 @@ public class NoticeInsertAction implements Action {
 		
 		// max 값
 		int max = dao.noticeMax();
-		
+		System.out.println("max값: " + max);
 		
 		// 파라미터에 지점명이 있으니까 지점명으로 지점번호 갖고오기
 
 		String bname = request.getParameter("branch_name");
+		System.out.println(bname);
 		
 		dao = new NoticeDAO();
 		int bno = dao.select_bno(bname);
+		System.out.println(bno);
 		
 		vo.setNo(max+1);
 		vo.setBranch_no(bno);
