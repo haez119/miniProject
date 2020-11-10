@@ -91,7 +91,7 @@ public class FrontController extends HttpServlet {
 		map.put("/logout.do", new logout() ); // 로그아웃
 		map.put("/ownerReservPage.do", new ReservPageAction() ); // 사장 예약 정보
 		map.put("/ownerinsert.do", new OwnerInsertAction() ); // 사장 회원가입
-		map.put("/reviewInsert.do", new reviewInsertAction() ); // 사장 회원가입
+		map.put("/reviewInsert.do", new reviewInsertAction() ); 
 		map.put("/reviewboard.do", new ReviewBoardAction()); // 리뷰 등록
 		
 
