@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -100,80 +100,55 @@ star-input>.input.focus {
 	text-align: center;
 	vertical-align: middle;
 }
-.starship {
-	text-align: center;
-}
 </style>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
-	$(document)
-			.ready(
-					function() {
+$(document).ready(function() {
+	
+	$("#hiddenStar").val('5');
 
-						$("#hiddenStar").val('5');
+	$('.input').on('click','input' ,function() {
+		
+		$("#star").append().html("");
+		
+		let star = $(this).val();
+		$("#star").append(star);
+		$("#hiddenStar").val(star);
+		
 
-						$('.input').on('click', 'input', function() {
+	});
+	
+	 $('#btnlist').on('click', function() {
+			
+		 alert("목록 페이지로 이동합니다.");
+		 $(location).attr('href','${pageContext.request.contextPath}/board.do');
 
-							$("#star").append().html("");
+	 });
+	 
 
-							let star = $(this).val();
-							$("#star").append(star);
-							$("#hiddenStar").val(star);
+	$('#btnAdd').on('click',function(){
+		
+		$.ajax({ 
+		    url: "/mini/reviewboard.do", 
+		    dataType: 'json', 
+		    data: $("#frm").serialize(),
+		    success: function(data) { 
+		        alert("등록완료.");
+		        $(location).attr('href','${pageContext.request.contextPath}/board.do');
+		    },
+		    error:function(xhr, status, message) { 
+		        alert(" status: "+status+" er:"+message);
+		    }
+		});
+		
+	});// click
+			
 
-						});
-
-						$('#btnlist')
-								.on(
-										'click',
-										function() {
-
-											alert("목록 페이지로 이동합니다.");
-											$(location)
-													.attr('href',
-															'${pageContext.request.contextPath}/board.do');
-
-										});
-
-						$('#btnAdd')
-								.on(
-										'click',
-										function() {
-
-											$
-													.ajax({
-														url : "/mini/reviewboard.do",
-														dataType : 'json',
-														data : $("#frm")
-																.serialize(),
-														success : function(data) {
-															alert("등록완료.");
-															$(location)
-																	.attr(
-																			'href',
-																			'${pageContext.request.contextPath}/board.do');
-														},
-														error : function(xhr,
-																status, message) {
-															alert(" status: "
-																	+ status
-																	+ " er:"
-																	+ message);
-														}
-													});
-
-										});// click
-
-					});
+});
 </script>
 <style type="text/css">
 table {
 	margin: auto;
-	    
-}
-.star-ship {
-height: auto;
-text-align: center;
 }
 
 strong {
@@ -183,93 +158,65 @@ strong {
 	font-weight: bold;
 }
 </style>
-
 </head>
 
 <body>
 	<div align="center">
-
+	 <span class="star-input"> 
+		<span class="input"> 
+			<input type="radio" class="star-input" value="1" id="p1"> <label for="p1" value="1"></label> 
+			<input type="radio" class="star-input" value="2" id="p2"> <label for="p2" value="2"></label> 
+			<input type="radio"	class="star-input" value="3" id="p3"> <label for="p3" value="3"></label>
+			<input type="radio" class="star-input" value="4" id="p4"> <label for="p4" value="4"></label> 
+			<input type="radio" class="star-input" value="5" id="p5"> <label for="p5" value="5"></label>
+		</span> 
+		<output for="star-input">
+			<b id="star">5</b>점
+		</output>
+	 </span>
 	</div>
 	<br>
 
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/star.js"></script>
 
-	<form name="frm" id="frm" method="post">
+		<form name="frm" id="frm" method="post">
 		<table width="700" border="3" bordercolor="hotpink" align="center">
-			<tr>
+			<tr >
 				<td>지점</td>
-				<td><input type="text" id="b_name" name="b_name"
-					value="${vo.branch_name}" readonly="readonly"></td>
+				<td><input type="text" id="b_name" name="b_name" value="${vo.branch_name}" readonly="readonly"></td>
 			</tr>
 			<tr>
 				<td>테마</td>
-				<td><input type="text" id="thema" name="thema"
-					value="${vo.thema_name}" readonly="readonly"></td>
+				<td><input type="text" id="thema" name="thema" value="${vo.thema_name}" readonly="readonly"></td>
 			</tr>
 			<tr>
 				<td>아이디</td>
-				<td><input type="text" id="id" name="id" value="${id}"
-					readonly="readonly"></td>
-			</tr>
-
-			<tr>
-				<td id="bdate">이용한 날짜</td>
-				<td><input type="text" id="bdate" name="bdate"
-					value="${vo.use_date}" readonly="readonly"></td>
-			</tr>
-
-			<tr>
-				<td id="title">제목</td>
-				<td><input type="text" id="title" name="title" size="50"
-					maxlength="255"></td>
+				<td><input type="text" id="id" name="id" value="${id}" readonly="readonly"></td>
 			</tr>
 			
-		
-		<tr>
-		<td id="starship">별점</td>
-		<td class="star-ship">
-				<span class="star-input"> 
-				<span class="input"> 
-				<input type="radio" class="star-input" value="1" id="p1"> 
-				<label for="p1" value="1"></label> 
-				<input type="radio" class="star-input" value="2" id="p2"> 
-				<label for="p2" value="2"></label> 
-				<input type="radio" class="star-input" value="3" id="p3"> 
-				<label for="p3" value="3"></label> 
-				<input type="radio" class="star-input" value="4" id="p4"> 
-				<label for="p4" value="4"></label> 
-				<input type="radio" class="star-input" value="5" id="p5"> 
-				<label for="p5" value="5"></label>
-				</span> 
-				<output for="star-input">
-				<b id="star"></b>점
-				</output>
-				</span>
-		</td>
-		</tr>
-		
-		
-		
-		
-		
-		
+			<tr>
+				<td id="bdate">이용한 날짜</td>
+				<td><input type="text" id="bdate" name="bdate" value="${vo.use_date}" readonly="readonly"></td>
+			</tr>
+			
+			<tr>
+				<td id="title">제목</td>
+				<td><input type="text" id="title" name="title"  size="50" maxlength="255" ></td>
+			</tr>
 			<tr>
 				<td>내용<b class="importent"></b></td>
-				<td><input type="text" id="content" name="content" size="50"
-					maxlength="65536" style="width: 550px; height: 250px;"></td>
+				<td><input type="text" id="content" name="content" size="50" maxlength="65536" style=" width: 550px; height: 250px; "></td>
 			</tr>
 			<tr>
 				<td><input type="hidden" id="hiddenStar" name="hiddenStar"></td>
 			</tr>
 
 			<tr>
-				<td align="center" colspan="3"><input style="margin: 10px"
-					class="btn btn-outline-light" id="btnlist" type="button" value="목록">
-					<input style="margin: 10px" class="btn btn-outline-light"
-					id="btnAdd" type="button" value="등록"> <input
-					style="margin: 10px" class="btn btn-outline-light" id="btnCancel"
-					type="button" value="작성취소"></td>
+				<td align="center" colspan="3">
+				<input style="margin: 10px" class="btn btn-outline-light" id="btnlist" type="button" value="목록" >
+				<input style="margin: 10px" class="btn btn-outline-light" id="btnAdd" type="button" value="등록"> 
+				<input style="margin: 10px" class="btn btn-outline-light" id="btnCancel" type="button" value="작성취소"></td>
 			</tr>
 		</table>
 	</form>
@@ -280,4 +227,3 @@ strong {
 </html>
 
 
->

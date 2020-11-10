@@ -151,12 +151,6 @@ table {
 	margin: auto;
 }
 
-strong {
-	font-size: 11px;
-	font-weight: bold;
-	font-family: "Trebuchet MS", Dotum, Arial;
-	font-weight: bold;
-}
 </style>
 </head>
 
