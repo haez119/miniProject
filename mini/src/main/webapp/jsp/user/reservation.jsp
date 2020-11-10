@@ -32,6 +32,7 @@
 table {
 	background-color: white;
 	color: black;
+	width: max-content;
 }
 </style>
 <script>
