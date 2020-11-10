@@ -1,27 +1,27 @@
 package co.mini.board.command;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.mini.common.Action;
 import co.mini.dao.NoticeDAO;
+import co.mini.vo.NoticeVO;
 
 public class Notice implements Action {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		
-		
+		NoticeVO vo = new NoticeVO();
 		NoticeDAO dao = new NoticeDAO();
-		ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
 		
+		int b_no = Integer.parseInt(request.getParameter("bno"));
 		
+		vo = dao.detail_select(b_no);
 		
-		request.setAttribute("list", list);
+		request.setAttribute("vo", vo);
 		
+		request.setAttribute("vo", vo); 
 		
 		// 상세화면
 		return  "jsp/board/noticeDetail.jsp";

@@ -53,7 +53,9 @@
 			 alert("리뷰등록 페이지로 이동합니다.")
 			 let tr = $(this).parent().parent().children();
 			 let rno = tr[0].childNodes[0].nodeValue;
+			 let input = tr[10].childNodes[0];
 			 
+			 $(input).attr("disabled", "disabled");
 			 $(location).attr('href','${pageContext.request.contextPath}/reviewInsert.do?rno=' + rno);
 
 		 });
@@ -86,6 +88,7 @@
 				<th scope="col">결제여부</th>
 				<th scope="col"></th>
 				<th scope="col"></th>
+				
 			  </tr>
 			</thead>
 			<tbody>
@@ -99,7 +102,8 @@
 					<td>${reserv.thema_name} </td>
 					<td>${reserv.personnel} 명</td>
 					<td>${reserv.price} 원</td>
-					<td>${reserv.payment}<button type = "submit">결제하기</button></td>
+					<td>${reserv.payment}</td>
+					
 					<td><input class="btn btn-dark" name="reserv" type="button" value="상세" ></td>
 					<td><input class="btn btn-dark" name="review" type="button" value="리뷰" ></td>
 				  </tr>

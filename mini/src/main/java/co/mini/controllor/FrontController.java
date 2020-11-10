@@ -111,7 +111,7 @@ public class FrontController extends HttpServlet {
 		map.put("/ownerthemaUpdate.do",new ownerthemaUpdateAction());
 		map.put("/themaDelete.do",new themaDelete());
 		map.put("/themaUpdate.do",new themaUpdateAction());
-		map.put("/payment.do",new paymentAction());
+		
 		
 		
 		

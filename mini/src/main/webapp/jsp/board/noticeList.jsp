@@ -10,10 +10,30 @@
 .table {
 	background-color: white;
 	color: black;
-	/* width: max-content; */
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+	
+	$(function(){
+		
+		$('.detail').on('click',function(){
+		
+			var tr = $(this).parent().parent().children();
+			var bno = tr[0].childNodes[0].nodeValue;
+			console.log(bno);
+		    $('.detail').attr('href','${pageContext.request.contextPath}/notice.do?bno=' + bno);
+		 	
+		});
+	});
+
+
+
+
+ // href="${pageContext.request.contextPath}/notice.do"
+
+
+</script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -21,22 +41,21 @@
 	<table id="tbl" class="table table-bordered">
 		<thead class="thead-dark">
 		  <tr>
-		    <th>No</th>
-			<th>지점</th>
-			<th>제목</th>
-			<th>등록일</th>
+		    <th style="width: 10%">No</th>
+			<th style="width: 20%">지점</th>
+			<th style="width: 50%">제목</th>
+			<th style="width: 20%">등록일</th>
 		  </tr>
 		</thead>
 		<tbody>
 	
 		<c:forEach var="list" items="${list}" >
 		  <tr>
-		    <td>${list.no}</td>
+		    <td name="b_no">${list.no}</td>
 			<td>${list.branch_name}</td>
-			<td><a href="${pageContext.request.contextPath}/notice.do">${list.insert_date}</a></td>
-			<td>${list.title}</td>
-		  </tr>
-			  
+			<td><a class="detail" >${list.title}</a></td>
+			<td>${list.insert_date}</td>
+		  </tr>  
 		 </c:forEach>
 		</tbody>
 	</table>
