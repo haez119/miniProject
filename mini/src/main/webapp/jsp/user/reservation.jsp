@@ -66,7 +66,7 @@
 </head>
 <body>
 <!-- 테이블 -->
-	<form id='frm' name='frm' method='post' action='payment.do' >
+	
 	<div class="left-box">
 		<div style="background-color: white; padding: 30px;">
 			<h3>내 정보</h3>
@@ -111,7 +111,7 @@
 				 </c:forEach>
 			</tbody>
 		</table>
-	</form>
+	
 	</div>
 	
 	

@@ -33,6 +33,7 @@
 </head>
 <body>
 	<div>
+		<form id='frm' name='frm' method='post' action='payment.do' >
 		<div class="right-box">
 		<h2 style="color: white; padding-bottom: 15px" align="center" >${name}님의 예약정보</h2>
 		<table border="1" style=" background-color:  rgb(56, 56, 56); color: white;  padding: 15px;" class="table">
@@ -81,6 +82,10 @@
 		 	</tr>
 	</c:forEach>
 		 </table>
+		 <div align="center">
+		 <button type="submit">결제하기</button>
+		 </div>
+		 </form>
 		 </div>
 		
 		<div class="left-box">
