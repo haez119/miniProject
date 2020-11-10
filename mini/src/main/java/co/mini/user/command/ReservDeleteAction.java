@@ -27,7 +27,7 @@ public class ReservDeleteAction implements Action {
 		MemberDao dao = new MemberDao();
 		
 		vo.setId(id);
-		dao.memberDelete(vo);
+		int a = dao.memberDelete(vo);
 		
 		try {
 			response.getWriter().print(new JSONObject(vo));

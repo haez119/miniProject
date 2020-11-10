@@ -31,6 +31,7 @@ $(document).ready(function() {
 
 </head>
 <body>
+  <div align="center">
 	<form id="frm" name="frm">
 		<table border="1">
 			<tr>
@@ -60,7 +61,7 @@ $(document).ready(function() {
 				</td>
 			</tr>
 		</table>
-	
+	</div>
 	</form>
 </body>
 </html>

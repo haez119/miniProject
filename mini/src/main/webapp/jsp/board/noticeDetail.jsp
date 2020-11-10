@@ -39,8 +39,7 @@
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td><input type="text" name="content" value="${vo.content} " size="50"
-					maxlength="65536" style="width: 550px; height: 250px" readonly="readonly"></td>
+				<td><textarea rows="10" cols="50" id="content" name="content" >${vo.content}</textarea></td>
 			</tr>
 		</table>
 		<input type="button" name="btnOk" value="확인" class="btn btn-outline-light" style="margin: 10px" >

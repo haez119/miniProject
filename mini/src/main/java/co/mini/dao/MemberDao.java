@@ -136,7 +136,7 @@ public class MemberDao extends DAO {
 			
 			pstmt.setString(1, vo.getId());
 			
-			int r = pstmt.executeUpdate();
+			n  = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
