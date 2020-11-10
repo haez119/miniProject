@@ -16,9 +16,9 @@ public class BoardDAO extends DAO {
 
 	private final String SELECT_ALL = "select * from( select a.*, rownum rn from (" + "SELECT * FROM BOARD order by no desc"
 			+ ") a  ) b  where rn between ? and ?"; // 게시판 리스트
-	private final String SELECT = "SELECT * FROM BOARD WHERE ID=?"; 
-	private final String INSERT = "INSERT INTO board( no, title, content, id, board_date ) VALUES (board_seq.NEXTVAL,?,?,?,sysdate)";
-	private final String UPDATE = "UPDATE BOARD SET NO=?, TITLE=?, CONTENT=?, DATE=? WHERE ID=?";
+	private final String SELECT = "SELECT * FROM BOARD WHERE NO=?";  // 게시판 뷰페이지
+	private final String INSERT = "INSERT INTO board(NO, TITLE, CONTENT, ID, BOARD_DATE) VALUES (board_seq.NEXTVAL,?,?,?,sysdate)";
+	private final String UPDATE = "UPDATE BOARD SET NO=?, TITLE=?, CONTENT=?, DATE=SYSDATE WHERE NO=?";
 	private final String DELETE = "DELETE BOARD WHERE ID=?";
 
 	public List<BoardVO> selectAll(BoardVO mvo) { // 전체조회기능
@@ -54,11 +54,11 @@ public class BoardDAO extends DAO {
 			rs = psmt.executeQuery();
 			if (rs.next()) {
 				vo.setNo(rs.getInt("no"));
-				vo.setTitle(rs.getString("title"));
-				vo.setContent(rs.getString("content"));
 				vo.setId(rs.getString("id"));
-				vo.setHit(rs.getInt("hit"));
+				vo.setTitle(rs.getString("title"));
 				vo.setBoard_date(rs.getDate("board_date"));
+				vo.setContent(rs.getString("content"));
+//				vo.setHit(rs.getInt("hit"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -68,7 +68,7 @@ public class BoardDAO extends DAO {
 		return vo;
 	}
 
-	public int count(BoardVO vo) { // 한행만 조회
+	public int count(BoardVO vo) {
 		int cnt = 0;
 		try {
 			String sql = "select count(*) from board";

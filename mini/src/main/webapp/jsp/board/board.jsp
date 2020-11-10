@@ -20,6 +20,7 @@
 			$("#panel").slideDown("slow");
 		});
 	});
+	
 	function writeForm() {
 		location.href = "boardWrite.do"; //글등록 버튼 이동
 	}
@@ -51,7 +52,7 @@ pagination {
 	</div>
 	<br />
 	<div class="table-hover">
-		<table class="table" id="show">
+		<table class="table" id="show" >
 			<thead>
 				<tr>
 					<th>번호</th>
@@ -65,10 +66,10 @@ pagination {
 				<!-- 게시물이 출력될 영역 -->
 				<!--  / el표기 /   -->
 				<c:forEach var="bo" items="${board}">
-					<tr>
+					<tr>  
 						<td>${bo.no}</td>
-						<td>${bo.title}</td>
-						<td>${bo.id}</td>
+						<td><a href="${pageContext.request.contextPath}/boardView.do?No=${bo.no}">${bo.title}</a></td>
+						<td>${bo.id}</td>						
 						<td>${bo.board_date}</td>
 						<td>${bo.hit}</td>
 					</tr>

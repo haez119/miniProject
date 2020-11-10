@@ -16,6 +16,14 @@ public class BoardVO {
 
 	}
 
+	
+	@Override
+	public String toString() {
+		return "BoardVO [no=" + no + ", title=" + title + ", content=" + content + ", id=" + id + ", hit=" + hit
+				+ ", board_date=" + board_date + ", first=" + first + ", last=" + last + "]";
+	}
+
+
 	public Integer getFirst() {
 		return first;
 	}

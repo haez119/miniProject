@@ -7,76 +7,95 @@
 <title>Insert title here</title>
 
 <script type="text/javascript">
-	function changeView() {
-		lacation.href = "BoardListAction.do?page=${no}";
+	function listFrm()() {
+		lacation.href = "board.do";
 	}
+	
+	function formCheck() {
+		//var name = document.forms[0].name.value;
+		var title = document.forms[0].title.value;
+		var content = document.forms[0].content.value;
+
+		/*	if (name == null || name == "") {
+				alert('이름을 입력하세요.');
+				document.forms[0].name.focus();
+				return false;
+			} 
+		 */
+		if (title == null || title == "") {
+			alert('제목을 입력하세요.');
+			document.forms[0].title.focus();
+			return false;
+		}
+		if (content == null || content == "") {
+			alert('내용을 입력하세요.');
+			document.forms[0].content.focus();
+			return false;
+		}
+	}
+	function listFrm() {
+		location.href = "board.do";
+	}
+
+	function writeForm() {
+		location.href = "board.do"; //등록 버튼
+	}
+	
+	//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </script>
-<style type="text/css">
-#title {
-	height: 16;
-	font-family: '돋움';
-	font-size: 12;
-	text-align: center;
+<style>
+table {
+	margin: auto;
+}
+
+strong {
+	font-size: 11px;
+	font-weight: bold;
+	font-family: "Trebuchet MS", Dotum, Arial;
+	font-weight: bold;
 }
 </style>
 
 
 
 </head>
-
 <body>
-<body>
+	<form name="frm" id="frm" method="post" action="boardInsert.do"
+		onsubmit="return formCheck()" enctype="multipart/form-data">
+		<input type="hidden" name="id" value="">
+		<table width="700" border="3" bordercolor="hotpink" align="center">
 
-	<br>
-	<b><font size="6" color="gray">글 수정</font></b>
-	<br>
-
-	<form method="post" action="BoardUpdateAction.bo?page=${pageNum}"
-		name="boardForm" enctype="multipart/form-data">
-
-		<input type="hidden" name="board_num" value="${board.board_num}" /> <input
-			type="hidden" name="existing_file" value="${board.board_file}" />
-
-		<table width="700" border="3" bordercolor="lightgray" align="center">
 			<tr>
-				<td id="title">작성자</td>
-				<td>${vo.id}</td>
+				<td id="title">&nbsp;&nbsp;작성자</td>
+				<td>&nbsp;&nbsp;${id}</td>
 			</tr>
 			<tr>
-				<td id="title">제 목</td>
-				<td><input name="board_subject" type="text" size="70"
-					maxlength="100" value="${board.board_subject}" /></td>
+				<td>&nbsp;&nbsp;제목<strong class="importent">(필수)</strong></td>
+				<td><input type="text" name="title" value="" size="50"
+					maxlength="255"></td>
 			</tr>
 			<tr>
-				<td id="title">내 용</td>
-				<td><textarea name="board_content" cols="72" rows="20">
-                    ${board.board_content}
-                </textarea></td>
+				<td>&nbsp;&nbsp;날짜</td>
+				<td><input type="date" name="board_date" value=""></td>
 			</tr>
-			<!-- 답글이 아닐 경우에만 파일 첨부 가능하도록 처리 -->
-			<c:if test="${board.board_parent==0}">
-
-				<tr>
-					<td id="title">첨부파일</td>
-					<td><input type="file" name="board_file" /></td>
-				</tr>
-			</c:if>
-
-			<tr align="center" valign="middle">
-				<td colspan="5"><input type="reset" value="작성취소"> <input
-					type="submit" value="수정"> <input type="button" value="목록"
-					onclick="changeView()"></td>
+			<tr>
+				<td>&nbsp;&nbsp;내용<strong class="importent">(필수)</strong></td>
+				<td><input type="text" name="content" value="" size="50"
+					maxlength="65536" style="width: 550px; height: 250px"></td>
 			</tr>
+			<tr>
+				<td id="title">&nbsp;&nbsp;파일첨부</td>
+				<td><input type="file" name="board_file" /></td>
+			</tr>
+			
 		</table>
+		<br>
+				<div align="center">
+				<button id="btn" type="submit">수정</button>
+				<button id="btn" type="reset">삭제</button>
+				<button id="btn" type="submit" onclick="listFrm()">목록</button>
+			</div>
 	</form>
-
+	<br>
 </body>
-
-
-
-
-</body>
-
-
-
 </html>
