@@ -60,6 +60,8 @@
 						<td>${vo.title}</td>
 						<td>${vo.content}</td>
 						<td>${vo.star}</td>
+						<td>${vo.hit}</td>
+						
 					</tr>
 				</c:forEach>
 			</tbody>

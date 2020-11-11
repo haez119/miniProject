@@ -3,7 +3,17 @@ package co.mini.vo;
 public class ScheduleVo {
 private int thema_no;
 private String time;
+private String reservedate;
 
+
+
+
+public String getReservedate() {
+	return reservedate;
+}
+public void setReservedate(String reservedate) {
+	this.reservedate = reservedate;
+}
 public ScheduleVo(int thema_no, String time) {
 	super();
 	this.thema_no = thema_no;

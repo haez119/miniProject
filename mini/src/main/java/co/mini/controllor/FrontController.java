@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.mini.board.command.BoardAction;
 import co.mini.board.command.BoardDeleteAction;
 import co.mini.board.command.BoardReviewAction;
+import co.mini.board.command.BoardReviewWriteFormAction;
 import co.mini.board.command.BoardUpateFormAction;
 import co.mini.board.command.BoardUpdateAction;
 import co.mini.board.command.BoardViewAction;
@@ -31,6 +32,7 @@ import co.mini.board.command.reserveResultAction;
 import co.mini.common.Action;
 import co.mini.owner.command.EventInsertAction;
 import co.mini.owner.command.EventInsertForm;
+import co.mini.owner.command.EventUpdateFormAction;
 import co.mini.owner.command.NoticeInsertAction;
 import co.mini.owner.command.NoticeListAction;
 import co.mini.owner.command.NoticeViewAction;
@@ -126,7 +128,7 @@ public class FrontController extends HttpServlet {
 		map.put("/eventlist.do", new EventListAction());
 		map.put("/EventInsert.do", new EventInsertAction());
 		map.put("/eventInsertForm.do", new EventInsertForm());
-		
+		map.put("/eventUpdate.do", new EventUpdateFormAction());
 		
 		
 		
@@ -143,7 +145,7 @@ public class FrontController extends HttpServlet {
 	    map.put("/boardReview.do", new BoardReviewAction());	 	  //리뷰게시판 페이지 이동
 	    map.put("/boardView.do", new BoardViewAction());			  //게시판 뷰페이지 이동
 		map.put("/baardDelete.do", new BoardDeleteAction());	
-		
+		map.put("/boardreviewWrite.do", new BoardReviewWriteFormAction());
 		
 		
 		
