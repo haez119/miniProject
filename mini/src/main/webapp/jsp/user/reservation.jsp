@@ -43,14 +43,14 @@
 		var rrno = "";
 		
 		console.log("${rlist}");
-
+		let list = "${rlist}";
 		
 		
 		
 
 		for(i=1; i<trArry.length; i++) {
 			rrno = trArry[i].childNodes[1].childNodes[0].nodeValue;
-			console.log(rrno);
+			//console.log(rrno);
 		}
 		
 		
@@ -112,6 +112,17 @@
 				<c:forEach var="reserv" items="${reservs}" >
 				  <tr>
 				    <td>${reserv.no}</td>
+				    <c:forEach var="list" items="${rlist}" >
+				    	<c:if test="${reserv.no eq list.no}">
+				    		<script>
+				    		$(document).ready(function() {
+				    			$("input[name='review']").attr("disabled", "disabled");
+				    			
+				    		});
+				    		
+				    		</script>
+				    	</c:if>
+				    </c:forEach>
 					<td>${reserv.branch_name}</td>
 					<td>${reserv.reservdate} </td>
 					<td>${fn:substring(reserv.time,0,2)}시 ${fn:substring(reserv.time,2,4)}분 </td>
@@ -123,8 +134,8 @@
 					<td><input class="btn btn-dark" name="reserv" type="button" value="상세" ></td>
 					<td><input class="btn btn-dark" name="review" type="button" value="리뷰" ></td>
 				  </tr>
-				  
 				 </c:forEach>
+				 
 			</tbody>
 		</table>
 	

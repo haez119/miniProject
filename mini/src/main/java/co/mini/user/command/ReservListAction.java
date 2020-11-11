@@ -34,7 +34,6 @@ public class ReservListAction implements Action {
 		ReviewDAO rDao = new ReviewDAO();
 		
 		rlist = rDao.btnDis();
-		System.out.println(rlist);
 		
 		
 		session.setAttribute("id", id);	
