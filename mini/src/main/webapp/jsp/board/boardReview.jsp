@@ -8,9 +8,6 @@
 <title>게시판 목록</title>
 
 <script>
-	function writeForm() {
-		location.href = "boardreviewWrite.do"; //글등록 버튼 이동
-	}
 	function boardForm() {
 		location.href = "board.do"; //Q&A페이지 버튼 이동
 	}
@@ -66,10 +63,7 @@
 			</tbody>
 		</table>
 	</div>
-	<!-- 글등록 -->
-	<div align="right" id="topForm" style="margin-bottom: 10px">
-		<input type="button" value="글등록" onclick="writeForm()">
-	</div>
+
 
 	<!-- 검색 부분 -->
 	<div class="searchForm" id="searchForm">

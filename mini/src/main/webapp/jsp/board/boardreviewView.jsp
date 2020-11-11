@@ -133,6 +133,9 @@ $(document).ready(function() {
 			
 
 });
+function boardForm() {
+	location.href = "boardReview.do"; //Q&A페이지 버튼 이동
+}
 </script>
 <style type="text/css">
 table {
@@ -200,7 +203,7 @@ table {
 			<tr>
 				<td align="center" colspan="3">
 				<input style="margin: 10px" class="btn btn-outline-light" id="btnlist" type="button" value="목록" >
-				<input style="margin: 10px" class="btn btn-outline-light" id="btnAdd" type="button" value="등록"> 
+				<input style="margin: 10px" class="btn btn-outline-light" id="btnAdd" type="button" value="수정"> 
 				<input style="margin: 10px" class="btn btn-outline-light" id="btnCancel" type="button" value="작성취소"></td>
 			</tr>
 		</table>
