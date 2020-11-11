@@ -27,7 +27,9 @@ table {
 td {
 	text-align: center;
 }
+input {
 
+}
 </style>
 </head>
 <body>
@@ -38,7 +40,7 @@ td {
 	
 			<tr>
 				<td>번호</td>
-				<td><input type="text"  name ="no" value="${vo.no}" ></td>
+				<td><input class="text" type="text"  name ="no" value="${vo.no}" ></td>
 			</tr>
 			<tr>
 				<td>작성자</td>
@@ -70,5 +72,42 @@ td {
 		</table>
 	</form>
 	<br>
+	<div class="container">
+	<form id="form1"  class="form-horizontal">
+		<h4 align="center">답글</h4>
+		
+		<div class="form-group">   	
+			<input class="form-control" placeholder="글작성" name="role">
+		</div>  
+		
+		
+		<div class="form-group" style="float: right;">		
+			<input type="text"  placeholder="아이디" class="" name="id" >
+			<input type="text"  placeholder="비밀번호"  name="pw" >
+			
+			<div class="btn-group">      
+				<input type="button"  class="btn btn-primary" value="등록"  id="btnInsert" /> 
+				<input type="button"  class="btn btn-primary" value="수정"  id="btnUpdate" />
+				<input type="button"  class="btn btn-primary" value="초기화" id="btnInit" />
+		</div>
+		</div>		
+		
+	</form>
+</div>		
+<hr><hr><hr><hr><hr>	
+<div class="container">	
+	<h4 align="center">댓글목록</h4>
+	<table class="table text-center">
+		<thead>
+		<tr>
+			<th class="text-center">아이디</th>
+			<th class="text-center">날짜</th>
+			<th class="text-center">내용</th>
+		</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+</div>	
+<br>
 </body>
 </html>
