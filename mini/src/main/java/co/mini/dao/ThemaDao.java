@@ -138,10 +138,10 @@ public class ThemaDao extends DAO {
 		return list;
 	}
 	//테마정보를 리턴
-	private final String THEMA_SELECT = "select o.branch_name,t.thema_no,t.thema_name,t.thema_img,t.thema_intro,t.level2,t.max_per \r\n" + 
-			"from thema t , onwer o\r\n" + 
-			"where t.branch_no=o.branch_no\r\n" + 
-			"order by thema_no";
+	private final String THEMA_SELECT = "select o.branch_no,o.branch_name,t.thema_no,t.thema_name,t.thema_img,t.thema_intro,t.level2,t.max_per\r\n" + 
+			"			from thema t , onwer o \r\n" + 
+			"			where t.branch_no=o.branch_no\r\n" + 
+			"			order by thema_no";
 	public List<ThemaVO> selectThema() { 
 		List<ThemaVO> list = new ArrayList<ThemaVO>();
 		try {
@@ -158,6 +158,7 @@ public class ThemaDao extends DAO {
 				themaVo.setLevel2(rs.getInt("level2"));
 				themaVo.setMax_per(rs.getInt("max_per"));
 				themaVo.setBranch_name(rs.getString("branch_name"));
+				themaVo.setBranch_no(rs.getInt("branch_no"));
 				
 				list.add(themaVo);
 

@@ -15,7 +15,7 @@ public class EventDAO extends DAO {
    private ResultSet rs; // select 후에 결과셋 받기
    private EventVO vo;
 
-   private final String SELECT_ALL = "select e.img, e.event_no, o.branch_name, e.event_name, e.event_content, e.start_event, e.start_event + event_term as last_event,(1-e.sale)*100 as sale from event e join onwer o\r\n"
+   private final String SELECT_ALL = "select o.branch_no,e.img, e.event_no, o.branch_name, e.event_name, e.event_content, e.start_event, e.start_event + event_term as last_event,(1-e.sale)*100 as sale from event e join onwer o\r\n"
          + "on(e.branch_no = o.branch_no) order by event_no";
  
    public List<EventVO> selectAll() {
@@ -25,6 +25,7 @@ public class EventDAO extends DAO {
          rs = psmt.executeQuery();
          while (rs.next()) {
             vo = new EventVO();
+            vo.setBranch_no(rs.getInt("branch_no"));
             vo.setEvent_no(rs.getInt("event_no"));
             vo.setBranch_name(rs.getString("branch_name"));
             vo.setEvent_name(rs.getString("event_name"));

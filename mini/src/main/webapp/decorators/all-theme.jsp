@@ -64,7 +64,7 @@ div#topMenu a {
 	<!-- header라인 -->
 	
 		<div id="header">
-			<a href="#"> <img
+			<a href="${pageContext.request.contextPath}/main.do"> <img
 				src="${pageContext.request.contextPath}/img/Main.png" alt="main">
 				
 				<c:if test="${idd eq null }">
