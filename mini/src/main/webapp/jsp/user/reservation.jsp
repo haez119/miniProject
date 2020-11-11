@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
-
+<%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,25 +34,44 @@
 	color: black;
 	width: max-content;
 }
+
+.pagination li {
+	display: inline-block; 
+}
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  background-color: grary;
+  color: white;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid gray;
+  margin: 0 4px;
+}
+
+.pagination a.active {
+  background-color: rgb(53, 52, 52);
+  color: white;
+  border: 1px solid gray;
+}
+
+.pagination a:hover:not(.active) {
+	background-color: lightgray;
+	color: red;
+	}
+
+
+
+
+
 </style>
 <script>
 
 	$(document).ready(function() {
-		
-		var trArry = $("tr");
-		var rrno = "";
-		
-		console.log("${rlist}");
-		let list = "${rlist}";
-		
-		
-		
-
-		for(i=1; i<trArry.length; i++) {
-			rrno = trArry[i].childNodes[1].childNodes[0].nodeValue;
-			//console.log(rrno);
-		}
-		
 		
 		// 상세
 		 $("input[name='reserv']").on('click', function() {
@@ -116,7 +135,7 @@
 				    	<c:if test="${reserv.no eq list.no}">
 				    		<script>
 				    		$(document).ready(function() {
-				    			$("input[name='review']").attr("disabled", "disabled");
+				    			$("#btn${reserv.no}").attr("disabled", "disabled");
 				    			
 				    		});
 				    		
@@ -132,13 +151,19 @@
 					<td>${reserv.payment}</td>
 					
 					<td><input class="btn btn-dark" name="reserv" type="button" value="상세" ></td>
-					<td><input class="btn btn-dark" name="review" type="button" value="리뷰" ></td>
+					<td><input  id="btn${reserv.no}" class="btn btn-dark" name="review" type="button" value="리뷰" ></td>
 				  </tr>
 				 </c:forEach>
 				 
 			</tbody>
 		</table>
-	
+			<script>
+				function goPage(p) {
+					location.href="reservation.do?p="+p
+				}
+			</script>
+			
+		<my:paging paging="${paging}" jsfunc="goPage" /> 
 	</div>
 	
 	

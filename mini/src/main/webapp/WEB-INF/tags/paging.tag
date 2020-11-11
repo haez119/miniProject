@@ -16,7 +16,7 @@ div .pagination {text-align: center;}
 		<li><a href="javascript:${jsfunc}(${i})">${i}</a>
 	</c:if>
 	<c:if test="${i == paging.page}">
-		<li class="active">${i}
+		<li><a class="active">${i}</a>
 	</c:if>
 </c:forEach>
 <c:if test="${paging.endPage<paging.totalPageCount}">

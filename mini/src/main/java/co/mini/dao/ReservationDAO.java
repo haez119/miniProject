@@ -66,7 +66,7 @@ public class ReservationDAO extends DAO{
       
    
    
-   String reSelect = "select o.branch_name, r.reservdate, r.time, t.thema_name, m.name, m.phone, r.personnel, r.price, r.payment, m.rank, r.no, m.count  " + 
+   private final String reSelect = "select o.branch_name, r.reservdate, r.time, t.thema_name, m.name, m.phone, r.personnel, r.price, r.payment, m.rank, r.no, m.count  " + 
                  "from reservation r , thema t , member m , onwer o " + 
                    "where r.thema_no = t.thema_no " + 
                    "and r.id = m.id " + 
@@ -116,12 +116,73 @@ public class ReservationDAO extends DAO{
    }
       
    
-  
+  // 페이지네이션 할꺼야
    
+   private final String PAGE_SEL =  "SELECT * FROM ( SELECT A.*, ROWNUM RN FROM  ( " + 
+   					  				"SELECT * FROM re_view) A ) B WHERE RN BETWEEN ? AND ?";
    
-  
+   public ArrayList<HashMap<String, Object>> pageSel(int first, int last) {
+	      
+	      ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+	      HashMap<String, Object> map;
+	      
+	      try {
+	         psmt = conn.prepareStatement(PAGE_SEL);
+	         
+	         // psmt.setString(1,sId);
+	         psmt.setInt(1,first);
+	         psmt.setInt(2,last);
+	         
+	         rs = psmt.executeQuery();
+	         
+	         while(rs.next()) {
+	            
+	            map = new HashMap<String, Object>();
+	            
+	            map.put("no",rs.getString("no"));
+	            map.put("name",rs.getString("NAME"));
+	            map.put("reservdate",rs.getDate("RESERVDATE"));
+	            map.put("personnel",rs.getInt("PERSONNEL"));
+	            map.put("price",rs.getInt("PRICE"));
+	            map.put("payment",rs.getString("PAYMENT"));
+	            map.put("thema_name",rs.getString("THEMA_NAME"));
+	            map.put("time",rs.getString("TIME"));
+	            map.put("phone",rs.getString("phone"));
+	            map.put("branch_name",rs.getString("branch_name"));
+	            
+	            
+	            list.add(map);
+	         }
+	         
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         close();
+	      }
+	      return list;
+	   }
+	      
+	   
+   private final String COUNT ="SELECT COUNT(*) AS COUNT FROM RE_VIEW WHERE ID = ? ";
    
-   
+   public int count(String id) {
+	   
+	   int cnt=0;
+	   
+		try {
+			psmt = conn.prepareStatement(COUNT);
+			psmt.setString(1, id);
+			
+			rs = psmt.executeQuery();
+			rs.next();
+			cnt = rs.getInt("COUNT"); 
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	   
+		return cnt;
+   }
    
    
    
