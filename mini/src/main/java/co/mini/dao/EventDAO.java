@@ -102,6 +102,7 @@ public class EventDAO extends DAO {
                if (rs.next()) {
                   vo.setEvent_name(rs.getString("event_name"));
                   vo.setSale(rs.getDouble("sale"));
+                  vo.setSale2(rs.getInt("sale"));
 //                  /*
 //                   * vo.setAnswer(rs.getString("answer")); vo.setHit(rs.getInt("hit"));
 //                   * vo.setBdate(rs.getDate("bdate"));

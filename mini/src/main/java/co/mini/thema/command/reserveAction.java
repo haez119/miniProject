@@ -29,9 +29,6 @@ public class reserveAction implements Action {
 		thVO=dao.reserve_thema(thema_no);
 		request.setAttribute("thVO",thVO );
 		
-		
-		
-	
 		EventVO eventvo= new EventVO();
 		EventDAO eventDao = new EventDAO();
 		eventvo=eventDao.event_thema(request.getParameter("date"),thVO.getBranch_name());

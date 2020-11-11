@@ -131,11 +131,11 @@ $(()=>{
           </tr>
           <tr>
           
-          	<td>진행중인 이벤트</td><td>${eventvo.event_name} ${eventvo.sale}% 할인
-          	<c:if test = "${eventvo.sale ne 0}">
-          	<input type="hidden" id="sale" name="sale" value="0.${eventvo.sale}">
+          	<td>진행중인 이벤트</td><td>${eventvo.event_name} ${eventvo.sale2}% 할인
+          	<c:if test = "${eventvo.sale2 ne 0}">
+          	<input type="hidden" id="sale" name="sale" value="0.${eventvo.sale2}">
           	</c:if>
-          	<c:if test = "${eventvo.sale eq 0}">
+          	<c:if test = "${eventvo.sale2 eq 0}">
           	<input type="hidden" id="sale" name="sale" value="0">
           	</c:if>
           	
@@ -163,7 +163,7 @@ $(()=>{
              </c:choose>
              </c:if>
              
-             <c:if test = "${eventvo.sale ne 0}">
+             <c:if test = "${eventvo.sale2 ne 0}">
              <c:choose>
              <c:when test="${meVo.rank eq 'Silver'}">
              <td id='price' name="price" onload="loadfucntion()">19000</td>
