@@ -19,7 +19,7 @@ td {
 </head>
 <body>
 <h1>등록된 이벤트 목록</h1>
-<form id='frm' name='frm' method='post' action='${pageContext.request.contextPath}/eventUpdate.do' >
+<form id='frm' name='frm' method='post' action='${pageContext.request.contextPath}/eventUpdateList.do' >
 	<table class="table table-striped"
 		style="text-align: center; border: 1px solid">
 
