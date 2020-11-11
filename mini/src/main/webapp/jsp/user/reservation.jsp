@@ -151,7 +151,7 @@
 					<td>${reserv.payment}</td>
 					
 					<td><input class="btn btn-dark" name="reserv" type="button" value="상세" ></td>
-					<td><input  id="btn${reserv.no}" class="btn btn-dark" name="review" type="button" value="리뷰" ></td>
+					<td><input  id="btn${reserv.no}" class="btn btn-dark" name="review" type="button" value="리뷰"></td>
 				  </tr>
 				 </c:forEach>
 				 
