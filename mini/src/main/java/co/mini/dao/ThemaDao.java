@@ -72,21 +72,24 @@ public class ThemaDao extends DAO {
 			return list;
 		}
 	
-	private final String SCHEDULE_FAIL = "select thema_no,time from SCHEDULE\r\n" + 
-			"minus\r\n" + 
-			"select thema_no,time from reservation\r\n" + 
-			"where reservdate=to_date(?,'YY-MM-DD')\r\n" + 
-			"INTERSECT\r\n" + 
-			"select thema_no,time from SCHEDULE\r\n" + 
-			"where thema_no=?\r\n" + 
-			"order by time"; // 변경 못하게 final 상수로 선언
-	public List<ScheduleVo> failSchedule(ThemaVO ThemaVO,String date) {
+//	private final String SCHEDULE_FAIL = "select thema_no,time from SCHEDULE\r\n" + 
+//			"minus\r\n" + 
+//			"select thema_no,time from reservation\r\n" + 
+//			"where reservdate=to_date(?,'YY-MM-DD')\r\n" + 
+//			"INTERSECT\r\n" + 
+//			"select thema_no,time from SCHEDULE\r\n" + 
+//			"where thema_no=?\r\n" + 
+//			"order by time"; // 변경 못하게 final 상수로 선언
+	private final String SCHEDULE_LIST="SELECT THEMA_NO,TIME FROM SCHEDULE WHERE THEMA_NO=? ORDER BY TIME"	;
+		
+	public List<ScheduleVo> failSchedule(ThemaVO ThemaVO/*,String date*/) {
 		List<ScheduleVo> list = new ArrayList<ScheduleVo>();
 		try {
 			
-			psmt = conn.prepareStatement(SCHEDULE_FAIL);
-			psmt.setString(1, date);
-			psmt.setInt(2, ThemaVO.getThema_no());
+			psmt = conn.prepareStatement(SCHEDULE_LIST);
+			psmt.setInt(1,ThemaVO.getThema_no());
+//			psmt.setString(1, date);
+//			psmt.setInt(2, ThemaVO.getThema_no());
 			
 			rs = psmt.executeQuery();
 			// 한 행만 리턴하니까 while 사용 할 필요x
@@ -105,9 +108,35 @@ public class ThemaDao extends DAO {
 
 		return list;
 	}
+	private final String reservedata="select thema_no, time from reservation where thema_no=? and RESERVDATE=TO_DATE(?,'YY-MM-DD')";
 	
-	
-	
+	public List<ScheduleVo> ReserveSchedule(ThemaVO ThemaVO,String reservedate) {
+		List<ScheduleVo> list = new ArrayList<ScheduleVo>();
+		try {
+			
+			psmt = conn.prepareStatement(reservedata);
+			psmt.setInt(1,ThemaVO.getThema_no());
+			psmt.setString(2,reservedate);
+//			psmt.setString(1, date);
+//			psmt.setInt(2, ThemaVO.getThema_no());
+			
+			rs = psmt.executeQuery();
+			// 한 행만 리턴하니까 while 사용 할 필요x
+			while(rs.next()) {
+				scheduleVo =new ScheduleVo();
+				scheduleVo.setThema_no(rs.getInt("thema_no"));
+				scheduleVo.setTime(rs.getString("time"));
+				list.add(scheduleVo);
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+
+		return list;
+	}
 	//테마정보를 리턴
 	private final String THEMA_SELECT = "select o.branch_name,t.thema_no,t.thema_name,t.thema_img,t.thema_intro,t.level2,t.max_per \r\n" + 
 			"from thema t , onwer o\r\n" + 

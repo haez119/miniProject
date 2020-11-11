@@ -112,6 +112,9 @@
 		</script>
 		
   		<table>
+  		
+  			
+  		
   		<c:forEach items="${themaDisList}" var="themaDis" varStatus="status">
   		<tr><!-- 테마시작 -->
   		<td>
@@ -133,20 +136,37 @@
   				<td><input type="text" class="branch_name" name="branch_name" value='${thema.branch_name}' readonly="readonly"><td>
   				
   				<c:forEach items="${thema.schedulelist}" var="th" varStatus="status">
+  				  <c:forEach items="${themareserveList}"  var="themareserve">
+  				  <c:forEach var="list" items="${themareserve.schedulelist}" >
+  				   <script>console.log("${list.thema_no}${list.time}")</script>
+                   <c:if test="${th.thema_no eq list.thema_no && th.time eq list.time}">
+                 
+                      <script>
+                      $(document).ready(function() {
+                    	 $("#text${th.thema_no}${th.time}").attr("disabled", "disabled").addClass("timefail")
+                         $("#btn${th.thema_no}${th.time}").attr("disabled", "disabled").addClass("reservefail").val("예약불가");
+                      });
+                      
+                      </script>
+                  
+                   </c:if>
+                </c:forEach>   
+                </c:forEach>
+  				 
   				<td>
   				<c:if test="${nextday ne null}">
   				<c:if test="${nextday>date_day }">
   				<div align ="center" id="timediv">
-  				<input type='text' class='time' name='time' value='${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}' readonly="readonly">
-  				<input type='button' onclick="reservefunction('${thema.thema_no}','${th.time}')" class='reserve' value='예약가능' readonly="readonly" />
+  				<input type='text' id='text${th.thema_no}${th.time}' class='time' name='time' value='${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}' readonly="readonly">
+  				<input type='button' id='btn${th.thema_no}${th.time}' onclick="reservefunction('${thema.thema_no}','${th.time}')" class='reserve' value='예약가능' readonly="readonly" />
   				</div>
   				</c:if>
   				</c:if>
   				<c:if test="${nextday eq date_day}">
   				<c:if test="${th.time>date_time}">
   				<div align ="center" id="timediv">
-  				<input type='text' class='time' name='time' value='${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}' readonly="readonly">
-  				<input type='button' onclick="reservefunction('${thema.thema_no}','${th.time}')" class='reserve' value='예약가능' readonly="readonly" />
+  				<input type='text' id='text${th.thema_no}${th.time}' class='time' name='time' value='${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}' readonly="readonly">
+  				<input type='button' id='btn${th.thema_no}${th.time}' onclick="reservefunction('${thema.thema_no}','${th.time}')" class='reserve' value='예약가능' readonly="readonly" />
   				</div>
 				</c:if>
 				</c:if>
@@ -154,7 +174,7 @@
 				<c:if test="${th.time<date_time}">
 				<div align ="center" id="timediv">
   				<input type='text' class='timefail' name='time' value='${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}' readonly="readonly">
-  				<input type='text' class='reservefail' value='예약불가능' readonly="readonly"/>
+  				<input type='text' class='reservefail' value='예약불가' readonly="readonly"/>
   				</div>
   				</c:if>
   				</c:if>
@@ -162,8 +182,8 @@
   				<c:if test="${nextday eq null}">
   				<c:if test="${th.time>date_time}">
   				<div align ="center" id="timediv">
-  				<input type='text' class='time' name='time' value='${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}' readonly="readonly">
-  				<input type='button' onclick="reservefunction('${thema.thema_no}','${th.time}')" class='reserve' value='예약가능' readonly="readonly" />
+  				<input type='text' id='text${th.thema_no}${th.time}' class='time' name='time' value='${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}' readonly="readonly">
+  				<input type='button' id='btn${th.thema_no}${th.time}' onclick="reservefunction('${thema.thema_no}','${th.time}')" class='reserve' value='예약가능' readonly="readonly" />
   				</div>
 				</c:if>
   				</c:if>
@@ -172,7 +192,7 @@
   				<c:if test="${th.time<date_time}">
 				<div align ="center" id="timediv">
   				<input type='text' class='timefail' name='time' value='${fn:substring(th.time,0,2)}:${fn:substring(th.time,2,4)}' readonly="readonly">
-  				<input type='text' class='reservefail' value='예약불가능' readonly="readonly"/>
+  				<input type='text' class='reservefail' value='예약불가'  disabled="disabled"/>
   				</div>
   				</c:if>
   				</c:if>
