@@ -151,7 +151,6 @@ table {
     <input type="radio" name="star-input" id="p3" value="3"><label for="p3">3</label>
     <input type="radio" name="star-input" id="p4" value="4"><label for="p4">4</label>
     <input type="radio" name="star-input" id="p5" value="5"><label for="p5">5</label>
-  
   </span>
   <output for="star-input"><b>${vo.star}</b>Á¡</output>
 </span>
