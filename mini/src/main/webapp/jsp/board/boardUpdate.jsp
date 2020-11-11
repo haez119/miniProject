@@ -93,9 +93,9 @@ strong {
 		</table>
 		<br>
 		<div align="center">
-			<button id="btn" type="submit">수정</button>
-			<button id="btn" type="reset">취소</button>
-			<button id="btn" type="submit" onclick="listFrm()">목록</button>
+			<button style="margin: 10px" class="btn btn-outline-light" id="btn" type="submit">수정</button>
+			<button style="margin: 10px" class="btn btn-outline-light" id="btn" type="reset">취소</button>
+			<button style="margin: 10px" class="btn btn-outline-light" id="btn" type="submit" onclick="listFrm()">목록</button>
 		</div>
 	</form>
 	<br>

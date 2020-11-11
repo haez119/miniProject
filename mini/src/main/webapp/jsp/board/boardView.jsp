@@ -62,9 +62,9 @@ td {
 			</tr>
 			<tr>
 				<td align="center" colspan="3">
-					<input type="button" value="목록" onclick="listFrm()"> 
-					<input type="submit" value="수정"> 
-					<input type="button" value="삭제" onclick="deleteFrm()">
+					<input style="margin: 10px" class="btn btn-outline-light" type="button" value="목록" onclick="listFrm()"> 
+					<input style="margin: 10px" class="btn btn-outline-light" type="submit" value="수정"> 
+					<input style="margin: 10px" class="btn btn-outline-light" type="button" value="삭제" onclick="deleteFrm()">
 				</td>
 			</tr>
 		</table>
