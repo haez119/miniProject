@@ -143,7 +143,7 @@ public class FrontController extends HttpServlet {
 	    map.put("/boardReview.do", new BoardReviewAction());	 	  //리뷰게시판 페이지 이동
 	    map.put("/boardView.do", new BoardViewAction());			  //게시판 뷰페이지 이동
 		map.put("/baardDelete.do", new BoardDeleteAction());	
-		
+		map.put("/boardreviewWrite.do", new BoardReviewWriteFormAction());
 		
 		
 		

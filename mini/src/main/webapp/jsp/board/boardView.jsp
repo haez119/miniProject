@@ -22,6 +22,7 @@ function listFrm(){
 <style>
 table {
 	margin: auto;
+	hidden
 }
 td {
 	text-align: center;

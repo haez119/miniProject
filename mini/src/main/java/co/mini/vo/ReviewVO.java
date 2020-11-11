@@ -11,9 +11,18 @@ public class ReviewVO {
 	private String title;
 	private String content;
 	private int star;
+	private int hit;
 
 	public ReviewVO() {
 
+	}
+
+	public int getHit() {
+		return hit;
+	}
+
+	public void setHit(int hit) {
+		this.hit = hit;
 	}
 
 	public int getNo() {

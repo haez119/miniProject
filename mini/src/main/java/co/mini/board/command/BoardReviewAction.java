@@ -17,12 +17,11 @@ public class BoardReviewAction implements Action {
 		// 리뷰페이지로 이동
 		ReviewDAO dao = new ReviewDAO();
 		List<ReviewVO> list = new ArrayList<ReviewVO>();
-		
+
 		// 해당 페이지의 리스트만 조회
-				list = dao.selectAll();
-				request.setAttribute("boardreview", list);
-				
-				
+		list = dao.selectAll();
+		request.setAttribute("boardreview", list);
+
 		return "/jsp/board/boardReview.jsp";
 	}
 

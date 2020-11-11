@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import co.mini.vo.BoardVO;
 
 public class BoardDAO extends DAO {
@@ -15,12 +14,10 @@ public class BoardDAO extends DAO {
 	private ResultSet rs; // select 후에 결과셋 받기
 	private BoardVO vo;
 
-	private final String SELECT_ALL = "select * from( select a.*, rownum rn from (" + "SELECT * FROM BOARD order by no desc"
-			+ ") a  ) b  where rn between ? and ?"; // 게시판 리스트
-	private final String SELECT = "SELECT * FROM BOARD WHERE NO=?";  // 게시판 뷰페이지
+	private final String SELECT_ALL = "select * from( select a.*, rownum rn from ("
+			+ "SELECT * FROM BOARD order by no desc" + ") a  ) b  where rn between ? and ?"; // 게시판 리스트
+	private final String SELECT = "SELECT * FROM BOARD WHERE NO=?"; // 게시판 뷰페이지
 	private final String INSERT = "INSERT INTO board(NO, TITLE, CONTENT, ID, BOARD_DATE) VALUES (board_seq.NEXTVAL,?,?,?,sysdate)";
-
-	
 
 	public List<BoardVO> selectAll(BoardVO mvo) { // 전체조회기능
 		List<BoardVO> list = new ArrayList<BoardVO>();
@@ -46,7 +43,6 @@ public class BoardDAO extends DAO {
 		}
 		return list;
 	}
-
 
 	public BoardVO select(BoardVO vo) { // 한행만 조회
 		try {
@@ -84,7 +80,7 @@ public class BoardDAO extends DAO {
 		}
 		return cnt;
 	}
-	
+
 	public int Insert(BoardVO vo) { // 입력기능
 		int n = 0;
 		try {
@@ -102,12 +98,14 @@ public class BoardDAO extends DAO {
 		}
 		return n; // 건수 확인
 	}
+
 	private final String UPDATE = "UPDATE BOARD SET TITLE=?, CONTENT=?, BOARD_DATE=TO_DATE(?,'YY-MM-DD')  WHERE NO=?";
+
 	public int update(BoardVO vo) { // 수정기능
 		int n = 0;
 		try {
 			psmt = conn.prepareStatement(UPDATE);
-			
+
 			psmt.setString(1, vo.getTitle());
 			psmt.setString(2, vo.getContent());
 			psmt.setDate(3, vo.getBoard_date());
@@ -124,14 +122,15 @@ public class BoardDAO extends DAO {
 	}
 
 	private final String DELETE = "DELETE BOARD WHERE NO=?";
+
 	public int delete(BoardVO vo) { // 삭제기능
 		int n = 0;
 		try {
 			psmt = conn.prepareStatement(DELETE);
-			psmt.setInt(1, vo.getNo()); 	//번호로 삭제?
+			psmt.setInt(1, vo.getNo()); // 번호로 삭제?
 //			psmt.setString(1, vo.getId()); // 아이디로 삭제?
 			n = psmt.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -139,24 +138,22 @@ public class BoardDAO extends DAO {
 		}
 		return n;
 	}
-	
-	//조회수 증가
-	private final String update_hit= "update board set hit=nvl(hit,0)+1 where no=?";
-	
-	public int update_hit(BoardVO vo) {
-		int n= 0;
+
+	private final String update_hit = "update board set hit=nvl(hit,0)+1 where no=?";
+
+	public int update_hit(BoardVO vo) { // 조회수 증가
+		int n = 0;
 		try {
 			psmt = conn.prepareStatement(update_hit);
 			psmt.setInt(1, vo.getNo());
 			n = psmt.executeUpdate();
-			
-			
-		}catch(SQLException e) {
+
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return n;
-		
 	}
+
 	private void close() {
 		try {
 			if (rs != null)

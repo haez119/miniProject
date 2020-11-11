@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import co.mini.vo.BoardVO;
 import co.mini.vo.ReviewVO;
 
 public class ReviewDAO extends DAO {
@@ -108,7 +109,7 @@ public class ReviewDAO extends DAO {
 	  
 	  private ReviewVO vo;
 	  
-	  private final String select_all = "select * from review";
+	  private final String select_all = "SELECT * FROM REVIEW";
 	  
 	  public List<ReviewVO> selectAll() {
 		  List<ReviewVO> list = new ArrayList<ReviewVO>();
@@ -125,7 +126,8 @@ public class ReviewDAO extends DAO {
 				vo.setTitle(rs.getString("title"));
 				vo.setContent(rs.getString("content"));
 				vo.setStar(rs.getInt("star"));
-				
+				vo.setHit(rs.getInt("hit"));
+				list.add(vo);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -135,6 +137,22 @@ public class ReviewDAO extends DAO {
 		return list;
 	}
 	  
+	  private final String update_hit= "update review set hit=nvl(hit,0)+1 where no=?";
+		
+		public int update_hit(BoardVO vo) { //조회수 증가
+			int n= 0;
+			try {
+				psmt = conn.prepareStatement(update_hit);
+				psmt.setInt(1, vo.getNo());
+				n = psmt.executeUpdate();
+				
+				
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+			return n;
+		}
+		
 	  private final String DISABLE = "SELECT RE_NO FROM REVIEW";
 		 
 		 public ArrayList<HashMap<String, Object>> btnDis() {
