@@ -7,8 +7,7 @@
 <title></title>
 </head>
 <body>
-	<%-- <% response.sendRedirect("main.do"); %> --%>
-	<h1>인덱스 페이지</h1>
-	
+    <% response.sendRedirect("main.do"); %> 
+   
 </body>
 </html>

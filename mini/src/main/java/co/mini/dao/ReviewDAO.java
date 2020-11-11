@@ -77,7 +77,7 @@ public class ReviewDAO extends DAO {
 	  
 	  
 	  
-	  private final String INSERT= "INSERT INTO REVIEW VALUES(? , ? , ? , ? ,  ? , ? , ? , ? , DEFAULT, ?)";
+	  private final String INSERT= "INSERT INTO REVIEW VALUES(? , ? , ? , ? ,  ? , ? , ? , ? , DEFAULT, ?, null)";
 	  
 	  
 	  public void insertReview(ReviewVO vo, int rno) {
