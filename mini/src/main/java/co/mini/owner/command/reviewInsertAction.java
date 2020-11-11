@@ -20,6 +20,7 @@ public class reviewInsertAction implements Action {
 		
 		String no = request.getParameter("rno");
 		int rno = Integer.parseInt(no);
+
 		
 		ReviewDAO dao = new ReviewDAO();
 		ReviewVO vo = new ReviewVO();

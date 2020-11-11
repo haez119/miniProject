@@ -162,7 +162,7 @@
 					location.href="reservation.do?p="+p
 				}
 			</script>
-			
+			${paging}
 		<my:paging paging="${paging}" jsfunc="goPage" /> 
 	</div>
 	

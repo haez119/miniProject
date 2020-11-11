@@ -118,10 +118,10 @@ public class ReservationDAO extends DAO{
    
   // 페이지네이션 할꺼야
    
-   private final String PAGE_SEL =  "SELECT * FROM ( SELECT A.*, ROWNUM RN FROM  ( " + 
-   					  				"SELECT * FROM re_view) A ) B WHERE RN BETWEEN ? AND ?";
+   private final String PAGE_SEL =  "SELECT * FROM ( SELECT A.*, ROWNUM RN FROM  (\r\n" + 
+   									"SELECT * FROM re_view where id= ?  ) A ) B WHERE RN BETWEEN ? AND ?";
    
-   public ArrayList<HashMap<String, Object>> pageSel(int first, int last) {
+   public ArrayList<HashMap<String, Object>> pageSel(int first, int last, String id) {
 	      
 	      ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
 	      HashMap<String, Object> map;
@@ -129,9 +129,10 @@ public class ReservationDAO extends DAO{
 	      try {
 	         psmt = conn.prepareStatement(PAGE_SEL);
 	         
-	         // psmt.setString(1,sId);
-	         psmt.setInt(1,first);
-	         psmt.setInt(2,last);
+	         psmt.setString(1, id);
+	         psmt.setInt(2,first);
+	         psmt.setInt(3,last);
+	         
 	         
 	         rs = psmt.executeQuery();
 	         

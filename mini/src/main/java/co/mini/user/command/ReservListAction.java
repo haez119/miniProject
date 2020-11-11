@@ -51,7 +51,7 @@ public class ReservListAction implements Action {
 		
 		request.setAttribute("paging", paging);
 		
-		list = dao.pageSel(first, last);
+		list = dao.pageSel(first, last, id);
 		
 		
 		//list = dao.selectMap(id);

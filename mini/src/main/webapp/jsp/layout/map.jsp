@@ -13,7 +13,7 @@
 	$(document).ready(function() {
 		
 	 	var addr = "${address}";
-	 	console.log(address);
+	 	console.log(addr);
 		
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	    mapOption = {
