@@ -41,7 +41,7 @@
 					<th>작성자</th>
 					<th>이용날짜</th>
 					<th>제목</th>
-					<th>내용</th>
+					<!-- <th>내용</th> -->
 					<th>별점</th>
 					<th>조회수</th>
 
@@ -57,11 +57,10 @@
 						<td>${vo.branch_name}</td>
 						<td>${vo.thema_name}</td>
 						<td>${vo.use_date}</td>
-						<td>${vo.title}</td>
-						<td>${vo.content}</td>
+						<td><a href="${pageContext.request.contextPath}/boardreviewView.do?no=${vo.no}">${vo.title}</a></td>
+						<!-- <td>${vo.content}</td> -->
 						<td>${vo.star}</td>
 						<td>${vo.hit}</td>
-						
 					</tr>
 				</c:forEach>
 			</tbody>
