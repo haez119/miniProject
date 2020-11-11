@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+   pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
@@ -90,51 +90,51 @@
 </style>
 <script>
 $(document).ready(function() {
-	
-	$("#hiddenStar").val('5');
+   
+   $("#hiddenStar").val('5');
 
-	$('.input').on('click','input' ,function() {
-		
-		$("#star").append().html("");
-		
-		let star = $(this).val();
-		$("#star").append(star);
-		$("#hiddenStar").val(star);
-		
+   $('.input').on('click','input' ,function() {
+      
+      $("#star").append().html("");
+      
+      let star = $(this).val();
+      $("#star").append(별);
+      $("#hiddenStar").val(별);
+      
 
-	});
-	
-	 $('#btnlist').on('click', function() {
-			
-		 alert("목록 페이지로 이동합니다.");
-		 $(location).attr('href','${pageContext.request.contextPath}/board.do');
+   });
+   
+    $('#btnlist').on('click', function() {
+         
+       alert("목록 페이지로 이동합니다.");
+       $(location).attr('href','${pageContext.request.contextPath}/board.do');
 
-	 });
-	 
+    });
+    
 
-	$('#btnAdd').on('click',function(){
-		
-		$.ajax({ 
-		    url: "/mini/reviewboard.do", 
-		    dataType: 'json', 
-		    data: $("#frm").serialize(),
-		    success: function(data) { 
-		        alert("등록완료.");
-		        $(location).attr('href','${pageContext.request.contextPath}/board.do');
-		    },
-		    error:function(xhr, status, message) { 
-		        alert(" status: "+status+" er:"+message);
-		    }
-		});
-		
-	});// click
-			
+   $('#btnAdd').on('click',function(){
+      
+      $.ajax({ 
+          url: "/mini/reviewboard.do", 
+          dataType: 'json', 
+          data: $("#frm").serialize(),
+          success: function(data) { 
+              alert("등록완료.");
+              $(location).attr('href','${pageContext.request.contextPath}/board.do');
+          },
+          error:function(xhr, status, message) { 
+              alert(" status: "+status+" er:"+message);
+          }
+      });
+      
+   });// click
+         
 
 });
 </script>
 <style type="text/css">
 table {
-	margin: auto;
+   margin: auto;
 }
 
 </style>
@@ -152,59 +152,58 @@ table {
   </span>
   <output for="star-input"><b>${vo.star}</b>점</output>
 </span>
-	</div>
-	<br>
+   </div>
+   <br>
 
-	<script src="js/jquery-1.11.3.min.js"></script>
-	<script src="js/star.js"></script>
+   <script src="js/jquery-1.11.3.min.js"></script>
+   <script src="js/star.js"></script>
 
-	<form name="frm" id="frm" method="post">
-		<input name="rno" id="rno" type="hidden" value="${rno}">
-		<table width="700" border="3" bordercolor="hotpink" align="center">
-			<tr >
-				<td>지점</td>
-				<td><input type="text" id="b_name" name="b_name" value="${vo.branch_name}" readonly="readonly"></td>
-			</tr>
-			<tr>
-				<td>테마</td>
-				<td><input type="text" id="thema" name="thema" value="${vo.thema_name}" readonly="readonly"></td>
-			</tr>
-			<tr>
-				<td>아이디</td>
-				<td><input type="text" id="id" name="id" value="${id}" readonly="readonly"></td>
-			</tr>
-			
-			<tr>
-				<td id="bdate">이용한 날짜</td>
-				<td><input type="text" id="bdate" name="bdate" value="${vo.use_date}" readonly="readonly"></td>
-			</tr>
-			
-			<tr>
-				<td id="title">제목</td>
-				<td><input type="text" id="title" name="title"  size="50" maxlength="255" ></td>
-			</tr>
-			<tr>
-				<td>내용<b class="importent"></b></td>
-				<td><input type="text" id="content" name="content" size="50" maxlength="65536" style=" width: 550px; height: 250px; "></td>
-			</tr>
-			<tr>
-				<td><input type="hidden" id="hiddenStar" name="hiddenStar"></td>
-			</tr>
-			<tr>
-				<td align="center" colspan="3">
-				<input style="margin: 10px" class="btn btn-outline-light" id="btnlist" type="button" value="목록" >
-				<input style="margin: 10px" class="btn btn-outline-light" id="btnAdd" type="button" value="등록"> 
-				<input style="margin: 10px" class="btn btn-outline-light" id="btnCancel" type="button" value="작성취소"></td>
-			</tr>
-		</table>
-	</form>
-	<br>
+   <form name="frm" id="frm" method="post">
+      <input name="rno" id="rno" type="hidden" value="${rno}">
+      <table width="700" border="3" bordercolor="hotpink" align="center">
+         <tr >
+            <td>지점</td>
+            <td><input type="text" id="b_name" name="b_name" value="${vo.branch_name}" readonly="readonly"></td>
+         </tr>
+         <tr>
+            <td>테마</td>
+            <td><input type="text" id="thema" name="thema" value="${vo.thema_name}" readonly="readonly"></td>
+         </tr>
+         <tr>
+            <td>아이디</td>
+            <td><input type="text" id="id" name="id" value="${id}" readonly="readonly"></td>
+         </tr>
+         
+         <tr>
+            <td id="bdate">이용한 날짜</td>
+            <td><input type="text" id="bdate" name="bdate" value="${vo.use_date}" readonly="readonly"></td>
+         </tr>
+         
+         <tr>
+            <td id="title">제목</td>
+            <td><input type="text" id="title" name="title"  size="50" maxlength="255" ></td>
+         </tr>
+         <tr>
+            <td>내용<b class="importent"></b></td>
+            <td><input type="text" id="content" name="content" size="50" maxlength="65536" style=" width: 550px; height: 250px; "></td>
+         </tr>
+         <tr>
+            <td><input type="hidden" id="hiddenStar" name="hiddenStar"></td>
+         </tr>
+         <tr>
+            <td align="center" colspan="3">
+            <input style="margin: 10px" class="btn btn-outline-light" id="btnlist" type="button" value="목록" >
+            <input style="margin: 10px" class="btn btn-outline-light" id="btnAdd" type="button" value="등록"> 
+            <input style="margin: 10px" class="btn btn-outline-light" id="btnCancel" type="button" value="작성취소"></td>
+         </tr>
+      </table>
+   </form>
+   <br>
 <script src="js/star.js"></script>
 <script>
-	$('[name="star-input"]').val(['${vo.star}']);
+   $('[name="star-input"]').val(['${vo.star}']);
 </script>
 
 </body>
 </html>
-
 

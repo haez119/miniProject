@@ -16,7 +16,6 @@ import co.mini.board.command.BoardAction;
 import co.mini.board.command.BoardDeleteAction;
 import co.mini.board.command.BoardReviewAction;
 import co.mini.board.command.BoardReviewViewAction;
-import co.mini.board.command.BoardReviewWriteFormAction;
 import co.mini.board.command.BoardUpateFormAction;
 import co.mini.board.command.BoardUpdateAction;
 import co.mini.board.command.BoardViewAction;
@@ -159,7 +158,6 @@ public class FrontController extends HttpServlet {
 	    map.put("/boardReview.do", new BoardReviewAction());	 	  //리뷰게시판 페이지 이동
 	    map.put("/boardView.do", new BoardViewAction());			  //게시판 뷰페이지 이동
 		map.put("/baardDelete.do", new BoardDeleteAction());	
-		map.put("/boardreviewWrite.do", new BoardReviewWriteFormAction());
 		map.put("/boardreviewView.do", new BoardReviewViewAction());
 		
 		
