@@ -22,7 +22,7 @@
 	});
 	
 	function writeForm() {
-		location.href = "boardreviewWrite.do"; //글등록 버튼 이동
+		location.href = "boardWrite.do"; //글등록 버튼 이동
 	}
 	function reviewForm() {
 		location.href = "boardReview.do"; //리뷰페이지 버튼 이동
