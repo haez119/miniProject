@@ -42,6 +42,8 @@ $(function(){
 					<li><a class="menuLink" href="${pageContext.request.contextPath}/noticeList.do">공지사항</a></li>				
 					<li>|</li>	
 					<li><a class="menuLink" href="${pageContext.request.contextPath}/board.do">리뷰/Q&A</a></li>
+					<li>|</li>
+					<li><a class="menuLink" href="${pageContext.request.contextPath}/Guidance.do">이용안내</a></li>
 					<%-- <li>|</li>	
 					<li><a class="menuLink" href="${pageContext.request.contextPath}/reservation.do">마이페이지</a></li> --%>
 					<!-- <li>|</li>
