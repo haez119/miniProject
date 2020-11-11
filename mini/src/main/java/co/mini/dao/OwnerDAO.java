@@ -5,7 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+import co.mini.vo.MapVO;
 import co.mini.vo.MemberVO;
 import co.mini.vo.OwnerVO;
 
@@ -148,6 +150,39 @@ public class OwnerDAO extends DAO {
 		}
 		return r;
 	}
+	
+	
+	private final String ADDRESS = "SELECT BRANCH_NAME, ADDRESS FROM ONWER";
+	
+	public List<MapVO> selAddress () {
+		
+		 List<MapVO> list = new ArrayList<>();
+		
+			try {
+				psmt = conn.prepareStatement(ADDRESS);
+				rs = psmt.executeQuery();
+				
+				while(rs.next()) {
+					
+					MapVO vo = new MapVO();
+					
+					vo.setBranch_name(rs.getString("BRANCH_NAME"));
+		            vo.setAddress(rs.getString("ADDRESS"));
+		           
+		            list.add(vo);
+		         }
+				
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+			
+			
+			return list;
+		}
+	
 	
 
 	
