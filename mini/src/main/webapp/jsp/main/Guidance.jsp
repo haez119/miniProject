@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<div align="center">
+<img src="${pageContext.request.contextPath}/img/캡처.PNG">
+</div>
 </body>
 </html>
