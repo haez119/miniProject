@@ -11,7 +11,7 @@ import co.mini.common.Action;
 import co.mini.dao.EventDAO;
 import co.mini.vo.EventVO;
 
-public class EventUpdateFormAction implements Action {
+public class EventUpdateAction implements Action {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {

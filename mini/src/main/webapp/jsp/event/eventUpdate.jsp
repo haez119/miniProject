@@ -11,7 +11,7 @@
 <body>
 <hr>
 	<div align="center">
-		<div><h1>이벤트수정 </h1></div>
+		<div><h1>이벤트수정/삭제 </h1></div>
 
 			<form id="frm" name="frm" action="eventUpdate.do" method="post" enctype="multipart/form-data">
 				<table border="1">

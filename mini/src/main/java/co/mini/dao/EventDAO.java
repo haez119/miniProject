@@ -112,17 +112,16 @@ public class EventDAO extends DAO {
             }
          return vo;
       }
-         private final String UPDATE = "UPDATE EVENT SET EVENT_NAME = ?, IMG = ?, EVENT_CONTENT = ?,  EVENT_TERM = ?, SALE = ? START_EVENT = ?";
+         private final String UPDATE = "UPDATE EVENT SET EVENT_NAME = ?, EVENT_CONTENT = ?,  EVENT_TERM = ?, SALE = ? START_EVENT = ?";
          public int update(EventVO vo) {
             int n = 0;
             try {
                psmt = conn.prepareStatement(UPDATE);
                psmt.setString(1, vo.getEvent_name());
-               psmt.setString(2, vo.getImg());
-               psmt.setString(3, vo.getEvent_content());
-               psmt.setInt(4,vo.getEvent_term());
-               psmt.setDouble(5,vo.getSale());
-               psmt.setDate(6,vo.getStart_event());
+               psmt.setString(2, vo.getEvent_content());
+               psmt.setInt(3,vo.getEvent_term());
+               psmt.setDouble(4,vo.getSale());
+               psmt.setDate(5,vo.getStart_event());
                n = psmt.executeUpdate();
             } catch (SQLException e) {
                e.printStackTrace();
