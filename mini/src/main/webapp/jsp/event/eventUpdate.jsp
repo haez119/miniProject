@@ -60,16 +60,14 @@
 						<input type="text" name="sale" >
 						</td>
 					</tr>
-					<tr>
-						<td colspan='2' align="center">
-							<button type="submit" id="upbtn" >수정하기</button>&nbsp;&nbsp;
-							<button type="button" id="delbtn" >삭제하기</button>
-						</td>
-					</tr>
 				</table>
-			
+				<br>
+					<div align="center">
+							<button style="margin: 10px" class="btn btn-outline-light" type="submit" id="upbtn" >수정하기</button>&nbsp;&nbsp;
+							<button style="margin: 10px" class="btn btn-outline-light" type="button" id="delbtn" >삭제하기</button>
+					</div>
 			</form>
-			
+			<br>
 		</div>
 </body>
 </html>

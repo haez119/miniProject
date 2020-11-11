@@ -17,8 +17,7 @@ ${msg}
 				<table border="1">
 					<tr>
 						<th width="150"> 지점명 </th>
-						<td width="500">${branch_name}
-        	 			</td>
+						<td width="500">${branch_name}</td>
 					</tr>
 					
 					<tr>
@@ -57,16 +56,14 @@ ${msg}
 						<input type="text" name="sale" >
 						</td>
 					</tr>
-					<tr>
-						<td colspan='2' align="center">
-							<input type="submit" value="등록하기"> &nbsp;&nbsp;
-							<input type="reset" value=" 취  소 ">
-						</td>
-					</tr>
 				</table>
-			
+					<br>
+					<div colspan='2' align="center">
+							<input style="margin: 10px" class="btn btn-outline-light" type="submit" value="등록하기"> &nbsp;&nbsp;
+							<input style="margin: 10px" class="btn btn-outline-light" type="reset" value=" 취  소 ">
+						</div>
+						<br>
 			</form>
-			
 		</div>
 </body>
 </html>
