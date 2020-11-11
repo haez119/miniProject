@@ -19,7 +19,7 @@ td {
 </head>
 <body>
 <h1>등록된 이벤트 목록</h1>
-
+<form id='frm' name='frm' method='post' action='${pageContext.request.contextPath}/eventUpdate.do' >
 	<table class="table table-striped"
 		style="text-align: center; border: 1px solid">
 
@@ -54,6 +54,7 @@ td {
 			</c:forEach>
 		</tbody>
 	</table>
+	</form>	
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript">
 		$('.tr').click(function() {
