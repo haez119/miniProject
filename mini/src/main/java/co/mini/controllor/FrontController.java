@@ -31,6 +31,7 @@ import co.mini.board.command.Notice;
 import co.mini.board.command.ReviewBoardAction;
 import co.mini.board.command.reserveResultAction;
 import co.mini.common.Action;
+import co.mini.main.command.MapView;
 import co.mini.owner.command.EventInsertAction;
 import co.mini.owner.command.EventInsertForm;
 import co.mini.owner.command.EventUpdateAction;
@@ -104,6 +105,15 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeInsert.do", new NoticeInsertAction()); // 공지사항 등록
 		map.put("/noticeList.do", new NoticeListAction()); // 공지사항 리스트
 		map.put("/notice.do", new Notice()); // 공지사항 세부
+		
+		map.put("/mapView.do", new MapView()); // 지도 테스트
+		
+		
+		
+		
+		
+		
+		
 		
 		// 최재영
 		map.put("/reserveInsert.do", new reserveInsertAction()); //테마예약하기 화면

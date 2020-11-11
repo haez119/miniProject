@@ -30,6 +30,7 @@ public class ownerLogin implements Action {
 	    session.setAttribute("name", vo.getName());
 	    session.setAttribute("branch_name", vo.getBranch_name()); // 지점명 담기
 	    session.setAttribute("branch_no", vo.getBranch_no()); // 지점번호 세션에 담기
+	    session.setAttribute("address", vo.getAddress()); // 주소
 		
 	    request.setAttribute("vo", vo); 
 
