@@ -41,20 +41,20 @@ public class EventDAO extends DAO {
       }
       return list;
    }
-   private final String INSERT = "INSERT INTO EVENT VALUES(?,?,?,?,?,?,?,?)";
+   private final String INSERT = "INSERT INTO EVENT VALUES(?,(select max(event_no)+1 from event),?,?,?,?,?,?)";
    public int insert(EventVO vo) {
       int n = 0;
       try {
          psmt = conn.prepareStatement(INSERT);
          int a = vo.getBranch_no();
          psmt.setInt(1, a);
-         psmt.setInt(2, vo.getEvent_no());
-         psmt.setString(3, vo.getEvent_name());
-         psmt.setString(4, vo.getImg());
-         psmt.setString(5, vo.getEvent_content());
-         psmt.setInt(6, vo.getEvent_term());
-         psmt.setDouble(7, vo.getSale());
-         psmt.setDate(8, vo.getStart_event());
+         
+         psmt.setString(2, vo.getEvent_name());
+         psmt.setString(3, vo.getImg());
+         psmt.setString(4, vo.getEvent_content());
+         psmt.setInt(5, vo.getEvent_term());
+         psmt.setDouble(6, vo.getSale());
+         psmt.setDate(7, vo.getStart_event());
          
          n = psmt.executeUpdate();
       } catch (SQLException e) {

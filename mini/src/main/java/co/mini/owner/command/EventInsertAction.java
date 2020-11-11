@@ -31,7 +31,7 @@ public class EventInsertAction implements Action {
 		
 		
 		String branch_no =request.getParameter("branch_no");
-		String event_no =request.getParameter("event_no");
+		
 		String event_name = request.getParameter("event_name");
 		//String img = request.getParameter("img");
 		String event_content = request.getParameter("event_content");
@@ -44,7 +44,7 @@ public class EventInsertAction implements Action {
 			return "/jsp/event/eventInsert.jsp";
 		}
 		eventVo.setBranch_no(Integer.parseInt(branch_no)); //여기서 값을 변경해줘야함
-		eventVo.setEvent_no(Integer.parseInt(event_no));
+		
 		eventVo.setEvent_name(event_name);
 		//eventVo.setImg(img);
 		eventVo.setEvent_content(event_content);
@@ -75,7 +75,7 @@ public class EventInsertAction implements Action {
 
 		String page;
 		if (vo != 0) {
-			page = "redirect:eventlist.do"; 
+			page = "redirect:eventlist.do";
 		} else {
 			page = "/jsp/event/eventInsert.jsp"; 
 			request.setAttribute("vo", vo);

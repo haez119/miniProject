@@ -11,9 +11,9 @@
 <body>
 <hr>
 	<div align="center">
-		<div><h1>이벤트등록</h1></div>
-${msg}
-			<form id="frm" name="frm" action="EventInsert.do" method="post" enctype="multipart/form-data">
+		<div><h1>이벤트수정 </h1></div>
+
+			<form id="frm" name="frm" action="eventUpdate.do" method="post" enctype="multipart/form-data">
 				<table border="1">
 					<tr>
 						<th width="150"> 지점명 </th>
@@ -22,11 +22,14 @@ ${msg}
 					</tr>
 					
 					<tr>
-						<th width="150"><input type="hidden" value="${branch_no}" name="branch_no" id="branch_no"> </th>
+						<th width="150"><input type="hidden" value="${vo.branch_no}" name="branch_no" id="branch_no"> </th>
 					</tr>
 
 					
-					
+					<tr>
+						<th width="150"> 이벤트번호 </th>
+						<td width="500"><input value="${vo.event_no}" name="event_no" id="event_no">
+					</tr> <%--vo.event_no --%>
 					<tr>
 					<th width="150"> 이벤트명</th>
 					<td><input type="text" name="event_name"></td>
@@ -59,8 +62,8 @@ ${msg}
 					</tr>
 					<tr>
 						<td colspan='2' align="center">
-							<input type="submit" value="등록하기"> &nbsp;&nbsp;
-							<input type="reset" value=" 취  소 ">
+							<button type="submit" id="upbtn" >수정하기</button>&nbsp;&nbsp;
+							<button type="button" id="delbtn" >삭제하기</button>
 						</td>
 					</tr>
 				</table>
