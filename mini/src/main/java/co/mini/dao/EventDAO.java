@@ -114,7 +114,7 @@ public class EventDAO extends DAO {
             }
          return vo;
       }
-         private final String UPDATE = "UPDATE EVENT SET EVENT_NAME = ?, EVENT_CONTENT = ?,  EVENT_TERM = ?, SALE = ? , START_EVENT = TO_DATE('?-?-?','YY-MM-DD') WHERE EVENT_NO=?";
+         private final String UPDATE = "UPDATE EVENT SET EVENT_NAME = ?, EVENT_CONTENT = ?,  EVENT_TERM = ?, SALE = ? , START_EVENT = TO_DATE(?,'YY-MM-DD') WHERE EVENT_NO=?";
          public int update(EventVO vo) {
             int n = 0;
             try {

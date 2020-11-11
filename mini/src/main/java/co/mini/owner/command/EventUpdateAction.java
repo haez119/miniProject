@@ -28,12 +28,12 @@ public class EventUpdateAction implements Action {
 		dao.update(vo);
 		
 		try {
-			response.sendRedirect(request.getContextPath() + "/board.do");
+			response.sendRedirect(request.getContextPath() + "/eventList.do");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		return "jsp/event/eventList.jsp";
+		return "jsp/event/eventUpdate.jsp";
 	}
 
 }
