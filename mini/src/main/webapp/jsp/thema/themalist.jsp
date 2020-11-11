@@ -69,12 +69,12 @@
 </head>
 <body>
 	<h1>테마 소개</h1>
-	<div align="center">
+	<div align="left">
 	<table>	
 		<c:forEach items="${themaDisList}" var="themaDis" varStatus="status">
   		<tr><!-- 테마시작 -->
   		<td>
-  			<td><img src ='${pageContext.request.contextPath}/img/${themaDis.thema_img}' width="150px" height="200px"  ><td>
+  			<td><img src ='${pageContext.request.contextPath}/img/${themaDis.thema_img}' width="300px" height="400px"  ><td>
   		</td>
   		<td><!-- 지점별 이용시간 시작 -->
   			<div align="left">

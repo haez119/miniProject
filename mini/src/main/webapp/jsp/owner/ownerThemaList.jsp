@@ -68,7 +68,7 @@
 </head>
 <body>
 	<h1>테마 리스트</h1>
-	<div align="center">
+	<div align="left">
 		<c:if test="${fail ne null }">
 		<script> alert("테마 삭제 실패")</script>
 		</c:if>
@@ -82,7 +82,7 @@
 		<table>
   		<tr><!-- 테마시작 -->
   		<td>
-  			<td><img src ='${pageContext.request.contextPath}/img/${thema.thema_img}' width="150px" height="200px"  ><td>
+  			<td><img src ='${pageContext.request.contextPath}/img/${thema.thema_img}' width="300px" height="400px"  ><td>
   		</td>
   		<td>
   			<div align="left">
