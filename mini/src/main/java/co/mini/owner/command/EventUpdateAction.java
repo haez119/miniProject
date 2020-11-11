@@ -2,7 +2,6 @@ package co.mini.owner.command;
 
 import java.io.IOException;
 import java.sql.Date;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
