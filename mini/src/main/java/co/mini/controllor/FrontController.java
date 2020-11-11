@@ -46,6 +46,7 @@ import co.mini.owner.command.themaDelete;
 import co.mini.owner.command.themaInsertAction;
 import co.mini.owner.command.themaInsertForm;
 import co.mini.owner.command.themaUpdateAction;
+import co.mini.thema.command.mainAction;
 import co.mini.thema.command.reserveAction;
 import co.mini.thema.command.reserveInsertAction;
 import co.mini.thema.command.reserveListAction;
@@ -114,6 +115,7 @@ public class FrontController extends HttpServlet {
 		map.put("/themaDelete.do",new themaDelete());
 		map.put("/themaUpdate.do",new themaUpdateAction());
 		map.put("/payment.do",new paymentAction());
+		map.put("/main.do",new mainAction());
 		
 		
 		
