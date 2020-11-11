@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
 function deleteFrm(){
@@ -37,34 +37,34 @@ td {
 		<table width="700" border="3" bordercolor="hotpink" align="center">
 	
 			<tr>
-				<td>¹øÈ£</td>
+				<td>ë²ˆí˜¸</td>
 				<td><input type="text"  name ="no" value="${vo.no}" ></td>
 			</tr>
 			<tr>
-				<td>ÀÛ¼ºÀÚ</td>
+				<td>ì‘ì„±ì</td>
 				<td>${id}</td>
 			</tr>
 			<tr>
-				<td>Á¦¸ñ</td>
+				<td>ì œëª©</td>
 				<td><input type="text" name="title" value="${vo.title}"></td>
 			</tr>
 			<tr>
-				<td>³¯Â¥</td>
+				<td>ë‚ ì§œ</td>
 				<td><input type ="text" name="board_date" value="${vo.board_date}"></td>
 			</tr>
 			<tr>
-				<td>³»¿ë</td>
+				<td>ë‚´ìš©</td>
 				<td><input type="text" name="content" value="${vo.content}"></td>
 			</tr>
 			<tr>
-				<td>ÆÄÀÏÃ·ºÎ</td>
+				<td>íŒŒì¼ì²¨ë¶€</td>
 				<td id="a"></td>
 			</tr>
 			<tr>
 				<td align="center" colspan="3">
-					<input style="margin: 10px" class="btn btn-outline-light" type="button" value="¸ñ·Ï" onclick="listFrm()"> 
-					<input style="margin: 10px" class="btn btn-outline-light" type="submit" value="¼öÁ¤"> 
-					<input style="margin: 10px" class="btn btn-outline-light" type="button" value="»èÁ¦" onclick="deleteFrm()">
+					<input style="margin: 10px" class="btn btn-outline-light" type="button" value="ëª©ë¡" onclick="listFrm()"> 
+					<input style="margin: 10px" class="btn btn-outline-light" type="submit" value="ìˆ˜ì •"> 
+					<input style="margin: 10px" class="btn btn-outline-light" type="button" value="ì‚­ì œ" onclick="deleteFrm()">
 				</td>
 			</tr>
 		</table>

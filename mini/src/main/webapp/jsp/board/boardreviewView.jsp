@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
 .star-input>.input,
@@ -108,7 +108,7 @@ $(document).ready(function() {
 	
 	 $('#btnlist').on('click', function() {
 			
-		 alert("¸ñ·Ï ÆäÀÌÁö·Î ÀÌµ¿ÇÕ´Ï´Ù.");
+		 alert("ëª©ë¡ í˜ì´ì§€ë¡œ ì´ë™í•©ë‹ˆë‹¤.");
 		 $(location).attr('href','${pageContext.request.contextPath}/board.do');
 
 	 });
@@ -121,7 +121,7 @@ $(document).ready(function() {
 		    dataType: 'json', 
 		    data: $("#frm").serialize(),
 		    success: function(data) { 
-		        alert("µî·Ï¿Ï·á.");
+		        alert("ë“±ë¡ì™„ë£Œ.");
 		        $(location).attr('href','${pageContext.request.contextPath}/board.do');
 		    },
 		    error:function(xhr, status, message) { 
@@ -134,7 +134,7 @@ $(document).ready(function() {
 
 });
 function boardForm() {
-	location.href = "boardReview.do"; //Q&AÆäÀÌÁö ¹öÆ° ÀÌµ¿
+	location.href = "boardReview.do"; //Q&Aí˜ì´ì§€ ë²„íŠ¼ ì´ë™
 }
 </script>
 <style type="text/css">
@@ -155,7 +155,7 @@ table {
     <input type="radio" name="star-input" id="p4" value="4"><label for="p4">4</label>
     <input type="radio" name="star-input" id="p5" value="5"><label for="p5">5</label>
   </span>
-  <output for="star-input"><b>${vo.star}</b>Á¡</output>
+  <output for="star-input"><b>${vo.star}</b>ì </output>
 </span>
 	</div>
 	<br>
@@ -165,33 +165,33 @@ table {
 		<table width="700" border="3" bordercolor="hotpink" align="center">
 			
 			<tr>
-				<td>¹øÈ£</td>
+				<td>ë²ˆí˜¸</td>
 				<td><input type="text"  name ="no" value="${vo.no}" ></td>
 			</tr>
 			<tr >
-				<td>ÁöÁ¡</td>
+				<td>ì§€ì </td>
 				<td><input type="text" name="b_name" value="${vo.branch_name}" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<td>Å×¸¶</td>
+				<td>í…Œë§ˆ</td>
 				<td><input type="text" name="thema" value="${vo.thema_name}" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<td>¾ÆÀÌµğ</td>
+				<td>ì•„ì´ë””</td>
 				<td><input type="text" name="id" value="${id}" readonly="readonly"></td>
 			</tr>
 			
 			<tr>
-				<td>ÀÌ¿ëÇÑ ³¯Â¥</td>
+				<td>ì´ìš©í•œ ë‚ ì§œ</td>
 				<td><input type="text" name="bdate" value="${vo.use_date}" readonly="readonly"></td>
 			</tr>
 			
 			<tr>
-				<td>Á¦¸ñ</td>
+				<td>ì œëª©</td>
 				<td><input type="text" name="title"  size="50" maxlength="255" value="${vo.title}" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<td>³»¿ë<b class="importent"></b></td>
+				<td>ë‚´ìš©<b class="importent"></b></td>
 				<td><input type="text" name="content" size="50" maxlength="65536" style=" width: 550px; height: 250px;"
 				value="${vo.content}" readonly="readonly"></td>
 			</tr>
@@ -202,9 +202,9 @@ table {
 			
 			<tr>
 				<td align="center" colspan="3">
-				<input style="margin: 10px" class="btn btn-outline-light" id="btnlist" type="button" value="¸ñ·Ï" onclick="boardForm()">
-				<input style="margin: 10px" class="btn btn-outline-light" id="btnAdd" type="button" value="¼öÁ¤"> 
-				<input style="margin: 10px" class="btn btn-outline-light" id="btnCancel" type="button" value="ÀÛ¼ºÃë¼Ò"></td>
+				<input style="margin: 10px" class="btn btn-outline-light" id="btnlist" type="button" value="ëª©ë¡" onclick="boardForm()">
+				<input style="margin: 10px" class="btn btn-outline-light" id="btnAdd" type="button" value="ìˆ˜ì •"> 
+				<input style="margin: 10px" class="btn btn-outline-light" id="btnCancel" type="button" value="ì‘ì„±ì·¨ì†Œ"></td>
 			</tr>
 		</table>
 	</form>

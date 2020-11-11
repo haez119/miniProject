@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
 .star-input>.input, .star-input>.input>label:hover, .star-input>.input>input:focus+label,
@@ -120,7 +120,7 @@ $(document).ready(function() {
 	
 	 $('#btnlist').on('click', function() {
 			
-		 alert("¸ñ·Ï ÆäÀÌÁö·Î ÀÌµ¿ÇÕ´Ï´Ù.");
+		 alert("ëª©ë¡ í˜ì´ì§€ë¡œ ì´ë™í•©ë‹ˆë‹¤.");
 		 $(location).attr('href','${pageContext.request.contextPath}/board.do');
 
 	 });
@@ -133,7 +133,7 @@ $(document).ready(function() {
 		    dataType: 'json', 
 		    data: $("#frm").serialize(),
 		    success: function(data) { 
-		        alert("µî·Ï¿Ï·á.");
+		        alert("ë“±ë¡ì™„ë£Œ.");
 		        $(location).attr('href','${pageContext.request.contextPath}/board.do');
 		    },
 		    error:function(xhr, status, message) { 
@@ -171,7 +171,7 @@ strong {
 			<input type="radio" class="star-input" value="5" id="p5"> <label for="p5" value="5"></label>
 		</span> 
 		<output for="star-input">
-			<b id="star">5</b>Á¡
+			<b id="star">5</b>ì 
 		</output>
 	 </span>
 	</div>
@@ -183,29 +183,29 @@ strong {
 		<form name="frm" id="frm" method="post">
 		<table width="700" border="3" bordercolor="hotpink" align="center">
 			<tr >
-				<td>ÁöÁ¡</td>
+				<td>ì§€ì </td>
 				<td><input type="text" id="b_name" name="b_name" value="${vo.branch_name}" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<td>Å×¸¶</td>
+				<td>í…Œë§ˆ</td>
 				<td><input type="text" id="thema" name="thema" value="${vo.thema_name}" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<td>¾ÆÀÌµğ</td>
+				<td>ì•„ì´ë””</td>
 				<td><input type="text" id="id" name="id" value="${id}" readonly="readonly"></td>
 			</tr>
 			
 			<tr>
-				<td id="bdate">ÀÌ¿ëÇÑ ³¯Â¥</td>
+				<td id="bdate">ì´ìš©í•œ ë‚ ì§œ</td>
 				<td><input type="text" id="bdate" name="bdate" value="${vo.use_date}" readonly="readonly"></td>
 			</tr>
 			
 			<tr>
-				<td id="title">Á¦¸ñ</td>
+				<td id="title">ì œëª©</td>
 				<td><input type="text" id="title" name="title"  size="50" maxlength="255" ></td>
 			</tr>
 			<tr>
-				<td>³»¿ë<b class="importent"></b></td>
+				<td>ë‚´ìš©<b class="importent"></b></td>
 				<td><input type="text" id="content" name="content" size="50" maxlength="65536" style=" width: 550px; height: 250px; "></td>
 			</tr>
 			<tr>
@@ -214,9 +214,9 @@ strong {
 
 			<tr>
 				<td align="center" colspan="3">
-				<input style="margin: 10px" class="btn btn-outline-light" id="btnlist" type="button" value="¸ñ·Ï" >
-				<input style="margin: 10px" class="btn btn-outline-light" id="btnAdd" type="button" value="¼öÁ¤"> 
-				<input style="margin: 10px" class="btn btn-outline-light" id="btnCancel" type="button" value="ÀÛ¼ºÃë¼Ò"></td>
+				<input style="margin: 10px" class="btn btn-outline-light" id="btnlist" type="button" value="ëª©ë¡" >
+				<input style="margin: 10px" class="btn btn-outline-light" id="btnAdd" type="button" value="ìˆ˜ì •"> 
+				<input style="margin: 10px" class="btn btn-outline-light" id="btnCancel" type="button" value="ì‘ì„±ì·¨ì†Œ"></td>
 			</tr>
 		</table>
 	</form>
