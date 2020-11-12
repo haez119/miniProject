@@ -31,7 +31,7 @@ public class reserveResultAction implements Action {
 		if(id!=null) {
 		reservevo.setId(id);
 		reservevo.setReservDate(request.getParameter("date"));
-		reservevo.setPersonnel(Integer.parseInt(request.getParameter("person")));
+		reservevo.setPersonnel(Integer.parseInt(request.getParameter("personnel")));
 		reservevo.setPrice(Integer.parseInt(request.getParameter("price")));
 		reservevo.setPayment(request.getParameter("payment"));
 		reservevo.setThemaNo(Integer.parseInt(request.getParameter("thema_no")));
@@ -65,14 +65,14 @@ public class reserveResultAction implements Action {
 		String page;  
 		if(id!=null) {
 		if(n != 0) {
-			page ="redirect:reservation.do";
+			page ="reservation.do";
 			
 		} else {
 			page = "jsp/thema/reserveFail.jsp";
 		}
 		}else {
 			if(n != 0 && b!=0) {
-				page ="redirect:bereservation.do";
+				page ="bereservation.do";
 				
 			} else {
 				page = "jsp/thema/reserveFail.jsp";
