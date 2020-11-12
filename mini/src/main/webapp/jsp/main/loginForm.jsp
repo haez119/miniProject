@@ -58,17 +58,17 @@
 		<label for="owner">사장 로그인</label>
 	</div>
 	
-	<h1 align="center">로그인</h1><p></p>
+	<h3 align="center">로그인</h3><p></p>
 		<div align="center"> 
 			<form id="frm" name="frm" method="post"> <%--절대경로 사용 --%>
 				<table>
 					<tr>
-						<th><h2>아이디</h2></th>
-						<td><input type="text" id="id" name="id" width="50" value="${dotdo}"></td>
+						<th style="padding: 10px" ><h4>아이디</h4></th>
+						<td style="padding: 10px" ><input type="text" id="id" name="id" width="50" value="${dotdo}"></td>
 					</tr>
 					<tr>
-						<th><h2>패스워드</h2></th>
-						<td><input type="password" id="password" name="password" width="50"></td>
+						<th style="padding: 10px" ><h4>패스워드</h4></th>
+						<td style="padding: 10px" ><input type="password" id="password" name="password" width="50"></td>
 					</tr>
 				</table><p></p>
 				

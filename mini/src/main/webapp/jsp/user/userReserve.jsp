@@ -90,8 +90,8 @@
 		 	</tr>
 	</c:forEach>
 		 </table>
-		 <div align="left">
-		 <button type="submit">결제하기</button>
+		 <div align="right">
+		 	<button class="btn btn-outline-light"  type="submit">결제하기</button>
 		 </div>
 		 </form>
 		 </div>

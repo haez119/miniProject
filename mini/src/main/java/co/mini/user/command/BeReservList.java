@@ -19,14 +19,13 @@ public class BeReservList implements Action {
 		
 		HttpSession session =request.getSession(false);
 		int max = (int)session.getAttribute("max");
-	
-		
-		System.out.println("get하기 " + max);
 		
 		
 		vo = dao.reserv(max);
 		
 		request.setAttribute("vo", vo);
+		
+		
 		
 		return  "jsp/main/beReserv.jsp";
 	}
