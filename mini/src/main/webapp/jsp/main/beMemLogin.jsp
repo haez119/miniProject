@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>비회원 예약정보?</h1>
+	<h1>비회원 로그인</h1>
 	
 	
 </body>
