@@ -7,7 +7,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
  <style>
-
+	#thema_img{
+	margin:10px 30px 0px 0px; 
+	}
   	.thema_name {
   	width: 300px;
   	background: black;
@@ -74,7 +76,7 @@
 		<c:forEach items="${themaDisList}" var="themaDis" varStatus="status">
   		<tr><!-- 테마시작 -->
   		<td>
-  			<td><img src ='${pageContext.request.contextPath}/img/${themaDis.thema_img}' width="300px" height="400px"  ><td>
+  			<td><img  id="thema_img" src ='${pageContext.request.contextPath}/img/${themaDis.thema_img}' width="300px" height="400px"  ><td>
   		</td>
   		<td><!-- 지점별 이용시간 시작 -->
   			<div align="left">

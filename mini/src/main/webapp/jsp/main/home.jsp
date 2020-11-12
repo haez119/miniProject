@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title></title>
 <style>
+img{
+margin:10px 30px 0px 0px; }
 .w-100 {
 	height: 400px;
     width: 80%!important;
@@ -53,7 +55,7 @@
 }
 .a {
 	width:300px; 
-	height:400px;  
+	height:450px;  
 	float:left;
 	background-color: black;
 	text-align: center;
@@ -108,18 +110,22 @@ h1 {
 	</div>
 	<br>
 	<!-- 두번째 슬라이드 -->
-	<div>
-	<div align="center" id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
+	<div align="left">
+	<div align="left" id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner1">
 			<c:forEach items="${themaDisList}" var="thema" varStatus='i'>
 				<c:if test="${i.index eq 0 }">
 					<div class="carousel-item active">
 				</c:if>
 				<c:if test="${i.index ne 0 }">	
-					<div class="carousel-item">
+					<div align="left" class="carousel-item">
 				</c:if>	
 					<img class="d-block w-101" src="${pageContext.request.contextPath}/img/${thema.thema_img}">
-					<textarea class="a" rows="30" cols="20" >${thema.thema_intro }</textarea>
+					<textarea class="a" rows="30"  style="text-align:left">
+					
+	
+					                                                               ${thema.thema_intro }</textarea>
+					                                                               
 					</div>
 			</c:forEach>
 			
