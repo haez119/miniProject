@@ -51,9 +51,6 @@ div#topMenu a {
 	<c:set var="iidd" value="${id}" />
 	<c:set var= "idd" value="${fn:substring(iidd ,0 , 5)}" />
 	
-	<c:if test="${idd eq null }">
-		<jsp:include page="../jsp/layout/sys_thema.jsp" />
-	</c:if>
 	<c:if test="${idd ne 'admin' }" >
 		<jsp:include page="../jsp/layout/sys_thema.jsp" />
 	</c:if>
@@ -63,29 +60,20 @@ div#topMenu a {
 	</c:if> 
 	<!-- header라인 -->
 	
-		<div id="header">
-			<a href="${pageContext.request.contextPath}/main.do"> <img
-				src="${pageContext.request.contextPath}/img/Main.png" alt="main">
-				
-				<c:if test="${idd eq null }">
-					<jsp:include page="../jsp/layout/main_thema.jsp" />
-				</c:if>
-				
-				<c:if test="${idd ne 'admin' }" >
-					<jsp:include page="../jsp/layout/main_thema.jsp" />
-				</c:if>
-				
-				<c:if test="${idd eq 'admin' }" >
-					<jsp:include page="../jsp/layout/owner_main.jsp" />
-				</c:if> 
-					
-					
-					
-					
-			</a>
-
-		</div>
+	<div id="header">
+		<a href="${pageContext.request.contextPath}/main.do"> <img
+			src="${pageContext.request.contextPath}/img/Main.png" alt="main">
+			
+			<c:if test="${idd ne 'admin' }" >
+				<jsp:include page="../jsp/layout/main_thema.jsp" />
+			</c:if>
+			
+			<c:if test="${idd eq 'admin' }" >
+				<jsp:include page="../jsp/layout/owner_main.jsp" />
+			</c:if> 	
+		</a>
 	</div>
+</div>
 	<hr />
 
 	<!-- middle 바디 라인 -->
