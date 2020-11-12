@@ -27,7 +27,7 @@
   height: 80%;
 }
 
-input{
+.bo{
 	width: 200px;
 	background: rgb(56, 56, 56);
 	border-style:none;
@@ -67,7 +67,12 @@ $(()=>{
 <body>
    <div>
       <div class="right-box">
+      <c:if test="${nomember ne null}">
+      <h2 style="color: white; padding-bottom: 15px" align="center" >비회원의 예약정보</h2>
+      </c:if>
+      <c:if test="${nomember eq null}">
       <h2 style="color: white; padding-bottom: 15px" align="center" >${name}님의 예약정보</h2>
+      </c:if>
       <form id='frm' name='frm' method='post' action='reserveResult.do' >
       <table border="1" style=" background-color:  rgb(56, 56, 56); color: white;  padding: 15px;" class="table">
       
@@ -75,29 +80,37 @@ $(()=>{
   
           <tr>
              <th>지점명 &nbsp;</th>
-             <td><input type="text" name ="branch_name" value="${thVO.branch_name}" readonly="readonly"> </td>
+             <td><input  class="bo" type="text" name ="branch_name" value="${thVO.branch_name}" readonly="readonly"> </td>
           </tr>
          <tr>
              <th>예약일자 &nbsp;</th>
-             <td><input type="text"name="date" value= "${param.date}" readonly="readonly"> </td>
+             <td><input class="bo"  type="text"name="date" value= "${param.date}" readonly="readonly"> </td>
           </tr>
          <tr>
              <th>예약시간</th>
-             <td><input type="text" value="${fn:substring(param.time,0,2)}:${fn:substring(param.time,2,4)}">
+             <td><input class="bo"  type="text" value="${fn:substring(param.time,0,2)}:${fn:substring(param.time,2,4)}">
              <input type="hidden"name="time" value="${param.time}" readonly="readonly"></td>
           </tr>
           <tr>
              <th>테마명 &nbsp;</th>
-             <td><input type="text" name="thema_name" value="${thVO.thema_name}" readonly="readonly"></td>
+             <td><input class="bo"  type="text" name="thema_name" value="${thVO.thema_name}" readonly="readonly"></td>
           </tr>
          <tr>
              <th>예약자 &nbsp;</th>
-             <td><input type="text" name="name" value="${name}" readonly="readonly"></td>
+             <td>
+             
+             <c:if test="${nomember ne null}">
+             <input type="text" name="name" value="이름을 입력하세요">
+             </c:if>
+             <c:if test="${nomember eq null}">
+             <input class="bo" type="text" name="name" value="${name}" readonly="readonly">
+             </c:if>
+             </td>
           </tr>
           <tr>
              <th>회원등급 &nbsp;</th>
              <td>
-             <input type="text" name="rank" value="${meVo.rank}" readonly="readonly">
+             <input class="bo"  type="text" name="rank" value="${meVo.rank}" readonly="readonly">
              
              <c:if test="${meVo.rank eq 'Silver'}">
              <input type="hidden" id="rankSale" value=0.95>
@@ -117,7 +130,14 @@ $(()=>{
           </tr>
           <tr>
              <th>연락처 &nbsp;</th>
-             <td><input type="text" name="phone" value="${meVo.phone}" readonly="readonly"></td>
+             <td>
+             <c:if test="${nomember ne null}">
+              <input type="text" name="phone" value="전화번호 입력 하세요">
+             </c:if>
+             <c:if test="${nomember eq null}">
+             <input  class="bo" type="text" name="phone" value="${meVo.phone}" readonly="readonly">
+             </c:if>
+             </td>
           </tr>
          <tr>
              <th>인원 &nbsp;</th>
@@ -131,11 +151,11 @@ $(()=>{
           </tr>
           <tr>
           
-          	<td>진행중인 이벤트</td><td>${eventvo.event_name} ${eventvo.sale2}% 할인
-          	<c:if test = "${eventvo.sale2 ne 0}">
-          	<input type="hidden" id="sale" name="sale" value="0.${eventvo.sale2}">
+          	<td>진행중인 이벤트</td><td>${eventvo.event_name} ${eventvo.sale}% 할인
+          	<c:if test = "${eventvo.sale ne 0}">
+          	<input type="hidden" id="sale" name="sale" value="0.${eventvo.sale}">
           	</c:if>
-          	<c:if test = "${eventvo.sale2 eq 0}">
+          	<c:if test = "${eventvo.sale eq 0}">
           	<input type="hidden" id="sale" name="sale" value="0">
           	</c:if>
           	
@@ -163,7 +183,7 @@ $(()=>{
              </c:choose>
              </c:if>
              
-             <c:if test = "${eventvo.sale2 ne 0}">
+             <c:if test = "${eventvo.sale ne 0}">
              <c:choose>
              <c:when test="${meVo.rank eq 'Silver'}">
              <td id='price' name="price" onload="loadfucntion()">19000</td>
@@ -180,11 +200,6 @@ $(()=>{
              </c:choose>
              </c:if>
              
-             
-             
-             
-             
-            
              <c:choose>
              <c:when test="${meVo.rank eq Silver}">
            	 <input type='hidden'name='price' id='price2' value="19000">
@@ -205,7 +220,7 @@ $(()=>{
          	 </tr>   
         	 <tr>
              <th>결제여부 &nbsp;</th>
-             <td><input type="text" name='payment'value="미결" readonly="readonly"></td>
+             <td><input class="bo"  type="text" name='payment'value="미결" readonly="readonly"></td>
               
   
        </table>

@@ -38,6 +38,11 @@ public class reserveAction implements Action {
 		HttpSession session =request.getSession(false);
 		String id = (String)session.getAttribute("id");
 		
+		if(id==null) {
+			System.out.println("비회원");
+			request.setAttribute("nomember", "nomember");
+		}
+		
 		
 		MemberDao memDao= new MemberDao();
 		MemberVO meVo= new MemberVO();
