@@ -53,6 +53,7 @@ import co.mini.thema.command.mainAction;
 import co.mini.thema.command.reserveAction;
 import co.mini.thema.command.reserveInsertAction;
 import co.mini.thema.command.reserveListAction;
+import co.mini.user.command.BeReserLoginAction;
 import co.mini.user.command.BeReservList;
 import co.mini.user.command.MemUpdate;
 import co.mini.user.command.Password;
@@ -108,7 +109,7 @@ public class FrontController extends HttpServlet {
 		map.put("/notice.do", new Notice()); // 공지사항 세부
 		
 		map.put("/bereservation.do", new BeReservList()); // 비회원 예약정보
-		
+		map.put("/beLoginAction.do", new BeReserLoginAction()); // 비회원 로그인 처리
 		
 		
 		
