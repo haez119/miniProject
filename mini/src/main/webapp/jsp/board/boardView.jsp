@@ -27,8 +27,11 @@ table {
 td {
 	text-align: center;
 }
-input {
-
+.text1 {
+	background-color: black;
+	color: white;
+	text-align: center;
+	border: none;
 }
 </style>
 </head>
@@ -40,7 +43,7 @@ input {
 	
 			<tr>
 				<td>번호</td>
-				<td><input class="text" type="text"  name ="no" value="${vo.no}" ></td>
+				<td><input class="text1" type="text"  name ="no" value="${vo.no}" ></td>
 			</tr>
 			<tr>
 				<td>작성자</td>
@@ -48,15 +51,15 @@ input {
 			</tr>
 			<tr>
 				<td>제목</td>
-				<td><input type="text" name="title" value="${vo.title}"></td>
+				<td><input class="text1" type="text" name="title" value="${vo.title}"></td>
 			</tr>
 			<tr>
 				<td>날짜</td>
-				<td><input type ="text" name="board_date" value="${vo.board_date}"></td>
+				<td><input class="text1" type ="text" name="board_date" value="${vo.board_date}"></td>
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td><input type="text" name="content" value="${vo.content}"></td>
+				<td><input class="text1" type="text" name="content" value="${vo.content}"></td>
 			</tr>
 			<tr>
 				<td>파일첨부</td>
@@ -64,9 +67,11 @@ input {
 			</tr>
 			<tr>
 				<td align="center" colspan="3">
-					<input style="margin: 10px" class="btn btn-outline-light" type="button" value="목록" onclick="listFrm()"> 
+			<c:if test="${id ne null }">
 					<input style="margin: 10px" class="btn btn-outline-light" type="submit" value="수정"> 
 					<input style="margin: 10px" class="btn btn-outline-light" type="button" value="삭제" onclick="deleteFrm()">
+			</c:if>	
+					<input style="margin: 10px" class="btn btn-outline-light" type="button" value="목록" onclick="listFrm()"> 
 				</td>
 			</tr>
 		</table>

@@ -21,6 +21,46 @@
   float: right;
   width: 45%;
 }
+
+select {
+ -moz-appearance: none;
+-webkit-appearance: none;
+appearance: none;
+	
+font-family: "Noto Sansf KR", sans-serif;
+font-size: 1rem;
+font-weight: 400;
+line-height: 1.5;
+
+color: #444;
+background-color: #fff;
+
+padding: 0.6em 1.4em 0.5em 0.8em;
+margin: 0;
+
+border: 1px solid #aaa;
+border-radius: 0.5em;
+box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+}
+
+select:hover {
+  border-color: #888;
+}
+
+select:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222;
+  outline: none;
+}
+
+select:disabled {
+  opacity: 0.5;
+}
+
+
+
 </style>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d14d1dc3b31245d47fe608698724ea37&libraries=services" ></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d14d1dc3b31245d47fe608698724ea37&libraries=LIBRARY"></script>
@@ -58,6 +98,7 @@ $(document).ready(function() {
 			map.setCenter(coords); 
 			} 
 	});
+	
 	
 	for(var i=0; i<addr.length; i++) {
 		b_name = addr[i].branch_name;
@@ -97,9 +138,6 @@ $(document).ready(function() {
 	});
 	
 	
-	
-	
-	
 });
 </script>
 </head>
@@ -113,7 +151,7 @@ $(document).ready(function() {
 		<hr style="border-color: white">
 		<select name="b_sel" id="b_sel"></select>
 		<p>
-    	<div id="map" style="width:500px;height:350px;"></div>
+    	<div id="map" style="width:500px;height:520px;"></div>
     	<div id="clickLatlng"></div>
 	</div>
 </div>

@@ -30,7 +30,6 @@ import co.mini.board.command.Notice;
 import co.mini.board.command.ReviewBoardAction;
 import co.mini.board.command.reserveResultAction;
 import co.mini.common.Action;
-import co.mini.main.command.MapView;
 import co.mini.owner.command.EventInsertAction;
 import co.mini.owner.command.EventInsertForm;
 import co.mini.owner.command.EventUpdateAction;
@@ -54,6 +53,7 @@ import co.mini.thema.command.mainAction;
 import co.mini.thema.command.reserveAction;
 import co.mini.thema.command.reserveInsertAction;
 import co.mini.thema.command.reserveListAction;
+import co.mini.user.command.BeReservList;
 import co.mini.user.command.MemUpdate;
 import co.mini.user.command.Password;
 import co.mini.user.command.ReservAction;
@@ -107,8 +107,7 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeList.do", new NoticeListAction()); // 공지사항 리스트
 		map.put("/notice.do", new Notice()); // 공지사항 세부
 		
-		map.put("/mapView.do", new MapView()); // 지도 테스트
-		
+		map.put("/bereservation.do", new BeReservList()); // 비회원 예약정보
 		
 		
 		
