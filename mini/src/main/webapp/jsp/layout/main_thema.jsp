@@ -30,7 +30,7 @@ $(function(){
 	<div align="center">
 		<div id='menu'>
 			<nav id="topMenu" >
-				<ul>
+				<ul>   
 					<li><a class="menuLink" href="${pageContext.request.contextPath}/main.do">홈</a></li>
 					<li>|</li>
 					<li><a class="menuLink" href="${pageContext.request.contextPath}/reserveList.do">테마소개</a></li>
