@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import co.mini.common.Action;
 import co.mini.dao.MemberDao;
+import co.mini.dao.ReservationDAO;
 import co.mini.dao.ThemaDao;
 import co.mini.vo.MemberVO;
 import co.mini.vo.ReservationVO;
@@ -27,6 +28,7 @@ public class reserveResultAction implements Action {
 		String id = (String)session.getAttribute("id");
 		int n=0;
 		int b=0;
+		int max =0;
 		
 		if(id!=null) {
 		reservevo.setId(id);
@@ -48,6 +50,10 @@ public class reserveResultAction implements Action {
 			reservevo.setTime(request.getParameter("time"));
 			n = themadao.insert(reservevo);
 			
+			ReservationDAO reDao = new ReservationDAO();
+			max = reDao.reservMax();
+			
+			
 			bmemberVo.setName(request.getParameter("name"));
 			bmemberVo.setBranch_name(request.getParameter("branch_name"));
 			bmemberVo.setThema_name(request.getParameter("thema_name"));
@@ -57,7 +63,8 @@ public class reserveResultAction implements Action {
 			bmemberVo.setPhone(request.getParameter("phone"));
 			bmemberVo.setPassword(request.getParameter("password"));
 			bmemberVo.setPrice(Integer.parseInt(request.getParameter("price")));
-			b = themadao.be_member_insert(bmemberVo);
+			
+			b = themadao.be_member_insert(bmemberVo, max);
 			
 		}
 		
@@ -66,7 +73,6 @@ public class reserveResultAction implements Action {
 		if(id!=null) {
 		if(n != 0) {
 			page ="reservation.do";
-			
 		} else {
 			page = "jsp/thema/reserveFail.jsp";
 		}
@@ -78,7 +84,9 @@ public class reserveResultAction implements Action {
 				page = "jsp/thema/reserveFail.jsp";
 			}
 		}
-		
+
+		session.setAttribute("max", max);
+
 		return page;
 			
 		

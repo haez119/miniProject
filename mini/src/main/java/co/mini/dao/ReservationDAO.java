@@ -184,6 +184,38 @@ public class ReservationDAO extends DAO{
 	   
 		return cnt;
    }
+  
+   
+   
+   private final String MAX = "SELECT MAX(NO) as MAX FROM RESERVATION";
+   
+   public int reservMax() {
+	   
+	   int max = 0;
+	   
+	   try {
+		psmt = conn.prepareStatement(MAX);
+		
+		rs = psmt.executeQuery();
+		
+		if (rs.next()) {
+			max = rs.getInt("MAX");
+		}
+		
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	   return max;
+   }
+   
+   
+   
+   
+   
+   
+   
+   
+   
    
    
    

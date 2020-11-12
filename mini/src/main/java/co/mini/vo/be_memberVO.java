@@ -1,6 +1,7 @@
 package co.mini.vo;
 
 public class be_memberVO {
+private int re_no;
 private String name;
 private String branch_name;
 private String thema_name;
@@ -10,6 +11,15 @@ private int personnel;
 private String phone;
 private String password;
 private int price;
+
+
+
+public int getRe_no() {
+	return re_no;
+}
+public void setRe_no(int re_no) {
+	this.re_no = re_no;
+}
 public String getName() {
 	return name;
 }

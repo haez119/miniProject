@@ -257,21 +257,25 @@ public class ThemaDao extends DAO {
 	
 	//비회원
 	private final String be_member_insert  = "insert into be_member(re_no,name,branch_name,thema_name,"
-			+ "reservdate,time,personnel,phone,password,price) values((select max(no) from reservation),?,?,?,to_date(?,'YY-MM-DD'),?,?,?,?,?)";
+			+ "reservdate,time,personnel,phone,password,price) values(?,?,?,?,to_date(?,'YY-MM-DD'),?,?,?,?,?)";
 	
-	public int be_member_insert(be_memberVO vo) { // 추가하기
+	public int be_member_insert(be_memberVO vo, int max) { // 추가하기
 		int n = 0;
 		try {
 			psmt = conn.prepareStatement(be_member_insert);
-			psmt.setString(1, vo.getName());
-			psmt.setString(2, vo.getBranch_name());
-			psmt.setString(3, vo.getThema_name());
-			psmt.setString(4, vo.getReservdate());
-			psmt.setString(5, vo.getTime());
-			psmt.setInt(6, vo.getPersonnel());
-			psmt.setString(7, vo.getPhone());
-			psmt.setString(8, vo.getPassword());
-			psmt.setInt(9, vo.getPrice());
+			
+			
+			
+			psmt.setInt(1, max);
+			psmt.setString(2, vo.getName());
+			psmt.setString(3, vo.getBranch_name());
+			psmt.setString(4, vo.getThema_name());
+			psmt.setString(5, vo.getReservdate());
+			psmt.setString(6, vo.getTime());
+			psmt.setInt(7, vo.getPersonnel());
+			psmt.setString(8, vo.getPhone());
+			psmt.setString(9, vo.getPassword());
+			psmt.setInt(10, vo.getPrice());
 			n = psmt.executeUpdate();
 
 		} catch (SQLException e) {
