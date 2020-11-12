@@ -89,7 +89,6 @@
 }
 </style>
 
-
 <script>
 $(document).ready(function() {
 	
@@ -141,19 +140,30 @@ function boardForm() {
 table {
 	margin: auto;
 }
-
+input[type="radio"]:disabled {
+	background: #ccc;
+}
+.text {
+	background-color: black;
+	color: white;
+	border: none;
+}
+th {
+	text-align: center;
+	&n
+}
 </style>
-</head>
+</head>	
 
 <body>
 	<div align="center">
 <span class="star-input">
   <span class="input">
-    <input type="radio" name="star-input" id="p1" value="1"><label for="p1">1</label>
-    <input type="radio" name="star-input" id="p2" value="2"><label for="p2">2</label>
-    <input type="radio" name="star-input" id="p3" value="3"><label for="p3">3</label>
-    <input type="radio" name="star-input" id="p4" value="4"><label for="p4">4</label>
-    <input type="radio" name="star-input" id="p5" value="5"><label for="p5">5</label>
+    <input type="radio"  disabled="disabled" name="star-input" id="p1" value="1"><label for="p1">1</label>
+    <input type="radio"  disabled="disabled" name="star-input" id="p2" value="2"><label for="p2">2</label>
+    <input type="radio"  disabled="disabled" name="star-input" id="p3" value="3"><label for="p3">3</label>
+    <input type="radio"  disabled="disabled" name="star-input" id="p4" value="4"><label for="p4">4</label>
+    <input type="radio"  disabled="disabled" name="star-input" id="p5" value="5"><label for="p5">5</label>
   </span>
   <output for="star-input"><b>${vo.star}</b>점</output>
 </span>
@@ -165,34 +175,34 @@ table {
 		<table width="700" border="3" bordercolor="hotpink" align="center">
 			
 			<tr>
-				<td>번호</td>
-				<td><input type="text"  name ="no" value="${vo.no}" ></td>
+				<th>번호</th>
+				<td>&nbsp;&nbsp;<input class="text" type="text"  name ="no" value="${vo.no}" ></td>
 			</tr>
 			<tr >
-				<td>지점</td>
-				<td><input type="text" name="b_name" value="${vo.branch_name}" readonly="readonly"></td>
+				<th>지점</th>
+				<td>&nbsp;&nbsp;<input class="text" type="text" name="b_name" value="${vo.branch_name}" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<td>테마</td>
-				<td><input type="text" name="thema" value="${vo.thema_name}" readonly="readonly"></td>
+				<th>테마</th>
+				<td>&nbsp;&nbsp;<input class="text" type="text" name="thema" value="${vo.thema_name}" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<td>아이디</td>
-				<td><input type="text" name="id" value="${id}" readonly="readonly"></td>
-			</tr>
-			
-			<tr>
-				<td>이용한 날짜</td>
-				<td><input type="text" name="bdate" value="${vo.use_date}" readonly="readonly"></td>
+				<th>아이디</th>
+				<td>&nbsp;&nbsp;<input class="text" type="text" name="id" value="${id}" readonly="readonly"></td>
 			</tr>
 			
 			<tr>
-				<td>제목</td>
-				<td><input type="text" name="title"  size="50" maxlength="255" value="${vo.title}" readonly="readonly"></td>
+				<th>이용한 날짜</th>
+				<td>&nbsp;&nbsp;<input class="text" type="text" name="bdate" value="${vo.use_date}" readonly="readonly"></td>
+			</tr>
+			
+			<tr>
+				<th>제목</th>
+				<td>&nbsp;&nbsp;<input class="text" type="text" name="title"  size="50" maxlength="255" value="${vo.title}" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<td>내용<b class="importent"></b></td>
-				<td><input type="text" name="content" size="50" maxlength="65536" style=" width: 550px; height: 250px;"
+				<th>내용<b class="importent"></b></th>
+				<td>&nbsp;&nbsp;<input class="text" type="text" name="content" size="50" maxlength="65536" style=" width: 550px; height: 250px;"
 				value="${vo.content}" readonly="readonly"></td>
 			</tr>
 			
@@ -203,8 +213,10 @@ table {
 			<tr>
 				<td align="center" colspan="3">
 				<input style="margin: 10px" class="btn btn-outline-light" id="btnlist" type="button" value="목록" onclick="boardForm()">
+			<c:if test="${id ne null }">
 				<input style="margin: 10px" class="btn btn-outline-light" id="btnAdd" type="button" value="수정"> 
 				<input style="margin: 10px" class="btn btn-outline-light" id="btnCancel" type="button" value="작성취소"></td>
+			</c:if>
 			</tr>
 		</table>
 	</form>

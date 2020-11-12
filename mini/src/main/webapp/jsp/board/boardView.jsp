@@ -67,9 +67,11 @@ td {
 			</tr>
 			<tr>
 				<td align="center" colspan="3">
-					<input style="margin: 10px" class="btn btn-outline-light" type="button" value="목록" onclick="listFrm()"> 
+			<c:if test="${id ne null }">
 					<input style="margin: 10px" class="btn btn-outline-light" type="submit" value="수정"> 
 					<input style="margin: 10px" class="btn btn-outline-light" type="button" value="삭제" onclick="deleteFrm()">
+			</c:if>	
+					<input style="margin: 10px" class="btn btn-outline-light" type="button" value="목록" onclick="listFrm()"> 
 				</td>
 			</tr>
 		</table>
