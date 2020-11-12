@@ -50,7 +50,6 @@
     width: 100%;
     overflow: hidden;
     left: 190px;
-    margin-right:10px;
 }
 .a {
 	width:300px; 
