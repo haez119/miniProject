@@ -13,7 +13,8 @@
 		<a href="#">홈</a> &nbsp;|&nbsp;
 		<c:if test="${name eq null }">
 			<a href="${pageContext.request.contextPath}/loginPage.do">로그인</a> &nbsp;|&nbsp; 
-			<a href="${pageContext.request.contextPath}/memberForm.do">회원가입</a><!--&nbsp;|&nbsp;-->
+			<a href="${pageContext.request.contextPath}/memberForm.do">회원가입</a>&nbsp;|&nbsp;
+			<a href="${pageContext.request.contextPath}/aaaaa.do">비회원 조회</a>
 		</c:if>
 		
 		<c:if test="${name ne null }">
