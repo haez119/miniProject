@@ -6,12 +6,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+<script>
+$(function(){
+	$("#delbtn").on("click",function(){
+	
+		$("#frm").attr("action","${pageContext.request.contextPath}/eventDelete.do");
+		
+		$("#frm").submit();
+	});	
+	
+
+});
+
+</script>
 </head>
 
 <body>
+<% request.setCharacterEncoding("utf-8"); %>
 <hr>
 	<div align="center">
-		<div><h1>이벤트수정/삭제 </h1></div>
+		<div><h1>이벤트 수정/삭제 </h1></div>
 
 			<form id="frm" name="frm" action="eventUpdate.do" method="post" enctype="multipart/form-data">
 				<table border="1">

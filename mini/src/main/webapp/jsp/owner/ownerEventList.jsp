@@ -19,6 +19,14 @@ td {
 </head>
 <body>
 <h1>등록된 이벤트 목록</h1>
+<%-- <div align="left">
+		<c:if test="${fail ne null }">
+		<script> alert("테마 삭제 실패")</script>
+		</c:if>
+		
+		<c:if test="${fail2 ne null }">
+		<script> alert("테마 수정 실패")</script>
+		</c:if> --%>
 <form id='frm' name='frm' method='post' action='${pageContext.request.contextPath}/eventUpdateList.do' >
 	<table class="table table-striped"
 		style="text-align: center; border: 1px solid">

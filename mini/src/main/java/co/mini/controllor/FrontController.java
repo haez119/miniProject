@@ -40,6 +40,7 @@ import co.mini.owner.command.NoticeListAction;
 import co.mini.owner.command.NoticeViewAction;
 import co.mini.owner.command.OwnerInsertAction;
 import co.mini.owner.command.ReservPageAction;
+import co.mini.owner.command.eventDelete;
 import co.mini.owner.command.ownerLogin;
 import co.mini.owner.command.ownerThemaListAction;
 import co.mini.owner.command.ownerthemaUpdateAction;
@@ -146,7 +147,7 @@ public class FrontController extends HttpServlet {
 		map.put("/eventInsertForm.do", new EventInsertForm());
 		map.put("/eventUpdate.do", new EventUpdateAction()); 
 		map.put("/eventUpdateList.do", new EventUpdateListAction());
-		
+		map.put("/eventDelete.do", new eventDelete());
 		
 		
 		
