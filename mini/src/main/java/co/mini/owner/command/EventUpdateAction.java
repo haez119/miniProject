@@ -2,6 +2,7 @@ package co.mini.owner.command;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,13 +24,8 @@ public class EventUpdateAction implements Action {
 		vo.setEvent_term(Integer.parseInt(request.getParameter("event_term")));
 		vo.setSale(Double.parseDouble(request.getParameter("sale")));
 		
-		dao.update(vo);
+		request.setAttribute("vo", vo);//vo를 받아온걸 넘긴다
 		
-		try {
-			response.sendRedirect(request.getContextPath() + "/eventUpdateList.do");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		
 		return "jsp/event/eventUpdate.jsp";
 	}

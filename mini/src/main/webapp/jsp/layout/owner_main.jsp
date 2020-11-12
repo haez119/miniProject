@@ -21,7 +21,7 @@
 					<li>|</li>
 					<li><a class="menuLink" href="${pageContext.request.contextPath}/eventInsertForm.do">이벤트 등록</a></li>				
 					<li>|</li>	
-					<li><a class="menuLink" href="${pageContext.request.contextPath}/eventUpdate.do">이벤트 리스트</a></li>				
+					<li><a class="menuLink" href="${pageContext.request.contextPath}/eventUpdateList.do">이벤트 리스트</a></li>				
 					<li>|</li>	
 					<li><a class="menuLink" href="${pageContext.request.contextPath}/noticeView.do">공지사항 등록</a></li>				
 					<li>|</li>	

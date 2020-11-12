@@ -32,6 +32,7 @@ import co.mini.board.command.reserveResultAction;
 import co.mini.common.Action;
 import co.mini.owner.command.EventInsertAction;
 import co.mini.owner.command.EventInsertForm;
+import co.mini.owner.command.EventUpdate1Action;
 import co.mini.owner.command.EventUpdateAction;
 import co.mini.owner.command.EventUpdateListAction;
 import co.mini.owner.command.NoticeInsertAction;
@@ -150,7 +151,7 @@ public class FrontController extends HttpServlet {
 		map.put("/eventUpdate.do", new EventUpdateAction()); 
 		map.put("/eventUpdateList.do", new EventUpdateListAction());
 		map.put("/eventDelete.do", new eventDelete());
-		
+		map.put("/eventUpdate1.do", new EventUpdate1Action());
 		
 		
 		

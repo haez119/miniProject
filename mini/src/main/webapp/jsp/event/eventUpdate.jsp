@@ -28,10 +28,15 @@ $(function(){
 <hr>
 	<div align="center">
 		<div><h1>이벤트 수정/삭제 </h1></div>
-
-			<form id="frm" name="frm" action="eventUpdate.do" method="post" enctype="multipart/form-data">
+<div>
+			<c:if test="${fail ne null}">
+			<script>
+			alert("이벤트 수정 실패");
+			</script>
+			</c:if>
+			<form id="frm" name="frm" action="eventUpdate1.do" method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/eventUpdate.do">
 				<table border="1">
-					<tr>
+				 	<tr>
 						<th width="150"> 지점명 </th>
 						<td width="500">${branch_name}
         	 			</td>
@@ -42,48 +47,56 @@ $(function(){
 					</tr>
 
 					
-					<tr>
+				<%-- 	<tr>
 						<th width="150"> 이벤트번호 </th>
 						<td width="500"><input value="${vo.event_no}" name="event_no" id="event_no">
-					</tr> <%--vo.event_no --%>
+					</tr> <%--vo.event_no --%> 
 					<tr>
 					<th width="150"> 이벤트명</th>
-					<td><input type="text" name="event_name"></td>
+					<td><input type="text" name="event_name" value="${vo.event_name}"></td>
 					</tr>
-					<tr>
+					<%-- <tr>
 						<th width="150"> 이벤트이미지 </th>
 						<td><input type="file" id="img" name="img"></td>
-					</tr>
+					</tr> --%>
 					
 					<tr>
 						<th width="150"> 이벤트내용 </th>
-						<td><textarea rows="10" cols="50" id="event_content" name="event_content"></textarea></td>
+						<td><textarea rows="10" cols="50" id="event_content" name="event_content" >${vo.event_content}</textarea></td>
 					</tr>
 					<tr>
 						<th width="150"> 이벤트시작일 </th>
-						<td width="500"><input name="start_event" type="date">
+						<td width="500"><input name="start_event" type="date" value="${vo.start_event}">
 					</td>
 					</tr>
 					<tr>
 						<th width="150"> 이벤트기간 </th>
-						<td width="500"><input type="text" name="event_term" value="" >
+						<td width="500"><input type="text" name="event_term" value="${vo.event_term}" >
         	 			</td>
 					</tr>
 					
 					<tr>
 						<th width="150"> 할인율 </th>
 						<td>
-						<input type="text" name="sale" >
+						<input type="text" name="sale" value="${vo.sale}" >
+						</td>
+					</tr>
+					<tr>
+						<td colspan='2' align="center">
+							<button type="submit" id="update" >수정하기</button>&nbsp;&nbsp;
+							<button type="button" id="delbtn" >삭제하기</button>
+							<input type="reset" value=" 취  소 ">
 						</td>
 					</tr>
 				</table>
-				<br>
+			<%-- 	<br>
 					<div align="center">
 							<button style="margin: 10px" class="btn btn-outline-light" type="submit" id="upbtn" >수정하기</button>&nbsp;&nbsp;
 							<button style="margin: 10px" class="btn btn-outline-light" type="button" id="delbtn" >삭제하기</button>
-					</div>
+					</div>     --%> 
 			</form>
 			<br>
+			</div>
 		</div>
 </body>
 </html>

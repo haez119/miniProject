@@ -116,7 +116,7 @@ public class EventDAO extends DAO {
       }
          private final String UPDATE = "UPDATE EVENT SET EVENT_NAME = ?, EVENT_CONTENT = ?,  EVENT_TERM = ?, SALE = ? , START_EVENT = TO_DATE(?,'YY-MM-DD') WHERE EVENT_NO=?";
          public int update(EventVO vo) {
-            int n = 0;
+            int n = 0; //n이 성공했느냐 int값을 받은거
             try {
                psmt = conn.prepareStatement(UPDATE);
                psmt.setString(1, vo.getEvent_name());
@@ -124,6 +124,7 @@ public class EventDAO extends DAO {
                psmt.setInt(3,vo.getEvent_term());
                psmt.setDouble(4,vo.getSale());
                psmt.setDate(5,vo.getStart_event());
+               psmt.setInt(6,vo.getEvent_no());
                n = psmt.executeUpdate();
             } catch (SQLException e) {
                e.printStackTrace();
@@ -167,7 +168,37 @@ public class EventDAO extends DAO {
             return vo;
          }
 
-   private void close() {
+         private final String SELECTBRANCH = "select e.event_term ,o.branch_no,e.img, e.event_no, o.branch_name, e.event_name, e.event_content, e.start_event, \r\n" + 
+         		"e.start_event + event_term as last_event,(1-e.sale)*100 as sale from event e join onwer o on(e.branch_no = o.branch_no) where o.branch_no=?\r\n" + 
+         		"order by event_no";
+         public List<EventVO> selectbranch(int branch_no) {
+        	 List<EventVO> list = new ArrayList<EventVO>();
+        	 EventVO vo = new EventVO();
+               try {
+                  psmt = conn.prepareStatement(SELECTBRANCH);
+                  psmt.setInt(1, branch_no);
+                  rs = psmt.executeQuery();
+                  while (rs.next()) {
+                	 vo.setEvent_term(rs.getInt("event_term"));
+                     vo.setBranch_no(rs.getInt("branch_no"));
+                     vo.setEvent_no(rs.getInt("event_no"));
+                     vo.setEvent_name(rs.getString("event_name"));
+                     vo.setImg(rs.getString("img"));
+                     vo.setEvent_content(rs.getString("event_content"));
+                     vo.setStart_event(rs.getDate("start_event"));
+                     vo.setLast_event(rs.getDate("last_event"));
+                     
+                     vo.setSale(rs.getDouble("sale"));
+                     list.add(vo);
+                  }
+                  
+               } catch (Exception e) {
+                  e.printStackTrace();
+               }
+            return list;
+         }
+         
+         private void close() {
       try {
          if(rs != null)rs.close();
          if(psmt != null)psmt.close();
