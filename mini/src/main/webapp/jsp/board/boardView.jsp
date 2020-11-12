@@ -28,7 +28,9 @@ td {
 	text-align: center;
 }
 input {
-
+	background-color: black;
+	color: white;
+	text-align: center;
 }
 </style>
 </head>

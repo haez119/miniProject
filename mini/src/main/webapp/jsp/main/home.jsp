@@ -17,6 +17,7 @@
 .w-101 {
 	height: 400px;
     width: 40%!important;
+    float: left;
 	
 	<!-- 슬라이드 사진크기 -->
 	display: block;
@@ -38,18 +39,34 @@
     align-items: center;
     -ms-flex-pack: center;
     justify-content: center;
-    width: 55%;
+    width: 25%;
     color: #fff;
     text-align: center;
-    opacity: .5;
+    opacity: 0.5;
     transition: opacity .15s ease;
 }
-
+.carousel-inner1 {
+	position: relative;
+    width: 100%;
+    overflow: hidden;
+    left: 190px;
+    margin-right:10px;
+}
+.a {
+	width:300px; 
+	height:400px;  
+	float:left;
+	background-color: black;
+	text-align: center;
+	color: white;
+	border: none;
+}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
  
 </head>
 <body>
+	<!-- 첫번째 슬라이드 -->
 <div>
 	<div align="center" id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
@@ -85,9 +102,11 @@
 			</table>
 		</form>
 	</div>
+	
+	<!-- 두번째 슬라이드 -->
 	<div>
 	<div align="center" id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
-		<div class="carousel-inner">
+		<div class="carousel-inner1">
 			<c:forEach items="${themaDisList}" var="thema" varStatus='i'>
 				<c:if test="${i.index eq 0 }">
 					<div class="carousel-item active">
@@ -96,11 +115,13 @@
 					<div class="carousel-item">
 				</c:if>	
 					<img class="d-block w-101" src="${pageContext.request.contextPath}/img/${thema.thema_img}">
+					<textarea class="a" rows="30" cols="20" >${thema.thema_intro }</textarea>
 					</div>
 			</c:forEach>
+			
 		</div>
 		
-		<a class="carousel-control-prev1" href="#carouselExampleControls" role="button" data-slide="prev"> 
+		<a class="carousel-control-prev1" href="#carouselExampleControls2" role="button" data-slide="prev"> 
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span> 
 			<span class="sr-only">Previous</span>
 		</a> 
