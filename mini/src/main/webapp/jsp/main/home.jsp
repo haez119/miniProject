@@ -60,6 +60,11 @@
 	color: white;
 	border: none;
 }
+h1 {
+	font-size: 45px;
+	font-weight: bold;
+	font-family: "Trebuchet MS", Dotum, Arial;
+}	
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
  
@@ -91,7 +96,7 @@
 		</a>
 	</div>
 	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-
+	<br>
 	<div align="center">
 		<form id='frm' name='frm' method='post' action='#'>
 			<table>
@@ -101,7 +106,7 @@
 			</table>
 		</form>
 	</div>
-	
+	<br>
 	<!-- 두번째 슬라이드 -->
 	<div>
 	<div align="center" id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
