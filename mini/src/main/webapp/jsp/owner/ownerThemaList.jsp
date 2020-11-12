@@ -7,6 +7,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
  <style>
+ 	#thema_img{
+ 	margin:0px 30px
+ 	}
   	.thema_name {
   	width: 300px;
   	background: black;
@@ -82,7 +85,7 @@
 		<table>
   		<tr><!-- 테마시작 -->
   		<td>
-  			<td><img src ='${pageContext.request.contextPath}/img/${thema.thema_img}' width="300px" height="400px"  ><td>
+  			<td><img id="thema_img" src ='${pageContext.request.contextPath}/img/${thema.thema_img}' width="300px" height="400px"  ><td>
   		</td>
   		<td>
   			<div align="left">

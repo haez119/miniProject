@@ -24,14 +24,15 @@ table {
 	margin: auto;
 	hidden
 }
-td {
-	text-align: center;
-}
+
 .text1 {
 	background-color: black;
 	color: white;
-	text-align: center;
 	border: none;
+}
+
+th {
+	text-align: center;
 }
 </style>
 </head>
@@ -42,27 +43,27 @@ td {
 		<table width="700" border="3" bordercolor="hotpink" align="center">
 	
 			<tr>
-				<td>번호</td>
-				<td><input class="text1" type="text"  name ="no" value="${vo.no}" ></td>
+				<th>번호</th>
+				<td>&nbsp;&nbsp;<input class="text1" type="text"  name ="no" value="${vo.no}" size="50" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<td>작성자</td>
-				<td>${id}</td>
+				<th>작성자</th>
+				<td>&nbsp;&nbsp;${id}</td>
 			</tr>
 			<tr>
-				<td>제목</td>
-				<td><input class="text1" type="text" name="title" value="${vo.title}"></td>
+				<th>제목</th>
+				<td>&nbsp;&nbsp;<input class="text1" type="text" name="title" value="${vo.title}" size="50" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<td>날짜</td>
-				<td><input class="text1" type ="text" name="board_date" value="${vo.board_date}"></td>
+				<th>날짜</th>
+				<td>&nbsp;&nbsp;<input class="text1" type ="text" name="board_date" value="${vo.board_date}" size="50" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<td>내용</td>
-				<td><input class="text1" type="text" name="content" value="${vo.content}"></td>
+				<th>내용</th>
+				<td>&nbsp;&nbsp;<textarea rows="10" cols="50" class="text1" type="text" name="content">${vo.content}</textarea></td>
 			</tr>
 			<tr>
-				<td>파일첨부</td>
+				<th>파일첨부</th>
 				<td id="a"></td>
 			</tr>
 			<tr>

@@ -16,6 +16,11 @@
   <link href="style.css" rel="stylesheet" type="mini/css/main.css">
  
   <style>
+  
+ 
+  	#thema_img{
+	margin:10px 30px 20px 0px; 
+	}
   	.thema_name {
   	width: 300px;
   	background: black;
@@ -34,39 +39,41 @@
 	width: 300px;
 	}
 	.time{
-	width: 80px;
+	width: 80%;
 	background: #1f1f1f;
 	border-color:white;
 	color:white;
+	text-align:center;
 	
 	}
 	.timefail{
-	width: 80px;
+	width: 80%;
 	background: black;
 	border-color:white;
+	text-align:center;
 	color:white;
 	}
 	
 	.reserve{
-	WIDTH: 80px; 
+	WIDTH: 80%; 
 	HEIGHT: 20px; 
 	font-size:12px;
+	text-align:center;
 	background: #1f1f1f;
 	border-color:white;
 	color:white;
 	}
 	.reservefail{
-	WIDTH: 80px; 
+	WIDTH: 80%; 
 	HEIGHT: 20px; 
 	font-size:12px;
+	text-align:center;
 	background: black;
 	border-color:white;
 	color:white;
 	}
 	
-	img {
-	padding-bottom: 30px;
-	}
+	
 	#timediv{
 	WIDTH: 80px; 
 	}
@@ -118,7 +125,7 @@
   		<c:forEach items="${themaDisList}" var="themaDis" varStatus="status">
   		<tr><!-- 테마시작 -->
   		<td>
-  			<td><img src ='${pageContext.request.contextPath}/img/${themaDis.thema_img}' width="150px" height="200px"  ><td>
+  			<td><img id="thema_img" src ='${pageContext.request.contextPath}/img/${themaDis.thema_img}' width="150px" height="200px"  ><td>
   		</td>
   		<td><!-- 지점별 이용시간 시작 -->
   			<div align="left">
