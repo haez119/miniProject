@@ -11,6 +11,7 @@ import co.mini.dao.MemberDao;
 import co.mini.dao.ThemaDao;
 import co.mini.vo.MemberVO;
 import co.mini.vo.ReservationVO;
+import co.mini.vo.be_memberVO;
 
 public class reserveResultAction implements Action {
 
@@ -20,11 +21,14 @@ public class reserveResultAction implements Action {
 		
 		ThemaDao themadao = new ThemaDao();
 		ReservationVO reservevo = new ReservationVO();
-		
+		be_memberVO bmemberVo = new be_memberVO();
 		
 		HttpSession session =request.getSession(false);
 		String id = (String)session.getAttribute("id");
+		int n=0;
+		int b=0;
 		
+		if(id!=null) {
 		reservevo.setId(id);
 		reservevo.setReservDate(request.getParameter("date"));
 		reservevo.setPersonnel(Integer.parseInt(request.getParameter("person")));
@@ -33,13 +37,46 @@ public class reserveResultAction implements Action {
 		reservevo.setThemaNo(Integer.parseInt(request.getParameter("thema_no")));
 		reservevo.setTime(request.getParameter("time"));
 		
-		int n = themadao.insert(reservevo);
+		n = themadao.insert(reservevo);
+		}else {
+
+			reservevo.setReservDate(request.getParameter("date"));
+			reservevo.setPersonnel(Integer.parseInt(request.getParameter("personnel")));
+			reservevo.setPrice(Integer.parseInt(request.getParameter("price")));
+			reservevo.setPayment(request.getParameter("payment"));
+			reservevo.setThemaNo(Integer.parseInt(request.getParameter("thema_no")));
+			reservevo.setTime(request.getParameter("time"));
+			n = themadao.insert(reservevo);
+			
+			bmemberVo.setName(request.getParameter("name"));
+			bmemberVo.setBranch_name(request.getParameter("branch_name"));
+			bmemberVo.setThema_name(request.getParameter("thema_name"));
+			bmemberVo.setReservdate(request.getParameter("date"));
+			bmemberVo.setTime(request.getParameter("time"));
+			bmemberVo.setPersonnel(Integer.parseInt(request.getParameter("personnel")));
+			bmemberVo.setPhone(request.getParameter("phone"));
+			bmemberVo.setPassword(request.getParameter("password"));
+			bmemberVo.setPrice(Integer.parseInt(request.getParameter("price")));
+			b = themadao.be_member_insert(bmemberVo);
+			
+		}
+		
+		
 		String page;  
+		if(id!=null) {
 		if(n != 0) {
-			page ="reservation.do";
+			page ="redirect:reservation.do";
 			
 		} else {
 			page = "jsp/thema/reserveFail.jsp";
+		}
+		}else {
+			if(n != 0 && b!=0) {
+				page ="redirect:bereservation.do";
+				
+			} else {
+				page = "jsp/thema/reserveFail.jsp";
+			}
 		}
 		
 		return page;

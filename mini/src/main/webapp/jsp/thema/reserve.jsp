@@ -46,8 +46,6 @@ integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="ano
 <script>
 $(()=>{
 	
-
-	
 	function comma(str) {
         str = String(str);
         return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
@@ -68,6 +66,18 @@ $(()=>{
    <div>
       <div class="right-box">
       <c:if test="${nomember ne null}">
+      <script>
+        var result = confirm("비회원으로 예약 하시겠습니까?");
+        
+        if(result)
+        {
+            document.write("<h1> 실행합니다. </h1>")
+        }
+        else
+        {
+        	location.href="${pageContext.request.contextPath}/loginPage.do";
+        }
+     </script>
       <h2 style="color: white; padding-bottom: 15px" align="center" >비회원의 예약정보</h2>
       </c:if>
       <c:if test="${nomember eq null}">
@@ -100,7 +110,7 @@ $(()=>{
              <td>
              
              <c:if test="${nomember ne null}">
-             <input type="text" name="name" value="이름을 입력하세요">
+             <input type="text" name="name" placeholder="이름을 입력하세요">
              </c:if>
              <c:if test="${nomember eq null}">
              <input class="bo" type="text" name="name" value="${name}" readonly="readonly">
@@ -108,6 +118,7 @@ $(()=>{
              </td>
           </tr>
           <tr>
+          	<c:if test="${nomember eq null}">
              <th>회원등급 &nbsp;</th>
              <td>
              <input class="bo"  type="text" name="rank" value="${meVo.rank}" readonly="readonly">
@@ -127,12 +138,33 @@ $(()=>{
               </c:otherwise>
              </c:choose>
              </td>
+             </c:if>
+             
+             <c:if test="${nomember ne null}">
+             <th>비밀번호 &nbsp;</th>
+             <td>
+             <c:if test="${meVo.rank eq 'Silver'}">
+             <input type="hidden" id="rankSale" value=0.95>
+             </c:if>
+             <c:choose>
+             <c:when test="${meVo.rank eq 'Gold'}">
+             <input type="hidden" id="rankSale" value=0.90>
+             </c:when>
+             <c:when test="${meVo.rank eq 'VIP'}">
+             <input type="hidden" id="rankSale" value=0.85>
+             </c:when>
+              <c:otherwise>
+              <input type="hidden" id="rankSale" value=1>
+              </c:otherwise>
+             </c:choose>
+             <input type="text" id="password" name="password" placeholder="비밀번호를 입력하세요"></td>
+             </c:if>
           </tr>
           <tr>
              <th>연락처 &nbsp;</th>
              <td>
              <c:if test="${nomember ne null}">
-              <input type="text" name="phone" value="전화번호 입력 하세요">
+              <input type="text" name="phone"  placeholder="전화번호 입력 하세요">
              </c:if>
              <c:if test="${nomember eq null}">
              <input  class="bo" type="text" name="phone" value="${meVo.phone}" readonly="readonly">
@@ -142,7 +174,7 @@ $(()=>{
          <tr>
              <th>인원 &nbsp;</th>
              <td> 
-             <select id="person" name="person">
+             <select id="personnel" name="personnel">
               <c:forEach var="i" begin="1" end='${thVO.max_per}'>
         	 <option value='${i}'>${i}명</option>
        		 </c:forEach>
