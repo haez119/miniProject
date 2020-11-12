@@ -35,9 +35,17 @@
 div.searchForm {
 text-align: center;
 }
-pagination {
- float: left;
+
+.text-center {
+    text-align: center;
 }
+.pagination	{
+	display: inline-block;
+	
+}
+.a {
+	text-align: center;
+	    }
 </style>
 </head>
 
@@ -86,7 +94,7 @@ pagination {
 	<!-- 검색 부분 -->
 	<div class="searchForm">
 		<form  name="searchFrm">
-		현재페이지<input name="p" value="1" style="width:20px; text-align: center; ">
+		<input name="p" type="hidden" value="1" style="width:20px; text-align: center; ">
 			<select name="opt">
 				<option value="0">제목</option>
 				<option value="1">내용</option>
@@ -97,15 +105,16 @@ pagination {
 		</form>
 	</div>
 	<br>
+
 	<script>
-		
-		
 			function goPage(p) {
 				//location.href="memberList.do?p="+p + "";
 				searchFrm.p.value = p;
 				searchFrm.submit();
 			}
 		</script>
+		<div class="a">
 		<my:paging paging="${paging}" jsfunc="goPage" />
+		</div>
 </body>
 </html>

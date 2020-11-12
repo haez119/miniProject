@@ -35,6 +35,7 @@ th {
 	text-align: center;
 }
 </style>
+
 </head>
 <body>
 	<form name="frm" id="frm" method="post" action="${pageContext.request.contextPath}/boardUpdate.do"
@@ -62,10 +63,7 @@ th {
 				<th>내용</th>
 				<td>&nbsp;&nbsp;<textarea rows="10" cols="50" class="text1" type="text" name="content">${vo.content}</textarea></td>
 			</tr>
-			<tr>
-				<th>파일첨부</th>
-				<td id="a"></td>
-			</tr>
+
 			<tr>
 				<td align="center" colspan="3">
 			<c:if test="${id ne null }">
