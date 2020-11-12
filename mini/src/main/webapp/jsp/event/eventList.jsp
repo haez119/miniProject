@@ -7,21 +7,38 @@
 <meta charset="UTF-8">
 <title>이벤트 확인</title>
 <style>
-th {
-	background-color: #eeeeee;
+.th {
+	background-color: black;
+	color: white;
 	text-align: center;
+	list-style: none;
+	font-weight: bold;
+	font-family: "Trebuchet MS", Dotum, Arial;
 }
 
 td {
 	color: white;
+	font-weight: bold;
+	font-family: "Trebuchet MS", Dotum, Arial;
 }
+ h1 {
+ 	text-align: center;
+ 	font-weight: bold;
+	font-family: "Trebuchet MS", Dotum, Arial;
+ }
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    color: white;
+}
+
 </style>
 </head>
 <body>
 <h1>이벤트 리스트</h1>
-
+<br>
 	<table class="table table-striped"
-		style="text-align: center; border: 1px solid">
+		style="text-align: center; border: none;">
 
 		<thead>
 			<tr>
@@ -53,6 +70,7 @@ td {
 			</c:forEach>
 		</tbody>
 	</table>
+	<br>
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript">
 		$('.tr').click(function() {
