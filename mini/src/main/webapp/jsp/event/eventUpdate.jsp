@@ -47,10 +47,10 @@ $(function(){
 					</tr>
 
 					
-				<%-- 	<tr>
+					<tr>
 						<th width="150"> 이벤트번호 </th>
-						<td width="500"><input value="${vo.event_no}" name="event_no" id="event_no">
-					</tr> <%--vo.event_no --%> 
+						<td width="500"><input type="text" value="${vo.event_no}" name="event_no" id="event_no">
+					</tr> <%--vo.event_no 
 					<tr>
 					<th width="150"> 이벤트명</th>
 					<td><input type="text" name="event_name" value="${vo.event_name}"></td>
