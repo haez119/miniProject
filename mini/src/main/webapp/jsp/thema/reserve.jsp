@@ -8,8 +8,6 @@
 <meta charset="UTF-8">
 <title>예약정보</title>
 <style>
-
-
 .left-box {
   color: black;
   padding-top: 59px;
@@ -26,7 +24,6 @@
   width: 50%;
   height: 80%;
 }
-
 .bo{
 	width: 200px;
 	background: rgb(56, 56, 56);
@@ -37,7 +34,6 @@
 #회원 {
  padding-top: 30px;
 }	
-
 </style>
 
 <script src="http://code.jquery.com/jquery-3.5.1.js" 
@@ -53,14 +49,43 @@ $(()=>{
 	
 	
 	
-	$('#personnel').on('change',function(){
-		$("#price").html(comma($('#personnel option:checked').val()*20000*(1-$('#sale').val())*$('#rankSale').val())+'원');
-		$("#price2").val($('#personnel option:checked').val()*20000*(1-$('#sale').val())*$('#rankSale').val());
+	$('#person').on('change',function(){
+		$("#price").html(comma($('#person option:checked').val()*20000*(1-$('#sale').val())*$('#rankSale').val())+'원');
+		$("#price2").val($('#person option:checked').val()*20000*(1-$('#sale').val())*$('#rankSale').val());
 	});
 	$('#person').change();
 	
 });
 </script>
+<script>
+function formCheck() {
+	var name = document.forms[0].name.value;
+	var password = document.forms[0].password.value;
+	var phone = document.forms[0].phone.value;
+
+	if (name == null || name == "") {
+			alert('이름을 입력하세요.');
+			document.forms[0].name.focus();
+			return false;
+	} 
+	
+	if (password == null || password == "") {
+		alert('비밀번호를 입력하세요.');
+		document.forms[0].password.focus();
+		return false;
+	}
+	
+	if (phone == null || phone == "") {
+		alert('연락처를 입력하세요.');
+		document.forms[0].phone.focus();
+		return false;
+	}
+}
+
+
+
+</script>
+
 </head>
 <body>
    <div>
@@ -83,7 +108,7 @@ $(()=>{
       <c:if test="${nomember eq null}">
       <h2 style="color: white; padding-bottom: 15px" align="center" >${name}님의 예약정보</h2>
       </c:if>
-      <form id='frm' name='frm' method='post' action='reserveResult.do' >
+      <form id='frm' name='frm' method='post' action='reserveResult.do' onsubmit="return formCheck()">
       <table border="1" style=" background-color:  rgb(56, 56, 56); color: white;  padding: 15px;" class="table">
       
 <!-- 상세정보 -->   
@@ -257,8 +282,8 @@ $(()=>{
   
        </table>
        <div align="right">
-       <button type='submit'>예약하기</button>
-       <button type='reset'>취소하기</button>
+       <button class="btn btn-outline-light" type='submit'>예약하기</button>
+       <button class="btn btn-outline-light" type='reset'>취소하기</button>
        
        </div>
        <img id='회원' src='${pageContext.request.contextPath}/img/회원정보.PNG' height='200px' width='100%' >
