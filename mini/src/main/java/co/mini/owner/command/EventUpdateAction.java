@@ -19,15 +19,14 @@ public class EventUpdateAction implements Action {
 		
 		vo.setEvent_name(request.getParameter("event_name"));
 		vo.setEvent_content(request.getParameter("event_content"));
-		//vo.setEvent_term(Integer.parseInt(request.getParameter("event_term")));
 		vo.setStart_event(Date.valueOf(request.getParameter("start_event")));
-		vo.setLast_event(Date.valueOf(request.getParameter("last_event")));
+		vo.setEvent_term(Integer.parseInt(request.getParameter("event_term")));
 		vo.setSale(Double.parseDouble(request.getParameter("sale")));
 		
 		dao.update(vo);
 		
 		try {
-			response.sendRedirect(request.getContextPath() + "/eventList.do");
+			response.sendRedirect(request.getContextPath() + "/eventUpdateList.do");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
