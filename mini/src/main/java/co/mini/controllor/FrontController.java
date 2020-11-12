@@ -194,6 +194,7 @@ public class FrontController extends HttpServlet {
 		
 		
 		Action command = map.get(path); // MainAction() 이 실행됨
+		if (command == null) { return;}
 		String viewPage = command.exec(request, response);  // 명령이 수행되고 나서 보여줄 페이지를 선택
 		// Action이 갖고 있는 메소드? exec의 매개값 => request, response 에 현재 request, response를 넘겨줌
 		if(viewPage != null) {

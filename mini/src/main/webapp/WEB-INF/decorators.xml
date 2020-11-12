@@ -5,12 +5,12 @@
   	<excludes>
 	    <pattern>*/exclude/*</pattern>
 	     <pattern>/jsp/layout/*</pattern>
-
+		<!-- <pattern>/Guidance.do</pattern> -->
   	</excludes>
 
 
      <decorator name="all-theme" page="all-theme.jsp">
-        <pattern>/*</pattern>
+        <pattern>*.do</pattern>
     </decorator> 
     
     <!-- <decorator name="board-theme" page="board-theme.jsp">

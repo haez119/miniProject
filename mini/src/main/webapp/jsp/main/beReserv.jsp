@@ -22,8 +22,8 @@
 		<table border="1" style=" background-color:  rgb(56, 56, 56); color: white;  padding: 15px;" class="table">
 		
 		 	<tr>
-		 		<th style="background-color: white; color: black"><b>예약번호</b></th>
-		 		<td style="background-color: white; color: black"><b>${vo.re_no}</b></td>
+		 		<th style="color: #e74c3c" ><div align="center"><h5><b>예약번호</b></h5></div></th>
+		 		<td style="color: #e74c3c" ><div align="center"><h5><b>${vo.re_no}</b></h5></div></td>
 		 	</tr>
 			<tr>
 		 		<th>예약자</th>

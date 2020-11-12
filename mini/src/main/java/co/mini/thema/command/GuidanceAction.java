@@ -29,7 +29,7 @@ public class GuidanceAction implements Action {
 		
 		
 		
-		return "jsp/main/Guidance.jsp";
+		return "/jsp/main/Guidance.jsp";
 	}
 
 }

@@ -22,42 +22,6 @@
   width: 45%;
 }
 
-select {
- -moz-appearance: none;
--webkit-appearance: none;
-appearance: none;
-	
-font-family: "Noto Sansf KR", sans-serif;
-font-size: 1rem;
-font-weight: 400;
-line-height: 1.5;
-
-color: #444;
-background-color: #fff;
-
-padding: 0.6em 1.4em 0.5em 0.8em;
-margin: 0;
-
-border: 1px solid #aaa;
-border-radius: 0.5em;
-box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
-}
-
-select:hover {
-  border-color: #888;
-}
-
-select:focus {
-  border-color: #aaa;
-  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
-  box-shadow: 0 0 0 3px -moz-mac-focusring;
-  color: #222;
-  outline: none;
-}
-
-select:disabled {
-  opacity: 0.5;
-}
 
 
 
@@ -147,9 +111,9 @@ $(document).ready(function() {
 		<img src="${pageContext.request.contextPath}/img/캡처.PNG">
 	</div>
 	<div class="right-box">
-		<h1 style="color: white">오시는길</h1>
+		<h1 align="center" style="color: white;">오시는길</h1>
 		<hr style="border-color: white">
-		<select name="b_sel" id="b_sel"></select>
+		<select name="b_sel" id="b_sel" class="form-control"></select>
 		<p>
     	<div id="map" style="width:500px;height:520px;"></div>
     	<div id="clickLatlng"></div>
