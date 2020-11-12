@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="decorator"
+	uri="http://www.opensymphony.com/sitemesh/decorator"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -142,6 +144,6 @@ h1 {
 	</div>
 	<br>
 	<br>
-
+	 <img src="${pageContext.request.contextPath}/img/이용안내.jpg"  width="100%">
 </body>
 </html>
