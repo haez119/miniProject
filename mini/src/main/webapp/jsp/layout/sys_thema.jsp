@@ -6,11 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>시스템</title>
+<style>
+div .topMenu a {
+	font-weight: bold;
+	font-family: "Trebuchet MS", Dotum, Arial;
+}
+</style>
 </head>
 <body>
 		<div id="topMenu" style="text-align: right;">
 
-		<a href="#">홈</a> &nbsp;|&nbsp;
+		<a href="${pageContext.request.contextPath}/main.do">홈</a> &nbsp;|&nbsp;
 		<c:if test="${name eq null }">
 			<a href="${pageContext.request.contextPath}/loginPage.do">로그인</a> &nbsp;|&nbsp; 
 			<a href="${pageContext.request.contextPath}/memberForm.do">회원가입</a>&nbsp;|&nbsp;
