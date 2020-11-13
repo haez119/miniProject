@@ -84,12 +84,13 @@ h1 {
 				</c:if>
 				<c:if test="${i.index ne 0 }">	
 					<div class="carousel-item">
-				</c:if>	
-					<img class="d-block w-100" src="${pageContext.request.contextPath}/img/${event.img}">
+				</c:if> eventlist.do
+				 	 <a href="eventlist.do"><img class="d-block w-100" src="${pageContext.request.contextPath}/img/${event.img}"></a>	
 		</div>
 			</c:forEach>
-	</div>
 		
+	</div>
+	
 		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev"> 
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span> 
 			<span class="sr-only">Previous</span>
@@ -104,6 +105,7 @@ h1 {
 	<div align="center">
 		<form id='frm' name='frm' method='post' action='#'>
 			<table>
+				
 				<tr>
 					<td><h1>테마소개</h1></td>
 				</tr>
@@ -122,7 +124,7 @@ h1 {
 				<c:if test="${i.index ne 0 }">	
 					<div align="left" class="carousel-item">
 				</c:if>	
-					<img class="d-block w-101" src="${pageContext.request.contextPath}/img/${thema.thema_img}">
+					 <a href="reserveInsert.do"><img class="d-block w-101" src="${pageContext.request.contextPath}/img/${thema.thema_img}">
 					<textarea class="a" rows="30"  style="text-align:left">
 					
 	
@@ -141,7 +143,9 @@ h1 {
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>  
 			<span class="sr-only">Next</span>
 		</a>
+		
 	</div>
+	
 	<br>
 	<br>
 	 <img src="${pageContext.request.contextPath}/img/이용안내.jpg"  width="100%">
