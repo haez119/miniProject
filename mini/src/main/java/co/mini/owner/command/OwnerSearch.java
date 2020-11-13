@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import co.mini.common.Action;
@@ -23,21 +24,24 @@ public class OwnerSearch implements Action {
 		ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
 		
 		
-		String serDate = request.getParameter("day");
+		java.sql.Date serDate = java.sql.Date.valueOf(request.getParameter("day"));
+		
+		
+		
 		HttpSession session = request.getSession(false);
+		
 		int no = (int) session.getAttribute("branch_no");
+		
 		
 		list = dao.search(no, serDate);
 		
+		
 		try {
-			response.getWriter().print(new JSONObject(list));
+			// list는 배열이니까 array / vo는 객체니까 object
+			response.getWriter().print(new JSONArray(list));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
-		
-		
 		
 		return null;
 	}
