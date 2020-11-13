@@ -28,9 +28,9 @@ public class CommentDAO extends DAO {
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				vo = new CommentVO();
-				vo.setRno(rs.getInt("no"));
+				vo.setRno(rs.getInt("rno"));
 				vo.setName(rs.getString("name"));
-				vo.setComment_date(rs.getDate("Comment_date"));
+				vo.setComment_date(rs.getDate("comment_date"));
 				vo.setContent(rs.getString("content"));
 				list.add(vo);
 			}
@@ -44,16 +44,16 @@ public class CommentDAO extends DAO {
 
 
 	// 사용자 등록
-	private final String INSERT = "INSERT INTO USERS(ID, GENDER, NAME, ROLE) VALUES(?,?,?,?)";
+	private final String INSERT = "INSERT INTO USERS(rno, name, comment_date,content) VALUES(?,?,?,?)";
 
 	public int Insert(CommentVO vo) {
 		int n = 0;
 		try {
 			psmt = conn.prepareStatement(INSERT);
-			psmt.setString(1, vo.getId());
-			psmt.setString(2, vo.getPassword());
-			psmt.setString(3, vo.getContent());
-//			psmt.setDate(4, vo.getComment_date());
+			psmt.setInt(1, vo.getRno());
+			psmt.setString(2, vo.getName());
+			psmt.setDate(3, vo.getComment_date());
+			psmt.setString(4, vo.getContent());
 //			psmt.setInt(5, vo.getRno());
 		} catch (SQLException e) {
 			e.printStackTrace();

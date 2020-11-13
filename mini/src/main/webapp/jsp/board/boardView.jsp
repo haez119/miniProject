@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 function deleteFrm() {
 	location.href="baardDelete.do?no=${vo.no}";
@@ -13,6 +14,13 @@ function deleteFrm() {
 function listFrm() {
 	location.href= "board.do";
 }
+
+$(()=>{
+	$("#btnInsert").on('click',function(){
+		$("#form1").attr('action','commentInsert.do');
+		$("#form1").submit();
+	});	
+});
 </script>
 
 <style>
@@ -70,25 +78,29 @@ th {
 				</td>
 			</div>
 	</form>
-	
+
 	<br>
+	
 <div class="container">
-	<form id="form1"  class="form-horizontal">
+	<form id="form1"  class="form-horizontal" action="commentUpdate.do">
 		<h4 align="center">댓글</h4>
 		<hr style="color: white;">
 		<div class="form-group">   	
-			<input class="form-control" placeholder="글작성" name="role">
+			<input class="form-control" placeholder="글작성" name="content">
 		</div>  
 		
 		
-		<div class="form-group" style="float: right;">		
+		<div class="form-group" style="float: right;">
+			<c:if test="${id eq null}">		
 			<input type="text"  placeholder="아이디"  name="id" >
 			<input type="text"  placeholder="비밀번호"  name="pw" >
+			</c:if>
+			
 			
 			<div class="btn-group">      
 				<input class="btn btn-outline-light" type="button" value="등록"  id="btnInsert" /> 
-				<input class="btn btn-outline-light" type="button" value="수정"  id="btnUpdate" />
-				<input class="btn btn-outline-light" type="button" value="초기화" id="btnInit" />
+				<input class="btn btn-outline-light" type="submit" value="수정"  id="btnUpdate" />
+				<input class="btn btn-outline-light" type="reset" value="초기화" id="btnInit" />
 		</div>
 		</div>		
 		
@@ -107,12 +119,12 @@ th {
 		</tr>
 		</thead>
 		<tbody>
-		<c:forEach var="vo" items="${comment_view}">
+		<c:forEach var="li" items="${list}">
 		<tr>
-			<td>${vo.rno}</td>
-			<td>${vo.name}</td>
-			<td>${vo.comment_date}</td>
-			<td>${vo.content}</td>
+			<td>${li.rno}</td>
+			<td>${li.name}</td>
+			<td>${li.comment_date}</td>
+			<td>${li.content}</td>
 		</tr>
 		</c:forEach>
 		</tbody>
