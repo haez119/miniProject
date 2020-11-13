@@ -7,10 +7,27 @@
 <html>
 <head>
 <style>
-.table {
-	background-color: white;
-	color: black;
+.th {
+	background-color: black;
+	color: white;
+	text-align: center;
+	list-style: none;
+	font-weight: bold;
+	font-family: "Trebuchet MS", Dotum, Arial;
 }
+
+td {
+	color: white;
+	font-weight: bold;
+	font-family: "Trebuchet MS", Dotum, Arial;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    color: white;
+}
+
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
@@ -37,14 +54,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-	<table id="tbl" class="table table-bordered">
-		<thead class="thead-dark">
+<br>
+	<table class="table table-striped"
+		style="text-align: center; border: none;">
+<thead>
 		  <tr>
-		    <th style="width: 10%">No</th>
-			<th style="width: 20%">지점</th>
-			<th style="width: 50%">제목</th>
-			<th style="width: 20%">등록일</th>
+		    <th >No</th>
+		    <th >지점</th>
+		    <th >제목</th>
+		    <th >등록일</th>
 		  </tr>
 		</thead>
 		<tbody>

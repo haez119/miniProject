@@ -21,11 +21,7 @@ td {
 	font-weight: bold;
 	font-family: "Trebuchet MS", Dotum, Arial;
 }
- h1 {
- 	text-align: center;
- 	font-weight: bold;
-	font-family: "Trebuchet MS", Dotum, Arial;
- }
+
 .table thead th {
     vertical-align: bottom;
     border-bottom: 2px solid #dee2e6;
@@ -35,7 +31,6 @@ td {
 </style>
 </head>
 <body>
-<h1>이벤트 리스트</h1>
 <br>
 	<table class="table table-striped"
 		style="text-align: center; border: none;">
@@ -45,7 +40,6 @@ td {
 				<th>이벤트번호</th>
 				<th>지점명</th>
 				<th>이벤트명</th>
-				
 				<th>시작일</th>
 				<th>종료일</th>
 				<th>할인율</th>
@@ -58,7 +52,6 @@ td {
 					<td style='cursor: pointer'>${list.event_no }</td>
 					<td>${list.branch_name}</td>
 					<td>${list.event_name}</td>
-					
 					<td>${list.start_event}</td>
 					<td>${list.last_event}</td>
 					<td>${list.sale}%</td>
