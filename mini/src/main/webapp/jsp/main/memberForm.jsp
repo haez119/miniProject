@@ -7,6 +7,7 @@
 <script>
 	// action="${pageContext.request.contextPath}/memberInsert.do" method="post"
 	
+	
 	$(function(){
 
 		var chk = $(".insert:checked").val();
@@ -19,6 +20,28 @@
 		 });
 		 
 		 chInsert(chk);
+		 
+		   $('.pw').focusout(function () {
+		        var pwd1 = $("#pass").val();
+		        var pwd2 = $("#passok").val();
+		 
+		        if ( pwd1 != '' && pwd2 == '' ) {
+		            null;
+		        } else if (pwd1 != "" || pwd2 != "") {
+		            if (pwd1 == pwd2) {
+		                // 비밀번호 일치 이벤트 실행
+		                $('#btn').attr("disabled", false);
+		            } else {
+		                // 비밀번호 불일치 이벤트 실행
+		            	$('#btn').attr("disabled", true);
+		            	alert("비밀번호가 일치 하지 않습니다");
+		            }
+		        }
+		    });
+		 
+		 
+		 
+		 
 
 	});
 	
@@ -37,7 +60,11 @@
 			 .appendTo("#tbl")
 			  $("<tr>")
 			 .append($("<td>")).html("비밀번호")
-			 .append($("<td>")).append($("<input>").attr({name: "password", type: "password"}))
+			 .append($("<td>")).append($("<input>").attr({name: "password", type: "password", class: "pw", id:"pass"}))
+			 .appendTo("#tbl")
+			   $("<tr>")
+			 .append($("<td>")).html("비밀번호확인")
+			 .append($("<td>")).append($("<input>").attr({name: "password", type: "password", class: "pw", id:"passok"}))
 			 .appendTo("#tbl")
 			 $("<tr>")
 			 .append($("<td>")).html("전화번호")
@@ -112,7 +139,7 @@
 		        <table id="tbl" align="center"></table>
 	   		<p></p>
 	   		
-	        <input type="submit" name="submit" value="등록" />
+	        <input type="submit" name="submit" value="등록" disabled="disabled" id="btn" />
 	        <input type="reset" name="reset" value="취소" />
 	    </form>
     </div>
