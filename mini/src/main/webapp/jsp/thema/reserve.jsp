@@ -182,7 +182,7 @@ function formCheck() {
               <input type="hidden" id="rankSale" value=1>
               </c:otherwise>
              </c:choose>
-             <input type="text" id="password" name="password" placeholder="비밀번호를 입력하세요"></td>
+             <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요"></td>
              </c:if>
           </tr>
           <tr>
