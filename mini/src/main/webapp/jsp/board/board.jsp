@@ -95,10 +95,11 @@ text-align: center;
 		</table>
 	</div>
 	<!-- 글등록 -->
+	<c:if test="${id ne null }">
 	<div align="right" id="topForm" style="margin-bottom: 10px">
 		<input style="margin: 10px" class="btn btn-outline-light" type="button" value="글등록" onclick="writeForm()">
 	</div>
-
+	</c:if>
 	<!-- 검색 부분 -->
 	<div class="searchForm">
 		<form  name="searchFrm">

@@ -21,6 +21,7 @@ import co.mini.board.command.BoardUpdateAction;
 import co.mini.board.command.BoardViewAction;
 import co.mini.board.command.BoardWriteAction;
 import co.mini.board.command.BoardWriteFormAction;
+import co.mini.board.command.CommentWriteAction;
 import co.mini.board.command.EventListAction;
 import co.mini.board.command.LoginAction;
 import co.mini.board.command.LoginForm;
@@ -37,7 +38,6 @@ import co.mini.owner.command.EventUpdateAction;
 import co.mini.owner.command.EventUpdateListAction;
 import co.mini.owner.command.NoticeInsertAction;
 import co.mini.owner.command.NoticeListAction;
-import co.mini.owner.command.NoticeUpdateAction;
 import co.mini.owner.command.NoticeViewAction;
 import co.mini.owner.command.OwnerInsertAction;
 import co.mini.owner.command.OwnerNoticeList;
@@ -45,7 +45,6 @@ import co.mini.owner.command.OwnerUpdateAction;
 import co.mini.owner.command.OwnerUpdateView;
 import co.mini.owner.command.ReservPageAction;
 import co.mini.owner.command.eventDelete;
-import co.mini.owner.command.noticeUpdate;
 import co.mini.owner.command.ownerLogin;
 import co.mini.owner.command.ownerThemaListAction;
 import co.mini.owner.command.ownerthemaUpdateAction;
@@ -122,9 +121,9 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/ownerUpdateView.do", new OwnerUpdateView());
 		map.put("/ownerUpdateAction.do", new OwnerUpdateAction());
-		map.put("/noticeListView.do", new OwnerNoticeList()); // 리스트 화면
-		map.put("/noticeUpdate.do", new noticeUpdate()); // 업데이트
-		map.put("/noticeUpdateAction.do", new NoticeUpdateAction()); // 업데이트 하기
+		map.put("/noticeListView", new OwnerNoticeList()); // 리스트 화면
+		
+		
 		
 		// 최재영
 		map.put("/reserveInsert.do", new reserveInsertAction()); //테마예약하기 화면
@@ -173,7 +172,7 @@ public class FrontController extends HttpServlet {
 	    map.put("/boardView.do", new BoardViewAction());			  //게시판 뷰페이지 이동
 		map.put("/baardDelete.do", new BoardDeleteAction());	
 		map.put("/boardreviewView.do", new BoardReviewViewAction());
-		
+		map.put("/commentWrite.do", new CommentWriteAction());
 		
 		
 		

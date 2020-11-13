@@ -17,7 +17,6 @@ public class BoardDAO extends DAO {
 	private final String SELECT_ALL = "select * from( select a.*, rownum rn from ("
 			+ "SELECT * FROM BOARD order by no desc" + ") a  ) b  where rn between ? and ? order by board_date desc"; // 게시판 리스트
 	private final String SELECT = "SELECT * FROM BOARD WHERE NO=?"; // 게시판 뷰페이지
-	private final String INSERT = "INSERT INTO board(NO, TITLE, CONTENT, ID, BOARD_DATE) VALUES (board_seq.NEXTVAL,?,?,?,sysdate)";
 
 	public List<BoardVO> selectAll(BoardVO mvo) { // 전체조회기능
 		List<BoardVO> list = new ArrayList<BoardVO>();
@@ -81,6 +80,9 @@ public class BoardDAO extends DAO {
 		return cnt;
 	}
 
+	private final String INSERT = "INSERT INTO board(NO, TITLE, CONTENT, ID, BOARD_DATE) VALUES (board_seq.NEXTVAL,?,?,?,sysdate)";
+
+	
 	public int Insert(BoardVO vo) { // 입력기능
 		int n = 0;
 		try {
