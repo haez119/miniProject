@@ -26,6 +26,8 @@ td {
     vertical-align: bottom;
     border-bottom: 2px solid #dee2e6;
     color: white;
+    font-size: x-large;
+    font-weight: bold;
 }
 
 </style>

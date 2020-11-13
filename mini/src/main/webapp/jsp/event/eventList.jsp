@@ -7,13 +7,15 @@
 <meta charset="UTF-8">
 <title>이벤트 확인</title>
 <style>
-.th {
+.table thead th {
 	background-color: black;
 	color: white;
 	text-align: center;
 	list-style: none;
 	font-weight: bold;
-	font-family: "Trebuchet MS", Dotum, Arial;
+	font-size: x-large;
+	vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
 }
 
 td {
