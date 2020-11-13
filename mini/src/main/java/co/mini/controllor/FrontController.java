@@ -39,6 +39,7 @@ import co.mini.owner.command.NoticeInsertAction;
 import co.mini.owner.command.NoticeListAction;
 import co.mini.owner.command.NoticeViewAction;
 import co.mini.owner.command.OwnerInsertAction;
+import co.mini.owner.command.OwnerNoticeList;
 import co.mini.owner.command.OwnerUpdateAction;
 import co.mini.owner.command.OwnerUpdateView;
 import co.mini.owner.command.ReservPageAction;
@@ -119,7 +120,7 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/ownerUpdateView.do", new OwnerUpdateView());
 		map.put("/ownerUpdateAction.do", new OwnerUpdateAction());
-		
+		map.put("/noticeListView", new OwnerNoticeList()); // 리스트 화면
 		
 		
 		
