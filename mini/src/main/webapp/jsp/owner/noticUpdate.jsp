@@ -17,6 +17,7 @@ $(function(){
 		    data: $("#frm").serialize(),
 		    success: function(data) { 
 		        alert("수정되었습니다.");
+		        $(location).attr('href','${pageContext.request.contextPath}/noticeListView.do');
 		    },
 		    error:function(xhr, status, message) { 
 		        alert(" status: "+status+" er:"+message);
@@ -25,9 +26,9 @@ $(function(){
 	});
 	
 	$('#btnList').on('click',function(){
-		$(location).attr('href','${pageContext.request.contextPath}/noticeListView.do')
+		$(location).attr('href','${pageContext.request.contextPath}/noticeListView.do');
 	});
-
+              
 });
 </script>
 

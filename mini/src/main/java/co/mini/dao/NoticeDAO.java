@@ -265,9 +265,33 @@ public class NoticeDAO  extends DAO {
 			}
 		  }
 		  
+	  private final String DELETE ="DELETE FROM NOTICE WHERE NO = ? ";
 		  
+	  public void delete(int no) {
 		  
+		  try {
+			psmt = conn.prepareStatement(DELETE);
+			
+			psmt.setInt(1,no);
+			
+			psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
 		  
+	  }
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
 		  
 	  private void close() {
 	      try {

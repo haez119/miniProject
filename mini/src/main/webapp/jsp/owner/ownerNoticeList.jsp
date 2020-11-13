@@ -30,7 +30,26 @@ $(function(){
 		}
 
 	});
+	
+	$('#btnDel').on('click',function(){
+		
+		if(chk == null) {
+			alert("삭제/수정할 데이터를 선택하세요");
+		} else {
+			var del = confirm("정말 삭제하시겠습니까?");
+			if(del) {
+				var no = $(".rdio:checked").parent().next().html();
+				$(location).attr('href','${pageContext.request.contextPath}/noticeDel.do?no=' + no);
+			} else {
+				alert("취소되었습니다.");
+			}
+			 // 공지번호 저장
+			
+			
+			
+		}
 
+	});
 });
 
 
