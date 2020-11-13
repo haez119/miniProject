@@ -6,6 +6,21 @@
 <head>
 <meta charset="UTF-8">
 <title>테마등록 화면</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+$(function(){
+	$("#delbtn").on("click",function(){
+	
+		$("#frm").attr("action","${pageContext.request.contextPath}/eventDelete.do");
+		
+		$("#frm").submit();
+	});	
+	
+
+});
+
+</script>
 </head>
 <body>
 	
@@ -27,7 +42,9 @@
 					</tr>
 					<tr>
 						<th width="150"> 테마이름 </th>
-						<td><input type="text" id="thema_name" name="thema_name"></td>
+						<td><input type="text" id="thema_name" name="thema_name">
+						<button id="thema_button">테마중복 확인</button>
+						</td>
 					</tr>
 					
 					<tr>

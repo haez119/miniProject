@@ -56,6 +56,7 @@ import co.mini.thema.command.mainAction;
 import co.mini.thema.command.reserveAction;
 import co.mini.thema.command.reserveInsertAction;
 import co.mini.thema.command.reserveListAction;
+import co.mini.thema.command.themaDisAction;
 import co.mini.user.command.BeReserLoginAction;
 import co.mini.user.command.BeReservList;
 import co.mini.user.command.BeReservLogin;
@@ -136,7 +137,7 @@ public class FrontController extends HttpServlet {
 		map.put("/payment.do",new paymentAction());
 		map.put("/main.do",new mainAction());
 		map.put("/Guidance.do",new GuidanceAction());
-		
+		map.put("/themaDis.do",new themaDisAction());
 		
 		
 		
