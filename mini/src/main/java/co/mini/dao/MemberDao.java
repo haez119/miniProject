@@ -43,7 +43,7 @@ public class MemberDao extends DAO {
 		return vo;
 	}
 	
-	private final String INSERT = "INSERT INTO MEMBER(ID,NAME,PASSWORD,PHONE,EMAIL) VALUES(?,?,?,?,?)";
+	private final String INSERT = "INSERT INTO MEMBER(ID,NAME,PASSWORD,PHONE,EMAIL, RANK) VALUES(?,?,?,?,?, DEFAULT)";
 	
 	public int insert(MemberVO vo) { // 추가하기
 		int n = 0;

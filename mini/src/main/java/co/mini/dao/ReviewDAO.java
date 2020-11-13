@@ -97,7 +97,7 @@ public class ReviewDAO extends DAO {
 
 	private ReviewVO vo;
 
-	private final String select_all = "SELECT * FROM REVIEW";
+	private final String select_all = "SELECT * FROM REVIEW order by use_date desc";
 
 	public List<ReviewVO> selectAll() { // 전체 조회
 		List<ReviewVO> list = new ArrayList<ReviewVO>();

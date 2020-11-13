@@ -99,7 +99,7 @@ public class NoticeDAO  extends DAO {
 		  private final String SELECTALL = "SELECT N.NO, O.BRANCH_NAME, N.INSERT_DATE, N.TITLE  " + 
 				  							"FROM NOTICE N , ONWER O  " + 
 				  							"WHERE N.BRANCH_NO = O.BRANCH_NO " +
-				  							"ORDER BY 1";
+				  							"ORDER BY 3 desc";
 		  
 		  public ArrayList<HashMap<String, Object>> select_mem() {
 			  
