@@ -84,7 +84,7 @@ h1 {
 				</c:if>
 				<c:if test="${i.index ne 0 }">	
 					<div class="carousel-item">
-				</c:if> eventlist.do
+				</c:if> 
 				 	 <a href="eventlist.do"><img class="d-block w-100" src="${pageContext.request.contextPath}/img/${event.img}"></a>	
 		</div>
 			</c:forEach>
