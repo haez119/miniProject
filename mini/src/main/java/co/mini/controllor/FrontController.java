@@ -39,6 +39,8 @@ import co.mini.owner.command.NoticeInsertAction;
 import co.mini.owner.command.NoticeListAction;
 import co.mini.owner.command.NoticeViewAction;
 import co.mini.owner.command.OwnerInsertAction;
+import co.mini.owner.command.OwnerUpdateAction;
+import co.mini.owner.command.OwnerUpdateView;
 import co.mini.owner.command.ReservPageAction;
 import co.mini.owner.command.eventDelete;
 import co.mini.owner.command.ownerLogin;
@@ -114,7 +116,8 @@ public class FrontController extends HttpServlet {
 		map.put("/beLogin.do", new BeReservLogin()); // 비회원 로그인 화면
 		map.put("/beLoginAction.do", new BeReserLoginAction()); // 비회원 로그인 처리
 		
-		
+		map.put("/ownerUpdateView.do", new OwnerUpdateView());
+		map.put("/ownerUpdateAction.do", new OwnerUpdateAction());
 		
 		
 		
