@@ -35,7 +35,9 @@ public class themaInsertAction implements Action {
 		themaVo.setLevel2(Integer.parseInt(request.getParameter("level2")));
 		themaVo.setMax_per(Integer.parseInt(request.getParameter("max_per")));
 		themaDao = new ThemaDao();
+		String themadis=request.getParameter("themadis");
 		
+		if(themadis==null) {
 		try {
 			String addPath = request.getServletContext().getRealPath("/img");
 			System.out.println(addPath);
@@ -46,10 +48,12 @@ public class themaInsertAction implements Action {
 				File renameFile = FileRenamePolicy.rename(new File(uploadFile));
 				part.write(addPath + File.separator + renameFile.getName()); //절대경로
 				themaVo.setThema_img(renameFile.getName());
-				// vo.setImg(request.getParameter("img")); 이거 아니야
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+		}else {
+			themaVo.setThema_img(request.getParameter("thema_img"));
 		}
 		int n = themaDao.insert_Thema(themaVo);
 			

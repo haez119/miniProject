@@ -10,9 +10,9 @@
 <script>
 
 $(function(){
-	$("#delbtn").on("click",function(){
+	$("#thema_button").on("click",function(){
 	
-		$("#frm").attr("action","${pageContext.request.contextPath}/eventDelete.do");
+		$("#frm").attr("action","${pageContext.request.contextPath}/themaDis.do");
 		
 		$("#frm").submit();
 	});	
@@ -28,6 +28,11 @@ $(function(){
 	<div align="center">
 		<div><h1>테마등록</h1></div>
 		<div>
+			<c:if test="${themafail ne null}">
+			<script>
+			alert("테마 중복이 없습니다");
+			</script>
+			</c:if>
 			<c:if test="${fail ne null}">
 			<script>
 			alert("테마 등록 실패");
@@ -38,24 +43,59 @@ $(function(){
 					<tr>
 						<th width="150"> 지점명 </th>
 						<td width="500">${branch_name}
+						<c:if test="${themadis ne null}">
+						<input type="hidden" value="${themadis}" name="themadis">
+						</c:if>
         	 			</td>
 					</tr>
+					<c:if test="${vo eq null}">
 					<tr>
 						<th width="150"> 테마이름 </th>
 						<td><input type="text" id="thema_name" name="thema_name">
 						<button id="thema_button">테마중복 확인</button>
 						</td>
 					</tr>
+					</c:if>
 					
+					<c:if test="${vo ne null}">
+					<tr>
+						<th width="150"> 테마이름 </th>
+						<td><input type="text" id="thema_name" name="thema_name" value="${vo.thema_name}">
+						<button id="thema_button">테마중복 확인</button>
+						</td>
+					</tr>
+					</c:if>
+					
+					
+					<c:if test="${vo eq null}">
 					<tr>
 						<th width="150"> 테마이미지 </th>
 						<td><input type="file" id="thema_img" name="thema_img"></td>
 					</tr>
+					</c:if>
 					
+					<c:if test="${vo ne null}">
+					<tr>
+						<th width="150"> 테마이미지 </th>
+						<td><input type="text" id="thema_img" name="thema_img" value="${vo.thema_img}"></td>
+					</tr>
+					</c:if>
+					
+					<c:if test="${vo eq null}">
 					<tr>
 						<th width="150"> 테마소개 </th>
 						<td><textarea rows="10" cols="50" id="thema_intro" name="thema_intro"></textarea></td>
 					</tr>
+					</c:if>
+					
+					<c:if test="${vo ne null}">
+					<tr>
+						<th width="150"> 테마소개 </th>
+						<td><textarea rows="10" cols="50" id="thema_intro" name="thema_intro">${vo.thema_intro}</textarea></td>
+					</tr>
+					</c:if>
+					
+					<c:if test="${vo eq null}">
 					<tr>
 						<th width="150"> 난이도 </th>
 						<td>
@@ -64,6 +104,18 @@ $(function(){
         	 			<option value='${i}'>${i}</option>
         	 			</c:forEach></td>
 					</tr>
+					</c:if>
+					
+					<c:if test="${vo ne null}">
+					<tr>
+						<th width="150"> 난이도 </th>
+						<td>
+						<input id="level2" name="level2" value="${vo.level2}">
+              		    </td>
+					</tr>
+					</c:if>
+					
+			
 					<tr>
 						<th width="150"> 인원제한 </th>
 						<td><select id="max_per" name="max_per" >

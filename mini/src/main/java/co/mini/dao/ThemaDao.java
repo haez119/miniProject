@@ -433,9 +433,7 @@ public class ThemaDao extends DAO {
 			try {
 				psmt = conn.prepareStatement(update_pay);
 				psmt.setInt(1, no);
-				
-				
-				
+		
 				n = psmt.executeUpdate();
 
 			} catch (SQLException e) {
@@ -450,9 +448,7 @@ public class ThemaDao extends DAO {
 			try {
 				psmt = conn.prepareStatement(update_rank);
 				psmt.setString(1, id);
-				
-				
-				
+			
 				n = psmt.executeUpdate();
 
 			} catch (SQLException e) {
@@ -461,8 +457,32 @@ public class ThemaDao extends DAO {
 			return n;
 		}
 		
-		
-	
+	private final String dis="select distinct thema_name,thema_img,level2,thema_intro from thema where thema_name=?";	
+	public ThemaDisVo DisThema(String thema_name) { 
+		List<ThemaDisVo> list = new ArrayList<ThemaDisVo>();
+		ThemaDisVo vo = new ThemaDisVo();
+		try {
+			psmt = conn.prepareStatement(dis); // DAO를 상속받고 있어서 conn 정의 안해줘도 사용 가능
+			psmt.setString(1, thema_name);
+			rs = psmt.executeQuery(); //executeQuery는 반환값이 resultSet, executeUpdate는 반환값이 int타입
+			
+			if (rs.next()) {
+
+				 vo = new ThemaDisVo();
+				 vo.setThema_name(rs.getString("thema_name"));
+				 vo.setThema_img(rs.getString("thema_img"));
+				 vo.setLevel2(rs.getInt("level2"));
+				 vo.setThema_intro(rs.getString("thema_intro"));
+				
+
+			}
+		}catch( SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return vo;
+	}
 	private void close() {
 		try {
 			if(rs != null)rs.close();
@@ -472,4 +492,5 @@ public class ThemaDao extends DAO {
 			e.printStackTrace();
 		}
 	}
+	
 }
