@@ -12,15 +12,49 @@
 		location.href = "board.do"; //Q&A페이지 버튼 이동
 	}
 </script>
-
-<link rel="stylesheet" href="/mini/css/board.css">
 <style>
+.th {
+	background-color: black;
+	color: white;
+	text-align: center;
+	list-style: none;
+	font-weight: bold;
+	font-family: "Trebuchet MS", Dotum, Arial;
+}
+
+td {
+	color: white;
+	font-weight: bold;
+	font-family: "Trebuchet MS", Dotum, Arial;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    color: white;
+}
+div.searchForm {
+text-align: center;
+}
+
+.text-center {
+    text-align: center;
+}
+.pagination	{
+	display: inline-block;
+	
+}
+.a {
+	text-align: center;
+	    }
+
 </style>
+
 </head>
 
 <body>
 	<!-- <h1>게시판</h1>  -->
-	<div class="circle">
+	<div class="circle" style="text-align: center;">
 		<a><img	src="${pageContext.request.contextPath}/img/QA.jpg"
 			class="rounded-circle" alt="Cinque Terre" width="80" height="60" onclick="boardForm()">
 			</a>&nbsp;&nbsp;
@@ -29,7 +63,8 @@
 	</div>
 	<br />
 	<div class="table-hover">
-		<table class="table" id="show">
+		<table class="table table-striped"
+		style="text-align: center; border: none;">
 			<thead>
 				<tr>
 					<th>번호</th>

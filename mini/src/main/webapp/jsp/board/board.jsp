@@ -30,8 +30,28 @@
 	}
 </script>
 
-<link rel="stylesheet" href="/mini/css/board.css">
+
 <style>
+.th {
+	background-color: black;
+	color: white;
+	text-align: center;
+	list-style: none;
+	font-weight: bold;
+	font-family: "Trebuchet MS", Dotum, Arial;
+}
+
+td {
+	color: white;
+	font-weight: bold;
+	font-family: "Trebuchet MS", Dotum, Arial;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    color: white;
+}
 div.searchForm {
 text-align: center;
 }
@@ -46,12 +66,13 @@ text-align: center;
 .a {
 	text-align: center;
 	    }
+
 </style>
 </head>
 
 <body>
 	<!-- <h1>게시판</h1>  -->
-	<div class="circle">
+	<div class="circle" style="text-align: center;">
 		<a><img src="${pageContext.request.contextPath}/img/QA.jpg"
 			class="rounded-circle" alt="Cinque Terre" width="80" height="60">
 		</a>&nbsp;&nbsp; <a><img
@@ -61,10 +82,11 @@ text-align: center;
 	</div>
 	<br />
 	<div class="table-hover">
-		<table class="table" id="show" >
+		<table class="table table-striped"
+		style="text-align: center; border: none;">
 			<thead>
 				<tr>
-					<th>번호</th>
+					<th>No</th>
 					<th>제목</th>
 					<th>작성자</th>
 					<th>날짜</th>
