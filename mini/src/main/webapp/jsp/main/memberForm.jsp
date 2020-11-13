@@ -21,6 +21,11 @@
 		 
 		 chInsert(chk);
 		 
+		 $("#pass").addClass('pw');
+		 $("#passok").addClass('pw');
+		 
+		 
+		 
 		   $('.pw').focusout(function () {
 		        var pwd1 = $("#pass").val();
 		        var pwd2 = $("#passok").val();
@@ -60,11 +65,11 @@
 			 .appendTo("#tbl")
 			  $("<tr>")
 			 .append($("<td>")).html("비밀번호")
-			 .append($("<td>")).append($("<input>").attr({name: "password", type: "password", class: "pw", id:"pass"}))
+			 .append($("<td>")).append($("<input>").attr({name: "password", type: "password", id:"pass"}))
 			 .appendTo("#tbl")
 			   $("<tr>")
 			 .append($("<td>")).html("비밀번호확인")
-			 .append($("<td>")).append($("<input>").attr({name: "password", type: "password", class: "pw", id:"passok"}))
+			 .append($("<td>")).append($("<input>").attr({name: "password", type: "password", id:"passok"}))
 			 .appendTo("#tbl")
 			 $("<tr>")
 			 .append($("<td>")).html("전화번호")
