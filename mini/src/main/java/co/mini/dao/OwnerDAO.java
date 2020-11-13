@@ -254,6 +254,64 @@ public class OwnerDAO extends DAO {
 	}
 	
 	
+	private final String SEARCH  = "SELECT  R.RESERVDATE, R.TIME, R.ID, M.NAME, M.PHONE, T.THEMA_NAME,  R.PRICE, R.PAYMENT, M.RANK  " + 
+								  "FROM THEMA T , RESERVATION R , MEMBER M  " + 
+								  "WHERE T.THEMA_NO = R.THEMA_NO  " + 
+								  "AND R.ID = M.ID  " + 
+								  "AND T.BRANCH_NO = ?  " + 
+								  "AND R.RESERVDATE > ?  " + 
+								  "ORDER BY R.RESERVDATE";
+	
+	
+	
+	public ArrayList<HashMap<String, Object>> search(int no, String serDate) {
+		
+		ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+		HashMap<String, Object> map;
+		
+		try {
+			psmt = conn.prepareStatement(SEARCH);
+			
+			psmt.setInt(1,no);
+			psmt.setString(2, serDate);
+			
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				map = new HashMap<String, Object>();
+				
+				map.put("reservdate", rs.getString("RESERVDATE"));
+				map.put("time", rs.getString("TIME"));
+				map.put("id", rs.getString("ID"));
+				map.put("name", rs.getString("NAME"));
+				map.put("phone", rs.getString("PHONE"));
+				map.put("thema_name", rs.getString("THEMA_NAME"));
+				map.put("price", rs.getString("PRICE"));
+				map.put("payment", rs.getString("PAYMENT"));
+				map.put("rank", rs.getString("RANK"));
+				
+				list.add(map);	
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+
+		return list;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 
 	
 	private void close() {
