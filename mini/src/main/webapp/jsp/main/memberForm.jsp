@@ -36,10 +36,12 @@
 		            if (pwd1 == pwd2) {
 		                // 비밀번호 일치 이벤트 실행
 		                $('#btn').attr("disabled", false);
+		                alert("비밀번호가 일치합니다");
 		            } else {
 		                // 비밀번호 불일치 이벤트 실행
 		            	$('#btn').attr("disabled", true);
 		            	alert("비밀번호가 일치 하지 않습니다");
+		            	$("#passok").focus();
 		            }
 		        }
 		    });
@@ -85,12 +87,12 @@
 		 } else if(chk == "owner"){
 			 $("<tr>")
 			 .append($("<td>")).html("지점번호")
-			 .append($("<td>")).append($("<input>").attr({name: "branch_no", type: "text", value: ${max}, readonly: "true"}))
+			 .append($("<td>")).append($("<input>").attr({name: "branch_no", type: "text", value: "${max}", readonly: "true"}))
 			 .appendTo("#tbl")
 			 
 			 $("<tr>")
 			 .append($("<td>")).html("아이디")
-			 .append($("<td>")).append($("<input>").attr({name: "id", type: "text", value: "admin"+ ${max}, readonly: "true"}))
+			 .append($("<td>")).append($("<input>").attr({name: "id", type: "text", value: "admin"+ "${max}", readonly: "true"}))
 			 .appendTo("#tbl")
 			 
 			  $("<tr>")
