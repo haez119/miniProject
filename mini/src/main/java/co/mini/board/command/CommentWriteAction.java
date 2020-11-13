@@ -21,7 +21,7 @@ public class CommentWriteAction implements Action {
 		vo.setContent(request.getParameter("content"));
 		vo.setId(request.getParameter("id"));
 		vo.setPassword(request.getParameter("password"));
-		vo.setComment_date(Date.valueOf(request.getParameter("comment_date")));
+		//vo.setComment_date(Date.valueOf(request.getParameter("comment_date")));
 		
 		dao.Insert(vo);
 		

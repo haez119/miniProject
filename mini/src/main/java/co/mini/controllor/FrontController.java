@@ -21,6 +21,7 @@ import co.mini.board.command.BoardUpdateAction;
 import co.mini.board.command.BoardViewAction;
 import co.mini.board.command.BoardWriteAction;
 import co.mini.board.command.BoardWriteFormAction;
+import co.mini.board.command.CommentInsertAction;
 import co.mini.board.command.CommentWriteAction;
 import co.mini.board.command.EventListAction;
 import co.mini.board.command.LoginAction;
@@ -43,7 +44,6 @@ import co.mini.owner.command.NoticeUpdateAction;
 import co.mini.owner.command.NoticeViewAction;
 import co.mini.owner.command.OwnerInsertAction;
 import co.mini.owner.command.OwnerNoticeList;
-import co.mini.owner.command.OwnerSearch;
 import co.mini.owner.command.OwnerUpdateAction;
 import co.mini.owner.command.OwnerUpdateView;
 import co.mini.owner.command.ReservPageAction;
@@ -129,8 +129,8 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeUpdate.do", new noticeUpdate()); // 업데이트
 		map.put("/noticeUpdateView.do", new noticeUpdate()); // 업데이트 화면
 		map.put("/noticeUpdateAction.do", new NoticeUpdateAction()); // 업데이트 하기
-		map.put("/noticeDel.do", new NoticeDel()); // 삭제
-		map.put("/ownerSearch.do", new OwnerSearch()); // 검색
+		map.put("/noticeDel", new NoticeDel()); // 삭제
+		
 		
 		// 최재영
 		map.put("/reserveInsert.do", new reserveInsertAction()); //테마예약하기 화면
@@ -180,6 +180,7 @@ public class FrontController extends HttpServlet {
 		map.put("/baardDelete.do", new BoardDeleteAction());	
 		map.put("/boardreviewView.do", new BoardReviewViewAction());
 		map.put("/commentWrite.do", new CommentWriteAction());
+		map.put("/commentInsert.do", new CommentInsertAction());
 		
 		
 		

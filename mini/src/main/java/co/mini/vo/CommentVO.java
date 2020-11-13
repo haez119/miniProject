@@ -7,7 +7,7 @@ public class CommentVO {
 	private String id;
 	private String password;
 	private String name;
-	private Date comment_date;
+	private String comment_date;
 	private String content;
 
 	public CommentVO() {
@@ -46,11 +46,13 @@ public class CommentVO {
 		this.name = name;
 	}
 
-	public Date getComment_date() {
+	
+
+	public String getComment_date() {
 		return comment_date;
 	}
 
-	public void setComment_date(Date comment_date) {
+	public void setComment_date(String comment_date) {
 		this.comment_date = comment_date;
 	}
 
