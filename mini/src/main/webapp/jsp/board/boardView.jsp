@@ -9,7 +9,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 function deleteFrm() {
-	location.href="baardDelete.do?no=${vo.no}";
+	location.href="boardDelete.do?no=${vo.no}";
 }
 function listFrm() {
 	location.href= "board.do";
@@ -82,11 +82,12 @@ th {
 	<br>
 	
 <div class="container">
-	<form id="form1"  class="form-horizontal" action="commentUpdate.do">
+	<form id="form1"  class="form-horizontal" action="${pageContext.request.contextPath}/commentInsert.do">
 		<h4 align="center">댓글</h4>
 		<hr style="color: white;">
 		<div class="form-group">   	
-			<input class="form-control" placeholder="글작성" name="content">
+			<input type="hidden" value="${vo.no}">
+			<textarea class="form-control" placeholder="글작성" name="content"></textarea>
 		</div>  
 		
 		
@@ -108,7 +109,6 @@ th {
 </div>		
 	
 <div class="container">	
-	<h4 align="center">댓글목록</h4>
 	<table class="table text-center">
 		<thead>
 		<tr>

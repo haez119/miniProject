@@ -1,7 +1,5 @@
 package co.mini.vo;
 
-import java.sql.Date;
-
 public class CommentVO {
 	private int rno;
 	private String id;

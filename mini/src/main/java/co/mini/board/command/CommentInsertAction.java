@@ -1,6 +1,5 @@
 package co.mini.board.command;
 
-import java.sql.Date;
 import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +14,6 @@ public class CommentInsertAction implements Action {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
 		
 		long day = System.currentTimeMillis();
 		System.out.println(day);
