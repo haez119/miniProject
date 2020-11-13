@@ -26,6 +26,8 @@ public class OwnerNoticeList implements Action {
 		
 		list = dao.select(id);
 		
+		
+		
 		request.setAttribute("list", list);
 		request.setAttribute("branch_name", branch_name);
 		

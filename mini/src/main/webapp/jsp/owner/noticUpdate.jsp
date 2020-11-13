@@ -12,7 +12,7 @@ $(function(){
 	$('#btnUp').on('click',function(){
 		
 		$.ajax({ 
-		    url: "/mini/reUpdate.do", 
+		    url: "/mini/noticeUpdateAction.do", 
 		    dataType: 'json', 
 		    data: $("#frm").serialize(),
 		    success: function(data) { 
@@ -22,8 +22,10 @@ $(function(){
 		        alert(" status: "+status+" er:"+message);
 		    }
 		});
-		
-		
+	});
+	
+	$('#btnList').on('click',function(){
+		$(location).attr('href','${pageContext.request.contextPath}/noticeListView.do')
 	});
 
 });
@@ -34,10 +36,15 @@ $(function(){
 <body>
 	<h2 align="center">공지사항 수정 </h2><p></p>
 	<hr>
+<form id="frm">
 	<table border="1" style=" background-color:  rgb(56, 56, 56); color: white;  padding: 15px;" class="table">
 		 	<tr>
 		 		<th>지점 정보</th>
-		 		<td>${vo.branch_no} &nbsp; ${branch_name} </td>
+		 		<td>
+		 			${vo.branch_no} &nbsp; ${branch_name} 
+		 			<input type="hidden" name="no" value="${no}">
+		 		</td>
+		 		
 		 	</tr>
 		 	<tr>
 		 		<th>아이디 &nbsp;</th>
@@ -45,7 +52,7 @@ $(function(){
 		 	</tr>
 			<tr>
 		 		<th>작성일 &nbsp;</th>
-		 		<td><input type="text" name="insert_date" value="${vo.insert_date}"></td>
+		 		<td><input type="date" name="insert_date" value="${vo.insert_date}"></td>
 		 	</tr>
 			<tr>
 		 		<th>제목 &nbsp;</th>
@@ -61,6 +68,6 @@ $(function(){
 			<input type="button" class="btn btn-outline-light" id="btnList" value="취소">
 		<p></p>
 	</div>
-	
+</form>	
 </body>
 </html>

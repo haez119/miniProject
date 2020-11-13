@@ -14,8 +14,7 @@ public class noticeUpdate implements Action {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		
 		int no = Integer.parseInt(request.getParameter("no"));
-		System.out.println(no);
-		
+
 		NoticeDAO dao = new NoticeDAO();
 		NoticeVO vo = new NoticeVO();
 		
@@ -27,6 +26,7 @@ public class noticeUpdate implements Action {
 		
 		request.setAttribute("branch_name", branch_name);
 		request.setAttribute("vo", vo);
+		request.setAttribute("no", no);
 		
 		return "jsp/owner/noticUpdate.jsp";
 	}

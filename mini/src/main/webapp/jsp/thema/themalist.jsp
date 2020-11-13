@@ -64,6 +64,12 @@
 	#timediv{
 	WIDTH: 80px; 
 	}
+	
+	textarea{
+	background: black;
+	color:white;
+	border-style: none;
+	}
   </style>
   <script src="extensions/addrbar/bootstrap-table-addrbar.js"></script>
 <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
@@ -71,7 +77,7 @@
 </head>
 <body>
 	<h1>테마 소개</h1>
-	<div align="left">
+	<div align="center">
 	<table>	
 		<c:forEach items="${themaDisList}" var="themaDis" varStatus="status">
   		<tr><!-- 테마시작 -->
@@ -85,7 +91,8 @@
   			<c:forEach var="i" begin="1" end='${themaDis.level2}'>
   			<img src='${pageContext.request.contextPath}/img/kEY.png' width='20px'>
   			</c:forEach>
-  			<p>${themaDis.thema_intro }</p>
+  			<br>
+  			<textarea rows="10" cols="80">${themaDis.thema_intro }</textarea><br>
   			<a href="reserveInsert.do" class="button">예약하기</a>
   			</div>
   			</td>

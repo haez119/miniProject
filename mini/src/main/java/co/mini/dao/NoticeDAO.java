@@ -240,6 +240,35 @@ public class NoticeDAO  extends DAO {
 		  }
 		  
 		  
+		  private final String UPDATE = "UPDATE NOTICE SET INSERT_DATE = ? , TITLE= ? , CONTENT = ? WHERE NO = ? ";
+		  
+		  public void update(NoticeVO vo) {
+			  int r=0;
+			  try {
+				psmt = conn.prepareStatement(UPDATE);
+				
+				psmt.setDate(1, vo.getInsert_date());
+				psmt.setString(2, vo.getTitle());
+				psmt.setString(3, vo.getContent());
+				
+				psmt.setInt(4, vo.getNo());
+				
+				
+				r = psmt.executeUpdate();
+				
+				
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+		  }
+		  
+		  
+		  
+		  
+		  
 	  private void close() {
 	      try {
 	         if(rs != null) rs.close();

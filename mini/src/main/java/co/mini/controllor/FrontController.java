@@ -36,8 +36,10 @@ import co.mini.owner.command.EventInsertForm;
 import co.mini.owner.command.EventUpdate1Action;
 import co.mini.owner.command.EventUpdateAction;
 import co.mini.owner.command.EventUpdateListAction;
+import co.mini.owner.command.NoticeDel;
 import co.mini.owner.command.NoticeInsertAction;
 import co.mini.owner.command.NoticeListAction;
+import co.mini.owner.command.NoticeUpdateAction;
 import co.mini.owner.command.NoticeViewAction;
 import co.mini.owner.command.OwnerInsertAction;
 import co.mini.owner.command.OwnerNoticeList;
@@ -45,6 +47,7 @@ import co.mini.owner.command.OwnerUpdateAction;
 import co.mini.owner.command.OwnerUpdateView;
 import co.mini.owner.command.ReservPageAction;
 import co.mini.owner.command.eventDelete;
+import co.mini.owner.command.noticeUpdate;
 import co.mini.owner.command.ownerLogin;
 import co.mini.owner.command.ownerThemaListAction;
 import co.mini.owner.command.ownerthemaUpdateAction;
@@ -121,8 +124,11 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/ownerUpdateView.do", new OwnerUpdateView());
 		map.put("/ownerUpdateAction.do", new OwnerUpdateAction());
-		map.put("/noticeListView", new OwnerNoticeList()); // 리스트 화면
-		
+		map.put("/noticeListView.do", new OwnerNoticeList()); // 리스트 화면
+		map.put("/noticeUpdate.do", new noticeUpdate()); // 업데이트
+		map.put("/noticeUpdateView.do", new noticeUpdate()); // 업데이트 화면
+		map.put("/noticeUpdateAction.do", new NoticeUpdateAction()); // 업데이트 하기
+		map.put("/noticeDel", new NoticeDel()); // 삭제
 		
 		
 		// 최재영
