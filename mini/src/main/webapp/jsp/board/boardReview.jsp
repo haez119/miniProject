@@ -13,15 +13,6 @@
 	}
 </script>
 <style>
-.th {
-	background-color: black;
-	color: white;
-	text-align: center;
-	list-style: none;
-	font-weight: bold;
-	font-family: "Trebuchet MS", Dotum, Arial;
-}
-
 td {
 	color: white;
 	font-weight: bold;
@@ -32,6 +23,10 @@ td {
     vertical-align: bottom;
     border-bottom: 2px solid #dee2e6;
     color: white;
+	text-align: center;
+	list-style: none;
+	font-weight: bold;
+	font-size: x-large;
 }
 div.searchForm {
 text-align: center;
