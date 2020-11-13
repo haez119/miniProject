@@ -28,7 +28,7 @@ $(function(){
 	$('#btnList').on('click',function(){
 		$(location).attr('href','${pageContext.request.contextPath}/noticeListView.do');
 	});
-
+              
 });
 </script>
 
