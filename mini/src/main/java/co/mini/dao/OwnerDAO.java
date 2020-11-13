@@ -1,5 +1,6 @@
 package co.mini.dao;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -264,7 +265,7 @@ public class OwnerDAO extends DAO {
 	
 	
 	
-	public ArrayList<HashMap<String, Object>> search(int no, String serDate) {
+	public ArrayList<HashMap<String, Object>> search(int no, Date serDate) {
 		
 		ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
 		HashMap<String, Object> map;
@@ -273,7 +274,7 @@ public class OwnerDAO extends DAO {
 			psmt = conn.prepareStatement(SEARCH);
 			
 			psmt.setInt(1,no);
-			psmt.setString(2, serDate);
+			psmt.setDate(2, serDate);
 			
 			
 			rs = psmt.executeQuery();
