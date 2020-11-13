@@ -209,9 +209,35 @@ public class NoticeDAO  extends DAO {
 		  }
 		  
 		  
+		  private final String UP_SEL = "select * from notice where no = ? ";
 		  
-		  
-		  
+		  public NoticeVO updateSel(int no) {
+			  
+			  NoticeVO vo = new NoticeVO();
+			  
+			  try {
+				psmt = conn.prepareStatement(UP_SEL);
+				
+				psmt.setInt(1, no);
+				rs = psmt.executeQuery();
+				
+				if(rs.next()) { 
+					vo.setBranch_no(rs.getInt("branch_no"));
+					vo.setId(rs.getString("id"));
+					vo.setInsert_date(rs.getDate("insert_date"));
+					vo.setTitle(rs.getString("title"));
+					vo.setContent(rs.getString("content"));
+				
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}  finally {
+		         close();
+		    }
+				
+			  return vo;
+			  
+		  }
 		  
 		  
 	  private void close() {

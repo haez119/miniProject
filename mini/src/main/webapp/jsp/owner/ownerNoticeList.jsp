@@ -28,31 +28,11 @@ $(function(){
 			
 			var no = $(".rdio:checked").parent().next().html(); // 공지번호 저장
 			
-			
-			
-			 $.ajax({ 
-			    url: "/mini/noticeUpdate.do", 
-			    dataType: 'json', 
-			    data: {"no":no}  , 
-			    success: function(data) { 
-			        alert("수정되었습니다.");
-			    },
-			    error:function(xhr, status, message) { 
-			        alert(" status: "+status+" er:"+message);
-			    }
-			}); 
-			
-			
+			 $(location).attr('href','${pageContext.request.contextPath}/noticeUpdate.do?no=' + no);
 			
 		}
-		
-		
-	});
-	
-	
-	
-	
 
+	});
 
 });
 
