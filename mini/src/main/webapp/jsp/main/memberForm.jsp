@@ -45,11 +45,14 @@
 		            }
 		        }
 		    });
-		 
-		 
-		 
-		 
-
+			
+		   $(function() {
+			   $("#idchk").on("click", function() {
+				   $("#frm").attr("action","${pageContext.request.contextPath}/Check.do");
+			   $("#frm").submit();  
+		   });
+		   });
+	
 	});
 	
 	function chInsert(chk) {
@@ -60,6 +63,7 @@
 			 $("<tr>")
 			 .append($("<td>")).html("아이디")
 			 .append($("<td>")).append($("<input>").attr({name: "id", type: "text"}))
+			 .append($("<input>").attr({name: "id", type: "button", id: "idchk" ,value: "중복확인"}))
 			 .appendTo("#tbl")
 			  $("<tr>")
 			 .append($("<td>")).html("이름")
