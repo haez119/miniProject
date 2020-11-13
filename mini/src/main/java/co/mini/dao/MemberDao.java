@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import co.mini.vo.MemberVO;
+import co.mini.vo.ScheduleVo;
 
 public class MemberDao extends DAO {
 	private PreparedStatement psmt; // sql 명령문 실행
@@ -62,6 +63,27 @@ public class MemberDao extends DAO {
 		return n;
 	}
 
+	private final String IDSERCH ="SELECT ID FROM MEMBER WHERE ID= ? ";
+	public MemberVO chkid(String id) {
+		MemberVO vo = new MemberVO();
+		try {
+			psmt = conn.prepareStatement(IDSERCH);
+			rs = psmt.executeQuery();
+			psmt.setString(1, id);
+			if(rs.next()) {
+				vo.setId(rs.getString("id"));
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return vo;
+	}
+	
+	
+	
 	
 	private final String MSELECT = "SELECT * FROM MEMBER WHERE ID = ?";
 	// 업데이트용 select
@@ -75,7 +97,7 @@ public class MemberDao extends DAO {
 			rs = psmt.executeQuery();
 
 			if (rs.next()) {
-				vo = new MemberVO();
+				vo  = new MemberVO();
 				vo.setId(rs.getString("id"));
 				vo.setName(rs.getString("name"));
 				vo.setPhone(rs.getString("phone"));
@@ -83,10 +105,6 @@ public class MemberDao extends DAO {
 				vo.setPassword(rs.getString("password"));
 				vo.setRank(rs.getString("rank"));
 				vo.setCount(rs.getInt("count"));
-				
-				
-				
-
 			}
 
 		} catch (SQLException e) {
