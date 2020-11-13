@@ -59,10 +59,10 @@ td {
 		style="text-align: center; border: none;">
 <thead>
 		  <tr>
-		    <th >No</th>
-		    <th >지점</th>
-		    <th >제목</th>
-		    <th >등록일</th>
+		    <th>No</th>
+		    <th>지점</th>
+		    <th>제목</th>
+		    <th>등록일</th>
 		  </tr>
 		</thead>
 		<tbody>
