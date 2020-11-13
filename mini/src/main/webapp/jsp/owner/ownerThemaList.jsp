@@ -64,6 +64,12 @@
 	#timediv{
 	WIDTH: 80px; 
 	}
+	
+	textarea{
+	background: black;
+	color:white;
+	border-style: none;
+	}
   </style>
   <script src="extensions/addrbar/bootstrap-table-addrbar.js"></script>
 <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
@@ -97,7 +103,7 @@
   			<img src='${pageContext.request.contextPath}/img/kEY.png' width='20px'>
   			</c:forEach>
   			<input type="hidden" name="level2" value="${thema.level2}">
-  			<p>${thema.thema_intro}</p>
+  			<textarea rows="8" cols="80">${thema.thema_intro }</textarea><br>
   			<input type="hidden" name="thema_intro" value="${thema.thema_intro }">
   			</td>
   			<tr><td> 최대 예약인원 ${thema.max_per}

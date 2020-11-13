@@ -51,7 +51,7 @@ $(function(){
 					<c:if test="${vo eq null}">
 					<tr>
 						<th width="150"> 테마이름 </th>
-						<td><input type="text" id="thema_name" name="thema_name">
+						<td><input type="text" id="thema_name" name="thema_name" value="${param.thema_name}">
 						<button id="thema_button">테마중복 확인</button>
 						</td>
 					</tr>

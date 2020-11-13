@@ -128,7 +128,7 @@ h1 {
 					<textarea class="a" rows="30"  style="text-align:left">
 					
 	
-					                                                               ${thema.thema_intro }</textarea>
+					                                                               ${thema.thema_intro}</textarea>
 					                                                               
 					</div>
 			</c:forEach>

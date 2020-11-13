@@ -24,6 +24,7 @@ public class themaDisAction implements Action {
 		 request.setAttribute("vo", vo);
 		}else {
 			 request.setAttribute("themafail","themafail");
+			 
 		}
 		
 		
