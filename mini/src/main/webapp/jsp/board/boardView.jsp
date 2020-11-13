@@ -7,15 +7,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-function deleteFrm(){
-	
+function deleteFrm() {
 	location.href="baardDelete.do?no=${vo.no}";
-	
 }
-function listFrm(){
-	
+function listFrm() {
 	location.href= "board.do";
-	
 }
 </script>
 
@@ -61,7 +57,7 @@ th {
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td>&nbsp;&nbsp;<textarea rows="10" cols="50" class="text1" type="text" name="content">${vo.content}</textarea></td>
+				<td>&nbsp;&nbsp;<textarea rows="10" cols="50" class="text1" type="text" name="content" readonly="readonly">${vo.content}</textarea></td>
 			</tr>
 
 			<tr>

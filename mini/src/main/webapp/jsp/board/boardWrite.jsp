@@ -78,21 +78,18 @@ strong {
 			</tr>
 			<tr>
 				<td>&nbsp;&nbsp;내용<strong class="importent">(필수)</strong></td>
-				<td><input type="text" name="content" value="" size="50"
-					maxlength="65536" style="width: 550px; height: 250px"></td>
+				<td><textarea type="text" name="content" value="" size="50"
+					maxlength="65536" style="width: 550px; height: 250px"></textarea></td>
 			</tr>
-			<tr>
-				<td id="title">&nbsp;&nbsp;파일첨부</td>
-				<td><input type="file" name="board_file" /></td>
-			</tr>
-			<tr>
-				<td align="center" colspan="3">
+
+		</table>
+			<div align="center">
+				<td colspan="3">
 					<input style="margin: 10px" class="btn btn-outline-light" type="button" value="목록" onclick="listFrm()">
 					<input style="margin: 10px" class="btn btn-outline-light" type="submit" value="등록" >
 					<input style="margin: 10px" class="btn btn-outline-light" type="reset" value="작성취소" >
 				</td>
-			</tr>
-		</table>
+			</div>
 	</form>
 	<br>
 </body>

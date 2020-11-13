@@ -66,24 +66,24 @@ strong {
 
 			<tr>
 				<td id="title">&nbsp;&nbsp;번호</td>
-				<td><input name="no" value="${vo.no}"></td>
+				<td>&nbsp;&nbsp;<input name="no" value="${vo.no}" readonly="readonly"></td>
 			</tr>
 			<tr>
 				<td id="title">&nbsp;&nbsp;작성자</td>
-				<td><input name="no" value="${id}"></td>
+				<td>&nbsp;&nbsp;<input name="no" value="${id}" readonly="readonly"></td>
 			</tr>
 			<tr>
 				<td>&nbsp;&nbsp;제목<strong class="importent">(필수)</strong></td>
-				<td><input type="text" name="title" size="50" maxlength="255" value="${vo.title}"></td>
+				<td>&nbsp;&nbsp;<input type="text" name="title" size="50" maxlength="255" value="${vo.title}"></td>
 			</tr>
 			<tr>
 				<td>&nbsp;&nbsp;날짜</td>
-				<td><input type="date" name="board_date" value="${vo.board_date}"></td>
+				<td>&nbsp;&nbsp;<input type="date" name="board_date" value="${vo.board_date}" readonly="readonly"></td>
 			</tr>
 			<tr>
 				<td>&nbsp;&nbsp;내용<strong class="importent">(필수)</strong></td>
-				<td><input type="text" name="content" value="${vo.content}" size="50"
-					maxlength="65536" style="width: 550px; height: 250px"></td>
+				<td>&nbsp;&nbsp;<textarea rows="10" cols="50" class="text1" type="text" name="content">${vo.content}</textarea></td>
+
 			</tr>
 			<tr>
 				<td id="title">&nbsp;&nbsp;파일첨부</td>

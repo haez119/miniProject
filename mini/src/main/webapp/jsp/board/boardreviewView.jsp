@@ -159,11 +159,11 @@ th {
 	<div align="center">
 <span class="star-input">
   <span class="input">
-    <input type="radio"  disabled="disabled" name="star-input" id="p1" value="1"><label for="p1">1</label>
-    <input type="radio"  disabled="disabled" name="star-input" id="p2" value="2"><label for="p2">2</label>
-    <input type="radio"  disabled="disabled" name="star-input" id="p3" value="3"><label for="p3">3</label>
-    <input type="radio"  disabled="disabled" name="star-input" id="p4" value="4"><label for="p4">4</label>
-    <input type="radio"  disabled="disabled" name="star-input" id="p5" value="5"><label for="p5">5</label>
+    <input type="radio" readonly="readonly" disabled="disabled"  name="star-input" id="p1" value="1"><label for="p1">1</label>
+    <input type="radio" readonly="readonly" disabled="disabled" name="star-input" id="p2" value="2"><label for="p2">2</label>
+    <input type="radio" readonly="readonly" disabled="disabled" name="star-input" id="p3" value="3"><label for="p3">3</label>
+    <input type="radio" readonly="readonly" disabled="disabled" name="star-input" id="p4" value="4"><label for="p4">4</label>
+    <input type="radio" readonly="readonly" disabled="disabled" name="star-input" id="p5" value="5"><label for="p5">5</label>
   </span>
   <output for="star-input"><b>${vo.star}</b>점</output>
 </span>
@@ -205,20 +205,15 @@ th {
 				<td>&nbsp;&nbsp;<input class="text" type="text" name="content" size="50" maxlength="65536" style=" width: 550px; height: 250px;"
 				value="${vo.content}" readonly="readonly"></td>
 			</tr>
-			
-			<tr>
-				<td><input type="hidden" id="hiddenStar" name="hiddenStar"></td>
-			</tr>
-			
-			<tr>
-				<td align="center" colspan="3">
+		</table>
+			<div align="center">
+				<td  colspan="3">
 				<input style="margin: 10px" class="btn btn-outline-light" id="btnlist" type="button" value="목록" onclick="boardForm()">
 			<c:if test="${id ne null }">
 				<input style="margin: 10px" class="btn btn-outline-light" id="btnAdd" type="button" value="수정"> 
 				<input style="margin: 10px" class="btn btn-outline-light" id="btnCancel" type="button" value="작성취소"></td>
 			</c:if>
-			</tr>
-		</table>
+			</div>
 	</form>
 	<br>
 
