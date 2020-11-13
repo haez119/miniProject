@@ -128,7 +128,7 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeUpdate.do", new noticeUpdate()); // 업데이트
 		map.put("/noticeUpdateView.do", new noticeUpdate()); // 업데이트 화면
 		map.put("/noticeUpdateAction.do", new NoticeUpdateAction()); // 업데이트 하기
-		map.put("/noticeDel", new NoticeDel()); // 삭제
+		map.put("/noticeDel.do", new NoticeDel()); // 삭제
 		
 		
 		// 최재영

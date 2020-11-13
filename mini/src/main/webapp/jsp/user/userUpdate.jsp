@@ -74,7 +74,7 @@
 						console.log("에러");
 					}, success:function(xhr) {
 						alert("탈퇴되었습니다.");
-						 $(location).attr('href','${pageContext.request.contextPath}/loginPage.do');
+						 $(location).attr('href','${pageContext.request.contextPath}/noticeListView.do');
 					}
 				});
 			  
