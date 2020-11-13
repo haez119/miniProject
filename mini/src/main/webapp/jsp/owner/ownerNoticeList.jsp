@@ -17,9 +17,6 @@ $(function(){
 
 	 });
 	
-	
-	
-	
 	$('#btnUp').on('click',function(){
 		
 		if(chk == null) {
