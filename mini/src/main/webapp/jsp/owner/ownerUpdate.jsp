@@ -34,7 +34,7 @@ $(function(){
 </head>
 <body>
 	<form name="frm" id="frm" >
-		<h2 style="color: white; padding-bottom: 15px" align="center" >${vo.name}님의 회원정보</h2>
+		<h2 style="color: white; padding-bottom: 15px" align="center" >${vo.name} 님의 정보</h2>
 		
 		<table border="1" style=" background-color:  rgb(56, 56, 56); color: white;  padding: 15px;" class="table">
 		
