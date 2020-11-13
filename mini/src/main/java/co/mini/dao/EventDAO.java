@@ -88,7 +88,7 @@ public class EventDAO extends DAO {
 
      private final String event_thema="select e.img, e.event_no, o.branch_name,o.branch_no, e.event_name, e.event_content, e.start_event, e.start_event + event_term as last_event,(1-e.sale)*100 as sale from event e join onwer o\r\n" + 
            "on(e.branch_no = o.branch_no)\r\n" + 
-           "where start_event<to_date(?,'YY-MM-DD') AND (start_event+event_term)>to_date(?,'YY-MM-DD')AND o.branch_name=?";
+           "where start_event<=to_date(?,'YY-MM-DD') AND (start_event+event_term)>=to_date(?,'YY-MM-DD')AND o.branch_name=?";
          
          public EventVO event_thema(String date,String branch_name) {
             EventVO vo = new EventVO();

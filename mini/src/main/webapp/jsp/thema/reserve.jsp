@@ -53,7 +53,7 @@ $(()=>{
 		$("#price").html(comma($('#personnel option:checked').val()*20000*(1-$('#sale').val())*$('#rankSale').val())+'원');
 		$("#price2").val($('#personnel option:checked').val()*20000*(1-$('#sale').val())*$('#rankSale').val());
 	});
-	$('#person').change();
+	$('#personnel').change();
 	
 });
 </script>
@@ -208,9 +208,9 @@ function formCheck() {
           </tr>
           <tr>
           
-          	<td>진행중인 이벤트</td><td>${eventvo.event_name} ${eventvo.sale}% 할인
+          	<td>진행중인 이벤트</td><td>${eventvo.event_name} ${eventvo.sale2}% 할인
           	<c:if test = "${eventvo.sale ne 0}">
-          	<input type="hidden" id="sale" name="sale" value="0.${eventvo.sale}">
+          	<input type="hidden" id="sale" name="sale" value="0.${eventvo.sale2}">
           	</c:if>
           	<c:if test = "${eventvo.sale eq 0}">
           	<input type="hidden" id="sale" name="sale" value="0">
