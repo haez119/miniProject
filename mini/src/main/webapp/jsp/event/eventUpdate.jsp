@@ -12,7 +12,7 @@
 $(function(){
 	$("#delbtn").on("click",function(){
 	
-		$("#frm").attr("action","${pageContext.request.contextPath}/themaDis.do");
+		$("#frm").attr("action","${pageContext.request.contextPath}/eventDelete.do");
 		
 		$("#frm").submit();
 	});	

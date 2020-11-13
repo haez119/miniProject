@@ -18,7 +18,7 @@ public class eventDelete implements Action {
 		
 		eventdao.delete(vo);
 		
-		return "redirect:eventUpdateList.do";
+		return "eventUpdateList.do";
 	}
 	
 }
