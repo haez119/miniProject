@@ -49,9 +49,9 @@ $(()=>{
 	
 	
 	
-	$('#person').on('change',function(){
-		$("#price").html(comma($('#person option:checked').val()*20000*(1-$('#sale').val())*$('#rankSale').val())+'원');
-		$("#price2").val($('#person option:checked').val()*20000*(1-$('#sale').val())*$('#rankSale').val());
+	$('#personnel').on('change',function(){
+		$("#price").html(comma($('#personnel option:checked').val()*20000*(1-$('#sale').val())*$('#rankSale').val())+'원');
+		$("#price2").val($('#personnel option:checked').val()*20000*(1-$('#sale').val())*$('#rankSale').val());
 	});
 	$('#person').change();
 	
