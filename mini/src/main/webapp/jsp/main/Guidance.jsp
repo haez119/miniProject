@@ -21,8 +21,13 @@
   float: right;
   width: 45%;
 }
-
-
+.form-control {
+	text-align-last : center;
+	color: white;
+	background: black;
+	font-weight: bold;
+	font-size: x-large;
+}
 
 
 </style>

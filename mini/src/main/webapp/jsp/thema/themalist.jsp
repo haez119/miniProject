@@ -93,7 +93,7 @@
   			</c:forEach>
   			<br>
   			<textarea rows="10" cols="80">${themaDis.thema_intro }</textarea><br>
-  			<a href="reserveInsert.do" class="button">예약하기</a>
+  			<a href="reserveInsert.do" class="btn btn-outline-light">예약하기</a>
   			</div>
   			</td>
   			</tr>

@@ -34,6 +34,30 @@
 #회원 {
  padding-top: 30px;
 }	
+
+element.style {
+}
+.table th {
+    background-color: black;
+	color: white;
+	list-style: none;
+	font-weight: bold;
+	font-size: x-large;
+	vertical-align: bottom;
+    border-bottom: 1px solid #dee2e6;
+    border: none;
+}
+.table td {
+    background-color: black;
+	color: white;
+	font-weight: bold;
+	vertical-align: bottom;
+    border-bottom: 1px solid #dee2e6;
+    border: none;
+}
+.input {
+	color: white;
+}
 </style>
 
 <script src="http://code.jquery.com/jquery-3.5.1.js" 
@@ -109,29 +133,29 @@ function formCheck() {
       <h2 style="color: white; padding-bottom: 15px" align="center" >${name}님의 예약정보</h2>
       </c:if>
       <form id='frm' name='frm' method='post' action='reserveResult.do' onsubmit="return formCheck()">
-      <table border="1" style=" background-color:  rgb(56, 56, 56); color: white;  padding: 15px;" class="table">
+      <table border="1" style=" background-color:  rgb(56, 56, 56); border: none;  padding: 15px;" class="table">
       
 <!-- 상세정보 -->   
   
           <tr>
-             <th>지점명 &nbsp;</th>
-             <td><input  class="bo" type="text" name ="branch_name" value="${thVO.branch_name}" readonly="readonly"> </td>
+             <th>&nbsp;&nbsp;&nbsp;지점명 &nbsp;</th>
+             <td><input class="bo" type="text" name ="branch_name" value="${thVO.branch_name}" readonly="readonly"> </td>
           </tr>
          <tr>
-             <th>예약일자 &nbsp;</th>
-             <td><input class="bo"  type="text"name="date" value= "${param.date}" readonly="readonly"> </td>
+             <th>&nbsp;&nbsp;&nbsp;예약일자 &nbsp;</th>
+             <td><input class="bo"  type="text" name="date" value= "${param.date}" readonly="readonly"> </td>
           </tr>
          <tr>
-             <th>예약시간</th>
+             <th>&nbsp;&nbsp;&nbsp;예약시간</th>
              <td><input class="bo"  type="text" value="${fn:substring(param.time,0,2)}:${fn:substring(param.time,2,4)}">
-             <input type="hidden"name="time" value="${param.time}" readonly="readonly"></td>
+             <input type="hidden" name="time" value="${param.time}" readonly="readonly"></td>
           </tr>
           <tr>
-             <th>테마명 &nbsp;</th>
+             <th>&nbsp;&nbsp;&nbsp;테마명 &nbsp;</th>
              <td><input class="bo"  type="text" name="thema_name" value="${thVO.thema_name}" readonly="readonly"></td>
           </tr>
          <tr>
-             <th>예약자 &nbsp;</th>
+             <th>&nbsp;&nbsp;&nbsp;예약자 &nbsp;</th>
              <td>
              
              <c:if test="${nomember ne null}">
@@ -144,7 +168,7 @@ function formCheck() {
           </tr>
           <tr>
           	<c:if test="${nomember eq null}">
-             <th>회원등급 &nbsp;</th>
+             <th>&nbsp;&nbsp;&nbsp;회원등급 &nbsp;</th>
              <td>
              <input class="bo"  type="text" name="rank" value="${meVo.rank}" readonly="readonly">
              
@@ -166,7 +190,7 @@ function formCheck() {
              </c:if>
              
              <c:if test="${nomember ne null}">
-             <th>비밀번호 &nbsp;</th>
+             <th>&nbsp;&nbsp;&nbsp;비밀번호 &nbsp;</th>
              <td>
              <c:if test="${meVo.rank eq 'Silver'}">
              <input type="hidden" id="rankSale" value=0.95>
@@ -186,7 +210,7 @@ function formCheck() {
              </c:if>
           </tr>
           <tr>
-             <th>연락처 &nbsp;</th>
+             <th>&nbsp;&nbsp;&nbsp;연락처 &nbsp;</th>
              <td>
              <c:if test="${nomember ne null}">
               <input type="text" name="phone"  placeholder="전화번호 입력 하세요">
@@ -197,7 +221,7 @@ function formCheck() {
              </td>
           </tr>
          <tr>
-             <th>인원 &nbsp;</th>
+             <th>&nbsp;&nbsp;&nbsp;인원 &nbsp;</th>
              <td> 
              <select id="personnel" name="personnel">
               <c:forEach var="i" begin="1" end='${thVO.max_per}'>
@@ -208,7 +232,7 @@ function formCheck() {
           </tr>
           <tr>
           
-          	<td>진행중인 이벤트</td><td>${eventvo.event_name} ${eventvo.sale2}% 할인
+          	<th>&nbsp;&nbsp;&nbsp;진행중인 이벤트</th><td>${eventvo.event_name} ${eventvo.sale2}% 할인
           	<c:if test = "${eventvo.sale ne 0}">
           	<input type="hidden" id="sale" name="sale" value="0.${eventvo.sale2}">
           	</c:if>
@@ -221,7 +245,7 @@ function formCheck() {
           </tr>
          
          <tr>
-             <th>가격 &nbsp;</th>
+             <th>&nbsp;&nbsp;&nbsp;가격 &nbsp;</th>
  			 
  			 <c:if test = "${eventvo.sale eq 0}">
              <c:choose>
@@ -276,7 +300,7 @@ function formCheck() {
              
          	 </tr>   
         	 <tr>
-             <th>결제여부 &nbsp;</th>
+             <th>&nbsp;&nbsp;&nbsp;결제여부 &nbsp;</th>
              <td><input class="bo"  type="text" name='payment'value="미결" readonly="readonly"></td>
               
   
