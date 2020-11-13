@@ -26,7 +26,21 @@
   float: right;
   width: 75%;
 }
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    color: white;
+    background: black;
+    font-size: large;
+    border-bottom: 1px solid #dee2e6;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+}
 
+h3 {
+	color: white;
+}
 </style>
 
 
@@ -97,10 +111,10 @@
 		 </div>
 		
 		<div class="left-box">
-		<div style="background-color: white; padding: 30px;">
+		<div style="padding: 30px;">
 			<h3>내 정보</h3>
-			<a href="${pageContext.request.contextPath}/memberUp.do">정보수정</a><br>
-			<a href="${pageContext.request.contextPath}/reservation.do">예약정보</a><br>
+			<a href="${pageContext.request.contextPath}/memberUp.do">&nbsp;&nbsp;&nbsp;정보수정</a><br>
+			<a href="${pageContext.request.contextPath}/reservation.do">&nbsp;&nbsp;&nbsp;예약정보</a><br>
 		</div>
 		</div>
 		<img class="right-box" alt="rank" src="${pageContext.request.contextPath}/img/회원정보.PNG">
