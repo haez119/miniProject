@@ -18,7 +18,7 @@
 		
 		<c:if test="${name ne null }">
 			<a href="${pageContext.request.contextPath}/logout.do">로그아웃</a> &nbsp;|&nbsp; 
-			<a href="#">정보수정</a> &nbsp;|&nbsp; 
+			<a href="${pageContext.request.contextPath}/ownerUpdateView.do">정보수정</a> &nbsp;|&nbsp; 
 			<b> ${branch_name} 점주님</b><br>
 		</c:if>
 

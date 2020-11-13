@@ -184,6 +184,76 @@ public class OwnerDAO extends DAO {
 		}
 	
 	
+	
+	private final String SELECT_ID = "select * from onwer where id = ?";
+	
+	public OwnerVO select_id(String id) {
+		
+		OwnerVO vo = new OwnerVO();
+		
+		try {
+			psmt = conn.prepareStatement(SELECT_ID);
+			
+			psmt.setString(1, id);
+			
+			rs = psmt.executeQuery();
+			
+			if (rs.next()) {
+				vo.setId(rs.getString("id"));
+				vo.setBranch_no(rs.getInt("branch_no"));
+				vo.setBranch_name(rs.getString("branch_name"));
+				vo.setName(rs.getString("name"));
+				vo.setPassword(rs.getString("password"));
+				vo.setTel(rs.getString("tel"));
+				vo.setAddress(rs.getString("address"));
+
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return vo;
+		
+	}
+	
+	
+	
+	private final String UPDATE = "update onwer " + 
+								  "set branch_name = ? , name = ? , password = ? , tel = ? , address = ? " + 
+								  "where id = ? ";
+	
+	
+	
+	public int update(OwnerVO vo) {
+		int n = 0;
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(UPDATE);
+			
+			pstmt.setString(1, vo.getBranch_name());
+			pstmt.setString(2, vo.getName());
+			pstmt.setString(3, vo.getPassword());
+			pstmt.setString(4, vo.getTel());
+			pstmt.setString(5, vo.getAddress());
+			
+			pstmt.setString(6, vo.getId());
+			
+			n = pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		} 
+		return n;
+		
+	}
+	
+	
 
 	
 	private void close() {
