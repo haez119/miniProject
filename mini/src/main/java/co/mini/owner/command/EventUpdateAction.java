@@ -18,6 +18,7 @@ public class EventUpdateAction implements Action {
 		EventDAO dao = new EventDAO();
 		EventVO vo = new EventVO();
 		
+		vo.setEvent_no(Integer.parseInt(request.getParameter("event_no")));
 		vo.setEvent_name(request.getParameter("event_name"));
 		vo.setEvent_content(request.getParameter("event_content"));
 		vo.setStart_event(Date.valueOf(request.getParameter("start_event")));

@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-<script>
+
 $(function(){
 	$("#delbtn").on("click",function(){
 	
@@ -47,18 +47,13 @@ $(function(){
 					</tr>
 
 					
-					<tr>
-						<th width="150"> 이벤트번호 </th>
-						<td width="500"><input type="text" value="${vo.event_no}" name="event_no" id="event_no">
-					</tr> <%--vo.event_no 
+					
 					<tr>
 					<th width="150"> 이벤트명</th>
-					<td><input type="text" name="event_name" value="${vo.event_name}"></td>
+					<td><input type="text" name="event_name" value="${vo.event_name}">
+					<input hidden="text" value="${vo.event_no}" name="event_no" id="event_no"></td>
 					</tr>
-					<%-- <tr>
-						<th width="150"> 이벤트이미지 </th>
-						<td><input type="file" id="img" name="img"></td>
-					</tr> --%>
+					
 					
 					<tr>
 						<th width="150"> 이벤트내용 </th>
@@ -78,12 +73,13 @@ $(function(){
 					<tr>
 						<th width="150"> 할인율 </th>
 						<td>
-						<input type="text" name="sale" value="${vo.sale}" >
+						<input id="sale" name="sale" type="text"  value="${vo.sale}"  >
+				
 						</td>
 					</tr>
 					<tr>
 						<td colspan='2' align="center">
-							<button type="submit" id="update" >수정하기</button>&nbsp;&nbsp;
+							<button id="upbtn" type="submit" id="update" >수정하기</button>&nbsp;&nbsp;
 							<button type="button" id="delbtn" >삭제하기</button>
 							<input type="reset" value=" 취  소 ">
 						</td>

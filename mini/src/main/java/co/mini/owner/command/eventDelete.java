@@ -11,9 +11,14 @@ public class eventDelete implements Action {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-	
+		EventDAO eventdao= new EventDAO();
+		EventVO vo = new EventVO();
+		vo.setEvent_no(Integer.parseInt(request.getParameter("event_no")));
+		System.out.println(request.getParameter("event_no"));
 		
-		return null;
+		eventdao.delete(vo);
+		
+		return "redirect:eventUpdateList.do";
 	}
 	
 }

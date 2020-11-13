@@ -138,6 +138,7 @@ public class EventDAO extends DAO {
             try {
                psmt = conn.prepareStatement(DELETE);
                psmt.setInt(1, vo.getEvent_no());
+               rs = psmt.executeQuery();
             } catch (SQLException e) {
                e.printStackTrace();
             }
@@ -179,6 +180,7 @@ public class EventDAO extends DAO {
                   psmt.setInt(1, branch_no);
                   rs = psmt.executeQuery();
                   while (rs.next()) {
+                	 vo = new EventVO();
                 	 vo.setEvent_term(rs.getInt("event_term"));
                      vo.setBranch_no(rs.getInt("branch_no"));
                      vo.setEvent_no(rs.getInt("event_no"));

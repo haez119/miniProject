@@ -75,7 +75,7 @@ public class EventInsertAction implements Action {
 
 		String page;
 		if (vo != 0) {
-			page = "redirect:eventlist.do";
+			page = "redirect:eventUpdateList.do";
 		} else {
 			page = "/jsp/event/eventInsert.jsp"; 
 			request.setAttribute("vo", vo);

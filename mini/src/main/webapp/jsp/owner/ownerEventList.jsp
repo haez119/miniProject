@@ -48,10 +48,11 @@ td {
 				<form id='frm' name='frm' method='post'
 					action='${pageContext.request.contextPath}/eventUpdate.do'>
 				<tr class='tr'>
-					<td style='cursor: pointer' name="event_no" value="${list.event_no}">${list.event_no }</td>
-
-					<td><input type="hidden" name="event_name"
-						value="${list.event_name}">${list.event_name}</td>
+					<td style='cursor: pointer'  value="${list.event_no}">${list.event_no}
+					<input type="hidden" name ="event_no" value="${list.event_no}">
+					</td>
+					<td>${list.event_name}<input type="hidden" name="event_name" value="${list.event_name}"/>
+					</td>
 					<td><input type="hidden" name="start_event"
 						value="${list.start_event}">${list.start_event}</td>
 					<td><input type="hidden" name="last_event"
