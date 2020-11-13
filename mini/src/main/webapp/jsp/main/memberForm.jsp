@@ -138,9 +138,11 @@
 		<form id="frm" name="frm" >
 		        <table id="tbl" align="center"></table>
 	   		<p></p>
-	   		
-	        <input type="submit" name="submit" value="등록" disabled="disabled" id="btn" />
-	        <input type="reset" name="reset" value="취소" />
+	   		<div align="center">
+		        <input type="submit" name="submit" value="등록" disabled="disabled" id="btn" class="btn btn-outline-light"/>
+		        <input type="reset" name="reset" value="취소" class="btn btn-outline-light"/>
+		        <p></p>	   		
+	   		</div>
 	    </form>
     </div>
 </body>
