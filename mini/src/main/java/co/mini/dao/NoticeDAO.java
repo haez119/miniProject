@@ -163,11 +163,53 @@ public class NoticeDAO  extends DAO {
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
-			}
+			} finally {
+		         close();
+		    }
 			  
 			  
 			  return vo;
 		  }
+		  
+		  
+		  private final String SELECT = "select * from NOTICE where id = ? order by INSERT_DATE desc";
+		  
+		  public ArrayList<HashMap<String, Object>> select(String id) {
+			  
+			  ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+			  HashMap<String, Object> map;
+			  
+			  
+			  try {
+				psmt = conn.prepareStatement(SELECT);
+				
+				psmt.setString(1, id);
+				rs = psmt.executeQuery();
+				
+				while (rs.next()) {
+					map = new HashMap<String, Object>();
+					
+					map.put("id", rs.getString("ID"));
+					map.put("no",rs.getInt("NO"));
+					map.put("insert_date", rs.getDate("INSERT_DATE"));
+		        	map.put("title", rs.getString("TITLE"));
+		        	map.put("content", rs.getString("CONTENT"));
+		        	
+		        	list.add(map);
+			     }
+
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+		         close();
+		    }
+			  
+			 return list; 
+		  }
+		  
+		  
+		  
 		  
 		  
 		  

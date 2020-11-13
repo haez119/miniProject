@@ -44,6 +44,7 @@ import co.mini.owner.command.OwnerUpdateAction;
 import co.mini.owner.command.OwnerUpdateView;
 import co.mini.owner.command.ReservPageAction;
 import co.mini.owner.command.eventDelete;
+import co.mini.owner.command.noticeUpdate;
 import co.mini.owner.command.ownerLogin;
 import co.mini.owner.command.ownerThemaListAction;
 import co.mini.owner.command.ownerthemaUpdateAction;
@@ -120,8 +121,8 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/ownerUpdateView.do", new OwnerUpdateView());
 		map.put("/ownerUpdateAction.do", new OwnerUpdateAction());
-		map.put("/noticeListView", new OwnerNoticeList()); // 리스트 화면
-		
+		map.put("/noticeListView.do", new OwnerNoticeList()); // 리스트 화면
+		map.put("/noticeUpdate", new noticeUpdate()); // 업데이트
 		
 		
 		// 최재영
