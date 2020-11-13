@@ -30,7 +30,7 @@
 }
 
 .table {
-	background-color: white;
+	border: none;
 	color: black;
 	width: max-content;
 }
@@ -63,10 +63,28 @@
 	background-color: lightgray;
 	color: red;
 	}
+.table .thead-dark th {
+	background-color: black;
+	color: white;
+	text-align: center;
+	list-style: none;
+	font-weight: bold;
+	font-size: x-large;
+	vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    border: none;
 
+}
 
-
-
+.table td {
+	color: white;
+	text-align: center;
+	border: none;
+	border-top: 1px solid #dee2e6;
+}
+h3 {
+	color: white;
+}
 
 </style>
 <script>
@@ -103,26 +121,26 @@
 <!-- 테이블 -->
 	
 	<div class="left-box">
-		<div style="background-color: white; padding: 30px;">
+		<div style="padding: 30px;">
 			<h3>내 정보</h3>
-			<a href="${pageContext.request.contextPath}/memberUp.do">정보수정</a><br>
-			<a href="${pageContext.request.contextPath}/reservation.do">예약정보</a><br>
+			<a href="${pageContext.request.contextPath}/memberUp.do">&nbsp;&nbsp;&nbsp;정보수정</a><br>
+			<a href="${pageContext.request.contextPath}/reservation.do">&nbsp;&nbsp;&nbsp;예약정보</a><br>
 		</div>
 	</div>
 	<div  class="right-box">
-		<table id="tbl" class="table table-bordered">
+		<table id="tbl" class="table table-bordered" style="border: none;">
 			<thead class="thead-dark">
 			  <tr>
-			    <th scope="col">예약번호</th>
-				<th scope="col">지점</th>
-				<th scope="col">예약일자</th>
-				<th scope="col">입장시간</th>
-				<th scope="col">테마</th>
-				<th scope="col">인원</th>
-				<th scope="col">가격</th>
-				<th scope="col">결제여부</th>
-				<th scope="col"></th>
-				<th scope="col"></th>
+			    <th>예약번호</th>
+				<th>지점</th>
+				<th>예약일자</th>
+				<th>입장시간</th>
+				<th>테마</th>
+				<th>인원</th>
+				<th>가격</th>
+				<th>결제여부</th>
+				<th></th>
+				<th></th>
 				
 			  </tr>
 			</thead>
@@ -150,8 +168,8 @@
 					<td>${reserv.price} 원</td>
 					<td>${reserv.payment}</td>
 					
-					<td><input class="btn btn-dark" name="reserv" type="button" value="상세" ></td>
-					<td><input  id="btn${reserv.no}" class="btn btn-dark" name="review" type="button" value="리뷰"></td>
+					<td><input class="btn btn-outline-light" name="reserv" type="button" value="상세" ></td>
+					<td><input  id="btn${reserv.no}" class="btn btn-outline-light" name="review" type="button" value="리뷰"></td>
 				  </tr>
 				 </c:forEach>
 				 
