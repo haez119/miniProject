@@ -106,7 +106,16 @@ th {
 			<th>내용</th>
 		</tr>
 		</thead>
-		<tbody></tbody>
+		<tbody>
+		<c:forEach var="vo" items="${comment_view}">
+		<tr>
+			<td>${vo.rno}</td>
+			<td>${vo.name}</td>
+			<td>${vo.comment_date}</td>
+			<td>${vo.content}</td>
+		</tr>
+		</c:forEach>
+		</tbody>
 	</table>
 </div>	
 <br>
