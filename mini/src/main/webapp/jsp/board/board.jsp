@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -10,18 +9,6 @@
 <title>게시판 목록</title>
 
 <script>
-	$(document).ready(function() {
-		$("#flip").click(function() {
-			$("#panel").slideToggle("slow");
-		});
-	});
-
-	$(document).ready(function() {
-		$("#flip").click(function() {
-			$("#panel").slideDown("slow");
-		});
-	});
-	
 	function writeForm() {
 		location.href = "boardWrite.do"; //글등록 버튼 이동
 	}
@@ -29,7 +16,6 @@
 		location.href = "boardReview.do"; //리뷰페이지 버튼 이동
 	}
 </script>
-
 
 <style>
 .th {
@@ -61,10 +47,10 @@ text-align: center;
 }
 .pagination	{
 	display: inline-block;
-	
 }
 .a {
 	text-align: center;
+	display: block;
 	    }
 
 </style>
