@@ -155,18 +155,18 @@ public class FrontController extends HttpServlet {
 		
 		
 		//임성은
-		map.put("/loginPage.do", new LoginForm());
+		map.put("/loginPage.do", new LoginForm()); //로그인화면 페이지
 		map.put("/login.do", new LoginAction()); // 로그인 하면 넘어가는 페이지
-		map.put("/memberForm.do", new MemberForm());
-		map.put("/memberInsert.do", new MemberInsertAction());
-		map.put("/eventlist.do", new EventListAction());
-		map.put("/EventInsert.do", new EventInsertAction());
-		map.put("/eventInsertForm.do", new EventInsertForm());
-		map.put("/eventUpdate.do", new EventUpdateAction()); 
-		map.put("/eventUpdateList.do", new EventUpdateListAction());
-		map.put("/eventDelete.do", new eventDelete());
-		map.put("/eventUpdate1.do", new EventUpdate1Action());
-		map.put("/Check.do",new CheckAction());
+		map.put("/memberForm.do", new MemberForm()); //회원가입 폼 화면
+		map.put("/memberInsert.do", new MemberInsertAction());//회원가입 등록기능
+		map.put("/eventlist.do", new EventListAction()); //이벤트 목록화면
+		map.put("/EventInsert.do", new EventInsertAction());//이벤트 등록기능
+		map.put("/eventInsertForm.do", new EventInsertForm());//이벤트등록화면
+		map.put("/eventUpdate.do", new EventUpdateAction()); //이벤트등록
+		map.put("/eventUpdateList.do", new EventUpdateListAction());//오너등록이벤트목록
+		map.put("/eventDelete.do", new eventDelete());//이벤트삭제
+		map.put("/eventUpdate1.do", new EventUpdate1Action());//오너등록이벤트 수정
+		map.put("/Check.do",new CheckAction());//아이디 중복체크
 		
 		
 		
