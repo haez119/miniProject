@@ -80,16 +80,18 @@ public class BoardDAO extends DAO {
 		return cnt;
 	}
 
-	private final String INSERT = "INSERT INTO board(NO, TITLE, CONTENT, ID, BOARD_DATE) VALUES (board_seq.NEXTVAL,?,?,?,sysdate)";
+	private final String INSERT = "INSERT INTO board(NO, NAME, TITLE, CONTENT, ID, BOARD_DATE)"
+								+ "VALUES (board_seq.NEXTVAL,?,?,?,?,sysdate)";
 
 	
 	public int Insert(BoardVO vo) { // 입력기능
 		int n = 0;
 		try {
 			psmt = conn.prepareStatement(INSERT);
-			psmt.setString(1, vo.getTitle());
-			psmt.setString(2, vo.getContent());
-			psmt.setString(3, vo.getId());
+			psmt.setString(1, vo.getId());
+			psmt.setString(2, vo.getTitle());
+			psmt.setString(3, vo.getContent());
+			psmt.setString(4, vo.getId());
 //			psmt.setDate(3, vo.getBoard_date()); //sysdate로 받고
 //			psmt.setString(5, vo.get첨부파일());
 			n = psmt.executeUpdate();

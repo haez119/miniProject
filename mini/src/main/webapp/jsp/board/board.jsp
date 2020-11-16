@@ -34,9 +34,12 @@ td {
 }
 
 .table thead th {
-    vertical-align: bottom;
-    border-bottom: 2px solid #dee2e6;
+    vertical-align: bottom; 
+	border-bottom: 2px solid #dee2e6;
     color: white;
+    text-align: center;
+    list-style: none;
+    font-size: x-large;
 }
 div.searchForm {
 text-align: center;
