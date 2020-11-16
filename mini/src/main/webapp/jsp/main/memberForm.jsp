@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -146,6 +147,11 @@
 		<label for="owner">사장 회원가입</label>
 	</div>
 	<div align="center">
+<c:if test="${ch ne null}">
+			<script>
+			alert("아이디 중복이 없습니다");
+			</script>
+			</c:if>
 		<form id="frm" name="frm" >
 		        <table id="tbl" align="center"></table>
 	   		<p></p>
