@@ -52,7 +52,9 @@ $(function(){
 	});
 });
 
-
+function reviewForm() {
+	location.href = "boardReview.do"; //리뷰페이지 버튼 이동
+ 	}	
 
 </script>
 
@@ -93,8 +95,9 @@ td {
 	<div align="right">
 		<input type="button" class="btn btn-outline-light" id="btnUp" value="수정">
 		<input type="button" class="btn btn-outline-light" id="btnDel" value="삭제">
-		<p></p>
+ 		<input type="button" class="btn btn-outline-light" value="조회" onclick="reviewForm()">
 	</div>
+	<br>
 	<table class="table table-striped" style="text-align: center; border: none;">
 
 		<thead>

@@ -64,9 +64,9 @@
 						aria-expanded="false" onfocus="blur()">리뷰/Q&A확인</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" onfocus="blur()"
-								href="${pageContext.request.contextPath}/noticeListView.do">리뷰
+								href="${pageContext.request.contextPath}/boardReview.do">리뷰
 								확인 </a> <a class="dropdown-item" onfocus="blur()"
-								href="${pageContext.request.contextPath}/noticeView.do">Q&A확인
+								href="${pageContext.request.contextPath}/board.do">Q&A확인
 							</a>
 						</div></li>
 				</ul>

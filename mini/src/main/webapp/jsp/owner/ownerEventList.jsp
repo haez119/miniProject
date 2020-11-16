@@ -33,9 +33,7 @@ td {
 		<thead>
 			<tr>
 				<th>이벤트번호</th>
-
 				<th>이벤트명</th>
-
 				<th>시작일</th>
 				<th>종료일</th>
 				<th>할인율</th>
