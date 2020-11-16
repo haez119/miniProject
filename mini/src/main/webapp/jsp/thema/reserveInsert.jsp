@@ -113,15 +113,8 @@
 			</div><!-- 날짜 선택 -->
 			</form>
 			
-		<script>
-  			
-  			
-		</script>
-		
+	
   		<table>
-  		
-  			
-  		
   		<c:forEach items="${themaDisList}" var="themaDis" varStatus="status">
   		<tr><!-- 테마시작 -->
   		<td>

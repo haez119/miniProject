@@ -47,12 +47,10 @@
 		        }
 		    });
 			
-		   $(function() {
-			   $("#chk").on("click", function() {
-				   $("#frm").attr("action","${pageContext.request.contextPath}/Check.do");
-			   $("#frm").submit();  
-		   });
-		   });
+		
+			   
+		  
+		 
 	
 	});
 	
@@ -66,6 +64,14 @@
 			 .append($("<td>")).append($("<input>").attr({name: "id", type: "text"}))
 			 .append($("<input>").attr({name: "id", type: "button", id: "chk" ,value: "중복확인"}))
 			 .appendTo("#tbl")
+			
+			 $("#chk").on("click", function() {
+			 $("#frm").attr("action","${pageContext.request.contextPath}/Check.do");
+			 $("#frm").submit(); 
+			 });
+	  		
+	
+			 
 			  $("<tr>")
 			 .append($("<td>")).html("이름")
 			 .append($("<td>")).append($("<input>").attr({name: "name", type: "text"}))
@@ -147,7 +153,8 @@
 		<label for="owner">사장 회원가입</label>
 	</div>
 	<div align="center">
-<c:if test="${ch ne null}">
+
+	<c:if test="${ch ne null}">
 			<script>
 			alert("아이디 중복이 없습니다");
 			</script>

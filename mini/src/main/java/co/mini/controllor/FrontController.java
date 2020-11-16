@@ -21,6 +21,7 @@ import co.mini.board.command.BoardUpdateAction;
 import co.mini.board.command.BoardViewAction;
 import co.mini.board.command.BoardWriteAction;
 import co.mini.board.command.BoardWriteFormAction;
+import co.mini.board.command.CheckAction;
 import co.mini.board.command.CommentWriteAction;
 import co.mini.board.command.EventListAction;
 import co.mini.board.command.LoginAction;
@@ -136,17 +137,17 @@ public class FrontController extends HttpServlet {
 		map.put("/reserveInsert.do", new reserveInsertAction()); //테마예약하기 화면
 		map.put("/reserve.do", new reserveAction()); //예약하기화면 
 		map.put("/reserveResult.do",new reserveResultAction());//예약결과화면
-		map.put("/reserveList.do",new reserveListAction());
-		map.put("/themaInsert.do",new themaInsertAction());
-		map.put("/themaInsertForm.do",new themaInsertForm());
-		map.put("/ownerThemaList.do",new ownerThemaListAction());
-		map.put("/ownerthemaUpdate.do",new ownerthemaUpdateAction());
-		map.put("/themaDelete.do",new themaDelete());
-		map.put("/themaUpdate.do",new themaUpdateAction());
-		map.put("/payment.do",new paymentAction());
-		map.put("/main.do",new mainAction());
-		map.put("/Guidance.do",new GuidanceAction());
-		map.put("/themaDis.do",new themaDisAction());
+		map.put("/reserveList.do",new reserveListAction());//테마 소개화면
+		map.put("/themaInsert.do",new themaInsertAction());//테마 등록기능
+		map.put("/themaInsertForm.do",new themaInsertForm());//테마 등록 폼 화면
+		map.put("/ownerThemaList.do",new ownerThemaListAction());//지점별 테마리스트
+		map.put("/ownerthemaUpdate.do",new ownerthemaUpdateAction());//테마 수정/삭제 화면
+		map.put("/themaDelete.do",new themaDelete());//테마삭제 기능 
+		map.put("/themaUpdate.do",new themaUpdateAction());//테마 수정 기능
+		map.put("/payment.do",new paymentAction());//결제기능
+		map.put("/main.do",new mainAction());//홈화면
+		map.put("/Guidance.do",new GuidanceAction());//이용안내 기능
+		map.put("/themaDis.do",new themaDisAction());//테마 중복확인기능
 		
 		
 		
@@ -165,7 +166,7 @@ public class FrontController extends HttpServlet {
 		map.put("/eventUpdateList.do", new EventUpdateListAction());
 		map.put("/eventDelete.do", new eventDelete());
 		map.put("/eventUpdate1.do", new EventUpdate1Action());
-		
+		map.put("/Check.do",new CheckAction());
 		
 		
 		
