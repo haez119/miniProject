@@ -6,11 +6,73 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판 목록</title>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
    function boardForm() {
       location.href = "board.do"; //Q&A페이지 버튼 이동
    }
+   
+   
+   $(function(){
+      
+      var bname = $('#search').val(); // 기본값은 내 지점만
+      
+      $('#search').change(function () {
+         bname = this.value;
+         console.log(bname);
+         
+         if(bname != "all") {
+            
+             $.ajax({
+                  url:'/mini/reviewSearch.do',
+                  dataType:'json',
+                  data: {bname : bname},
+                  error:function(xhr,status,msg){
+                     console.log("에러");
+                  }, success:function(data) {
+                     
+                     $("#tbl").empty();
+                     
+                     $.each(data,function(idx,item){
+                        console.log(item.no);
+                        $('<tr>')
+                        .append($("<td>").html(item.no))
+                        .append($("<td>").html(item.branch_name ))
+                        .append($("<td>").html(item.thema_name))
+                        .append($("<td>").html(item.id))
+                        .append($("<td>").html(item.use_date))
+                        .append($("<td>").html(item.title))
+                        .append($("<td>").html(item.star))
+                        .append($("<td>").html(item.hit))
+                        .appendTo('#tbl'); 
+                        
+                     }); 
+                     
+                  }
+               });
+         } else {
+            
+            
+            
+            
+         }
+         
+
+         
+         
+         
+         
+         
+         
+         
+      });
+      
+      
+    
+      
+   });
+   
+   
 </script>
 <style>
 td {
@@ -58,7 +120,14 @@ text-align: center;
    </div>
    <br />
    <div class="table-hover">
-      <table class="table table-striped"
+   <div>
+         <select name="search" id="search">
+            <option selected="selected" value="all">모든 지점</option>
+            <option value="${branch_name}">${branch_name}</option>
+         </select>
+   </div>
+      <p></p>
+      <table class="table table-striped" id="tbl"
       style="text-align: center; border: none;">
          <thead>
             <tr>
