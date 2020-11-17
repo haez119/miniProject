@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import co.mini.vo.BoardVO;
@@ -156,6 +157,51 @@ public class BoardDAO extends DAO {
 		return n;
 	}
 
+	
+private final String SELECT_NAME = "SELECT * FROM REVIEW WHERE BRANCH_NAME = ? ";
+	
+	
+	public ArrayList<HashMap<String, Object>> selectName(String bname) {
+		
+		  ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+	      HashMap<String, Object> map;
+		
+		try {
+			psmt = conn.prepareStatement(SELECT_NAME);
+			
+			psmt.setString(1, bname);
+			rs = psmt.executeQuery();
+			
+			while (rs.next()) {
+				
+				map = new HashMap<String, Object>();
+				
+				map.put("no",rs.getString("no"));
+				map.put("branch_name",rs.getString("branch_name"));
+				map.put("thema_name",rs.getString("thema_name"));
+				map.put("use_date",rs.getString("use_date"));
+				map.put("title",rs.getString("title"));
+				map.put("star",rs.getString("star"));
+				map.put("hit",rs.getString("hit"));
+
+				 list.add(map);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	private void close() {
 		try {
 			if (rs != null)
