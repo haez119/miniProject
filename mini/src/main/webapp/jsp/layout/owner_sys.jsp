@@ -9,7 +9,6 @@
 </head>
 <body>
 <div id="topMenu" style="text-align: right;">
-
 		<a href="#">홈</a> &nbsp;|&nbsp;
 		<c:if test="${name eq null }">
 			<a href="${pageContext.request.contextPath}/loginPage.do">로그인</a> &nbsp;|&nbsp; 

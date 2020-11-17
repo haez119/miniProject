@@ -53,7 +53,7 @@ th {
 			</tr>
 			<tr>
 				<th>작성자</th>
-				<td>&nbsp;&nbsp;${id}</td>
+				<td>&nbsp;&nbsp;${vo.id}</td>
 			</tr>
 			<tr>
 				<th>제목</th>

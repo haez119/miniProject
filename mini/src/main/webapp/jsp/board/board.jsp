@@ -9,13 +9,24 @@
 <title>게시판 목록</title>
 
 <script>
+	
 	function writeForm() {
 		location.href = "boardWrite.do"; //글등록 버튼 이동
 	}
-	 
+	function reviewForm() {
+		location.href = "boardReview.do"; //리뷰페이지 버튼 이동
+	}
 </script>
-
 <style>
+.th {
+	background-color: black;
+	color: white;
+	text-align: center;
+	list-style: none;
+	font-weight: bold;
+	font-family: "Trebuchet MS", Dotum, Arial;
+}
+
 td {
 	color: white;
 	font-weight: bold;
@@ -23,13 +34,12 @@ td {
 }
 
 .table thead th {
-    vertical-align: bottom;
-    border-bottom: 2px solid #dee2e6;
-	color: white;
-	text-align: center;
-	list-style: none;
-	font-weight: bold;
-	font-size: x-large;
+    vertical-align: bottom; 
+	border-bottom: 2px solid #dee2e6;
+    color: white;
+    text-align: center;
+    list-style: none;
+    font-size: x-large;
 }
 div.searchForm {
 text-align: center;
@@ -43,7 +53,6 @@ text-align: center;
 }
 .a {
 	text-align: center;
-	display: block;
 	    }
 
 </style>
@@ -88,11 +97,10 @@ text-align: center;
 		</table>
 	</div>
 	<!-- 글등록 -->
-	<c:if test="${id ne null }">
 	<div align="right" id="topForm" style="margin-bottom: 10px">
 		<input style="margin: 10px" class="btn btn-outline-light" type="button" value="글등록" onclick="writeForm()">
 	</div>
-	</c:if>
+
 	<!-- 검색 부분 -->
 	<div class="searchForm">
 		<form  name="searchFrm">

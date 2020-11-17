@@ -53,7 +53,7 @@ $(function(){
 });
 
 function reviewForm() {
-	location.href = "boardReview.do"; //리뷰페이지 버튼 이동
+	location.href = "noticeList.do"; //리뷰페이지 버튼 이동
  	}	
 
 </script>

@@ -17,11 +17,7 @@ public class BoardWriteAction implements Action {
 		BoardDAO dao = new BoardDAO();
 		BoardVO vo = new BoardVO();
 		
-		HttpSession session = request.getSession(false);
-
-		String id = (String) session.getAttribute("id");
-		
-		vo.setId(id);
+		vo.setId(request.getParameter("id"));
 		vo.setTitle(request.getParameter("title"));
 		vo.setContent(request.getParameter("content"));
 		
