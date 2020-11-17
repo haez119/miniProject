@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,13 +10,13 @@
 <script>
 	
 	function formCheck() {
-		var name = document.forms[0].name.value;
+		var id = document.forms[0].id.value;
 		var title = document.forms[0].title.value;
 		var content = document.forms[0].content.value;
 
-		if (name == null || name == "") {
+		if (id == null || id == "") {
 			alert('이름을 입력하세요.');
-			document.forms[0].name.focus();
+			document.forms[0].id.focus();
 			return false;
 		} 
 		
@@ -61,18 +62,22 @@ strong {
 <body>
 	<form name="frm" id="frm" method="post" action="boardInsert.do"
 		onsubmit="return formCheck()" enctype="multipart/form-data">
-		<input type="hidden" name="id" value="">
+		
 		<table width="700" border="3" bordercolor="hotpink" align="center">
-			<c:if test="${id eq null }">	
+			
+			<c:if test="${id ne null}">
 			<tr>
 				<td>&nbsp;&nbsp;작성자</td>
-				<td>&nbsp;&nbsp;${id}</td>
+				<td>&nbsp;&nbsp;${id} <input type="hidden" name="id" value="${id}"></td>
 			</tr>
 			</c:if>
+			
+			<c:if test="${id eq null }">	
 			<tr>
 				<td>&nbsp;&nbsp;작성자<strong class="importent">(필수)</strong></td>
-				<td><input type="text" name="title" value=""></td>
+				<td><input type="text" name="id"></td>
 			</tr>
+			</c:if>
 			<tr>
 				<td>&nbsp;&nbsp;제목<strong class="importent">(필수)</strong></td>
 				<td><input type="text" name="title" value="" size="50"

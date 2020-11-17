@@ -260,7 +260,7 @@ public class OwnerDAO extends DAO {
 								  "WHERE T.THEMA_NO = R.THEMA_NO  " + 
 								  "AND R.ID = M.ID  " + 
 								  "AND T.BRANCH_NO = ?  " + 
-								  "AND R.RESERVDATE > ?  " + 
+								  "AND R.RESERVDATE >= ?  " + 
 								  "ORDER BY R.RESERVDATE";
 	
 	
