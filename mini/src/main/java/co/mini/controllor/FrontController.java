@@ -181,7 +181,7 @@ public class FrontController extends HttpServlet {
       map.put("/eventUpdateList.do", new EventUpdateListAction());//오너등록이벤트목록
       map.put("/eventDelete.do", new eventDelete());//이벤트삭제
       map.put("/eventUpdate1.do", new EventUpdate1Action());//오너등록이벤트 수정
-      map.put("/Check.do",new CheckAction());//아이디 중복체크
+      
       
       
       
