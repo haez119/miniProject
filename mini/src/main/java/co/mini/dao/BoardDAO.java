@@ -92,7 +92,6 @@ public class BoardDAO extends DAO {
 			psmt.setString(2, vo.getTitle());
 			psmt.setString(3, vo.getContent());
 //			psmt.setDate(3, vo.getBoard_date()); //sysdate로 받고
-//			psmt.setString(5, vo.get첨부파일());
 			n = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
