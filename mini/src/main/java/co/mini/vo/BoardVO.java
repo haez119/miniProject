@@ -11,7 +11,6 @@ public class BoardVO {
 	private Date board_date;
 	private Integer first;
 	private Integer last;
-	private String bname;
 
 	public BoardVO() {
 
@@ -21,14 +20,6 @@ public class BoardVO {
 	public String toString() {
 		return "BoardVO [no=" + no + ", title=" + title + ", content=" + content + ", id=" + id + ", hit=" + hit
 				+ ", board_date=" + board_date + ", first=" + first + ", last=" + last + "]";
-	}
-
-	public String getBname() {
-		return bname;
-	}
-
-	public void setBname(String bname) {
-		this.bname = bname;
 	}
 
 	public Integer getFirst() {
