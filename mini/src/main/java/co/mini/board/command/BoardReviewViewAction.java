@@ -20,6 +20,8 @@ public class BoardReviewViewAction implements Action {
 		
 		dao.UPDATE_HIT(vo);
 		
+		dao = new ReviewDAO();
+		
 		vo = dao.select(vo);
 		
 		request.setAttribute("vo", vo);
