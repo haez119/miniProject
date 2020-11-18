@@ -251,6 +251,8 @@ public class ThemaDao extends DAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}  finally {
+			close();
 		}
 		return n;
 	}
@@ -280,6 +282,8 @@ public class ThemaDao extends DAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}  finally {
+			close();
 		}
 		return n;
 	}
@@ -303,6 +307,8 @@ public class ThemaDao extends DAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}  finally {
+			close();
 		}
 		return n;
 	}
@@ -318,6 +324,8 @@ public class ThemaDao extends DAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}  finally {
+			close();
 		}
 		return n;
 	}
@@ -384,6 +392,8 @@ public class ThemaDao extends DAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}  finally {
+			close();
 		}
 		return n;
 	}
@@ -400,6 +410,8 @@ public class ThemaDao extends DAO {
 
 			} catch (SQLException e) {
 				e.printStackTrace();
+			}  finally {
+				close();
 			}
 			return n;
 		}
@@ -422,6 +434,8 @@ public class ThemaDao extends DAO {
 
 			} catch (SQLException e) {
 				e.printStackTrace();
+			}  finally {
+				close();
 			}
 			return n;
 		}
@@ -438,6 +452,8 @@ public class ThemaDao extends DAO {
 
 			} catch (SQLException e) {
 				e.printStackTrace();
+			}  finally {
+				close();
 			}
 			return n;
 		}
@@ -453,6 +469,8 @@ public class ThemaDao extends DAO {
 
 			} catch (SQLException e) {
 				e.printStackTrace();
+			}  finally {
+				close();
 			}
 			return n;
 		}

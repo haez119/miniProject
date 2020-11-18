@@ -180,6 +180,8 @@ public class ReservationDAO extends DAO{
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}  finally {
+			close();
 		}
 	   
 		return cnt;
@@ -204,6 +206,8 @@ public class ReservationDAO extends DAO{
 		
 	} catch (SQLException e) {
 		e.printStackTrace();
+	}  finally {
+		close();
 	}
 	   return max;
    }

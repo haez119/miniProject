@@ -61,6 +61,8 @@ public class ReviewDAO extends DAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}  finally {
+			close();
 		}
 
 		return max;
@@ -136,6 +138,8 @@ public class ReviewDAO extends DAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}  finally {
+			close();
 		}
 		return n;
 	}

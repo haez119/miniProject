@@ -59,6 +59,8 @@ public class MemberDao extends DAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}  finally {
+			close();
 		}
 		return n;
 	}

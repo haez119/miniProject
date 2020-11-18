@@ -152,6 +152,8 @@ public class BoardDAO extends DAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close();
 		}
 		return n;
 	}

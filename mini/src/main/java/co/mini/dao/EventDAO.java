@@ -39,7 +39,10 @@ public class EventDAO extends DAO {
 
       } catch (SQLException e) {
          e.printStackTrace();
-      }
+      }  finally {
+			close();
+		}
+      
       return list;
    }
    private final String INSERT = "INSERT INTO EVENT VALUES(?,(select max(event_no)+1 from event),?,?,?,?,?,?)";
@@ -60,7 +63,9 @@ public class EventDAO extends DAO {
          n = psmt.executeUpdate();
       } catch (SQLException e) {
          e.printStackTrace();
-      }
+      }  finally {
+			close();
+		}
       return n;
 
    }
@@ -111,7 +116,9 @@ public class EventDAO extends DAO {
                
             } catch (Exception e) {
                e.printStackTrace();
-            }
+            }  finally {
+    			close();
+    		}
          return vo;
       }
          private final String UPDATE = "UPDATE EVENT SET EVENT_NAME = ?, EVENT_CONTENT = ?,  EVENT_TERM = ?, SALE = ? , START_EVENT = TO_DATE(?,'YY-MM-DD') WHERE EVENT_NO=?";
@@ -128,7 +135,9 @@ public class EventDAO extends DAO {
                n = psmt.executeUpdate();
             } catch (SQLException e) {
                e.printStackTrace();
-            } 
+            }  finally {
+    			close();
+    		}
             return n;
          }
          
@@ -141,7 +150,9 @@ public class EventDAO extends DAO {
                rs = psmt.executeQuery();
             } catch (SQLException e) {
                e.printStackTrace();
-            }
+            }  finally {
+    			close();
+    		}
             return n;
             
          }
@@ -165,7 +176,9 @@ public class EventDAO extends DAO {
                   
                } catch (Exception e) {
                   e.printStackTrace();
-               }
+               }  finally {
+       			close();
+       		}
             return vo;
          }
 
@@ -196,7 +209,9 @@ public class EventDAO extends DAO {
                   
                } catch (Exception e) {
                   e.printStackTrace();
-               }
+               }  finally {
+       			close();
+       		}
             return list;
          }
          
