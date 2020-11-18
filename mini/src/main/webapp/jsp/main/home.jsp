@@ -124,7 +124,7 @@ h1 {
 				<c:if test="${i.index ne 0 }">	
 					<div align="left" class="carousel-item">
 				</c:if>	
-					 <a href="reserveInsert.do"><img class="d-block w-101" src="${pageContext.request.contextPath}/img/${thema.thema_img}">
+					 <a href="reserveList.do"><img class="d-block w-101" src="${pageContext.request.contextPath}/img/${thema.thema_img}">
 					<textarea class="a" rows="30"  style="text-align:left">
 					
 	
