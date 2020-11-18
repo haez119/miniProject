@@ -52,7 +52,8 @@
 							}
 						});
 					} else {
-						//boardReview.do
+						$(location).attr('href','${pageContext.request.contextPath}/boardReview.do');
+						//새로 만들어서 안붙이고 페이지 새로고침 함
 						
 
 					}

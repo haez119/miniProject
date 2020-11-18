@@ -96,17 +96,20 @@ h3 {
 		 	</tr>	
 			<tr>
 		 		<th>결제여부 &nbsp;</th>
-		 		<td> ${reserv.payment }</td>
+		 		<td>${reserv.payment}</td>
 		 	</tr>
 		 	<tr>
 		 		<th>이용횟수 &nbsp;</th>
-		 		<td> ${reserv.count }</td>
+		 		<td> ${reserv.count}</td>
 		 	</tr>
+		 	<c:set var="pay" value="${reserv.payment}"/>
 	</c:forEach>
 		 </table>
-		 <div align="right">
-		 	<button class="btn btn-outline-light"  type="submit">결제하기</button>
-		 </div>
+		 <c:if test="${pay ne '결제'}">
+			 <div align="right">
+			 	<button class="btn btn-outline-light"  type="submit">결제하기</button>
+			 </div>
+		 </c:if>
 		 </form>
 		 </div>
 		
