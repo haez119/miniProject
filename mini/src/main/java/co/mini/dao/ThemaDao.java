@@ -439,7 +439,7 @@ public class ThemaDao extends DAO {
 			}
 			return n;
 		}
-	
+	   
 //결제		
 		private final String update_pay = "update reservation set payment='결제' where no=?";
 		public int update_pay(int no) { // 추가하기
