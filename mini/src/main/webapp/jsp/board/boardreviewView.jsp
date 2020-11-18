@@ -209,10 +209,6 @@ th {
 			<div align="center">
 				<td  colspan="3">
 				<input style="margin: 10px" class="btn btn-outline-light" id="btnlist" type="button" value="목록" onclick="boardForm()">
-			<c:if test="${id ne null }">
-				<input style="margin: 10px" class="btn btn-outline-light" id="btnAdd" type="button" value="수정"> 
-				<input style="margin: 10px" class="btn btn-outline-light" id="btnCancel" type="button" value="작성취소"></td>
-			</c:if>
 			</div>
 	</form>
 	<br>
