@@ -16,7 +16,8 @@ public class BoardDAO extends DAO {
 	private BoardVO vo;
 
 	private final String SELECT_ALL = "select * from( select a.*, rownum rn from ("
-			+ "SELECT * FROM BOARD order by no desc" + ") a  ) b  where rn between ? and ? order by board_date desc"; // 게시판 리스트
+			+ "SELECT * FROM BOARD order by no desc" + ") a  ) b  where rn between ? and ? order by board_date desc"; // 게시판
+																														// 리스트
 	private final String SELECT = "SELECT * FROM BOARD WHERE NO=?"; // 게시판 뷰페이지
 
 	public List<BoardVO> selectAll(BoardVO mvo) { // 전체조회기능
@@ -49,6 +50,7 @@ public class BoardDAO extends DAO {
 			psmt = conn.prepareStatement(SELECT);
 			psmt.setInt(1, vo.getNo()); // vo.getId()
 			rs = psmt.executeQuery();
+			
 			if (rs.next()) {
 				vo.setNo(rs.getInt("no"));
 				vo.setId(rs.getString("id"));
@@ -81,10 +83,9 @@ public class BoardDAO extends DAO {
 		return cnt;
 	}
 
-	private final String INSERT = "INSERT INTO board(NO, ID, TITLE, CONTENT, BOARD_DATE)"
-								+ "VALUES (board_seq.NEXTVAL,?,?,sysdate)";
+	private final String INSERT = "INSERT INTO board(NO, TITLE, CONTENT, BOARD_DATE)"
+			+ "VALUES (board_seq.NEXTVAL,?,?,sysdate)";
 
-	
 	public int Insert(BoardVO vo) { // 입력기능
 		int n = 0;
 		try {
@@ -158,34 +159,32 @@ public class BoardDAO extends DAO {
 		return n;
 	}
 
-	
-private final String SELECT_NAME = "SELECT * FROM REVIEW WHERE BRANCH_NAME = ? ";
-	
-	
+	private final String SELECT_NAME = "SELECT * FROM REVIEW WHERE BRANCH_NAME = ? ";
+
 	public ArrayList<HashMap<String, Object>> selectName(String bname) {
-		
-		  ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
-	      HashMap<String, Object> map;
-		
+
+		ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+		HashMap<String, Object> map;
+
 		try {
 			psmt = conn.prepareStatement(SELECT_NAME);
-			
+
 			psmt.setString(1, bname);
 			rs = psmt.executeQuery();
-			
-			while (rs.next()) {
-				
-				map = new HashMap<String, Object>();
-				
-				map.put("no",rs.getString("no"));
-				map.put("branch_name",rs.getString("branch_name"));
-				map.put("thema_name",rs.getString("thema_name"));
-				map.put("use_date",rs.getString("use_date"));
-				map.put("title",rs.getString("title"));
-				map.put("star",rs.getString("star"));
-				map.put("hit",rs.getString("hit"));
 
-				 list.add(map);
+			while (rs.next()) {
+
+				map = new HashMap<String, Object>();
+
+				map.put("no", rs.getString("no"));
+				map.put("branch_name", rs.getString("branch_name"));
+				map.put("thema_name", rs.getString("thema_name"));
+				map.put("use_date", rs.getString("use_date"));
+				map.put("title", rs.getString("title"));
+				map.put("star", rs.getString("star"));
+				map.put("hit", rs.getString("hit"));
+
+				list.add(map);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -194,15 +193,7 @@ private final String SELECT_NAME = "SELECT * FROM REVIEW WHERE BRANCH_NAME = ? "
 		}
 		return list;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	private void close() {
 		try {
 			if (rs != null)

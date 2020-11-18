@@ -20,29 +20,15 @@ public class BoardViewAction implements Action {
 		BoardDAO dao = new BoardDAO();
 		BoardVO vo = new BoardVO();
 		int no = Integer.parseInt(request.getParameter("no"));
-		
-		System.out.println(no);
-		
-		vo.setNo(no);		
-		
+
+		vo.setNo(no);
 		dao.update_hit(vo);
-	
+
+		dao = new BoardDAO();
 		vo = dao.select(vo);
-		System.out.println(vo);
+		
 		request.setAttribute("vo", vo);
-		
-		
-		CommentDAO coDao = new CommentDAO();
-	
-		List<CommentVO> list = new ArrayList<CommentVO>();
-		list=coDao.selectAll();
-		
-		request.setAttribute("list", list);
-		
-		
-		
-		
-		
+
 		return "/jsp/board/boardView.jsp";
 	}
 

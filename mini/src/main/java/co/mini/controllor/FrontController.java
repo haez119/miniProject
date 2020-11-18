@@ -21,7 +21,6 @@ import co.mini.board.command.BoardUpdateAction;
 import co.mini.board.command.BoardViewAction;
 import co.mini.board.command.BoardWriteAction;
 import co.mini.board.command.BoardWriteFormAction;
-import co.mini.board.command.CheckAction;
 import co.mini.board.command.CommentWriteAction;
 import co.mini.board.command.EventListAction;
 import co.mini.board.command.LoginAction;

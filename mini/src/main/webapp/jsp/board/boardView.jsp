@@ -15,12 +15,6 @@ function listFrm() {
 	location.href= "board.do";
 }
 
-$(()=>{
-	$("#btnInsert").on('click',function(){
-		$("#form1").attr('action','commentInsert.do');
-		$("#form1").submit();
-	});	
-});
 </script>
 
 <style>
@@ -80,56 +74,6 @@ th {
 	</form>
 
 	<br>
-	
-<div class="container">
-	<form id="form1"  class="form-horizontal" action="${pageContext.request.contextPath}/commentInsert.do">
-		<h4 align="center">댓글</h4>
-		<hr style="color: white;">
-		<div class="form-group">   	
-			<input type="hidden" value="${vo.no}">
-			<textarea class="form-control" placeholder="글작성" name="content"></textarea>
-		</div>  
-		
-		
-		<div class="form-group" style="float: right;">
-			<c:if test="${id eq null}">		
-			<input type="text"  placeholder="아이디"  name="id" >
-			<input type="text"  placeholder="비밀번호"  name="pw" >
-			</c:if>
-			
-			
-			<div class="btn-group">      
-				<input class="btn btn-outline-light" type="button" value="등록"  id="btnInsert" /> 
-				<input class="btn btn-outline-light" type="submit" value="수정"  id="btnUpdate" />
-				<input class="btn btn-outline-light" type="reset" value="초기화" id="btnInit" />
-		</div>
-		</div>		
-		
-	</form>
-</div>		
-	
-<div class="container">	
-	<table class="table text-center">
-		<thead>
-		<tr>
-			<th>No</th>
-			<th>작성자</th>
-			<th>날짜</th>
-			<th>내용</th>
-		</tr>
-		</thead>
-		<tbody>
-		<c:forEach var="li" items="${list}">
-		<tr>
-			<td>${li.rno}</td>
-			<td>${li.name}</td>
-			<td>${li.comment_date}</td>
-			<td>${li.content}</td>
-		</tr>
-		</c:forEach>
-		</tbody>
-	</table>
-</div>	
 <br>
 </body>
 </html>
