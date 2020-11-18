@@ -19,9 +19,12 @@ public class BeReserLoginAction implements Action {
 		int no = Integer.parseInt(request.getParameter("id"));
 		String password = request.getParameter("password");
 		
+	
 		vo = dao.login(no, password);
-		
 		request.setAttribute("vo", vo);
+
+		
+		
 		
 		return  "jsp/main/beReserv.jsp";
 	}

@@ -108,13 +108,16 @@ div.searchForm {
 			class="rounded-circle" alt="Cinque Terre" width="80" height="60"></a>
 	</div>
 	<br />
+	
 	<div class="table-hover">
+	<c:if test="${branch_name ne null}">
 		<div>
 			<select name="search" id="search">
 				<option selected="selected" value="all">모든 지점</option>
 				<option value="${branch_name}">${branch_name}</option>
 			</select>
 		</div>
+	</c:if>
 		<p></p>
 		<table class="table table-striped"
 			style="text-align: center; border: none;">

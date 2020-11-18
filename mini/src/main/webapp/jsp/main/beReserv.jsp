@@ -8,12 +8,23 @@
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
 
-	<h1 style="color: white; padding-bottom: 15px" align="center" >${vo.name}님의 예약정보</h1>
+
+	<c:if test="${vo.name eq null}">
+		<script> 
+			alert("일치하는 정보가 없습니다.");
+			$(location).attr('href','${pageContext.request.contextPath}/beLogin.do');
+		</script>
+	</c:if>
 	
+	
+	
+	<h1 style="color: white; padding-bottom: 15px" align="center" >${vo.name}님의 예약정보</h1>
 	<hr style="border-color: white;">
+	
 	<c:if test="${max ne null}">
 		<h3 align="center"> 예약번호로 조회할 수 있습니다. </h3><p></p>
 		<% session.invalidate();  %>
