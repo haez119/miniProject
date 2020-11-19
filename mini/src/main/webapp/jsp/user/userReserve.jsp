@@ -116,8 +116,8 @@ h3 {
 		<div class="left-box">
 		<div style="padding: 30px;">
 			<h3>내 정보</h3>
-			<a href="${pageContext.request.contextPath}/memberUp.do">&nbsp;&nbsp;&nbsp;정보수정</a><br>
-			<a href="${pageContext.request.contextPath}/reservation.do">&nbsp;&nbsp;&nbsp;예약정보</a><br>
+			<a class="btn btn-outline-light" href="${pageContext.request.contextPath}/memberUp.do">정보수정</a><br>
+			<a class="btn btn-outline-light" href="${pageContext.request.contextPath}/reservation.do">예약정보</a><br>
 		</div>
 		</div>
 		<img class="right-box" alt="rank" src="${pageContext.request.contextPath}/img/회원정보.PNG">
