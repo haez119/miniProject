@@ -188,7 +188,7 @@ th {
 			</tr>
 			<tr>
 				<th>아이디</th>
-				<td>&nbsp;&nbsp;<input class="text" type="text" name="id" value="${id}" readonly="readonly"></td>
+				<td>&nbsp;&nbsp;<input class="text" type="text" name="id" value="${vo.id}" readonly="readonly"></td>
 			</tr>
 			
 			<tr>
