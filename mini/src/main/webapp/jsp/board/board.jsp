@@ -97,7 +97,7 @@ text-align: center;
 		</table>
 	</div>
 	<!-- 글등록 -->
-	<c:if test="${id ne null}">
+	<c:if test="${id ne null && branch_no eq null}">
 		<div align="right" id="topForm" style="margin-bottom: 10px">
 			<input style="margin: 10px" class="btn btn-outline-light" type="button" value="글등록" onclick="writeForm()">
 		</div>
