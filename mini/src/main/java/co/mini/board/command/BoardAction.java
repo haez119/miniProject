@@ -13,6 +13,9 @@ public class BoardAction implements Action {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
+		
+		
+		
 		BoardDAO dao = new BoardDAO();
 //		BoardVO vo = new BoardVO();
 	
