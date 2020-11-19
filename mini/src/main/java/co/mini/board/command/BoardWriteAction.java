@@ -19,7 +19,7 @@ public class BoardWriteAction implements Action {
 		vo.setId(request.getParameter("id"));
 		vo.setTitle(request.getParameter("title"));
 		vo.setContent(request.getParameter("content"));
-		
+		System.out.println(vo);
 		dao.Insert(vo);
 
 		try {
